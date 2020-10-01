@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/edi-riga/tsch-sim/workflows/CI/badge.svg)
 
-TSCH-Sim is a TSCH simulator written in modern, modular JavaScript. It supports cross-platform execution using Node.js. Compared to existing alternatives such the OpenWSN 6TiSCH simulator and Cooja, TSCH-Sim it has much better performance, allowing to support networks with many thousands of nodes. The simulator allows to use multiple radio propagation models, including models that have been theoretically or experimentally validated. It also includes support for mobile nodes.
+TSCH-Sim is a TSCH simulator written in modern, modular JavaScript. It supports cross-platform execution using Node.js. Compared with existing alternatives such the OpenWSN 6TiSCH simulator and Cooja, TSCH-Sim has a much better performance, allowing to simulate networks with many thousands of nodes in real time. The simulator allows to use multiple radio propagation models, including models that have been theoretically or experimentally validated. It also includes support for mobile nodes.
 
 ![Web interface](https://atiselsts.github.io/resources/web-annotated.png)
 
@@ -25,7 +25,7 @@ TSCH-Sim is a TSCH simulator written in modern, modular JavaScript. It supports 
 * Compact simulation description files in JSON
 * Charge consumption model, validated on Texas Instruments CC2650 hardware
 * Random waypoint and line mobility models
-* Unit Disk Graph, Logistic loss (from Cooja), Pister Hack (from 6tisch simulator), and other radio propagation models
+* Unit Disk Graph, Logistic loss (from Cooja), Pister-hack model (from the 6TiSCH simulator), and other radio propagation models
 * Trace-based simulations
 * Simulation results exported to JSON files, format largely compatible with the 6TiSCH simulator output
 * User control over the simulation from JavaScript code specified in configuration
@@ -71,6 +71,7 @@ To use the optional web interface, a modern web browser is required.
 ## Getting started
 
 To execute the simulator on Linux or macOS:
+
     $ ./tsch-sim.sh <config_file>
 
 On Windows:

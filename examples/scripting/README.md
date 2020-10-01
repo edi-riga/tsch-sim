@@ -4,11 +4,11 @@ It does that by demonstrating how to force RPL parent switch during a simulation
 
 The network in the example has diamond-shape topology:
 
-    root
-    /   \
-   A     B
-    \   /
-      C
+      root
+      /   \
+     A     B
+      \   /
+        C
 
 Initially, the node C joins to the RPL network with one of the nodes A and B as its parent.
 Once the join has happened, the script that controls the simulation disables the link
