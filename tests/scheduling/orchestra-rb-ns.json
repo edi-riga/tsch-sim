@@ -1,0 +1,31 @@
+{
+    "SIMULATION_DURATION_SEC": 1200,
+    "RESULTS_DIR": "./results",
+    "APP_WARMUP_PERIOD_SEC" : 300,
+    "NODE_TYPES": [
+        {
+            "NAME": "node",
+            "START_ID": 1,
+            "COUNT": 10,
+            "CONNECTIONS" : [{"NODE_TYPE": "node", "LINK_MODEL": "UDGM"}],
+            "ORCHESTRA_RULES": [
+                "orchestra_rule_eb_per_time_source",
+                "orchestra_rule_unicast_per_neighbor_rpl_ns",
+                "orchestra_rule_default_common"
+            ],
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "POSITIONS" : [
+        {"ID": 1, "X": 0, "Y": 0},
+        {"ID": 2, "X": 40, "Y": 0},
+        {"ID": 3, "X": 0, "Y": 40},
+        {"ID": 4, "X": -40, "Y": 0},
+        {"ID": 5, "X": 80, "Y": 0},
+        {"ID": 6, "X": 80, "Y": 0},
+        {"ID": 7, "X": 0, "Y": 80},
+        {"ID": 8, "X": 0, "Y": 80},
+        {"ID": 9, "X": -80, "Y": 0},
+        {"ID": 10, "X": -80, "Y": 0}
+    ]
+}

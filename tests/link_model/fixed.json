@@ -1,0 +1,50 @@
+{
+    "SIMULATION_DURATION_SEC": 3600,
+    "RESULTS_DIR": "./results",
+    "NODE_TYPES": [
+        {
+            "NAME": "node",
+            "START_ID": 1,
+            "COUNT": 11,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "MAC_HOPPING_SEQUENCE" : "TSCH_HOPPING_SEQUENCE_1_1",
+    "CONNECTIONS" : [
+        { "FROM_ID": 1, "TO_ID": 2, "RSSI": -20, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 1, "RSSI": -20, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 1, "TO_ID": 3, "RSSI": -30, "LINK_QUALITY": 0.9, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 3, "TO_ID": 1, "RSSI": -30, "LINK_QUALITY": 0.9, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 1, "TO_ID": 4, "RSSI": -40, "LINK_QUALITY": 0.8, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 4, "TO_ID": 1, "RSSI": -40, "LINK_QUALITY": 0.8, "LINK_MODEL": "Fixed" },
+        
+        { "FROM_ID": 1, "TO_ID": 5, "RSSI": -50, "LINK_QUALITY": 0.7, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 5, "TO_ID": 1, "RSSI": -50, "LINK_QUALITY": 0.7, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 1, "TO_ID": 6, "RSSI": -60, "LINK_QUALITY": 0.6, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 6, "TO_ID": 1, "RSSI": -60, "LINK_QUALITY": 0.6, "LINK_MODEL": "Fixed" },
+        
+        { "FROM_ID": 1, "TO_ID": 7, "RSSI": -70, "LINK_QUALITY": 0.5, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 7, "TO_ID": 1, "RSSI": -70, "LINK_QUALITY": 0.5, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 1, "TO_ID": 8, "RSSI": -80, "LINK_QUALITY": 0.4, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 8, "TO_ID": 1, "RSSI": -80, "LINK_QUALITY": 0.4, "LINK_MODEL": "Fixed" },
+        
+        { "FROM_ID": 1, "TO_ID": 9, "RSSI": -90, "LINK_QUALITY": 0.3, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 9, "TO_ID": 1, "RSSI": -90, "LINK_QUALITY": 0.3, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 1, "TO_ID": 10, "RSSI": -100, "LINK_QUALITY": 0.2, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 10, "TO_ID": 1, "RSSI": -100, "LINK_QUALITY": 0.2, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 1, "TO_ID": 11, "RSSI": -200, "LINK_QUALITY": 0.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 11, "TO_ID": 1, "RSSI": -200, "LINK_QUALITY": 0.0, "LINK_MODEL": "Fixed" }
+    ],
+    "LOG_LEVELS" : {
+        "RPL": 3,
+        "TSCH": 3,
+        "Node": 3,
+        "App": 2
+    }
+}

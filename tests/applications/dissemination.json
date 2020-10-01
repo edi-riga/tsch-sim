@@ -1,0 +1,26 @@
+{
+    "SIMULATION_DURATION_SEC": 1800,
+    "RESULTS_DIR": "./results",
+    "NODE_TYPES": [
+        {
+            "NAME": "root",
+            "START_ID": 1,
+            "COUNT": 1,
+            "CONNECTIONS" : [{"NODE_TYPE": "node", "LINK_MODEL": "LogisticLoss"}],
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 100, "APP_WARMUP_PERIOD_SEC": 500, "TO_TYPE": "node"}
+        },
+        {
+            "NAME": "node",
+            "START_ID": 2,
+            "COUNT": 29,
+            "CONNECTIONS" : [
+                {"NODE_TYPE": "root", "LINK_MODEL": "LogisticLoss"},
+                {"NODE_TYPE": "node", "LINK_MODEL": "LogisticLoss"}
+            ]
+        }
+    ],
+    "APP_WARMUP_PERIOD_SEC": 500,
+    "POSITIONING_NUM_NODES": 30,
+    "POSITIONING_NUM_DEGREES": 8,
+    "POSITIONING_LAYOUT": "Mesh"
+}

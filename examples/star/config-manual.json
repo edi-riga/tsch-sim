@@ -1,0 +1,19 @@
+{
+    "SIMULATION_DURATION_SEC": 600,
+    "NODE_TYPES": [
+        {
+            "NAME": "root",
+            "START_ID": 1,
+            "COUNT": 1,
+            "CONNECTIONS": [{"NODE_TYPE": "leaf", "LINK_MODEL": "Fixed", "LINK_QUALITY": 0.9}]
+        },
+        {
+            "NAME": "leaf",
+            "START_ID": 2,
+            "COUNT": 9,
+            "ROUTING_IS_LEAF": true,
+            "CONNECTIONS": [{"NODE_TYPE": "root", "LINK_MODEL": "Fixed", "LINK_QUALITY": 0.9}],
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+
+
+NODE := $(shell command -v nodejs 2> /dev/null)
+ifeq ($(NODE),)
+     NODE := $(shell command -v node 2> /dev/null)
+endif

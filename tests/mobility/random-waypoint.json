@@ -1,0 +1,45 @@
+{
+    "SIMULATION_DURATION_SEC": 3600,
+    "RESULTS_DIR": "./results",
+    "UDGM_CONSTANT_LOSS": true,
+    "MAC_HOPPING_SEQUENCE" : "TSCH_HOPPING_SEQUENCE_1_1",
+    "NODE_TYPES": [
+        {
+            "NAME": "static",
+            "START_ID": 1,
+            "COUNT": 5,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        },
+        {
+            "NAME": "mobile",
+            "START_ID": 6,
+            "COUNT": 5,
+            "MOBILITY_MODEL": "RandomWaypoint",
+            "MOBILITY_RANGE_X": 200,
+            "MOBILITY_RANGE_Y": 50,
+            "MOBILITY_SPEED": 0.1,
+            "ROUTING_IS_LEAF": true,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "CONNECTIONS" : [
+        {"NODE_TYPE": "static", "LINK_MODEL": "UDGM"},
+        {"FROM_NODE_TYPE": "static", "TO_NODE_TYPE": "mobile", "LINK_MODEL": "UDGM"},
+        {"FROM_NODE_TYPE": "mobile", "TO_NODE_TYPE": "static", "LINK_MODEL": "UDGM"}
+    ],
+    "POSITIONS" : [
+        {"ID": 1, "X": 0, "Y": 0},
+        {"ID": 2, "X": 40, "Y": 0},
+        {"ID": 3, "X": 80, "Y": 0},
+        {"ID": 4, "X": 120, "Y": 0},
+        {"ID": 5, "X": 160, "Y": 0},
+        {"ID": 6, "X": 0, "Y": 0},
+        {"ID": 7, "X": 40, "Y": 0},
+        {"ID": 8, "X": 80, "Y": 0},
+        {"ID": 9, "X": 120, "Y": 0},
+        {"ID": 10, "X": 160, "Y": 0}
+    ],
+    "LOG_LEVELS" : {
+        "Mobility": 4
+    }
+}

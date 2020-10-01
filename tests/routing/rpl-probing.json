@@ -1,0 +1,21 @@
+{
+    "SIMULATION_DURATION_SEC": 600,
+    "RESULTS_DIR": "./results",
+    "RPL_WITH_PROBING": true,
+    "NODE_TYPES": [
+        {
+            "NAME": "node",
+            "START_ID": 1,
+            "COUNT": 3,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "LOG_LEVELS": { "RPL": 4 },
+    "CONNECTIONS" : [
+        { "FROM_ID": 1, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 1, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 2, "TO_ID": 3, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 3, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" }
+    ]
+}

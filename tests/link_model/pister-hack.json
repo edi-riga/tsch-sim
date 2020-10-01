@@ -1,0 +1,21 @@
+{
+    "SIMULATION_DURATION_SEC": 3600,
+    "RESULTS_DIR": "./results",
+    "PISTER_HACK_LOWER_SHIFT": 10,
+    "NODE_TYPES": [
+        {
+            "NAME": "node",
+            "START_ID": 1,
+            "COUNT": 4,
+            "CONNECTIONS" : [{"NODE_TYPE": "node", "LINK_MODEL" : "PisterHack"}],
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "MAC_HOPPING_SEQUENCE": "TSCH_HOPPING_SEQUENCE_1_1",
+    "POSITIONS" : [
+        {"ID": 1, "X": 0, "Y": 0},
+        {"ID": 2, "X": 200, "Y": 0},
+        {"ID": 3, "X": -400, "Y": 0},
+        {"ID": 4, "X": 0, "Y": 1000}
+    ]
+}

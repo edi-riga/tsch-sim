@@ -1,0 +1,73 @@
+{
+    "SIMULATION_DURATION_SEC": 600,
+    "RESULTS_DIR": "./results",
+    "SCHEDULING_ALGORITHM": "LeafAndForwarder",
+    "ROUTING_ALGORITHM": "LeafAndForwarderRouting",
+    "NODE_TYPES": [
+        {
+            "NAME": "root",
+            "START_ID": 1,
+            "COUNT": 1
+        },
+        {
+            "NAME": "forwarder",
+            "START_ID": 2,
+            "COUNT": 3,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        },
+        {
+            "NAME": "leaf",
+            "START_ID": 5,
+            "COUNT": 6,
+            "ROUTING_IS_LEAF": true,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "CONNECTIONS": [
+        { "FROM_ID": 1, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 1, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 1, "TO_ID": 3, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 3, "TO_ID": 1, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 1, "TO_ID": 4, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 4, "TO_ID": 1, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 2, "TO_ID": 5, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 5, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 6, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 6, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 7, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 7, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 8, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 8, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 9, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 9, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 10, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 10, "TO_ID": 2, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 3, "TO_ID": 5, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 5, "TO_ID": 3, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 3, "TO_ID": 6, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 6, "TO_ID": 3, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 3, "TO_ID": 7, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 7, "TO_ID": 3, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 3, "TO_ID": 8, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 8, "TO_ID": 3, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 3, "TO_ID": 9, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 9, "TO_ID": 3, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 3, "TO_ID": 10, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 10, "TO_ID": 3, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+
+        { "FROM_ID": 4, "TO_ID": 5, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 5, "TO_ID": 4, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 4, "TO_ID": 6, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 6, "TO_ID": 4, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 4, "TO_ID": 7, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 7, "TO_ID": 4, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 4, "TO_ID": 8, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 8, "TO_ID": 4, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 4, "TO_ID": 9, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 9, "TO_ID": 4, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 4, "TO_ID": 10, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 10, "TO_ID": 4, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" }
+    ]
+}

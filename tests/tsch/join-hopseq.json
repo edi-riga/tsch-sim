@@ -1,0 +1,23 @@
+{
+    "SIMULATION_DURATION_SEC": 600,
+    "RESULTS_DIR": "./results",
+    "NODE_TYPES": [
+        {
+            "NAME": "node",
+            "START_ID": 1,
+            "COUNT": 2,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "MAC_HOPPING_SEQUENCE": [15, 20, 25, 26],
+    "MAC_JOIN_HOPPING_SEQUENCE":  [24, 26],
+    "CONNECTIONS" : [
+        { "FROM_ID": 1, "TO_ID": 2, "RSSI": -20, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
+        { "FROM_ID": 2, "TO_ID": 1, "RSSI": -20, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" }
+    ],
+    "LOG_LEVELS" : {
+        "RPL" : 4,
+        "TSCH" : 4,
+        "Node" : 4
+    }
+}

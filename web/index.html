@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <title>TSCH Simulator</title>
+
+    <meta name="description" content="TSCH Simulator">
+    <meta name="author" content="Atis Elsts">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js" integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  </head>
+  <body>
+
+    <header id="header">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <img src="images/tsch-sim2.png" height="40" style="margin-right:1rem"><a class="navbar-brand" href="https://github.com/atiselsts/tsch-scheduling-javascript">TSCH Simulator</a>
+        <ul class="navbar-nav ml-auto">
+          <li class="" style="text-align:center; color:#fff; margin-top:0.3rem; margin-right:1.5rem; font-size:1.2rem">Time: <span id="sim-time">0.00</span></li>
+          <li class="nav-item active">
+            <a class="btn btn-secondary smallerbtn" href="#" id="button-run"><span class="fa fa-play changeicon" style="margin-right:0.6rem"></span><span class="changetext">Run</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="btn btn-secondary smallerbtn disabled" href="#" id="button-reset"><span class="fa fa-step-backward changeicon" style="margin-right:0.6rem"></span><span class="changetext">Reset</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="btn btn-secondary smallerbtn disabled" href="#" id="button-results">Results...</a>
+          </li>
+          <li class="nav-item active">
+            <a class="btn btn-secondary smallerbtn" href="#" id="button-settings">Settings...</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="btn btn-secondary dropdown-toggle smallerbtn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Options</a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item selected" id="button-show-schedule" href="#"><span class="fa fa-check"></span>Schedule view</a>
+                <a class="dropdown-item selected" id="button-show-logs" href="#"><span class="fa fa-check"></span>Log view</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" id="button-show-cell-schedule" href="#"><span class="fa fa-check"></span>Show schedule</a>
+                <a class="dropdown-item" id="button-show-cell-packets" href="#"><span class="fa"></span>Show packets</a>
+                <a class="dropdown-item" id="button-show-cell-chofs" href="#"><span class="fa"></span>Show channel offsets</a>
+                <a class="dropdown-item" id="button-show-cell-channels" href="#"><span class="fa"></span>Show channels</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" id="button-run-unlimited" href="#"><span class="fa fa-check"></span>Speed unlimited</a>
+                <a class="dropdown-item" id="button-run-1000" href="#"><span class="fa"></span>Speed limit 1000%</a>
+
+                <a class="dropdown-item" id="button-run-100" href="#"><span class="fa"></span>Speed limit 100%</a>
+                <a class="dropdown-item" id="button-run-10" href="#"><span class="fa"></span>Speed limit 10%</a>
+                <a class="dropdown-item" id="button-run-step-active" href="#"><span class="fa"></span>Step to next active</a>
+                <a class="dropdown-item" id="button-run-step" href="#"><span class="fa"></span>Step single cell</a>
+              </div>
+          </li>
+
+        </ul>
+        </div>
+      </nav>
+
+      <div id="notifications" style="position:absolute; margin:auto; width:100%; text-align:center; z-index:1000;"></div>
+
+    </header>
+
+    <div class="grid-container">
+      <div class="workspace">
+        <div id="chart" style="width:1000px;height:1000px"></div> <!-- chart -->
+      </div>
+
+      <div class="cellview" id="cellview">
+        <div class="container" style="max-width:100%">
+          <div class="row">
+            <table id="tablecells" class="table table-fixed cell-table">
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="logview" id="logview">
+        <table class="table log-table">
+          <thead>
+            <tr>
+              <th scope="col" style="width:8rem">Time</th>
+              <th scope="col" style="width:6rem">Node ID</th>
+              <th scope="col" style="width:1fr">Message</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="chart-zoom-controls" style="position:fixed;right:16px;top:56px">
+      <div class="btn-group">
+        <a class="btn btn-mini" id="button-zoom-in" href="#"><span class="fa fa-search-plus"></span></a>
+        <a class="btn btn-mini" id="button-zoom-reset" href="#"><span class="fa fa-align-justify"></a>
+        <a class="btn btn-mini" id="button-zoom-out" href="#"><span class="fa fa-search-minus"></a>
+      </div>
+    </div>
+
+    <div id="dialog" class="hide"><form id="dialog-form" class="form-horizontal"></form></div>
+
+    <div id="dialog-results" class="hide">
+      <div class="form-row" id="output-results">
+      Refreshing...
+      </div>
+    </div>
+
+    <div id="dialog-settings" class="hide">
+      <div class="form-row">
+          <label for="input-generate-network" style="width:180px">Generate network</label>
+          <input type="checkbox" id="input-generate-network" title="If enabled, the positions of the nodes are generated randomly" style="margin-top:0.4rem">
+      </div>
+
+      <div class="form-row">
+         <div class="form-check">
+             <label class="form-check-label input-autogenerated" for="input-network-type-star" style="width:160px;margin-left:20px">Star network</label>
+             <input class="form-check-input" type="radio" name="input-network-type" id="input-network-type-star" value="Star" disabled checked>
+         </div>
+      </div>
+      <div class="form-row">
+         <div class="form-check">
+             <label class="form-check-label input-autogenerated" for="input-network-type-mesh" style="width:160px;margin-left:20px">Mesh network</label>
+             <input class="form-check-input" type="radio" name="input-network-type" id="input-network-type-mesh" value="Mesh" disabled>
+         </div>
+      </div>
+      <div class="form-row">
+         <div class="form-check">
+             <label class="form-check-label input-autogenerated" for="input-network-type-line" style="width:160px;margin-left:20px">Line network</label>
+             <input class="form-check-input" type="radio" name="input-network-type" id="input-network-type-line" value="Line" disabled>
+         </div>
+      </div>
+      <div class="form-row">
+         <div class="form-check">
+             <label class="form-check-label input-autogenerated" for="input-network-type-grid" style="width:160px;margin-left:20px">Grid network</label>
+             <input class="form-check-input" type="radio" name="input-network-type" id="input-network-type-grid" value="Grid" disabled>
+         </div>
+      </div>
+
+      <br/>
+
+      <div class="form-row">
+          <label class="input-autogenerated" for="input-num-nodes" style="width:180px">Number of nodes</label>
+          <input type="number" id="input-num-nodes" placeholder="10" min="1" value="10" title="Number of nodes in the generated network" style="width:490px" disabled>
+      </div>
+
+      <br/>
+
+      <div class="form-row">
+        <label class="input-autogenerated" for="input-link-quality" style="width:180px">Link quality (<span id="label-link-quality">90</span>%)</label>
+        <span id="label-range-start" class="input-autogenerated">1%</span> &nbsp;&nbsp; <input type="range" id="input-link-quality" name="link-quality" style="width:400px" value="90" min="1" max="100" step="1" title="Link quality (transmission success rate) in percent" disabled> &nbsp;&nbsp; <span id="label-range-end" class="input-autogenerated">100%</span>
+      </div>
+
+      <br/>
+
+      <div class="form-row">
+          <label class="input-autogenerated-mesh" for="input-num-degrees" style="width:180px">Number of degrees</label>
+          <input type="number" id="input-num-degrees" placeholder="6" min="2" title="Number of good-quality links per node" style="width:490px" disabled>
+      </div>
+
+      <br/>
+
+      <div class="form-group">
+        <label for="input-settings">Configuration settings (JSON format):</label>
+        <textarea class="form-control" id="input-settings" rows="10"></textarea>
+      </div>
+
+      <br/>
+
+      <div class="form-row">
+        <div class="col"></div>
+        <div class="col button-group">
+            <button type="submit" id="button-apply-settings" class="button pull-right">Apply settings</button>
+        </div>
+      </div>
+
+
+    </div>
+
+    <script>const TSCH_SIM = function() { return {} }();</script>
+    <script src="js/const.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/vis.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

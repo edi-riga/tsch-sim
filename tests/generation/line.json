@@ -1,0 +1,6 @@
+{
+    "SIMULATION_DURATION_SEC": 0,
+    "RESULTS_DIR": "./results",
+    "POSITIONING_NUM_NODES": 100,
+    "POSITIONING_LAYOUT": "Line"
+}
