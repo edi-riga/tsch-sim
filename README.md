@@ -111,3 +111,21 @@ Some parts of the simulator are based on the TSCH and RPL implementations in the
 ## License
 
 [3-Clause BSD](LICENSE).
+
+
+## Referencing
+
+A paper on the simulator is available at https://www.mdpi.com/1424-8220/20/19/5663
+
+If you use this work in your scientific papers, please cite this article!
+
+    @article{elsts2020tsch,
+      title={{TSCH-Sim: Scaling Up Simulations of TSCH and 6TiSCH Networks}},
+      author={Elsts, Atis},
+      journal={Sensors},
+      volume={20},
+      number={19},
+      pages={5663},
+      year={2020},
+      publisher={Multidisciplinary Digital Publishing Institute}
+    }
