@@ -77,14 +77,14 @@ export class RoutingTable {
 
     add_route(destination_id, nexthop_id) {
         assert(!this.routes.get(destination_id));
-        log.log(log.DEBUG, this.node, "Node", `add route to ${destination_id} via ${nexthop_id}`);
+        log.log(log.INFO, this.node, "Node", `add route to ${destination_id} via ${nexthop_id}`);
         let route = new Route(destination_id, nexthop_id);
         this.routes.set(destination_id, route);
         return route;
     }
 
     remove_route(destination_id) {
-        log.log(log.DEBUG, this.node, "Node", `remove route to ${destination_id}`);
+        log.log(log.INFO, this.node, "Node", `remove route to ${destination_id}`);
         this.routes.delete(destination_id);
     }
 
@@ -144,6 +144,10 @@ export function periodic_process(period_seconds)
                     to_remove.push(route);
                 }
             }
+        }
+
+        for (const rr of to_remove) {
+            node.routes.remove_route(rr.prefix);
         }
     }
 }

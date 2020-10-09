@@ -636,14 +636,12 @@ export class Node {
             if (route.nexthop_id === nexthop_id) {
                 return route;
             }
-            this.log(log.INFO, `remove route to=${destination_id}`);
             this.routes.remove_route(destination_id);
             if (route.is_direct()) {
                 scheduler.on_child_removed(this, id_to_addr(destination_id));
             }
         }
 
-        this.log(log.INFO, `add route to=${destination_id} via=${nexthop_id}`);
         route = this.routes.add_route(destination_id, nexthop_id);
         if (route.is_direct()) {
             scheduler.on_child_added(this, id_to_addr(destination_id));
@@ -654,7 +652,6 @@ export class Node {
     remove_route(destination_id) {
         const route = this.routes.get_route(destination_id);
         if (route) {
-            this.log(log.INFO, `remove route to=${destination_id}`);
             this.routes.remove_route(destination_id);
             if (route.is_direct()) {
                 scheduler.on_child_removed(this, id_to_addr(destination_id));
