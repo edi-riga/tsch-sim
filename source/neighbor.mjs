@@ -88,7 +88,7 @@ export class Neighbor {
         this.num_rx = 0;
         this.last_tx_sec = null;
         this.last_rx_sec = null;
-        this.last_rssi = -constants.INFINITY;
+        this.last_rssi = -Infinity;
         this.freshness = 0;
         /* The ETX is kept as an integer to better emulate the operation on embedded systems */
         this.etx = null;

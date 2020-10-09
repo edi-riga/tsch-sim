@@ -344,7 +344,7 @@ export class Node {
             delay = this.config.MAC_EB_PERIOD_S;
         } else {
             /* do not send EBs */
-            delay = constants.INFINITY;
+            delay = Infinity;
         }
 
         this.eb_timer = time.add_timer(delay, false, this, function(node) { node.eb_timer_callback(); });
@@ -1202,7 +1202,7 @@ export class Node {
 
         let best_cell = null;
         let backup_cell = null;
-        let best_time_to_timeslot = constants.INFINITY;
+        let best_time_to_timeslot = Infinity;
         this.tx_packet = null;
         this.selected_cell = null;
 
@@ -1258,7 +1258,7 @@ export class Node {
             }
         }
 
-        if (best_time_to_timeslot === constants.INFINITY) {
+        if (best_time_to_timeslot === Infinity) {
             /* no active cells scheduled; search again in the next slotframe */
             this.timeslots_to_skip = 0;
         } else {
@@ -1452,7 +1452,7 @@ export class Node {
 
         /* More than one packet. Run the full reception algorithm with the capture effect */
         let best_packet = this.rx_ok_packets[subslot][0];
-        let interfering_signal_rssi = -constants.INFINITY;
+        let interfering_signal_rssi = -Infinity;
         if (this.config.EMULATE_COOJA) {
             /* use simplified capture effect modeling to match cooja better */
             let second_best_packet = null;

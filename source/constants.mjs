@@ -88,8 +88,6 @@ const constants = {
     BROADCAST_ID: -1, /* Broadcast "neighbor" ID */
     EB_ID: -2,  /* EB "neighbor" ID */
 
-    INFINITY: parseFloat("Infinity"),
-
     /* Constants relevant to radio propagation */
     TWO_DOT_FOUR_GHZ:   2400000000, /* Hz */
     SPEED_OF_LIGHT:     299792458, /* m/s */
