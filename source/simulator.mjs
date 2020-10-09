@@ -620,7 +620,7 @@ export async function run_interactive()
                 default:
                     const real_world_seconds = process.uptime() - start_real_seconds;
                     if (real_world_seconds > 1.0) {
-                        /* interrupt this inner loop once per to react to new commands */
+                        /* interrupt this inner loop once per second to react to new commands */
                         state.is_interrupt_requested = true;
                     }
                     break;
@@ -634,6 +634,8 @@ export async function run_interactive()
                           : (state.simulation_speed === constants.RUN_100_PERCENT ? 1.0 : 0.1)
                     const delta = coeff * simulated_seconds - real_world_seconds;
                     if (delta >= 0.001) {
+                        /* do not allow to sleep for too long and become completely unresponsive */
+                        delta = Math.min(delta, 10.0);
                         await utils.sleep(delta * 1000);
                     }
                 }
