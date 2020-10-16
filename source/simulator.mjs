@@ -632,7 +632,7 @@ export async function run_interactive()
                     const simulated_seconds = time.timeline.seconds - start_simulated_seconds;
                     const coeff = state.simulation_speed === constants.RUN_10_PERCENT ? 10.0
                           : (state.simulation_speed === constants.RUN_100_PERCENT ? 1.0 : 0.1)
-                    const delta = coeff * simulated_seconds - real_world_seconds;
+                    let delta = coeff * simulated_seconds - real_world_seconds;
                     if (delta >= 0.001) {
                         /* do not allow to sleep for too long and become completely unresponsive */
                         delta = Math.min(delta, 10.0);
