@@ -252,8 +252,8 @@ const default_config = {
 
     WEB_ENABLED: false,
     WEB_PORT: 2020,
-    WEB_MAX_LOGS: 100,
-    WEB_MAX_CELLS: 100,
+    WEB_MAX_LOGS: 1000,
+    WEB_MAX_CELLS: 1000,
 
     /* -------------------------------------------------------------------- */
     /* Logging */
