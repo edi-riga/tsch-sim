@@ -222,7 +222,7 @@ export class Node {
     /* Reset node and TSCH state */
     reset_node(is_from_init) {
         this.cancel_syncing();
-        if (this.config.SIMULATION_START_JOINED) {
+        if (this.config.MAC_START_JOINED) {
             this.has_joined = true;
             if (!this.is_coordinator) {
                 this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S, this.config.MAC_DESYNC_THRESHOLD_S);

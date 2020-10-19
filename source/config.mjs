@@ -100,9 +100,6 @@ const default_config = {
     /* Number of runs (each subsequent run gets random seed incremented by one) */
     SIMULATION_NUM_RUNS: 1,
 
-    /* Start with all nodes in a joined state? */
-    SIMULATION_START_JOINED: false,
-
     /* Scripting */
     SIMULATION_SCRIPT_FILE: null,
 
@@ -136,6 +133,9 @@ const default_config = {
 
     /* Hopping sequence used for joining (the channel scan proces). If null, the default hopseq is used instead */
     MAC_JOIN_HOPPING_SEQUENCE: null,
+
+    /* Start with all nodes in a joined state? */
+    MAC_START_JOINED: false,
 
     /* Max number of re-transmissions */
     MAC_MAX_RETRIES: 7,

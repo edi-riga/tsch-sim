@@ -1,7 +1,7 @@
 {
     "SIMULATION_DURATION_SEC": 600,
     "RESULTS_DIR": "./results",
-    "SIMULATION_START_JOINED": true,
+    "MAC_START_JOINED": true,
     "NODE_TYPES": [
         {
             "NAME": "node",
