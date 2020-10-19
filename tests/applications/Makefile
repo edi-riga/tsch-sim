@@ -5,7 +5,7 @@ all: collection dissemination query
 collection: collection.json
 	rm -rf results
 	../../tsch-sim.sh $< > /dev/null
-	$(NODE) --harmony --experimental-modules  ../check_pdr.mjs results/stats.json 60
+	$(NODE) --harmony --experimental-modules  ../check_pdr.mjs results/stats.json 50
 
 dissemination: dissemination.json
 	rm -rf results

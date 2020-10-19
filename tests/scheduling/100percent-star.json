@@ -1,0 +1,24 @@
+{
+    "RESULTS_DIR": "./results",
+    "SIMULATION_DURATION_SEC": 1800,
+    "NODE_TYPES": [
+        {
+            "NAME": "root",
+            "START_ID": 1,
+            "COUNT": 1,
+            "CONNECTIONS": [{"NODE_TYPE": "leaf", "LINK_MODEL": "Fixed", "LINK_QUALITY": 1.0}]
+        },
+        {
+            "NAME": "leaf",
+            "START_ID": 2,
+            "COUNT": 9,
+            "ROUTING_IS_LEAF": true,
+            "CONNECTIONS": [{"NODE_TYPE": "root", "LINK_MODEL": "Fixed", "LINK_QUALITY": 1.0}],
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "ORCHESTRA_RULES": [ "orchestra_rule_eb_per_time_source",
+                         "orchestra_rule_unicast_per_neighbor_link_based",
+                         "orchestra_rule_default_common" ],
+    "SIMULATION_SCRIPT_FILE": "./100percent-star.js"
+}

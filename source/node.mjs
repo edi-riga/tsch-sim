@@ -1239,13 +1239,19 @@ export class Node {
                     }
 
                     /* maintain backup_cell */
-                    if (!backup_cell) {
-                        /* Check if 'cell' can be used as backup */
-                        if (new_best !== cell && (cell.options & constants.CELL_OPTION_RX)) {
+                    /* Check if 'cell' can be used as backup */
+                    if (new_best !== cell && (cell.options & constants.CELL_OPTION_RX)) {
+                        if (!backup_cell) {
+                            backup_cell = cell;
+                        } else if (cell.slotframe.handle < backup_cell.slotframe.handle) {
                             backup_cell = cell;
                         }
-                        /* Check if best_cell can be used as backup */
-                        if (new_best !== best_cell && (best_cell.options & constants.CELL_OPTION_RX)) {
+                    }
+                    /* Check if 'best_cell' can be used as backup */
+                    else if (new_best !== best_cell && (best_cell.options & constants.CELL_OPTION_RX)) {
+                        if (!backup_cell) {
+                            backup_cell = best_cell;
+                        } else if (best_cell.slotframe.handle < backup_cell.slotframe.handle) {
                             backup_cell = best_cell;
                         }
                     }
@@ -1268,12 +1274,18 @@ export class Node {
         let packet;
         if (best_cell) {
             /* log.log(log.DEBUG, this, "TSCH", `got best cell, options=${best_cell.options}, slotframe=${best_cell.slotframe.handle}`); */
-            this.tx_packet = this.get_packet_for_tx_cell(best_cell);
-            if (!this.tx_packet && !(best_cell.options & constants.CELL_OPTION_RX) && backup_cell) {
-                this.tx_packet = this.get_packet_for_tx_cell(backup_cell);
-                this.selected_cell = backup_cell;
-            } else {
-                this.selected_cell = best_cell;
+            this.tx_packet = this.get_packet_for_tx_cell(best_cell, backup_cell);
+            this.selected_cell = best_cell;
+
+            if (!this.tx_packet && backup_cell) {
+                /* the best cell does not have packets; look at whether we should prioritize the backup cell */
+                if (!(best_cell.options & constants.CELL_OPTION_RX)) {
+                    this.selected_cell = backup_cell;
+                    this.tx_packet = this.get_packet_for_tx_cell(this.selected_cell, null);
+                } else if (backup_cell.slotframe.handle < best_cell.slotframe.handle) {
+                    this.selected_cell = backup_cell;
+                    this.tx_packet = this.get_packet_for_tx_cell(this.selected_cell, null);
+                }
             }
         }
 
@@ -1347,10 +1359,36 @@ export class Node {
         /* try to send to each potential neigbhbor; the neighbors will filter out packets by the nexthop */
         for (const [dst_id, link] of this.links) {
             const dst = this.network.get_node(dst_id);
-            const dst_status = schedule_status[dst.index];
-            if (dst_status !== undefined && (dst_status.flags & constants.FLAG_RX)) {
-                this.commit_tx_to(dst, potential_rx_nodes, schedule_status, transmissions);
+
+            /* if the tx is unicast to the parent, update parent stats */
+            if (this.tx_packet.is_ack_required
+                && this.current_time_source
+                && this.current_time_source.id === dst.id) {
+                this.stats_mac_parent_tx_unicast += 1;
             }
+
+            const dst_status = schedule_status[dst.index];
+            if (!dst_status) {
+                continue;
+            }
+
+            if (!(dst_status.flags & constants.FLAG_RX)) {
+                continue;
+            }
+
+            if (dst.selected_cell === null) {
+                /* The dst node is idle at this point */
+                /* this.log(log.DEBUG, `  commit_tx ${dst.id}: dst not listening`); */
+                continue;
+            }
+
+            if (dst.tx_packet !== null) {
+                /* The dst node is transmitting its own packet */
+                /* this.log(log.DEBUG, `  commit_tx ${dst.id}: dst is transmitting`); */
+                continue;
+            }
+
+            this.commit_tx_to(dst, potential_rx_nodes, schedule_status, transmissions);
         }
     }
 
@@ -1359,26 +1397,7 @@ export class Node {
      * Then it calculates the RSSI and rolls a dice to decide if the Rx was successful.
      */
     commit_tx_to(dst, potential_rx_nodes, schedule_status, transmissions) {
-        /* if the tx is unicast to the parent, update parent stats */
-        if (this.tx_packet.is_ack_required
-            && this.current_time_source
-            && this.current_time_source.id === dst.id) {
-            this.stats_mac_parent_tx_unicast += 1;
-        }
-
-        if (dst.selected_cell === null) {
-            /* The dst node is idle at this point */
-            /* this.log(log.DEBUG, `  commit_tx_to ${dst.id}: dst not listening`); */
-            return;
-        }
-
-        if (dst.tx_packet !== null) {
-            /* The dst node is transmitting its own packet */
-            /* this.log(log.DEBUG, `  commit_tx_to ${dst.id}: dst is transmitting`); */
-            return;
-        }
-
-        let channel_tx = schedule_status[this.index].ch;
+        const channel_tx = schedule_status[this.index].ch;
         const channel_rx = dst.get_channel(dst.selected_cell.channel_offset);
         const link_to = this.links.get(dst.id);
         const can_receive = link_to
@@ -1565,7 +1584,7 @@ export class Node {
             do_remove = true;
             if (packet.packet_protocol === constants.PROTO_APP) {
                 let nexthop = this.network.get_node(packet.nexthop_id);
-                assert (nexthop, `unknown nexthop node ${packet.nexthop_id}`);
+                assert(nexthop, `unknown nexthop node ${packet.nexthop_id}`);
                 const seqnum = packet.source.id + "#" + packet.seqnum;
                 const search_set = packet.destination_id === packet.nexthop_id ?
                     nexthop.stats_app_packets_rxed :

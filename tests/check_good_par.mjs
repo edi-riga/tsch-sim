@@ -1,5 +1,5 @@
 /*
- * This file checks that the PAR in a test.
+ * This file checks that the PAR in a test is >99%.
  */
 
 import fs from 'fs';
@@ -16,8 +16,6 @@ if (process.argv.length < 3) {
 const filedata = fs.readFileSync(process.argv[process.argv.length - 1]);
 const state = JSON.parse(filedata);
 const run_state = state[RUN_ID];
-let last_par = 1.0;
-let had_no_packets = false;
 
 for (let key in run_state) {
     if (key === "global-stats" || key === ROOT_ID) continue;
@@ -26,25 +24,16 @@ for (let key in run_state) {
     const acked = run_state[key].mac_parent_acked;
 
     if (!tx) {
-        had_no_packets = true;
-    } else if (had_no_packets) {
         console.log("Some nodes unexpectedly transmitted no app packets, while nodes with worse links had packets");
         process.exit(1);
     }
 
-    let par = acked / tx;
-    if (par > last_par) {
-        console.log(`More packets acked, but link quality is worse: ${par} vs ${last_par}`);
+    let par = 100.0 * acked / tx;
+    if (par < 99) {
+        console.log(`Too few packets acked PAR=${par}`);
         console.log("  state:\n" + JSON.stringify(run_state[key]));
         process.exit(1);
     }
-    /* console.log(`Fewer or some packets acked and link quality is worse: ${par} vs ${last_par}`); */
-    last_par = par;
-}
-
-if (had_no_packets === false) {
-    console.log("The last entry had some packets, expected none");
-    process.exit(1);
 }
 
 const pdr = run_state["global-stats"]["e2e-delivery"].value;

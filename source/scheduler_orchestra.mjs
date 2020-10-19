@@ -731,6 +731,10 @@ export function initialize()
         ORCHESTRA_RULES: [ "orchestra_rule_eb_per_time_source",
                            "orchestra_rule_unicast_per_neighbor_rpl_storing",
                            "orchestra_rule_default_common" ],
+        /* Example configuration for the link based rule (the best for bidirectional traffic): */
+        /* ORCHESTRA_RULES: [ "orchestra_rule_eb_per_time_source",
+                              "orchestra_rule_unicast_per_neighbor_link_based",
+                              "orchestra_rule_default_common" ], */
         /* Example configuration for RPL non-storing mode: */
         /* ORCHESTRA_RULES:  [ "orchestra_rule_eb_per_time_source",
                                "orchestra_rule_unicast_per_neighbor_rpl_ns",

@@ -78,10 +78,9 @@ const PERIODIC_TIMER_SEC = 60;
 
 function periodic_bookeeping(user_param, seconds)
 {
-    /* print time periodically */
+    /* print time and simulation progress periodically */
     const progress = 100 * seconds / config.SIMULATION_DURATION_SEC;
     log.log(log.INFO, null, "Main", `${Math.trunc(seconds)} seconds, progress ${progress.toFixed(2)}%`);
-    /* TODO: print progress in % relative to the total simulation time */
     /* process routes */
     route.periodic_process(PERIODIC_TIMER_SEC, seconds);
     /* process neighbors */

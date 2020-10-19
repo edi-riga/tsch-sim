@@ -1342,6 +1342,8 @@ export class RPL
 
     rpl_timers_schedule_dao() {
         if (this.state > DAG_UNUSED) {
+            mlog(log.DEBUG, this.node, `schedule DAO`);
+
             /* No need for DAO aggregation delay as per RFC 6550 section 9.5, as this
              * only serves storing mode. Use simple delay instead, with the only purpose
              * to reduce congestion. */

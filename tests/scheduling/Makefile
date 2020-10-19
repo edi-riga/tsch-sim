@@ -1,6 +1,6 @@
 include ../Makefile.include
 
-all: orchestra-rb-ns orchestra-rb-storing orchestra-sb-storing orchestra-link-based lf 6tisch-min
+all: orchestra-rb-ns orchestra-rb-storing orchestra-sb-storing orchestra-link-based lf 6tisch-min 100percent-line 100percent-star
 
 orchestra-rb-ns: orchestra-rb-ns.json
 	rm -rf results
@@ -26,7 +26,7 @@ orchestra-link-based: orchestra-link-based.json
 	rm -rf results
 	../../tsch-sim.sh $< > /dev/null
 	grep "initializing rule unicast per neighbor link based" results/log.txt > /dev/null
-	$(NODE) --harmony --experimental-modules  ../check_pdr.mjs results/stats.json 95.0
+	$(NODE) --harmony --experimental-modules  ../check_pdr.mjs results/stats.json 90.0
 
 6tisch-min: 6tisch-min.json
 	rm -rf results
@@ -39,6 +39,16 @@ lf: lf.json
 	../../tsch-sim.sh $< > /dev/null
 	grep "initializing leaf-and-forwarder scheduler" results/log.txt > /dev/null
 	$(NODE) --harmony --experimental-modules  ../check_pdr.mjs results/stats.json 95.0
+
+100percent-line: 100percent-line.json
+	rm -rf results
+	../../tsch-sim.sh $< > /dev/null
+	$(NODE) --harmony --experimental-modules  ../check_good_par.mjs results/stats.json
+
+100percent-star: 100percent-star.json
+	rm -rf results
+	../../tsch-sim.sh $< > /dev/null
+	$(NODE) --harmony --experimental-modules  ../check_good_par.mjs results/stats.json
 
 clean:
 	rm -rf results
