@@ -236,11 +236,12 @@ export function construct_simulation(is_from_web)
 
         type_ids[node_type.NAME] = [];
         let id = "START_ID" in node_type ? node_type["START_ID"] : previous_id + 1;
+        log.log(log.INFO, null, "Main", `id=${id}`);
         for (let i = 0; i < node_type.COUNT; ++i) {
+            previous_id = id;
             net.add_node(id, type_config);
             type_ids[node_type.NAME].push(id);
             id++;
-            previous_id = id;
         }
 
         if (!net.mobility_model && type_config.MOBILITY_MODEL && type_config.MOBILITY_MODEL !== "Static") {
