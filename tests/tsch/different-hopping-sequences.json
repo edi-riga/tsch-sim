@@ -1,0 +1,22 @@
+{
+    "MAC_HOPPING_SEQUENCE": [15, 20, 25, 26],
+    "RESULTS_DIR": "./results",
+    "NODE_TYPES": [
+        {
+            "NAME": "node1",
+            "COUNT": 1
+        },
+        {
+            "NAME": "node2",
+            "COUNT": 1,
+            "MAC_HOPPING_SEQUENCE": [15, 20]
+        },
+        {
+            "NAME": "node3",
+            "COUNT": 1,
+            "MAC_HOPPING_SEQUENCE": [25, 26]
+        }
+    ],
+    "POSITIONING_LAYOUT": "Star",
+    "LOG_LEVELS" : {"Link":4}
+}
