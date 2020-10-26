@@ -220,6 +220,11 @@ export function construct_simulation(is_from_web)
     let previous_id = 0;
     const type_ids = {};
     let nodes_set_manually = false;
+    let positions_set_manually = false;
+    let connections_set_manually = false;
+    const types_with_connections_out = {};
+    const types_with_connections_in = {};
+
     for (const node_type of config.NODE_TYPES) {
         if (!check_node_type_validity(node_type)) {
             log.log(log.WARNING, null, "Main", `invalid node type "${node_type.NAME}"`);
@@ -264,7 +269,6 @@ export function construct_simulation(is_from_web)
     }
 
     /* Set up positions */
-    let positions_set_manually = false;
     for (const from_node_type of config.NODE_TYPES) {
         if (!check_node_type_validity(from_node_type)) {
             continue;
@@ -301,17 +305,6 @@ export function construct_simulation(is_from_web)
     }
 
     if (!nodes_set_manually) {
-        /* Set up connections */
-        const connection = { LINK_MODEL: "LogisticLoss" };
-        for (let i = 1; i <= net.nodes.size; ++i) {
-            for (let j = i + 1; j <= net.nodes.size; ++j) {
-                const n1 = net.get_node(i);
-                const n2 = net.get_node(j);
-                net.add_link(link_model.create_link(n1, n2, connection));
-                net.add_link(link_model.create_link(n2, n1, connection));
-            }
-        }
-
         /* Generate default some packet sources for a data collection application */
         for (let i = 2; i <= net.nodes.size; ++i) {
             /* packet sources */
@@ -330,6 +323,9 @@ export function construct_simulation(is_from_web)
         }
 
         if (utils.has_nonempty_array(from_node_type, "CONNECTIONS")) {
+            connections_set_manually = true;
+            types_with_connections_out[from_node_type.NAME] = true;
+
             if (config.TRACE_FILE) {
                 log.log(log.WARNING, null, "Main", `Ignoring connections for node type "${from_node_type.NAME}": trace file supplied`);
                 continue;
@@ -341,6 +337,7 @@ export function construct_simulation(is_from_web)
                     log.log(log.WARNING, null, "Main", `Ignoring connections with unknown node type "${TO_NODE_TYPE}"`);
                     continue;
                 }
+                types_with_connections_in[TO_NODE_TYPE] = true;
                 const from = type_ids[from_node_type.NAME];
                 const to = type_ids[TO_NODE_TYPE];
                 for (let from_node_id of from) {
@@ -352,11 +349,6 @@ export function construct_simulation(is_from_web)
                         }
                     }
                 }
-            }
-        } else {
-            /* No connections for the node type */
-            if (!utils.has_nonempty_array(config, "CONNECTIONS") && !config.TRACE_FILE) {
-                log.log(log.WARNING, null, "Main", `No connections defined for node type "${from_node_type.NAME}"`);
             }
         }
 
@@ -397,6 +389,8 @@ export function construct_simulation(is_from_web)
 
     /* Globally specified connections */
     if (utils.has_nonempty_array(config, "CONNECTIONS")) {
+        connections_set_manually = true;
+
         for (const connection of config.CONNECTIONS) {
             const to_node_id = connection["FROM_ID"];
             const from_node_id = connection["TO_ID"];
@@ -418,14 +412,19 @@ export function construct_simulation(is_from_web)
                     from_node_type = node_type;
                     to_node_type = node_type;
                 }
+
                 if (!(from_node_type in type_ids)) {
                     log.log(log.WARNING, null, "Main", `Ignoring connections from unknown node type "${from_node_type}"`);
                     continue;
                 }
+                types_with_connections_out[from_node_type] = true;
+
                 if (!(to_node_type in type_ids)) {
                     log.log(log.WARNING, null, "Main", `Ignoring connections from unknown node type "${to_node_type}"`);
                     continue;
                 }
+                types_with_connections_in[to_node_type] = true;
+
                 for (let from_node_id of type_ids[from_node_type]) {
                     for (let to_node_id of type_ids[to_node_type]) {
                         if (from_node_id !== to_node_id) {
@@ -448,6 +447,32 @@ export function construct_simulation(is_from_web)
                 const link = link_model.create_link(
                     net.get_node(from_node_id), net.get_node(to_node_id), connection);
                 net.add_link(link);
+            }
+        }
+    }
+
+    if (connections_set_manually) {
+        for (let type in type_ids) {
+            if (!types_with_connections_out[type]
+                && !types_with_connections_in[type]) {
+                log.log(log.WARNING, null, "Main", `No connections defined for node type "${type}"`);
+            }
+            else if (!types_with_connections_out[type]) {
+                log.log(log.WARNING, null, "Main", `No outgoing connections defined for node type "${type}"`);
+            }
+            else if (!types_with_connections_out[type]) {
+                log.log(log.WARNING, null, "Main", `No incoming connections defined for node type "${type}"`);
+            }
+        }
+    } else if (!config.TRACE_FILE) {
+        /* No trace file and no manual connections; set up connections */
+        const connection = { LINK_MODEL: "LogisticLoss" };
+        for (let i = 1; i <= net.nodes.size; ++i) {
+            for (let j = i + 1; j <= net.nodes.size; ++j) {
+                const n1 = net.get_node(i);
+                const n2 = net.get_node(j);
+                net.add_link(link_model.create_link(n1, n2, connection));
+                net.add_link(link_model.create_link(n2, n1, connection));
             }
         }
     }
