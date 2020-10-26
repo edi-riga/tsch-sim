@@ -17,6 +17,5 @@
             "MAC_HOPPING_SEQUENCE": [25, 26]
         }
     ],
-    "POSITIONING_LAYOUT": "Star",
-    "LOG_LEVELS" : {"Link":4}
+    "POSITIONING_LAYOUT": "Star"
 }
