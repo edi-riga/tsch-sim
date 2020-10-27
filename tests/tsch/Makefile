@@ -20,6 +20,7 @@ keepalive: keepalive.json
 	../../tsch-sim.sh $< > /dev/null
 	$(NODE) --harmony --experimental-modules ../check_pdr.mjs results/stats.json
 	grep "send keepalive packet to=1" results/log.txt > /dev/null
+	grep "keepalive packet sent: ok" results/log.txt > /dev/null
 
 desync: desync.json
 	rm -rf results

@@ -12,5 +12,6 @@
     "CONNECTIONS" : [
         { "FROM_ID": 1, "TO_ID": 2, "RSSI": -20, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
         { "FROM_ID": 2, "TO_ID": 1, "RSSI": -20, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" }
-    ]
+    ],
+    "LOG_LEVELS": {"Node": 4}
 }

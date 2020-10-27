@@ -400,7 +400,7 @@ export class Node {
             /* add an empty packet (only headers, no payload) */
             const packet = new pkt.Packet(this, this.current_time_source.id, this.config.MAC_HEADER_SIZE, true);
             packet.packet_protocol = constants.PROTO_TSCH;
-            packet.callback = function(packet, is_success) {
+            packet.sent_callback = function(packet, is_success) {
                 packet.source.keepalive_packet_sent(packet, is_success);
             }
             this.add_packet(packet);
@@ -417,10 +417,10 @@ export class Node {
     keepalive_packet_sent(packet, is_success) {
         this.stats_tsch_keepalive_tx += 1;
         if (is_success) {
-            this.log(log.DEBUG, `keepalive packet sent ok, to=${packet.destination_id}`);
+            this.log(log.DEBUG, `keepalive packet sent: ok, to=${packet.destination_id}`);
             /* leave? */
         } else {
-            this.log(log.INFO, `keepalive packet sending failed, to=${packet.destination_id}`);
+            this.log(log.INFO, `keepalive packet sent: failed, to=${packet.destination_id}`);
         }
     }
 
