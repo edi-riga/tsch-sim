@@ -310,7 +310,7 @@ export function construct_simulation(is_from_web)
             const period_sec = config.APP_PACKET_PERIOD_SEC;
             new ps.PacketSource(net.get_node(i),
                                 net.get_node(1),
-                                period_sec, false, config.APP_PACKET_SIZE);
+                                period_sec, false, false, config.APP_PACKET_SIZE);
         }
     }
 
