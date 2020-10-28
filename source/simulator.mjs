@@ -701,6 +701,12 @@ export async function run_interactive()
     }
 }
 
+export function has_simulation_ended()
+{
+    const end_time_sec = config.SIMULATION_DURATION_SEC + 0.000001;
+    return time.timeline.get_next_seconds() > end_time_sec;
+}
+
 export function run_single()
 {
     let network = construct_simulation(false);

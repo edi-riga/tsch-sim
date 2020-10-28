@@ -126,6 +126,10 @@ function start()
         if (!simulator.state.is_running) {
             log.log(log.DEBUG, null, "Main", "run: reply ok");
             res.json({status: "ok"});
+            /* if the simulation has already finished, reset it first */
+            if (simulator.has_simulation_ended()) {
+                simulator.state.is_reset_requested = true;
+            }
             /* start the simulator */
             simulator.state.simulation_speed = speed;
             simulator.state.is_running = true;
