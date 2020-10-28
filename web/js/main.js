@@ -273,6 +273,7 @@ TSCH_SIM.main = function() {
     const cell_view_buttons = [
         "button-show-cell-schedule",
         "button-show-cell-packets",
+        "button-show-cell-slotframes",
         "button-show-cell-chofs",
         "button-show-cell-channels",
     ];
@@ -304,6 +305,7 @@ TSCH_SIM.main = function() {
 
     $("#button-show-cell-packets").click(update_cell_view_settings);
     $("#button-show-cell-schedule").click(update_cell_view_settings);
+    $("#button-show-cell-slotframes").click(update_cell_view_settings);
     $("#button-show-cell-chofs").click(update_cell_view_settings);
     $("#button-show-cell-channels").click(update_cell_view_settings);
 

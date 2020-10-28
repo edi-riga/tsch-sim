@@ -57,10 +57,12 @@ TSCH_SIM.vis = function() {
                 show_mode = 1;
             } else if ($('span', "#button-show-cell-schedule").hasClass("fa-check")) {
                 show_mode = 2;
-            } else if ($('span', "#button-show-cell-chofs").hasClass("fa-check")) {
+            } else if ($('span', "#button-show-cell-slotframes").hasClass("fa-check")) {
                 show_mode = 3;
-            } else if ($('span', "#button-show-cell-channels").hasClass("fa-check")) {
+            } else if ($('span', "#button-show-cell-chofs").hasClass("fa-check")) {
                 show_mode = 4;
+            } else if ($('span', "#button-show-cell-channels").hasClass("fa-check")) {
+                show_mode = 5;
             }
 
             let num_nodes = schedule.length ? schedule[0].cells.length : 0;
@@ -96,9 +98,8 @@ TSCH_SIM.vis = function() {
                     }
 
                     s += '<td ';
-                    let cell_class = "";
-                    let cell_title = "";
 
+                    let cell_class = "";
                     switch (show_mode) {
                     case 1:
                         /* packets */
@@ -108,7 +109,6 @@ TSCH_SIM.vis = function() {
                             cell_class = "sch_rx";
                         } else if (c.flags & constants.FLAG_PACKET_BADRX) {
                             cell_class = "sch_badrx";
-                            cell_title = "Rx failed";
                         }
                         break;
 
@@ -116,57 +116,56 @@ TSCH_SIM.vis = function() {
                         /* schedule */
                         if ((c.flags & constants.FLAG_TX) && (c.flags & constants.FLAG_RX)) {
                             cell_class = "sch_both";
-                            cell_title = "Both";
                         } else if (c.flags & constants.FLAG_RX) {
                             if (c.flags & constants.FLAG_PACKET_RX) {
                                 /* packet seen on the air */
                                 cell_class = "sch_rx";
-                                cell_title = "Rx packet";
                             } else if (c.flags & constants.FLAG_PACKET_BADRX) {
                                 /* packet seen on the air */
                                 cell_class = "sch_badrx";
-                                cell_title = "Rx failed";
                             } else if (c.sf != null) {
                                 /* no packet seen */
                                 cell_class = "sch_norx";
-                                cell_title = "Idle Rx";
                             } else {
                                 /* no packet seen, scanning mode */
                                 cell_class = "sch_norx";
-                                cell_title = "Channel scan";
                             }
                         } else if (c.flags & constants.FLAG_TX) {
                             cell_class = "sch_tx";
-                            cell_title = "Tx packet";
                         } else if (c.flags & constants.FLAG_SKIPPED_TX) {
                             cell_class = "sch_notx";
-                            cell_title = "Skipped Tx";
                         }
                         break;
 
                     case 3:
-                        /* channel offsets */
-                        if ("co" in c) {
-                            cell_class = `sch_ch${(c.co % 16)}`;
-                            cell_title = `Cell`;
+                        /* slotframes */
+                        if (c.sf != null) {
+                            cell_class = `sch_sf${(c.sf % 16)}`;
+                        } else if (c.flags & constants.FLAG_RX) {
+                            cell_class = `sch_scan`;
                         }
                         break;
 
                     case 4:
+                        /* channel offsets */
+                        if (c.co != null) {
+                            cell_class = `sch_ch${(c.co % 16)}`;
+                        }
+                        break;
+
+                    case 5:
                         /* channels */
-                        if ("ch" in c) {
+                        if (c.ch != null) {
                             cell_class = `sch_ch${(c.ch % 16)}`;
-                            cell_title = `Channel ${c.ch}`;
                         }
                         break;
                     }
-
                     if (cell_class) {
                         s += `class="${cell_class} sch" `;
                     }
 
                     if (c.l && i < network.nodes.length) { /* has a packet? */
-                        /* popover info */
+                        /* show popover info */
                         let ss = "Node " + node_id;
                         ss += "<br>ASN 0x" + schedule[column].asn.toString(16);
                         const dst = c.to === -1 ? "all" : c.to;
@@ -197,6 +196,30 @@ TSCH_SIM.vis = function() {
                             s += '>Rx';
                         }
                     } else {
+                        /* show either a tooltip or nothing */
+                        let cell_title = null;
+                        if ((c.flags & constants.FLAG_TX) && (c.flags & constants.FLAG_RX)) {
+                            cell_title = "Both";
+                        } else if (c.flags & constants.FLAG_RX) {
+                            if (c.flags & constants.FLAG_PACKET_RX) {
+                                /* packet seen on the air */
+                                cell_title = "Rx packet";
+                            } else if (c.flags & constants.FLAG_PACKET_BADRX) {
+                                /* packet seen on the air */
+                                cell_title = "Rx failed";
+                            } else if (c.sf != null) {
+                                /* no packet seen */
+                                cell_title = "Idle Rx";
+                            } else {
+                                /* no packet seen, scanning mode */
+                                cell_title = "Channel scan";
+                            }
+                        } else if (c.flags & constants.FLAG_TX) {
+                            cell_title = "Tx packet";
+                        } else if (c.flags & constants.FLAG_SKIPPED_TX) {
+                            cell_title = "Skipped Tx";
+                        }
+
                         if (cell_title) {
                             if (c.sf != null) {
                                 s += `data-toggle="tooltip" title="${cell_title}; sf=${c.sf} ts=${c.ts} co=${c.co}" `;
