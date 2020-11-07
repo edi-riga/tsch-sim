@@ -35,13 +35,36 @@
 
 import constants from './constants.mjs';
 import config from './config.mjs';
+import dirnames from "./dirnames.mjs";
 import * as log from './log.mjs';
 import * as simulator from './simulator.mjs';
 
-import Express from 'express';
-import BodyParser from 'body-parser';
+import * as http from 'http';
+import * as url from 'url';
+import * as fs from 'fs';
+import path from 'path';
 
 let initial_config = null;
+
+const HEADERS = {
+    'Content-Type': 'application/json',
+    "Access-Control-Allow-Origin" : "*",
+    "Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept"
+};
+
+/* file types served statically */
+const MIME_TYPE = {
+    '.html' : 'text/html',
+    '.otf' : 'font/otf',
+    '.eot' : 'application/vnd.ms-fontobject',
+    '.ttf' : 'font/ttf',
+    '.woff' : 'font/woff',
+    '.css' : 'text/css',
+    '.js' : 'text/javascript',
+    '.svg' : 'image/svg+xml',
+    '.ico' : 'image/ico',
+    '.png' : 'image/png',
+};
 
 /*---------------------------------------------------------------------------*/
 
@@ -91,135 +114,288 @@ function make_test_status()
 
 /*---------------------------------------------------------------------------*/
 
+function serve_run(req, res)
+{
+    log.log(log.INFO, null, "Main", "run requested");
+
+    const q = url.parse(req.url, true);
+    let result;
+    let speed = constants.RUN_UNLIMITED;
+    try {
+        if (q.query.speed) {
+            speed = parseInt(q.query.speed);
+        }
+    } catch (x) {
+        log.log(log.WARNING, null, "Main", `ignoring invalid speed limit argument ${q.query.speed}`);
+    }
+    if (speed < constants.RUN_UNLIMITED || speed > constants.RUN_STEP_SINGLE) {
+        log.log(log.WARNING, null, "Main", `unknown speed limit ${speed}, using unlimited speed`);
+        speed = constants.RUN_UNLIMITED;
+    }
+
+    if (!simulator.state.is_running) {
+        log.log(log.DEBUG, null, "Main", "run: reply ok");
+        result = {status: "ok"};
+        /* if the simulation has already finished, reset it first */
+        if (simulator.has_simulation_ended()) {
+            simulator.state.is_reset_requested = true;
+        }
+        /* start the simulator */
+        simulator.state.simulation_speed = speed;
+        simulator.state.is_running = true;
+    } else {
+        log.log(log.INFO, null, "Main", "run: already running");
+        result = {status: "already running"};
+        if (simulator.state.simulation_speed !== speed) {
+            /* reconfigure the speed */
+            simulator.state.simulation_speed = speed;
+            simulator.state.is_interrupt_requested = true;
+            log.log(log.INFO, null, "Main", "set the new speed");
+        }
+    }
+
+    serve_success(res, result);
+}
+
+function serve_pause(req, res)
+{
+    log.log(log.INFO, null, "Main", "pause requested");
+
+    let result;
+    if (simulator.state.is_running) {
+        result = {status: "ok"};
+    } else {
+        log.log(log.INFO, null, "Main", "pause: not running");
+        result = {status: "not running"};
+    }
+    simulator.state.is_running = false;
+
+    serve_success(res, result);
+}
+
+function serve_reset(req, res)
+{
+    log.log(log.INFO, null, "Main", `reset requested on ${simulator.state.is_running ? "running" : "stopped"} simulator`);
+    simulator.state.is_reset_requested = true;
+    /* need to stop it, otherwise the engine will not notice */
+    simulator.state.is_running = false;
+
+    const result = {status: "ok"};
+    serve_success(res, result);
+}
+
+function serve_status(req, res)
+{
+    /* log.log(log.DEBUG, null, "Main", `status requested`); */
+    /* make_test_status(); */
+    const result = simulator.get_status();
+    serve_success(res, result);
+}
+
+function serve_results(req, res)
+{
+    let result;
+
+    log.log(log.INFO, null, "Main", "results requested");
+    /* export the stats and return them */
+    if (simulator.state.network) {
+        result = simulator.state.network.aggregate_stats();
+    } else {
+        /* not created yet, nothing to do */
+        result = {};
+    }
+
+    serve_success(res, result);
+}
+
+function serve_config(req, res, body)
+{
+    log.log(log.INFO, null, "Main", "new config received");
+
+    /* reinitialize the main config with the initial values */
+    for (let key in initial_config) {
+        config[key] = initial_config[key];
+    }
+
+    /* override the initial values with the ones supplied by the user */
+    const web_config = body;
+    for (let key in web_config) {
+        config[key] = web_config[key];
+    }
+
+    /* we must be running the web interface */
+    config.WEB_ENABLED = true;
+
+    /* stop and reset the simulation, if any */
+    simulator.state.is_running = false;
+    simulator.state.is_reset_requested = true;
+
+    const result = {status: "ok"};
+    serve_success(res, result);
+}
+
+function serve_positions(req, res, body)
+{
+    log.log(log.DEBUG, null, "Main", "new node positions received");
+    const node_positions = body;
+    simulator.update_node_positions(node_positions);
+
+    const result = {status: "ok"};
+    serve_success(res, result);
+}
+
+function get_mime_type(filename)
+{
+    let result = "text/plain";
+    const ext = path.extname(filename).toLowerCase();
+    if (ext in MIME_TYPE) {
+        result = MIME_TYPE[ext];
+    } else {
+        log.log(log.WARNING, null, "Main", `web: requested a file with unknown extension "${ext}"`);
+        result = "text/plain";
+    }
+    return result;
+}
+
+function serve_file(req, res, q)
+{
+    let pathname = q.pathname;
+    if (pathname == null || pathname === "" || pathname === "/") {
+        pathname = "index.html";
+    }
+
+    const web_directory = path.join(dirnames.self_dir, "..", "web");
+    const filename = path.join(web_directory, pathname);
+
+    /* trying to sneak out of the web directory? */
+    if (filename.indexOf(web_directory) !== 0) {
+        log.log(log.ERROR, null, "Main", `web: attempted to get a file outside the web directory: "${filename}"`);
+        serve_error(req, res, 404, JSON.stringify(err));
+        return;
+    }
+
+    const ext = path.extname(filename).toLowerCase();
+
+    /* copy the default headers, but update the mime type */
+    const updated_headers = {};
+    for (let key in HEADERS) {
+        updated_headers[key] = HEADERS[key];
+    }
+    updated_headers['Content-Type'] = get_mime_type(filename);
+    const mime = updated_headers['Content-Type'];
+
+    fs.readFile(filename, function (err, data) {
+        if (err) {
+            /* 404 Not Found */
+            log.log(log.ERROR, null, "Main", `web: file not found: "${filename}"`);
+            serve_error(req, res, 404, JSON.stringify(err));
+            return;
+        }
+        /* 200 OK */
+        res.writeHead(200, updated_headers);
+        res.end(data);
+    });
+}
+
+function serve_get(req, res)
+{
+    const q = url.parse(req.url, true);
+
+    if (q.pathname === "/cmdrun.json") {
+        serve_run(req, res);
+    } else if (q.pathname === "/cmdpause.json") {
+        serve_pause(req, res);
+    } else if (q.pathname === "/cmdreset.json") {
+        serve_reset(req, res);
+    } else if (q.pathname === "/status.json") {
+        serve_status(req, res);
+    } else if (q.pathname === "/results.json") {
+        serve_results(req, res);
+    } else {
+        /* by default, attempt to find a file with the right name */
+        serve_file(req, res, q);
+    }
+}
+
+function serve_post(req, res)
+{
+    const q = url.parse(req.url, true);
+
+    if (q.pathname !== "/config.json" && q.pathname !== "/positions.json") {
+        log.log(log.ERROR, null, "Main", `web: URL not found or POST not supported, URL="${q.pathname}"`);
+        serve_error(req, res, 404, JSON.stringify({error: "Not Found"}));
+        return;
+    }
+
+    let body = "";
+    req.on('data', function (data) {
+        body += data;
+
+        /* If too much POST data (>1GB), kill the connection */
+        if (body.length > 1e9) {
+            req.connection.destroy();
+        }
+    });
+
+    req.on('end', function () {
+        /* If too much POST data (>1GB), don't attempt to process it */
+        if (body.length > 1e9) {
+            /* 413 Payload Too Large */
+            log.log(log.ERROR, null, "Main", `web: POST payload too large`);
+            serve_error(req, res, 413, JSON.stringify({error: "Too Large"}));
+            return;
+        }
+
+        let json_body;
+        try {
+            json_body = JSON.parse(body);
+        } catch (x) {
+            /* 400 Bad Request */
+            log.log(log.ERROR, null, "Main", `web: parsing JSON failed, URL="${q.pathname}"`);
+            serve_error(req, res, 400, JSON.stringify({error: "Parsing JSON failed"}));
+            return;
+        }
+
+        /* received and parsed successfully, call the functions */
+        if (q.pathname === "/config.json") {
+            serve_config(req, res, json_body);
+        } else if (q.pathname === "/positions.json") {
+            serve_positions(req, res, json_body);
+        }
+    });
+}
+
+function serve_success(res, response)
+{
+    /* 200 OK */
+    res.writeHead(200, HEADERS);
+    res.write(JSON.stringify(response));
+    res.end();
+}
+
+function serve_error(req, res, code, message)
+{
+    res.writeHead(code, HEADERS);
+    res.write(message);
+    res.end();
+}
+
 function start()
 {
-    let app = Express();
-
     /* make a copy of the config at the point of start */
     initial_config = JSON.parse(JSON.stringify(config));
 
-    app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        next();
-    });
-
-    app.use(BodyParser.urlencoded({ extended: false }));
-    app.use(BodyParser.json());
-
-    app.get('/cmdrun.json', (req, res, next) => {
-        log.log(log.INFO, null, "Main", "run requested");
-
-        let speed = constants.RUN_UNLIMITED;
-        try {
-            if (req.query.speed) {
-                speed = parseInt(req.query.speed);
-            }
-        } catch (x) {
-            log.log(log.WARNING, null, "Main", `ignoring invalid speed limit argument ${req.query.speed}`);
-        }
-        if (speed < constants.RUN_UNLIMITED || speed > constants.RUN_STEP_SINGLE) {
-            log.log(log.WARNING, null, "Main", `unknown speed limit ${speed}, using unlimited speed`);
-            speed = constants.RUN_UNLIMITED;
-        }
-
-        if (!simulator.state.is_running) {
-            log.log(log.DEBUG, null, "Main", "run: reply ok");
-            res.json({status: "ok"});
-            /* if the simulation has already finished, reset it first */
-            if (simulator.has_simulation_ended()) {
-                simulator.state.is_reset_requested = true;
-            }
-            /* start the simulator */
-            simulator.state.simulation_speed = speed;
-            simulator.state.is_running = true;
+    http.createServer(function (req, res) {
+        if (req.method === "GET") {
+            serve_get(req, res);
+        } else if (req.method === "POST") {
+            serve_post(req, res);
         } else {
-            log.log(log.INFO, null, "Main", "run: already running");
-            res.json({status: "already running"});
-            if (simulator.state.simulation_speed !== speed) {
-                /* reconfigure the speed */
-                simulator.state.simulation_speed = speed;
-                simulator.state.is_interrupt_requested = true;
-                log.log(log.INFO, null, "Main", "set the new speed");
-            }
+            /* 405 Method Not Allowed */
+            log.log(log.ERROR, null, "Main", `web: unknown method ${req.method}`);
+            serve_error(req, res, 405, "Unknown method");
         }
-    })
-
-    app.get('/cmdpause.json', (req, res, next) => {
-        log.log(log.INFO, null, "Main", "pause requested");
-        if (simulator.state.is_running) {
-            res.json({status: "ok"});
-        } else {
-            log.log(log.INFO, null, "Main", "pause: not running");
-            res.json({status: "not running"});
-        }
-        simulator.state.is_running = false;
-    })
-
-    app.get('/cmdreset.json', (req, res, next) => {
-        log.log(log.INFO, null, "Main", `reset requested on ${simulator.state.is_running ? "running" : "stopped"} simulator`);
-        simulator.state.is_reset_requested = true;
-        /* need to stop it, otherwise the engine will not notice */
-        simulator.state.is_running = false;
-        res.json({status: "ok"});
-    })
-
-    app.get('/status.json', (req, res, next) => {
-        /* log.log(log.DEBUG, null, "Main", `status requested`); */
-        /* make_test_status(); */
-        res.json(simulator.get_status());
-    })
-
-    app.get('/results.json', (req, res, next) => {
-        log.log(log.INFO, null, "Main", "results requested");
-        /* export the stats and return them */
-        if (simulator.state.network) {
-            res.json(simulator.state.network.aggregate_stats());
-        } else {
-            /* not created yet, nothing to do */
-            res.json({});
-        }
-    })
-
-    app.post('/config.json', (req, res, next) => {
-        log.log(log.INFO, null, "Main", "new config received");
-
-        const web_config = req.body;
-
-        /* reinitialize the main config with the initial values */
-        for (let key in initial_config) {
-            config[key] = initial_config[key];
-        }
-
-        /* override the initial values with the ones supplied by the user */
-        for (let key in web_config) {
-            config[key] = web_config[key];
-        }
-
-        /* we must be running the web interface */
-        config.WEB_ENABLED = true;
-
-        /* stop and reset the simulation, if any */
-        simulator.state.is_running = false;
-        simulator.state.is_reset_requested = true;
-
-        res.json({status: "ok"});
-    });
-
-    app.post('/positions.json', (req, res, next) => {
-        log.log(log.DEBUG, null, "Main", "new node positions received");
-        const node_positions = req.body;
-        simulator.update_node_positions(node_positions);
-        res.json({status: "ok"});
-    });
-
-    /* static files */
-    app.use('/', Express.static('web'))
-
-    /* icon */
-    app.use('/favicon.ico', Express.static('web/images/favicon.ico'));
-
-    app.listen(config.WEB_PORT);
+    }).listen(config.WEB_PORT);
 }
 
 /*---------------------------------------------------------------------------*/
