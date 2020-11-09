@@ -59,11 +59,11 @@ TSCH-Sim is a TSCH simulator written in modern, modular JavaScript. It supports 
 
 ## Installation
 
-The simulator relies on Node.js, minimal version 8. It uses the Express web framework. The simulator backend has been tested in Ubuntu Linux 20.04, Microsoft Windows 10, and Apple macOS 10.13.
+The simulator requires that Node.js is installed in the system. The minimal version supported Node.js version is 8.
 
-To install dependencies (required for the web interface):
+The source code is self-contained, no NPM packages are required to run TSCH-Sim.
 
-    $ npm install express body-parser
+The simulator backend has been tested on Ubuntu Linux 20.04, Microsoft Windows 10, and Apple macOS 10.13.
 
 To use the optional web interface, a modern web browser is required.
 
