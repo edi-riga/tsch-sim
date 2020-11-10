@@ -35,7 +35,6 @@
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
-import constants from './constants.mjs';
 import config from './config.mjs';
 import * as log from './log.mjs';
 import { get_node_distance } from './utils.mjs';
@@ -273,7 +272,7 @@ export default function generate_network(num_nodes)
         let old_random_seed;
         if (config.POSITIONING_RANDOM_SEED != null) {
             /* save the current state of the RNG */
-            old_random_seed = rng.randint(0, 1000000)
+            old_random_seed = rng.randint(0, 1000000);
             rng.seed(config.POSITIONING_RANDOM_SEED);
         }
         result = generate_mesh(num_nodes, num_degrees);
