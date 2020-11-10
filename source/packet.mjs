@@ -34,7 +34,6 @@
  */
 
 import constants from './constants.mjs';
-import * as log from './log.mjs';
 import * as time from './time.mjs';
 import { id_to_addr } from './utils.mjs';
 
@@ -78,7 +77,7 @@ export class Packet {
         } else {
             this.nexthop_id = source.routes.get_nexthop(destination_id); /* link-layer: destination */
         }
-        if (this.nexthop_id === null) {
+        if (this.nexthop_id == null) {
             /* nexthop not found */
             this.nexthop_addr = null;
         } else if (this.nexthop_id === constants.BROADCAST_ID) {
