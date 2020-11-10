@@ -1,6 +1,7 @@
 # TSCH-Sim — a fast TSCH simulator
 
 ![CI](https://github.com/edi-riga/tsch-sim/workflows/CI/badge.svg)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/edi-riga/tsch-sim.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/edi-riga/tsch-sim/context:javascript)
 
 TSCH-Sim is a TSCH simulator written in modern, modular JavaScript. It supports cross-platform execution using Node.js. Compared with existing alternatives such the OpenWSN 6TiSCH simulator and Cooja, TSCH-Sim has a much better performance, allowing to simulate networks with many thousands of nodes in real time. The simulator allows to use multiple radio propagation models, including models that have been theoretically or experimentally validated. It also includes support for mobile nodes.
 
