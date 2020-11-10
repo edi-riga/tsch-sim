@@ -33,8 +33,6 @@
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
-import constants from './constants.mjs';
-import config from './config.mjs';
 import * as utils from './utils.mjs';
 import * as log from './log.mjs';
 import { heap_insert, heap_extract_min, heap_remove_at } from './heap.mjs';

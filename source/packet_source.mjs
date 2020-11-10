@@ -33,7 +33,6 @@
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
-import constants from './constants.mjs';
 import config from './config.mjs';
 import * as pkt from './packet.mjs';
 import * as log from './log.mjs';

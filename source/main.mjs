@@ -38,7 +38,6 @@ import * as simulator from "./simulator.mjs";
 import dirnames from "./dirnames.mjs";
 import web from "./web.mjs";
 import * as log from "./log.mjs";
-import * as utils from "./utils.mjs";
 
 import fs from 'fs';
 import path from 'path';
@@ -77,7 +76,7 @@ function main()
         }
     }
 
-    if (config.LOG_FILE === null) {
+    if (config.LOG_FILE == null) {
         if (config.SAVE_RESULTS) {
             /* make sure there is a log file */
             if (is_child) {
@@ -85,7 +84,7 @@ function main()
             } else {
                 config.LOG_FILE = path.join(dirnames.results_dir, "log.txt");
             }
-            console.log("log file=" + config.LOG_FILE)
+            console.log("log file=" + config.LOG_FILE);
         }
     } else {
         /* log file specified; write it even if SAVE_RESULT is false */
@@ -96,9 +95,9 @@ function main()
     }
 
     /* clean the log file */
-    if (config.LOG_FILE !== null) {
+    if (config.LOG_FILE != null) {
         try {
-            console.log("removing log file=" + config.LOG_FILE)
+            console.log("removing log file=" + config.LOG_FILE);
             fs.unlinkSync(config.LOG_FILE);
         } catch (err) {
             /* Ignore "No such file errors" */
@@ -136,7 +135,7 @@ function main()
     for (let i = 1; i < config.SIMULATION_NUM_RUNS; ++i) {
         /* if multiple runs specified, run N times and save the logs and stats in N separate files */
         const name = path.join(dirnames.self_dir, "main.mjs");
-        const args = [config.CONFIG_FILE, i, dirnames.results_dir]
+        const args = [config.CONFIG_FILE, i, dirnames.results_dir];
         log.log(log.INFO, null, "Main", `starting child process ${i}`);
         const child = fork(name, args);
 

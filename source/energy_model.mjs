@@ -38,8 +38,6 @@
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
-import constants from "./constants.mjs";
-import config from "./config.mjs";
 import * as time from './time.mjs';
 
 /* Regresssion obtained by RocketLogger measurements on a CC2650 node (the SPES-2) */
@@ -59,7 +57,7 @@ const CURRENTS_MA = {
     lpm: 1.335,
     deep_lpm: 0.016,
     rx: 7.0
-}
+};
 
 /* XXX: hardcoded slot timing */
 const TSCH_SLOT_SIZE_USEC   = 10000;
