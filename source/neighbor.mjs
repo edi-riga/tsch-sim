@@ -141,7 +141,7 @@ export class Neighbor {
         this.last_rx_sec = time.timeline.seconds;
         this.num_rx++;
 
-        if (this.etx == null) {
+        if (this.etx === null) {
             this.init_etx();
         }
     }
@@ -171,7 +171,7 @@ export class Neighbor {
     }
 
     update_etx(num_tx, is_success, cell) {
-        if (this.etx == null) {
+        if (this.etx === null) {
             this.init_etx();
         }
 

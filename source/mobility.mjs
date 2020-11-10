@@ -51,7 +51,7 @@ export class MobilityModel {
         if (this.current_period_num !== period_num) {
             log.log(log.DEBUG, null, "Mobility", "update positions");
             this.current_period_num = period_num;
-            for (const [_, node] of this.network.nodes) {
+            for (const [id, node] of this.network.nodes) {
                 if (node.config.MOBILITY_MODEL === "Line") {
                     this.update_position_line(node, time.timeline.seconds);
                 } else if (node.config.MOBILITY_MODEL === "RandomWaypoint") {
@@ -91,7 +91,7 @@ export class MobilityModel {
         /* update the next waypoint */
         node.wp_next_x = rng.random() * node.config.MOBILITY_RANGE_X;
         node.wp_next_y = rng.random() * node.config.MOBILITY_RANGE_Y;
-        let d = get_distance(node.wp_last_x, node.wp_last_y, node.wp_next_x, node.wp_next_y);
+        const d = get_distance(node.wp_last_x, node.wp_last_y, node.wp_next_x, node.wp_next_y);
         if (d <= 0) {
             /* Do not allow the distance to be zero */
             d = 0.01;

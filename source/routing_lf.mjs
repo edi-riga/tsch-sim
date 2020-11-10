@@ -33,7 +33,9 @@
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
+import constants from './constants.mjs';
 import config from './config.mjs';
+import * as log from './log.mjs';
 
 /* Initialize the protocol configuration */
 export function initialize(network)
@@ -74,7 +76,7 @@ export class LeafAndForwarderRouting
     }
 
     on_new_time_source(old_time_source, new_time_source) {
-        if (new_time_source == null) {
+        if (new_time_source === null) {
             this.node.routes.remove_default_route();
         } else {
             this.node.routes.add_default_route(new_time_source.id);

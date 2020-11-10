@@ -51,7 +51,8 @@ import { assert, round_to_ms } from './utils.mjs';
 
 /********** Constants **********/
 
-/* Special value indicating infinite rank. */
+/* Special value indicating infinite lifetime. */
+const RPL_INFINITE_LIFETIME       = 0xFF;
 const RPL_INFINITE_RANK           = 0xFFFF;
 
 const RPL_CODE_DIS                = 0x00; /* DAG Information Solicitation */
@@ -84,6 +85,7 @@ const OF0_RANK_STRETCH = 0; /* Must be in the range [0;5] */
 const OF0_RANK_FACTOR = 1; /* Must be in the range [1;4] */
 
 /* Constants defined in RFC 8180 */
+const OF0_UPPER_LIMIT_OF_ACCEPTABLE_ETX = 3;
 const OF0_MIN_STEP_OF_RANK = 1;
 const OF0_MAX_STEP_OF_RANK = 9;
 
@@ -425,8 +427,8 @@ export class RPL
     }
 
     on_new_time_source(old_time_source, new_time_source) {
-        if (new_time_source != null) {
-            assert(this.preferred_parent == null
+        if (new_time_source !== null) {
+            assert(this.preferred_parent === null
                    || this.preferred_parent.neighbor === new_time_source,
                    `preferred parent mismatch: ${this.preferred_parent ? this.preferred_parent.neighbor : null} vs ${new_time_source}`);
         }
@@ -663,7 +665,7 @@ export class RPL
     process_dio_from_current_dag(from_id, dio) {
 
         /* Does the rank make sense at all? */
-        if (dio.payload.rank < ROOT_RANK()) {
+        if (dio.payload.rank < ROOT_RANK) {
             mlog(log.WARNING, this.node, `bogus DIO rank ${dio.payload.rank}`);
             return;
         }
@@ -672,7 +674,7 @@ export class RPL
          * further. The sender will eventually hear the global repair and catch up. */
         if (rpl_lollipop_greater_than(this.version, dio.payload.version)) {
             mlog(log.WARNING, this.node, `got old DIO, version ${dio.payload.version}, my version ${this.version}`);
-            if (dio.payload.rank === ROOT_RANK()) {
+            if (dio.payload.rank === ROOT_RANK) {
                 /* Before returning, if the DIO was from the root, an old DAG versions
                  * likely incidates a root reboot. Reset our DIO timer to make sure the
                  * root hears our version ASAP, and in turn triggers a global repair. */
@@ -692,7 +694,7 @@ export class RPL
          * Must come first, as it might remove all neighbors, and we then need
          * to re-add this source of the DIO to the neighbor table */
         if (rpl_lollipop_greater_than(dio.payload.version, this.version)) {
-            if (this.rank === ROOT_RANK()) {
+            if (this.rank === ROOT_RANK) {
                 /* The root should not hear newer versions unless it just rebooted */
                 mlog(log.ERROR, this.node, `inconsistent DIO version (current: ${this.version}, received: ${dio.payload.version}), initiate global repair`);
                 /* Update version and trigger global repair */
@@ -916,7 +918,7 @@ export class RPL
 
             this.preferred_parent = nbr;
             this.unprocessed_parent_switch = true;
-            if (nbr != null && this.stats_join_time_sec == null) {
+            if (nbr !== null && this.stats_join_time_sec === null) {
                 /* joined for the first time */
                 this.stats_join_time_sec = round_to_ms(time.timeline.seconds);
             }

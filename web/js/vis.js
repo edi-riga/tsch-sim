@@ -344,6 +344,7 @@ TSCH_SIM.vis = function() {
 
     function calculate_text_start(str) {
         let tw = calculate_text_width(str);
+        let w = node_width;
         return Math.floor(-tw / 2);
     }
 
@@ -392,7 +393,7 @@ TSCH_SIM.vis = function() {
         .attr("markerUnits", "strokeWidth")
         .append("path")
         .attr("d", "M0,0 L0,6 L9,3 z")
-        .attr("fill", "#00f");
+        .attr("fill", "#00f")
 
     /* arrow */
     defs.append("marker")
@@ -405,7 +406,7 @@ TSCH_SIM.vis = function() {
         .attr("markerUnits", "strokeWidth")
         .append("path")
         .attr("d", "M0,0 L0,6 L9,3 z")
-        .attr("fill", "#f00");
+        .attr("fill", "#f00")
 
     vis.attr("transform","scale("+zoom_factor+")");
 
@@ -455,7 +456,7 @@ TSCH_SIM.vis = function() {
         /* do not allow it to become zero or negative */
         workspace_height = Math.max(workspace_height, 10);
 
-        console.log("set workspace height=", workspace_height);
+        console.log("set ws height=", workspace_height)
         $('.grid-container').css("grid-template-rows", rows);
         $(".workspace").css("height", workspace_height + "px");
 
@@ -469,14 +470,14 @@ TSCH_SIM.vis = function() {
         }
     }
 
-    /* function get_transmission(source, dest) {
+    function get_transmission(source, dest) {
         for (let i = 0; i < transmission.length; ++i) {
             if (transmission[i].source === source && transmission[i].dest === dest) {
                 return i;
             }
         }
         return null;
-    } */
+    }
 
     function create_transmission(source, dest, ok) {
         const xvec = dest.x - source.x;
@@ -547,13 +548,17 @@ TSCH_SIM.vis = function() {
                         if (node.id === transmission.from) continue;
                         const dest = node_map[node.id];
                         const lnk = create_transmission(source, dest);
-                        transmission.push(lnk);
+                        if (lnk != null) {
+                            transmission.push(lnk);
+                        }
                     }*/
                 } else {
                     /* unicast */
                     const dest = node_map[transmission.to];
                     const lnk = create_transmission(source, dest, transmission.ok);
-                    transmissions.push(lnk);
+                    if (lnk != null) {
+                        transmissions.push(lnk);
+                    }
                 }
             }
         }

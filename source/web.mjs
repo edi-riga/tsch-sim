@@ -74,7 +74,7 @@ function make_test_status()
     /* add some nodes */
     status.network.nodes = [];
     for (let j = 0; j < NUM_NODES; j++) {
-        status.network.nodes.push({x: 0, y: 0, id: j + 1});
+        status.network.nodes.push({x: 0, y: 0, id: j + 1})
     }
 
     /* add some cells */
@@ -102,7 +102,7 @@ function make_test_status()
             s[j].ch = 26;
         }
 
-        status.schedule.push({ asn: asn, seconds: 12.34 + i / 100.0, cells: s });
+        status.schedule.push({ asn: i, seconds: 12.34 + i / 100.0, cells: s });
     }
 
 
@@ -246,8 +246,7 @@ function serve_positions(req, res, body)
 
 function get_mime_type(filename)
 {
-    let result;
-
+    let result = "text/plain";
     const ext = path.extname(filename).toLowerCase();
     if (ext in MIME_TYPE) {
         result = MIME_TYPE[ext];
@@ -255,7 +254,6 @@ function get_mime_type(filename)
         log.log(log.WARNING, null, "Main", `web: requested a file with unknown extension "${ext}"`);
         result = "text/plain";
     }
-
     return result;
 }
 
@@ -276,12 +274,15 @@ function serve_file(req, res, q)
         return;
     }
 
+    const ext = path.extname(filename).toLowerCase();
+
     /* copy the default headers, but update the mime type */
     const updated_headers = {};
     for (let key in HEADERS) {
         updated_headers[key] = HEADERS[key];
     }
     updated_headers['Content-Type'] = get_mime_type(filename);
+    const mime = updated_headers['Content-Type'];
 
     fs.readFile(filename, function (err, data) {
         if (err) {

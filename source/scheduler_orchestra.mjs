@@ -204,7 +204,7 @@ function ns_select_packet(node, packet)
 
     /* mlog(log.DEBUG, node, `ns_select_packet, type=${packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE}, dest_addr=${dest_addr}`) */
 
-    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr != null) {
+    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr !== null) {
         return { is_selected: true,
                  slotframe: node.sf_unicast.handle,
                  timeslot: unicast_get_node_timeslot(dest_addr),
@@ -253,7 +253,7 @@ const orchestra_rule_unicast_per_neighbor_rpl_ns = {
 
 function storing_neighbor_has_uc_cell(node, linkaddr)
 {
-    if (linkaddr != null) {
+    if (linkaddr !== null) {
         /* does the address belong to the parent? */
         if ((node.orchestra_parent_knows_us || !config.ORCHESTRA_UNICAST_SENDER_BASED)
             && addr_equal(node.orchestra_parent_linkaddr, linkaddr)) {
@@ -273,7 +273,7 @@ function storing_select_packet(node, packet)
 {
     const dest_addr = packet.nexthop_addr;
 
-    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr != null) {
+    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr !== null) {
 
         if (storing_neighbor_has_uc_cell(node, dest_addr)) {
 
@@ -294,7 +294,7 @@ function storing_select_packet(node, packet)
 
 function add_uc_cell(node, addr)
 {
-    if (addr == null) {
+    if (addr === null) {
         return;
     }
 
@@ -327,7 +327,7 @@ function add_uc_cell(node, addr)
 
 function remove_uc_cell(node, addr)
 {
-    if (addr == null) {
+    if (addr === null) {
         return;
     }
 
@@ -436,7 +436,7 @@ const orchestra_rule_unicast_per_neighbor_rpl_storing = {
 
 function link_based_neighbor_has_uc_cell(node, linkaddr)
 {
-    if (linkaddr != null) {
+    if (linkaddr !== null) {
         /* does the address belong to the parent? */
         if ((node.orchestra_parent_knows_us)
             && addr_equal(node.orchestra_parent_linkaddr, linkaddr)) {
@@ -456,7 +456,7 @@ function link_based_select_packet(node, packet)
 {
     const dest_addr = packet.nexthop_addr;
 
-    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr != null) {
+    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr !== null) {
 
         if (link_based_neighbor_has_uc_cell(node, dest_addr)) {
 
@@ -618,7 +618,7 @@ export function on_tx(node, packet, status_ok)
         mlog(log.INFO, node, `parent acked a DAO`);
 
         /* yes! */
-        if (node.orchestra_parent_linkaddr != null
+        if (node.orchestra_parent_linkaddr !== null
             && addr_equal(packet.nexthop_addr, node.orchestra_parent_linkaddr)) {
             node.orchestra_parent_knows_us = true;
         }
@@ -640,7 +640,7 @@ export function on_packet_ready(node, packet)
     /* Loop over all rules until finding one able to handle the packet */
     for (let i = 0; i < node.orchestra_rules.length; i++) {
         const rule = node.orchestra_rules[i];
-        if (rule.select_packet != null) {
+        if (rule.select_packet !== null) {
             const obj = rule.select_packet(node, packet);
             if (obj.is_selected) {
                 slotframe_handle = obj.slotframe;
@@ -653,7 +653,7 @@ export function on_packet_ready(node, packet)
         }
     }
 
-    mlog(log.DEBUG, node, `selected slotframe=${slotframe_handle} timeslot=${timeslot} choffset=${channel_offset}`);
+    mlog(log.DEBUG, node, `selected slotframe=${slotframe_handle} timeslot=${timeslot} choffset=${channel_offset}`)
 
     packet.packetbuf.PACKETBUF_ATTR_TSCH_SLOTFRAME = slotframe_handle;
     packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT = timeslot;
@@ -689,7 +689,7 @@ const all_rules = {
 /* Initialize a specific node: function required by the scheduling module API */
 export function node_init(node)
 {
-    mlog(log.INFO, node, `*** initializing`);
+    mlog(log.INFO, node, `*** initializing`)
 
     /* The current RPL preferred parent's link-layer address */
     node.orchestra_parent_linkaddr = null;
@@ -708,7 +708,7 @@ export function node_init(node)
     for (let i = 0; i < node.orchestra_rules.length; i++) {
         const rule = node.orchestra_rules[i];
         mlog(log.INFO, node, `initializing rule ${rule.name} (handle=${i} slotframe_size=${rule.get_sf_size()})`);
-        if (rule.init != null) {
+        if (rule.init !== null) {
             rule.init(node, i);
         }
     }

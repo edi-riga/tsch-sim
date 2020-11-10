@@ -328,6 +328,7 @@ export class PisterHackLink extends Link {
         const MIN_RSSI = -97;
         const MAX_RSSI = -79;
 
+        let is_success;
         if (this.last_rssi <= MIN_RSSI) {
             return 0.0;
         }
@@ -375,7 +376,7 @@ class TraceManager {
             try {
                 const ts = Date.parse(fields[0]);
                 let relative_time;
-                if (start_ts == null) {
+                if (start_ts === null) {
                     start_ts = ts;
                     relative_time = 0;
                 } else {
@@ -387,7 +388,7 @@ class TraceManager {
                 const channel = parseInt(fields[3]);
                 const rssi = parseFloat(fields[4]);
                 const quality = parseFloat(fields[5]);
-                this.events.push({ts: relative_time, from_id, to_id, channel, rssi, quality});
+                this.events.push({ts: relative_time, from_id, to_id, channel, rssi, quality})
             } catch(x) {
                 mlog(log.ERROR, `got an exception while parsing trace file: "${x}" in line="${line}"`);
                 continue;

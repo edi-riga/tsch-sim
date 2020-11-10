@@ -39,7 +39,7 @@ import * as scheduler_orchestra from './scheduler_orchestra.mjs';
 import * as scheduler_6tisch_min from './scheduler_6tisch_min.mjs';
 import * as scheduler_lf from './scheduler_lf.mjs';
 import * as pkt from './packet.mjs';
-import { dbm_to_mw, mw_to_dbm, assert, id_to_addr, get_hopseq,
+import { dbm_to_mw, mw_to_dbm, assert, addr_to_id, id_to_addr, get_hopseq,
          div_safe, round_to_ms } from './utils.mjs';
 import { rng } from './random.mjs';
 import * as log from './log.mjs';
@@ -76,7 +76,7 @@ const NUM_RECENT_LINK_LAYER_SEQNUMS = 16;
 export class Node {
     constructor(id, index, type_config, network) {
         this.id = id;
-        this.sid = `${this.id}`;
+        this.sid = `${this.id}`
         if (this.id < 10) {
             this.sid += ' ';
         }
@@ -231,7 +231,7 @@ export class Node {
             this.has_joined = this.is_coordinator;
         }
         if (this.has_joined) {
-            if (this.stats_tsch_join_time_sec == null) {
+            if (this.stats_tsch_join_time_sec === null) {
                 this.stats_tsch_join_time_sec = round_to_ms(time.timeline.seconds);
             }
         }
@@ -293,7 +293,7 @@ export class Node {
     start_coordinator() {
         this.has_joined = true;
         this.cancel_syncing();
-        if (this.stats_tsch_join_time_sec == null) {
+        if (this.stats_tsch_join_time_sec === null) {
             this.stats_tsch_join_time_sec = round_to_ms(time.timeline.seconds);
         }
         this.set_eb_period(this.config.MAC_EB_PERIOD_S);
@@ -459,7 +459,7 @@ export class Node {
     }
 
     reset_link_stats() {
-        for (const [_, neighbor] of this.neighbors) {
+        for (const [id, neighbor] of this.neighbors) {
             neighbor.reset_neighbor();
         }
     }
@@ -546,7 +546,7 @@ export class Node {
         for (const [id, neighbor] of this.neighbors) {
             if (neighbor.backoff_window !== 0 /* Is the queue in backoff state? */
                && ((neighbor.tx_cells_count === 0 && is_broadcast)
-                   || (neighbor.tx_cells_count > 0 && cell.neighbor_id === id))) {
+                   || (neighbor.tx_cells_count > 0 && cell.neighbor_id === neighbor.id))) {
                 neighbor.backoff_window--;
             }
         }
@@ -564,7 +564,7 @@ export class Node {
 
     /* Flush all neighbor queues */
     queue_reset() {
-        for (const [_, neighbor] of this.neighbors) {
+        for (const [id, neighbor] of this.neighbors) {
             /* Flush queue */
             this.queue_flush_nbr_queue(neighbor);
             /* Reset backoff exponent */
@@ -670,7 +670,7 @@ export class Node {
 
     /* Add a network-layer packet to the node */
     add_packet(packet) {
-        if (packet.nexthop_id == null) {
+        if (packet.nexthop_id === null) {
             if (packet.packet_protocol === constants.PROTO_APP) {
                 log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id}: no route`);
                 packet.source.stats_app_num_routing_drops += 1;
@@ -964,7 +964,7 @@ export class Node {
         log.log(log.INFO, this, "TSCH", `joined/associated at ${round_to_ms(sec)} on receiving an EB packet from ${eb.lasthop_id}`);
         this.join_priority = join_priority;
         this.has_joined = true;
-        if (this.stats_tsch_join_time_sec == null) {
+        if (this.stats_tsch_join_time_sec === null) {
             this.stats_tsch_join_time_sec = round_to_ms(time.timeline.seconds);
         }
         this.update_time_source(source);
@@ -1057,7 +1057,7 @@ export class Node {
         new_packet.destination_id = packet.source.id;
         new_packet.is_query = false;
         new_packet.nexthop_id = this.routes.get_nexthop(packet.source.id);
-        if (new_packet.nexthop_id === constants.BROADCAST_ID || new_packet.nexthop_id == null) {
+        if (new_packet.nexthop_id === constants.BROADCAST_ID || new_packet.nexthop_id === null) {
             new_packet.nexthop_addr = null;
         } else {
             new_packet.nexthop_addr = id_to_addr(new_packet.nexthop_id);
@@ -1083,7 +1083,7 @@ export class Node {
         new_packet.lasthop_id = this.id;
         new_packet.lasthop_addr = this.addr;
         new_packet.nexthop_id = this.routes.get_nexthop(packet.destination_id);
-        if (new_packet.nexthop_id === constants.BROADCAST_ID || new_packet.nexthop_id == null) {
+        if (new_packet.nexthop_id === constants.BROADCAST_ID || new_packet.nexthop_id === null) {
             new_packet.nexthop_addr = null;
         } else {
             new_packet.nexthop_addr = id_to_addr(new_packet.nexthop_id);
@@ -1141,7 +1141,7 @@ export class Node {
             || cell.type === constants.CELL_TYPE_ADVERTISING_ONLY) {
             /* fetch EB packets */
             const packet = this.queue_get_packet_for_nbr(constants.EB_ID, cell);
-            if (packet != null) {
+            if (packet !== null) {
                 const channel = this.get_channel(cell.channel_offset);
                 log.log(log.DEBUG, this, "TSCH", `will tx an EB packet on channel ${channel}`);
                 return packet;
@@ -1153,7 +1153,7 @@ export class Node {
 
         /* select a packet explicitly for the cell's destination */
         const packet = this.queue_get_packet_for_nbr(cell.neighbor_id, cell);
-        if (packet != null) {
+        if (packet !== null) {
             if (cell.neighbor_id === constants.BROADCAST_ID) {
                 log.log(log.DEBUG, this, "TSCH", `tx a broadcast packet`);
             } else {
@@ -1164,14 +1164,14 @@ export class Node {
 
         if (cell.neighbor_id === constants.BROADCAST_ID) {
             /* broadcast cell; select any unicast packet that matches the packet filter */
-            for (const [id, neighbor] of this.neighbors) {
+            for (const [_, neighbor] of this.neighbors) {
                 if (neighbor.is_broadcast || neighbor.tx_cells_count > 0) {
                     /* either a broadcast neighbor or has cells on its own; ignore this neighbor */
                     continue;
                 }
-                const packet = this.queue_get_packet_for_nbr(id, cell);
-                if (packet != null) {
-                    log.log(log.DEBUG, this, "TSCH", `tx a packet to=${packet.nexthop_id} for=${packet.destination_id}, nbr=${id}`);
+                const packet = this.queue_get_packet_for_nbr(neighbor.id, cell);
+                if (packet !== null) {
+                    log.log(log.DEBUG, this, "TSCH", `tx a packet to=${packet.nexthop_id} for=${packet.destination_id}, nbr=${neighbor.id}`);
                     return packet;
                 }
             }
@@ -1271,6 +1271,7 @@ export class Node {
             this.timeslots_to_skip = best_time_to_timeslot;
         }
 
+        let packet;
         if (best_cell) {
             /* log.log(log.DEBUG, this, "TSCH", `got best cell, options=${best_cell.options}, slotframe=${best_cell.slotframe.handle}`); */
             this.tx_packet = this.get_packet_for_tx_cell(best_cell, backup_cell);
@@ -1356,7 +1357,7 @@ export class Node {
 
         this.log(log.DEBUG, `tx length=${this.tx_packet.length} to=${this.tx_packet.nexthop_id} ack_required=${this.tx_packet.is_ack_required}`);
         /* try to send to each potential neigbhbor; the neighbors will filter out packets by the nexthop */
-        for (const [dst_id, _] of this.links) {
+        for (const [dst_id, link] of this.links) {
             const dst = this.network.get_node(dst_id);
 
             /* if the tx is unicast to the parent, update parent stats */
@@ -1375,13 +1376,13 @@ export class Node {
                 continue;
             }
 
-            if (dst.selected_cell == null) {
+            if (dst.selected_cell === null) {
                 /* The dst node is idle at this point */
                 /* this.log(log.DEBUG, `  commit_tx ${dst.id}: dst not listening`); */
                 continue;
             }
 
-            if (dst.tx_packet != null) {
+            if (dst.tx_packet !== null) {
                 /* The dst node is transmitting its own packet */
                 /* this.log(log.DEBUG, `  commit_tx ${dst.id}: dst is transmitting`); */
                 continue;
@@ -1479,12 +1480,12 @@ export class Node {
                 if (packet.rx_info[this.id].rssi > best_packet.rx_info[this.id].rssi) {
                     second_best_packet = best_packet;
                     best_packet = packet;
-                } else if (second_best_packet == null
+                } else if (second_best_packet === null
                            || packet.rx_info[this.id].rssi > second_best_packet.rx_info[this.id].rssi) {
                     second_best_packet = packet;
                 }
             }
-            if (second_best_packet != null) {
+            if (second_best_packet !== null) {
                 interfering_signal_rssi = second_best_packet.rx_info[this.id].rssi;
             }
         } else {

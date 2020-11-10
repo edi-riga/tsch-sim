@@ -35,6 +35,7 @@
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
+import fs from 'fs';
 import path from 'path';
 import config from "./config.mjs";
 

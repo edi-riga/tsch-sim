@@ -195,6 +195,7 @@ TSCH_SIM.main = function() {
     }
 
     function restore_run_speed() {
+        let button_id = "button-run-unlimited";
         for (let action in run_actions) {
             if (run_speed === run_actions[action]) {
                 $('span', "#" + action).addClass("fa-check");

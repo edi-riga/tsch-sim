@@ -166,7 +166,7 @@ export function construct_simulation(is_from_web)
     time.reset_time();
     time.add_timer(PERIODIC_TIMER_SEC, true, null, periodic_bookeeping);
 
-    log.log(log.INFO, null, "Main", `initializing ${config.SIMULATION_DURATION_SEC} seconds long simulation...`);
+    log.log(log.INFO, null, "Main", `initializing ${config.SIMULATION_DURATION_SEC} seconds long simulation...`)
 
     check_config_validity();
 
@@ -177,7 +177,7 @@ export function construct_simulation(is_from_web)
     status.log = [];
 
     /* now start component initialization */
-    log.log(log.DEBUG, null, "Main", `initializing the RNG with seed ${config.SIMULATION_SEED}`);
+    log.log(log.DEBUG, null, "Main", `initializing the RNG with seed ${config.SIMULATION_SEED}`)
     random.rng.seed(config.SIMULATION_SEED);
 
     /* init link model configuration */
@@ -262,7 +262,7 @@ export function construct_simulation(is_from_web)
         type_config["NAME"] = type_name;
         type_ids[type_name] = [];
         for (let id = 1; id <= config.POSITIONING_NUM_NODES; ++id) {
-            net.add_node(id, type_config);
+            const n = net.add_node(id, type_config);
             type_ids[type_name].push(id);
         }
     }
@@ -459,7 +459,7 @@ export function construct_simulation(is_from_web)
             else if (!types_with_connections_out[type]) {
                 log.log(log.WARNING, null, "Main", `No outgoing connections defined for node type "${type}"`);
             }
-            else if (!types_with_connections_in[type]) {
+            else if (!types_with_connections_out[type]) {
                 log.log(log.WARNING, null, "Main", `No incoming connections defined for node type "${type}"`);
             }
         }
@@ -655,7 +655,7 @@ export async function run_interactive()
                     const real_world_seconds = process.uptime() - start_real_seconds;
                     const simulated_seconds = time.timeline.seconds - start_simulated_seconds;
                     const coeff = state.simulation_speed === constants.RUN_10_PERCENT ? 10.0
-                          : (state.simulation_speed === constants.RUN_100_PERCENT ? 1.0 : 0.1);
+                          : (state.simulation_speed === constants.RUN_100_PERCENT ? 1.0 : 0.1)
                     let delta = coeff * simulated_seconds - real_world_seconds;
                     if (delta >= 0.001) {
                         /* do not allow to sleep for too long and become completely unresponsive */
@@ -696,6 +696,7 @@ export async function run_interactive()
 
         if (!is_simulation_finished) {
             finish_simulation(network);
+            is_simulation_finished = true;
         }
     }
 }
