@@ -167,8 +167,6 @@ export class Network {
     }
 
     aggregate_stats() {
-        const n = this.nodes.size;
-        
         let stats = {};
         let charge_uc = 0;
         let charge_joined_uc = 0;
@@ -213,8 +211,8 @@ export class Network {
             this.stats_slots_tx_packet += node_stats.slots_tx_packet;
             this.stats_slots_tx_packet_rx_ack += node_stats.slots_tx_packet_rx_ack;
             /* statistics: joining */
-            if (this.stats_tsch_join_time_sec !== null) {
-                if (node_stats.tsch_join_time_sec === null) {
+            if (this.stats_tsch_join_time_sec != null) {
+                if (node_stats.tsch_join_time_sec == null) {
                     this.stats_tsch_join_time_sec = null;
                 } else {
                     this.stats_tsch_join_time_sec += node_stats.tsch_join_time_sec;
@@ -224,8 +222,8 @@ export class Network {
             /* statistics: routing */
             this.stats_routing_num_tx += node_stats.routing_num_tx;
             this.stats_routing_num_rx += node_stats.routing_num_rx;
-            if (this.stats_routing_join_time_sec !== null) {
-                if (node_stats.routing_join_time_sec === null) {
+            if (this.stats_routing_join_time_sec != null) {
+                if (node_stats.routing_join_time_sec == null) {
                     this.stats_routing_join_time_sec = null;
                 } else {
                     this.stats_routing_join_time_sec += node_stats.routing_join_time_sec;
@@ -321,7 +319,7 @@ export class Network {
         /* schedule transmissions */
         const tx_nodes = [];
         const rx_nodes = [];
-        for (const [id, node] of this.nodes) {
+        for (const [_, node] of this.nodes) {
             schedule_status.push({});
 
             const ret = node.schedule(schedule_status);

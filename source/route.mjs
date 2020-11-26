@@ -34,8 +34,6 @@
  */
 
 import constants from './constants.mjs';
-import config from './config.mjs';
-import * as time from './time.mjs';
 import * as log from './log.mjs';
 import * as simulator from './simulator.mjs';
 import { assert } from './utils.mjs';

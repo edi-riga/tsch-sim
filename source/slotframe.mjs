@@ -34,7 +34,6 @@
  */
 
 import constants from './constants.mjs';
-import config from './config.mjs';
 import * as log from './log.mjs';
 
 /* ------------------------------------- */
