@@ -57,6 +57,8 @@ TSCH-Sim is a TSCH simulator written in modern, modular JavaScript. It supports 
 
 [GitHub wiki](https://github.com/edi-riga/tsch-sim/wiki).
 
+[Video tutorial](https://www.youtube.com/watch?v=7_mNrosDpD4).
+
 
 ## Installation
 
@@ -102,7 +104,6 @@ Directories:
 * `examples` — example simulation scenarios: configuration files along with their descriptions
 * `tests` — regression tests
 * `results` — is `SAVE_TO_FILE` is enabled in the configuration, logs and statistics from simulation runs are stored here
-
 
 ## Code origins
 
