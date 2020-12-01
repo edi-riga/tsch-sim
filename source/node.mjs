@@ -426,7 +426,7 @@ export class Node {
 
     leave_network() {
         this.leave_timer = null;
-        this.log(log.INFO, `leaving network, did not resynchronize with the time source for seconds=${this.config.MAC_DESYNC_THRESHOLD_S}`);
+        this.log(log.WARNING, `leaving network, did not resynchronize with the time source for seconds=${this.config.MAC_DESYNC_THRESHOLD_S}`);
         this.reset_node(false);
     }
 
