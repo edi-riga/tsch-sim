@@ -77,10 +77,8 @@ export class Packet {
         } else {
             this.nexthop_id = source.routes.get_nexthop(destination_id); /* link-layer: destination */
         }
-        if (this.nexthop_id == null) {
-            /* nexthop not found */
-            this.nexthop_addr = null;
-        } else if (this.nexthop_id === constants.BROADCAST_ID) {
+        if (this.nexthop_id <= 0) {
+            /* nexthop not found, or broadcast */
             this.nexthop_addr = null;
         } else {
             this.nexthop_addr = id_to_addr(this.nexthop_id);
@@ -88,7 +86,7 @@ export class Packet {
         this.lasthop_id = source.id; /* link-layer: source */
         this.lasthop_addr = source.addr; /* link-layer: source */
         this.num_transmissions = 0;
-        this.is_ack_required = (this.nexthop_id !== constants.BROADCAST_ID);
+        this.is_ack_required = (this.nexthop_id > 0);
         this.generation_time_s = time.timeline.seconds;
         this.packet_protocol = -1;
         this.msg_type = 0;

@@ -6,7 +6,7 @@ all: empty eb keepalive desync join-hopseq join-hopseq-nojoin slot-duration non-
 empty: empty.json
 	rm -rf results
 	../../tsch-sim.sh $< > /dev/null
-	$(NODE) --harmony --experimental-modules ../check_pdr.mjs results/stats.json 100
+	$(NODE) --harmony --experimental-modules ../check_pdr.mjs results/stats.json
 	$(NODE) --harmony --experimental-modules ../check_log_stats.mjs results/log.txt
 
 eb: eb.json

@@ -1013,7 +1013,7 @@ export class Node {
         /* this slot was not idle */
         this.stats_slots_rx_idle -= 1;
 
-        if (packet.nexthop_id !== this.id && packet.nexthop_id !== constants.BROADCAST_ID) {
+        if (packet.nexthop_id > 0 && packet.nexthop_id !== this.id) {
             /* received the link-layer packet, but it was not for me */
             /* TODO: add a stats entry for this! */
 
@@ -1057,7 +1057,7 @@ export class Node {
         new_packet.destination_id = packet.source.id;
         new_packet.is_query = false;
         new_packet.nexthop_id = this.routes.get_nexthop(packet.source.id);
-        if (new_packet.nexthop_id === constants.BROADCAST_ID || new_packet.nexthop_id == null) {
+        if (new_packet.nexthop_id <= 0) {
             new_packet.nexthop_addr = null;
         } else {
             new_packet.nexthop_addr = id_to_addr(new_packet.nexthop_id);
@@ -1083,7 +1083,7 @@ export class Node {
         new_packet.lasthop_id = this.id;
         new_packet.lasthop_addr = this.addr;
         new_packet.nexthop_id = this.routes.get_nexthop(packet.destination_id);
-        if (new_packet.nexthop_id === constants.BROADCAST_ID || new_packet.nexthop_id == null) {
+        if (new_packet.nexthop_id <= 0) {
             new_packet.nexthop_addr = null;
         } else {
             new_packet.nexthop_addr = id_to_addr(new_packet.nexthop_id);
