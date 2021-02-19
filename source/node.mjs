@@ -322,7 +322,7 @@ export class Node {
             if (neighbor.has_packets()) {
                 this.log(log.DEBUG, "skip sending EB: already queued");
             } else {
-                const packet = new pkt.Packet(this, constants.EB_ID, config.MAC_EB_PACKET_SIZE);
+                const packet = new pkt.Packet(this, constants.EB_ID, config.MAC_EB_PACKET_SIZE, true);
                 packet.packet_protocol = constants.PROTO_TSCH;
                 packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE = constants.FRAME802154_BEACONFRAME;
                 packet.packetbuf.PACKETBUF_ATTR_JOIN_PRIORITY = this.join_priority;
