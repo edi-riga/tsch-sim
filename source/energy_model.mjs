@@ -146,7 +146,7 @@ export function estimate_charge_mah(slot_stats)
         result[key] = from_mc_to_mah(result[key]);
     }
     result.total = from_mc_to_mah(result.total);
-    result.scanning = from_uc_to_mah(result.scanning);
+    result.scanning = from_mc_to_mah(result.scanning);
     return result;
 }
 

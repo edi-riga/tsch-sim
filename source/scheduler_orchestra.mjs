@@ -800,7 +800,7 @@ export function initialize()
      */
     if (config.ORCHESTRA_UNICAST_SENDER_BASED
         && config.ORCHESTRA_COLLISION_FREE_HASH
-        && ORCHESTRA_UNICAST_PERIOD > ORCHESTRA_MAX_HASH + 1) {
+        && config.ORCHESTRA_UNICAST_PERIOD > config.ORCHESTRA_MAX_HASH + 1) {
         config.ORCHESTRA_UNICAST_SLOT_SHARED_FLAG = 0;
     } else {
         config.ORCHESTRA_UNICAST_SLOT_SHARED_FLAG = constants.CELL_OPTION_SHARED;

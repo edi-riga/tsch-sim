@@ -271,8 +271,9 @@ function serve_file(req, res, q)
 
     /* trying to sneak out of the web directory? */
     if (filename.indexOf(web_directory) !== 0) {
-        log.log(log.ERROR, null, "Main", `web: attempted to get a file outside the web directory: "${filename}"`);
-        serve_error(req, res, 404, JSON.stringify(err));
+        const errmsg = `web: attempted to get a file outside the web directory: "${filename}"`;
+        log.log(log.ERROR, null, "Main", errmsg);
+        serve_error(req, res, 404, JSON.stringify(errmsg));
         return;
     }
 
@@ -286,8 +287,9 @@ function serve_file(req, res, q)
     fs.readFile(filename, function (err, data) {
         if (err) {
             /* 404 Not Found */
-            log.log(log.ERROR, null, "Main", `web: file not found: "${filename}"`);
-            serve_error(req, res, 404, JSON.stringify(err));
+            const errmsg = `web: file cannot be read: "${filename}"`;
+            log.log(log.ERROR, null, "Main", errmsg);
+            serve_error(req, res, 404, JSON.stringify(errmsg));
             return;
         }
         /* 200 OK */

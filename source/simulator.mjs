@@ -642,11 +642,13 @@ export async function run_interactive()
                 switch (state.simulation_speed) {
                 case constants.RUN_UNLIMITED:
                 default:
+                {
                     const real_world_seconds = process.uptime() - start_real_seconds;
                     if (real_world_seconds > 1.0) {
                         /* interrupt this inner loop once per second to react to new commands */
                         state.is_interrupt_requested = true;
                     }
+                }
                     break;
                 case constants.RUN_1000_PERCENT:
                 case constants.RUN_100_PERCENT:

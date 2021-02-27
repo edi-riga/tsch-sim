@@ -43,9 +43,6 @@ export const WARNING = 2;
 export const INFO = 3;
 export const DEBUG = 4;
 
-/* The current log level */
-let LOG_LEVEL_DEFAULT = INFO;
-
 /* Filled by the time module to avoid circular dependencies in imports */
 let timeline = null;
 
@@ -116,6 +113,4 @@ export function log(severity, node, topic, msg)
 export function initialize(tl)
 {
     timeline = tl;
-    /* use the value from the config */
-    LOG_LEVEL_DEFAULT = config.LOG_LEVEL_DEFAULT;
 }

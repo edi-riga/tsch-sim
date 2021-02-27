@@ -506,7 +506,7 @@ class TraceManager {
             this.timer = null;
         }
     }
-};
+}
 
 let trace_manager = new TraceManager();
 

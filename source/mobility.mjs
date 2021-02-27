@@ -51,7 +51,7 @@ export class MobilityModel {
         if (this.current_period_num !== period_num) {
             log.log(log.DEBUG, null, "Mobility", "update positions");
             this.current_period_num = period_num;
-            for (const [_, node] of this.network.nodes) {
+            for (const [, node] of this.network.nodes) {
                 if (node.config.MOBILITY_MODEL === "Line") {
                     this.update_position_line(node, time.timeline.seconds);
                 } else if (node.config.MOBILITY_MODEL === "RandomWaypoint") {

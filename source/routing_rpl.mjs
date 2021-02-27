@@ -134,7 +134,7 @@ function rpl_lollipop_greater_than(a, b)
        if they have wrapped and are still comparable */
     return (a > b && (a - b) < RPL_LOLLIPOP_SEQUENCE_WINDOWS) ||
            (a < b && (b - a) > (RPL_LOLLIPOP_CIRCULAR_REGION + 1 -
-			        RPL_LOLLIPOP_SEQUENCE_WINDOWS));
+                                RPL_LOLLIPOP_SEQUENCE_WINDOWS));
 }
 
 function ROOT_RANK()

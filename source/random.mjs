@@ -89,6 +89,6 @@ export class Random {
         /* uses the Box-Muller transform to convert uniform to Gaussian distribution */
         return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
     }
-};
+}
 
 export const rng = new Random();
