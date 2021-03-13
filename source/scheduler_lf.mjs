@@ -113,6 +113,16 @@ export function on_tx(node, packet, status_ok)
     /* nothing */
 }
 
+export function add_root(node, root_id)
+{
+    /* nothing */
+}
+
+export function on_node_becomes_root(node)
+{
+    /* nothing */
+}
+
 /*---------------------------------------------------------------------------*/
 
 /* Initialize a specific node: function required by the scheduling module API */
@@ -121,7 +131,7 @@ export function node_init(node)
     log.log(log.INFO, node, "TSCH", `*** initializing leaf-and-forwarder scheduler, slotframe_size=${node.config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH}`);
 
     /* Add a single slotframe */
-    const sf_common = node.add_slotframe(0, node.config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH);
+    const sf_common = node.add_slotframe(0, "leaf-and-forwarder", node.config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH);
 
     /* Add a single cell for EB */
     node.add_cell(sf_common,

@@ -82,9 +82,10 @@ export class Cell {
 
 /** 802.15.4e slotframe (contains cells) */
 export class Slotframe {
-    constructor(node, handle, size) {
+    constructor(node, handle, rule_name, size) {
         this.node = node;
         this.handle = handle;
+        this.rule_name = rule_name;
         this.size = size;
         this.cells = [];
     }

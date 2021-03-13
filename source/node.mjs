@@ -299,6 +299,7 @@ export class Node {
         this.set_eb_period(this.config.MAC_EB_PERIOD_S);
         this.join_priority = 0;
         this.routing.start();
+        scheduler.on_node_becomes_root(this);
     }
 
     set_eb_period(period) {
@@ -467,8 +468,8 @@ export class Node {
     /* ------------------------------------------------------------- */
 
     /* Add a new slotframe to this node */
-    add_slotframe(handle, size) {
-        const slotframe = new sf.Slotframe(this, handle, size);
+    add_slotframe(handle, rule_name, size) {
+        const slotframe = new sf.Slotframe(this, handle, rule_name, size);
         this.slotframes.push(slotframe);
         return slotframe;
     }
@@ -926,11 +927,17 @@ export class Node {
         this.ensure_neighbor(packet.lasthop_id);
         this.neighbors.get(packet.lasthop_id).on_rx(packet);
 
+        const join_priority = packet.packetbuf.PACKETBUF_ATTR_JOIN_PRIORITY;
+
         if (!this.has_joined) {
             this.tsch_associate(packet);
             /* account for EBs only when associated */
             if (this.has_joined) {
                 this.stats_tsch_eb_rx += 1;
+            }
+            if (join_priority === 0) {
+                /* from the coordinator */
+                scheduler.add_root(this, packet.lasthop_id);
             }
             return;
         }
@@ -938,7 +945,6 @@ export class Node {
         /* account for EBs only when associated */
         this.stats_tsch_eb_rx += 1;
 
-        const join_priority = packet.packetbuf.PACKETBUF_ATTR_JOIN_PRIORITY;
         if (join_priority >= this.config.MAC_MAX_JOIN_PRIORITY) {
             /* Join priority unacceptable. Leave network. */
             log.log(log.WARNING, this, "TSCH", `EB join priority too high (${join_priority}), leaving the network`);
@@ -946,7 +952,10 @@ export class Node {
             return;
         }
 
-        return;
+        if (join_priority === 0) {
+            /* from the coordinator */
+            scheduler.add_root(this, packet.lasthop_id);
+        }
     }
 
     /* Attempt to associate to a network from an incoming EB */
@@ -1272,7 +1281,7 @@ export class Node {
         }
 
         if (best_cell) {
-            /* log.log(log.DEBUG, this, "TSCH", `got best cell, options=${best_cell.options}, slotframe=${best_cell.slotframe.handle}`); */
+            /* log.log(log.DEBUG, this, "TSCH", `got best cell timeslot=${best_cell.timeslot} options=${best_cell.options} sf=${best_cell.slotframe.handle}`); */
             this.tx_packet = this.get_packet_for_tx_cell(best_cell, backup_cell);
             this.selected_cell = best_cell;
 
@@ -1305,7 +1314,7 @@ export class Node {
 
         if (this.tx_packet) {
             /* Tx and found a packet to send */
-            /* log.log(log.DEBUG, this, "TSCH", `got tx cell, timeslot=${this.selected_cell.timeslot}`); */
+            /* log.log(log.DEBUG, this, "TSCH", `got tx cell, timeslot=${this.selected_cell.timeslot} sf=${schedule_status[this.index].sf}`); */
             schedule_status[this.index].flags = constants.FLAG_TX;
             if (this.tx_packet.packetbuf.hasOwnProperty("PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET")
                 && this.tx_packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET != 0xffffffff) {
@@ -1325,7 +1334,7 @@ export class Node {
             return SCHEDULE_DECISION_SLEEP;
         }
 
-        /* log.log(log.DEBUG, this, "TSCH",  `got rx cell (${this.selected_cell.timeslot}, ${this.selected_cell.channel_offset})`); */
+        /* log.log(log.DEBUG, this, "TSCH",  `got rx cell (${this.selected_cell.timeslot}, ${this.selected_cell.channel_offset}) sf=${schedule_status[this.index].sf}`); */
         schedule_status[this.index].flags = constants.FLAG_RX;
         schedule_status[this.index].co = this.selected_cell.channel_offset;
         /* this will be changed later if an actual packet is received */
