@@ -930,13 +930,13 @@ export class Node {
             this.tsch_associate(packet);
             /* account for EBs only when associated */
             if (this.has_joined) {
-                this.stats_tsch_eb_tx += 1;
+                this.stats_tsch_eb_rx += 1;
             }
             return;
         }
 
         /* account for EBs only when associated */
-        this.stats_tsch_eb_tx += 1;
+        this.stats_tsch_eb_rx += 1;
 
         const join_priority = packet.packetbuf.PACKETBUF_ATTR_JOIN_PRIORITY;
         if (join_priority >= this.config.MAC_MAX_JOIN_PRIORITY) {
