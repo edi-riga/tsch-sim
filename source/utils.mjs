@@ -158,10 +158,11 @@ Array.prototype.sum = Array.prototype.sum || function (){
 };
 
 Array.prototype.avg = Array.prototype.avg || function () {
-    return this.sum() / (this.length || 1);
+    return this.length ? this.sum() / this.length : null;
 };
 
 Array.prototype.min = Array.prototype.min || function () {
+    if (!this.length) return null;
     let len = this.length;
     let result = Infinity;
     while (len--) {
@@ -173,6 +174,7 @@ Array.prototype.min = Array.prototype.min || function () {
 };
 
 Array.prototype.max = Array.prototype.max || function () {
+    if (!this.length) return null;
     let len = this.length;
     let result = -Infinity;
     while (len--) {
@@ -185,7 +187,7 @@ Array.prototype.max = Array.prototype.max || function () {
 
 Array.prototype.percentile = Array.prototype.percentile || function (percent) {
     if (!this.length) {
-        return 0.0;
+        return null;
     }
     this.sort();
     const k = (this.length - 1) * percent / 100.0;

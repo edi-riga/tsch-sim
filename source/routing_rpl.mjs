@@ -912,6 +912,8 @@ export class RPL
             this.node.routes.remove_default_route();
             if (nbr) {
                 this.node.routes.add_default_route(nbr.neighbor.id);
+            } else {
+                mlog(log.ERROR, this.node, `drop preferred parent: rank=${this.preferred_parent.rank} link=${this.preferred_parent.link_metric()}`);
             }
 
             this.preferred_parent = nbr;
@@ -954,7 +956,11 @@ export class RPL
             }
 
             /* Now we have an acceptable parent, check if it is the new best */
-            best = this.of_best_parent(best, nbr);
+            if (best == null) {
+                best = nbr;
+            } else {
+                best = this.of_best_parent(best, nbr);
+            }
         }
 
         return best;
@@ -1148,14 +1154,10 @@ export class RPL
     }
 
     mrhof_nbr_path_cost(nbr) {
-        //mlog(log.DEBUG, this.node, `path cost: rank=${nbr.rank} metric=${nbr.link_metric()}`);
         return Math.min(nbr.rank + nbr.link_metric(), RPL_INFINITE_RANK);
     }
 
     mrhof_nbr_is_acceptable_parent(nbr) {
-        if (!nbr) {
-            return null;
-        }
         /* Exclude links with too high link metrics  */
         const has_usable_link = nbr.link_metric() <= MRHOF_MAX_LINK_METRIC;
         const path_cost = this.mrhof_nbr_path_cost(nbr);

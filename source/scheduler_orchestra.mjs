@@ -518,6 +518,8 @@ function special_for_root_init_on_root(node)
     const timeslot = 0;
     const local_channel_offset = unicast_get_node_channel_offset(node.addr);
 
+    mlog(log.INFO, node, `special for root rule: initialize on the root`);
+
     node.add_cell(sf_rx,
                   constants.CELL_OPTION_RX,
                   constants.CELL_TYPE_NORMAL,
@@ -874,7 +876,7 @@ export function initialize()
         /* ORCHESTRA_RULES: [ "orchestra_rule_eb_per_time_source",
                               "orchestra_rule_unicast_per_neighbor_link_based",
                               "orchestra_rule_default_common" ], */
-        /* Example configuration for RPL non-storing mode: */
+        /* Example configuration for RPL non-storing mode (works also for the storing one): */
         /* ORCHESTRA_RULES:  [ "orchestra_rule_eb_per_time_source",
                                "orchestra_rule_unicast_per_neighbor_rpl_ns",
                                "orchestra_rule_default_common" ], */

@@ -133,6 +133,11 @@ export class RoutingTable {
 export function periodic_process(period_seconds)
 {
     log.log(log.INFO, null, "Main", `periodic route processing for all nodes`);
+
+    const total_nodes = simulator.get_nodes().size;
+    let num_joined_tsch = 0;
+    let num_joined_routing = 0;
+
     for (const [_, node] of simulator.get_nodes()) {
         const to_remove = [];
         for (const [_, route] of node.routes.routes) {
@@ -143,9 +148,18 @@ export function periodic_process(period_seconds)
                 }
             }
         }
+        if (node.has_joined) {
+            num_joined_tsch += 1;
+            if (node.routing.is_joined()) {
+                num_joined_routing += 1;
+            }
+        }
 
         for (const rr of to_remove) {
             node.routes.remove_route(rr.prefix);
         }
     }
+
+    log.log(log.INFO, null, "Main", `joined_routing/joined_tsch/total=${num_joined_routing}/${num_joined_tsch}/${total_nodes}`);
+
 }
