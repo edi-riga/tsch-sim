@@ -307,10 +307,7 @@ export function construct_simulation(is_from_web)
         /* Generate default some packet sources for a data collection application */
         for (let i = 2; i <= net.nodes.size; ++i) {
             /* packet sources */
-            const period_sec = config.APP_PACKET_PERIOD_SEC;
-            new ps.PacketSource(net.get_node(i),
-                                net.get_node(1),
-                                period_sec, false, false, config.APP_PACKET_SIZE);
+            new ps.PacketSource(net.get_node(i), net.get_node(1));
         }
     }
 
@@ -355,6 +352,8 @@ export function construct_simulation(is_from_web)
             const data = from_node_type.APP_PACKETS;
             const period_sec = "APP_PACKET_PERIOD_SEC" in data ? data.APP_PACKET_PERIOD_SEC : config.APP_PACKET_PERIOD_SEC;
             const size = "APP_PACKET_SIZE" in data ? data.APP_PACKET_SIZE : config.APP_PACKET_SIZE;
+            const warmup_period = "APP_WARMUP_PERIOD_SEC" in data ? data.APP_WARMUP_PERIOD_SEC : config.APP_WARMUP_PERIOD_SEC;
+
             const is_query = "IS_QUERY" in data ? data.IS_QUERY : false;
             if ("TO_TYPE" in data) {
                 const to_type = data.TO_TYPE;
@@ -364,7 +363,7 @@ export function construct_simulation(is_from_web)
                         if (from_node_id !== to_node_id) {
                             new ps.PacketSource(net.get_node(from_node_id),
                                                 net.get_node(to_node_id),
-                                                period_sec, false, is_query, size);
+                                                period_sec, false, is_query, size, warmup_period);
                         }
                     }
                 }
@@ -376,7 +375,7 @@ export function construct_simulation(is_from_web)
                         if (from_node_id !== to_node_id) {
                             new ps.PacketSource(net.get_node(from_node_id),
                                                 to_node_id === -1 ? null : net.get_node(to_node_id),
-                                                period_sec, false, is_query, size);
+                                                period_sec, false, is_query, size, warmup_period);
                         }
                     }
                 } else {

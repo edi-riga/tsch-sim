@@ -43,17 +43,18 @@ import { rng } from './random.mjs';
 
 /* generates one packet per period */
 export class PacketSource {
-    constructor(source, destination, period, is_fixed, is_query, length) {
-        this.period = period;
+    constructor(source, destination, period, is_fixed, is_query, length, warmup_period) {
         this.source = source;
         this.destination_id = destination ? destination.id : -1;
-        this.is_fixed = is_fixed;
-        this.is_query = is_query;
-        this.length = length;
+        this.period = period != null ? period : config.APP_PACKET_PERIOD_SEC;
+        this.is_fixed = is_fixed != null ? is_fixed : false;
+        this.is_query = is_query != null ? is_query : false;
+        this.length = length != null ? length : config.APP_PACKET_SIZE;
+        this.warmup_period = warmup_period != null ? warmup_period : config.APP_WARMUP_PERIOD_SEC; 
         this.is_in_warmup = true;
-        this.timer_time = config.APP_WARMUP_PERIOD_SEC; /* FIXME */
+        this.timer_time = this.warmup_period;
 
-        log.log(log.INFO, null, "App", `new packet source, from=${source.id} for=${this.destination_id} period=${period} warmup=${config.APP_WARMUP_PERIOD_SEC}`);
+        log.log(log.INFO, null, "App", `new packet source, from=${source.id} for=${this.destination_id} period=${this.period} warmup=${this.warmup_period}`);
 
         if (this.destination_id === -1) {
             log.log(log.WARNING, null, "App", `destination ID for a packet source is unspecified; the "app_reliability" statistics will be unreliable and should be ignored`);
@@ -98,7 +99,7 @@ export class PacketSource {
             /* schedule a function that will randomly reschedule generate() in the future */
             if (this.is_in_warmup) {
                 this.is_in_warmup = false;
-                this.timer_time = (this.period + config.APP_WARMUP_PERIOD_SEC) - this.timer_time;
+                this.timer_time = (this.period + this.warmup_period) - this.timer_time;
             } else {
                 this.timer_time = this.period - this.timer_time;
             }
