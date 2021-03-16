@@ -34,6 +34,7 @@
  */
 
 import config from './config.mjs';
+import constants from './constants.mjs';
 import * as pkt from './packet.mjs';
 import * as log from './log.mjs';
 import * as time from './time.mjs';
@@ -81,7 +82,9 @@ export class PacketSource {
         if (do_generate) {
             const packet = new pkt.Packet(this.source, this.destination_id, this.length);
             packet.seqnum = ++this.source.seqnum_generator;
-            packet.is_query = this.is_query;
+            if (this.is_query) {
+                packet.query_status = constants.PACKET_IS_REQUEST;
+            }
             log.log(log.INFO, this.source, "App", `generate a packet, seqnum=${packet.seqnum} for=${this.destination_id}`);
             this.source.add_app_packet(packet);
         } else {

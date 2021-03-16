@@ -378,13 +378,13 @@ export class RPL
             if (route) {
                 /* A DAO route was found so we set the down flag. */
                 rpl_opt_flags |= RPL_HDR_OPT_DOWN;
-                mlog(log.DEBUG, this.node, `going down according to RPL: from=${this.node.id} to=${route.nexthop_id}`);
+                mlog(log.DEBUG, this.node, `going down according to RPL: via=${packet.lasthop_id}->${this.node.id}->${route.nexthop_id}`);
             } else {
                 /* No route was found, so this packet will go towards the RPL
                    root. If so, we should not set the down flag. */
                 rpl_opt_flags &= ~RPL_HDR_OPT_DOWN;
                 const nexthop_id = this.node.routes.default_route ? this.node.routes.default_route.nexthop_id : -1;
-                mlog(log.DEBUG, this.node, `going up according to RPL: from=${this.node.id} to=${nexthop_id}`);
+                mlog(log.DEBUG, this.node, `going up according to RPL: via=${packet.lasthop_id}->${this.node.id}->${nexthop_id}`);
             }
         }
 

@@ -176,6 +176,7 @@ export class Node {
         this.stats_app_packets_rxed = new Set(); /* for the destination */
         this.stats_app_packets_seen = new Set(); /* for all intermediate nodes */
         this.stats_app_num_tx = 0;
+        this.stats_app_num_replied = 0;
         this.stats_app_num_endpoint_rx = 0;
         this.stats_app_num_queue_drops = 0;
         this.stats_app_num_tx_limit_drops = 0;
@@ -448,6 +449,7 @@ export class Node {
 
     ensure_neighbor(neighbor_id) {
         assert(neighbor_id, "neighbor_id must be set");
+        assert(neighbor_id != this.id, "node cannot be a neighbor to itself")
         if (!this.neighbors.has(neighbor_id)) {
             this.log(log.INFO, `add neighbor id=${neighbor_id}`);
             this.neighbors.set(neighbor_id, new neighbor.Neighbor(this, neighbor_id));
@@ -684,6 +686,7 @@ export class Node {
 
         if (packet.destination_id === this.id) {
             /* emulate a loopback interface */
+            this.log(log.DEBUG, `looping back a packet`);
             this.rx_packet_network_layer(packet);
             this.packet_sent(packet, null, true, null);
             return null;
@@ -898,21 +901,29 @@ export class Node {
             }
 
             /* receive the application layer end-to-end packet */
-            const seqnum = packet.source.id + "#" + packet.seqnum;
+            const effective_source = (packet.query_status == constants.PACKET_IS_RESPONSE ? this : packet.source);
+            const seqnum = effective_source.id + "#" + packet.seqnum;
             if (this.stats_app_packets_rxed.has(seqnum)) {
                 log.log(log.WARNING, this, "App", `rx duplicate app packet seqnum=${packet.seqnum} from=${packet.source.id}`);
             } else {
                 this.stats_app_packets_rxed.add(seqnum);
-                /* account for the end-to-end packet */
-                log.log(log.INFO, this, "App", `rx app packet seqnum=${packet.seqnum} from=${packet.source.id}`);
-                /* update the stats of the original source (!) */
-                packet.source.stats_app_num_endpoint_rx += 1;
-                const latency = round_to_ms(time.timeline.seconds - packet.generation_time_s);
-                packet.source.stats_app_latencies.push(latency);
-            }
 
-            if (packet.is_query) {
-                this.reply_packet(packet);
+                if (packet.query_status == constants.PACKET_IS_REQUEST) {
+                    /* only half-way done! send it back to the source before adding to PDR and latency statistics */
+                    log.log(log.INFO, this, "App", `rx app request seqnum=${packet.seqnum} from=${effective_source.id}, sending response`);
+                    this.send_reply(packet);
+                } else {
+                    /* account for the end-to-end packet */
+                    if (packet.query_status == constants.PACKET_IS_RESPONSE) {
+                        log.log(log.INFO, this, "App", `rx app response seqnum=${packet.seqnum} from=${packet.source.id}`);
+                    } else {
+                        log.log(log.INFO, this, "App", `rx app packet seqnum=${packet.seqnum} from=${effective_source.id}`);
+                    }
+                    /* update the stats of the original source, unless it is query response */
+                    effective_source.stats_app_num_endpoint_rx += 1;
+                    const latency = round_to_ms(time.timeline.seconds - packet.generation_time_s);
+                    effective_source.stats_app_latencies.push(latency);
+                }
             }
         } else {
             /* try to route it further */
@@ -1059,12 +1070,13 @@ export class Node {
     }
 
     /* Reply to a query packet */
-    reply_packet(packet) {
+    send_reply(packet) {
         const new_packet = new pkt.Packet(this, -1, packet.length);
         new_packet.copy(packet);
         new_packet.source = this;
         new_packet.destination_id = packet.source.id;
-        new_packet.is_query = false;
+        new_packet.query_status = constants.PACKET_IS_RESPONSE;
+        new_packet.lasthop_id = this.id;
         new_packet.nexthop_id = this.routes.get_nexthop(packet.source.id);
         if (new_packet.nexthop_id <= 0) {
             new_packet.nexthop_addr = null;
@@ -1074,10 +1086,10 @@ export class Node {
         /* remove the headers */
         new_packet.length = packet.length - this.config.MAC_HEADER_SIZE;
 
-        if (this.add_app_packet(new_packet)) {
+        this.stats_app_num_replied += 1;
+        if (this.add_packet(new_packet)) {
             this.log(log.DEBUG, `reply to packet ${packet.seqnum} to=${packet.source.id} via=${new_packet.nexthop_id}`);
         }
-
     }
 
     /* Forward a network layer packet to a neighbor */
@@ -1691,6 +1703,7 @@ export class Node {
               + this.stats_app_num_other_drops;
         return {
             app_num_tx: this.stats_app_num_tx,
+            app_num_replied: this.stats_app_num_replied,
             app_num_endpoint_rx: this.stats_app_num_endpoint_rx,
             app_num_lost: app_num_lost,
             app_reliability: 100.0 * (1.0 - div_safe(app_num_lost, this.stats_app_num_endpoint_rx + app_num_lost)),
