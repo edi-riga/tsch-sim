@@ -530,9 +530,43 @@ function finish_simulation(network)
     const stats = network.aggregate_stats();
     /* write to a file, if needed */
     if (config.SAVE_RESULTS) {
+        let filename;
         const is_child = config.SIMULATION_RUN_ID !== 0;
-        const filename = is_child ? `stats_${config.SIMULATION_RUN_ID}.json` : "stats.json";
+
+        filename = "stats";
+        if (is_child) {
+            filename += `_${config.SIMULATION_RUN_ID}`;
+        }
+        filename += ".json";
         fs.writeFileSync(path.join(dirnames.results_dir, filename), JSON.stringify(stats, null, 2));
+
+        let s = "digraph time_source_tree {\n";
+        s += '  rankdir="BT";\n';
+        const tree = network.get_time_source_tree();
+        const has_children = {};
+        for (let id in tree) {
+            if (tree[id] != null) {
+                s += `  "${id}" -> "${tree[id]}";\n`;
+                has_children[tree[id]] = true;
+            }
+        }
+
+        /* parents */
+        for (let id in has_children) {
+            s += `  "${id}" [fillcolor="yellow" style="filled"];\n`;
+        }
+
+        /* root node */
+        s += '  "1" [rank="source" fillcolor="#00FF7F" style="filled"];\n';
+
+        s += '}\n';
+
+        filename = "time_source_tree";
+        if (is_child) {
+            filename += `_${config.SIMULATION_RUN_ID}`;
+        }
+        filename += ".dot";
+        fs.writeFileSync(path.join(dirnames.results_dir, filename), s);
     }
 }
 

@@ -167,6 +167,18 @@ export class Network {
         return this.protocol_handlers.get(key);
     }
 
+    get_time_source_tree() {
+        const result = {};
+        for (let [id, node] of this.nodes) {
+            if (node.current_time_source != null) {
+                result[id] = node.current_time_source.id;
+            } else {
+                result[id] = null;
+            }
+        }
+        return result;
+    }
+
     aggregate_stats() {
         let stats = {};
         let charge_uc = 0;
