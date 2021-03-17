@@ -245,7 +245,7 @@ export function construct_simulation(is_from_web)
             previous_id = id;
             net.add_node(id, type_config);
             type_ids[node_type.NAME].push(id);
-            id++;
+            id += 1;
         }
 
         if (!net.mobility_model && type_config.MOBILITY_MODEL && type_config.MOBILITY_MODEL !== "Static") {

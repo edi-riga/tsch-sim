@@ -123,7 +123,7 @@ export class Neighbor {
         this.last_tx_sec = time.timeline.seconds;
         this.freshness = Math.min(this.freshness + num_tx, FRESHNESS_MAX);
         if (is_success) {
-            this.num_tx_success++;
+            this.num_tx_success += 1;
             if (is_ack_required) {
                 /* update the Rx time, because we have received the ACK */
                 this.last_rx_sec = this.last_tx_sec;
@@ -139,7 +139,7 @@ export class Neighbor {
     on_rx(packet) {
         this.last_rssi = packet.rx_info[this.node.id].rssi;
         this.last_rx_sec = time.timeline.seconds;
-        this.num_rx++;
+        this.num_rx += 1;
 
         if (this.etx == null) {
             this.init_etx();

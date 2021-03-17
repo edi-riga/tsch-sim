@@ -540,7 +540,7 @@ export class Node {
         neighbor.backoff_window = rng.randint(0, 65536) % (1 << neighbor.backoff_exponent);
         /* Add one to the window as we will decrement it at the end of the current slot
          * through queue_update_all_backoff_windows */
-        neighbor.backoff_window++;
+        neighbor.backoff_window += 1;
     }
 
     /* Decrement backoff window for all queues directed at the cell's neighbor ID */
@@ -1605,7 +1605,8 @@ export class Node {
             if (packet.packet_protocol === constants.PROTO_APP) {
                 let nexthop = this.network.get_node(packet.nexthop_id);
                 assert(nexthop, `unknown nexthop node ${packet.nexthop_id}`);
-                const seqnum = packet.source.id + "#" + packet.seqnum;
+                const effective_source_id = (packet.query_status == constants.PACKET_IS_RESPONSE ? packet.destination_id : packet.source.id);
+                const seqnum = effective_source_id + "#" + packet.seqnum;
                 const search_set = packet.destination_id === packet.nexthop_id ?
                     nexthop.stats_app_packets_rxed :
                     nexthop.stats_app_packets_seen;

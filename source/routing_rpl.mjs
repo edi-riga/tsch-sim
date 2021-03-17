@@ -685,7 +685,7 @@ export class RPL
 
         /* Update DIO counter for redundancy mngt */
         if (dio.payload.rank !== RPL_INFINITE_RANK) {
-            this.dio_counter++;
+            this.dio_counter += 1;
         }
 
         /* The DIO has a newer version: global repair.
@@ -1302,7 +1302,7 @@ export class RPL
         } else {
             /* check if we need to double interval */
             if (this.dio_intcurrent < this.node.config.RPL_DIO_INTERVAL_MIN + this.node.config.RPL_DIO_INTERVAL_DOUBLINGS) {
-                this.dio_intcurrent++;
+                this.dio_intcurrent += 1;
             }
             this.new_dio_interval();
         }
@@ -1399,7 +1399,7 @@ export class RPL
     resend_dao() {
         this.dao_timer = null;
         /* Increment transmission counter before sending */
-        this.dao_transmissions++;
+        this.dao_transmissions += 1;
         /* Send a DAO with own prefix as target and default lifetime */
         this.dao_output(this.preferred_parent, this.node.config.RPL_DEFAULT_LIFETIME_MIN);
 

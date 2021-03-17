@@ -81,7 +81,8 @@ export class PacketSource {
 
         if (do_generate) {
             const packet = new pkt.Packet(this.source, this.destination_id, this.length);
-            packet.seqnum = ++this.source.seqnum_generator;
+            this.source.seqnum_generator += 1;
+            packet.seqnum = this.source.seqnum_generator;
             if (this.is_query) {
                 packet.query_status = constants.PACKET_IS_REQUEST;
             }
