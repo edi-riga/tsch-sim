@@ -169,14 +169,23 @@ export function estimate_duty_cycle(stats)
     rx_usec += scanning_usec;
     rx_usec += stats.stats_slots_rx_idle * TSCH_SLOT_RX_WAIT_USEC;
 
-    for (let i = 0; i < stats.stats_slots_rx_packet.length; ++i) {
+    /* received broadcasts */
+    for (let i in stats.stats_slots_rx_packet) {
         rx_usec += stats.stats_slots_rx_packet[i] * TSCH_BYTE_USEC * (i + PHY_OVERHEAD_BYTES);
+    }
+    /* received unicasts */
+    for (let i in stats.stats_slots_rx_packet_tx_ack) {
         rx_usec += stats.stats_slots_rx_packet_tx_ack[i] * TSCH_BYTE_USEC * (i + PHY_OVERHEAD_BYTES) + TSCH_SLOT_RX_WAIT_USEC / 2;
-        rx_usec += stats.stats_slots_tx_packet_rx_ack[i] * TSCH_BYTE_USEC * PHY_ACK_SIZE + TSCH_SLOT_ACK_WAIT_USEC / 2;
-
-        tx_usec += stats.stats_slots_tx_packet[i] * TSCH_BYTE_USEC * (i + PHY_OVERHEAD_BYTES);
-        tx_usec += stats.stats_slots_tx_packet_rx_ack[i] * TSCH_BYTE_USEC * (i + PHY_OVERHEAD_BYTES);
         tx_usec += stats.stats_slots_rx_packet_tx_ack[i] * TSCH_BYTE_USEC * PHY_ACK_SIZE;
+    }
+    /* transmitted broadcasts */
+    for (let i in stats.stats_slots_tx_packet) {
+        tx_usec += stats.stats_slots_tx_packet[i] * TSCH_BYTE_USEC * (i + PHY_OVERHEAD_BYTES);
+    }
+    /* transmitted unicasts */
+    for (let i in stats.stats_slots_tx_packet_rx_ack) {
+        rx_usec += stats.stats_slots_tx_packet_rx_ack[i] * TSCH_BYTE_USEC * PHY_ACK_SIZE + TSCH_SLOT_ACK_WAIT_USEC / 2;
+        tx_usec += stats.stats_slots_tx_packet_rx_ack[i] * TSCH_BYTE_USEC * (i + PHY_OVERHEAD_BYTES);
     }
 
     return {
