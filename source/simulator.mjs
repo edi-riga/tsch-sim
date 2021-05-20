@@ -369,7 +369,7 @@ export function construct_simulation(is_from_web)
                     }
                 }
             } else {
-                const to_node_id = "TO_ID" in data ? data["TO_ID"] : -1;
+                const to_node_id = "TO_ID" in data ? data["TO_ID"] : constants.ROOT_NODE_ID;
                 if (to_node_id === -1 || is_valid_node_id(net, to_node_id)) {
                     for (let from_node_id of type_ids[from_node_type.NAME]) {
                         /* generate packets only if the source is distinct from the destination */
