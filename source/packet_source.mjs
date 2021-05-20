@@ -55,6 +55,10 @@ export class PacketSource {
 
         log.log(log.INFO, null, "App", `new packet source, from=${source.id} for=${this.destination_id} period=${period} warmup=${config.APP_WARMUP_PERIOD_SEC}`);
 
+        if (this.destination_id === -1) {
+            log.log(log.WARNING, null, "App", `destination ID for a packet source is unspecified; the "app_reliability" statistics will be unreliable and should be ignored`);
+        }
+
         /* add the first timer */
         if (!this.is_fixed) {
             this.timer_time += rng.random() * this.period;
