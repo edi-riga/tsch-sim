@@ -142,19 +142,19 @@ function parse_position(network, position)
         if (position.hasOwnProperty("X")) {
             node.pos_x = parseInt(position.X);
             if (isNaN(node.pos_x)) {
-                log.log(log.WARNING, node, "Main", `Invalid position X coordinate=${position.X} specified`);
+                log.log(log.WARNING, node, "Main", `invalid position X coordinate=${position.X} specified`);
                 node.pos_x = 0;
             }
         }
         if (position.hasOwnProperty("Y")) {
             node.pos_y = parseInt(position.Y);
             if (isNaN(node.pos_y)) {
-                log.log(log.WARNING, node, "Main", `Invalid position Y coordinate=${position.Y} specified`);
+                log.log(log.WARNING, node, "Main", `invalid position Y coordinate=${position.Y} specified`);
                 node.pos_y = 0;
             }
         }
     } else {
-        log.log(log.WARNING, null, "Main", `Position specified for unknown node ID=${node_id}`);
+        log.log(log.WARNING, null, "Main", `position specified for unknown node ID=${node_id}`);
     }
 }
 
@@ -298,7 +298,7 @@ export function construct_simulation(is_from_web)
                 const node = net.get_node(i + 1);
                 node.pos_x = positions[i].pos_x;
                 node.pos_y = positions[i].pos_y;
-                log.log(log.INFO, node, "Main", `Set position x=${node.pos_x.toFixed(2)} y=${node.pos_y.toFixed(2)}`);
+                log.log(log.INFO, node, "Main", `set position x=${node.pos_x.toFixed(2)} y=${node.pos_y.toFixed(2)}`);
             }
         }
     }
@@ -326,14 +326,14 @@ export function construct_simulation(is_from_web)
             types_with_connections_out[from_node_type.NAME] = true;
 
             if (config.TRACE_FILE) {
-                log.log(log.WARNING, null, "Main", `Ignoring connections for node type "${from_node_type.NAME}": trace file supplied`);
+                log.log(log.WARNING, null, "Main", `ignoring connections for node type "${from_node_type.NAME}": trace file supplied`);
                 continue;
             }
             /* Connections defined for the node type */
             for (const connection of from_node_type.CONNECTIONS) {
                 const TO_NODE_TYPE = ("NODE_TYPE" in connection) ? connection["NODE_TYPE"] : connection["TO_NODE_TYPE"];
                 if (!(TO_NODE_TYPE in type_ids)) {
-                    log.log(log.WARNING, null, "Main", `Ignoring connections with unknown node type "${TO_NODE_TYPE}"`);
+                    log.log(log.WARNING, null, "Main", `ignoring connections with unknown node type "${TO_NODE_TYPE}"`);
                     continue;
                 }
                 types_with_connections_in[TO_NODE_TYPE] = true;
@@ -399,27 +399,27 @@ export function construct_simulation(is_from_web)
 
             if (node_type !== undefined || from_node_type !== undefined || to_node_type !== undefined) {
                 if (to_node_id !== undefined || from_node_id !== undefined) {
-                    log.log(log.WARNING, null, "Main", `Ignoring TO_ID/FROM_ID in connection configuration as *NODE_TYPE is specified`);
+                    log.log(log.WARNING, null, "Main", `ignoring TO_ID/FROM_ID in connection configuration as *NODE_TYPE is specified`);
                 }
                 if (node_type !== undefined) {
                     if (from_node_type !== undefined) {
-                        log.log(log.WARNING, null, "Main", `Ignoring FROM_NODE_TYPE in connection configuration as NODE_TYPE is specified`);
+                        log.log(log.WARNING, null, "Main", `ignoring FROM_NODE_TYPE in connection configuration as NODE_TYPE is specified`);
                     }
                     if (to_node_type !== undefined) {
-                        log.log(log.WARNING, null, "Main", `Ignoring TO_NODE_TYPE in connection configuration as NODE_TYPE is specified`);
+                        log.log(log.WARNING, null, "Main", `ignoring TO_NODE_TYPE in connection configuration as NODE_TYPE is specified`);
                     }
                     from_node_type = node_type;
                     to_node_type = node_type;
                 }
 
                 if (!(from_node_type in type_ids)) {
-                    log.log(log.WARNING, null, "Main", `Ignoring connections from unknown node type "${from_node_type}"`);
+                    log.log(log.WARNING, null, "Main", `ignoring connections from unknown node type "${from_node_type}"`);
                     continue;
                 }
                 types_with_connections_out[from_node_type] = true;
 
                 if (!(to_node_type in type_ids)) {
-                    log.log(log.WARNING, null, "Main", `Ignoring connections from unknown node type "${to_node_type}"`);
+                    log.log(log.WARNING, null, "Main", `ignoring connections from unknown node type "${to_node_type}"`);
                     continue;
                 }
                 types_with_connections_in[to_node_type] = true;
@@ -437,11 +437,11 @@ export function construct_simulation(is_from_web)
             }
 
             if (!is_valid_node_id(net, to_node_id)) {
-                log.log(log.WARNING, null, "Main", `Ignoring connection to node ${to_node_id}: no such node`);
+                log.log(log.WARNING, null, "Main", `ignoring connection to node ${to_node_id}: no such node`);
             } else if (!is_valid_node_id(net, from_node_id)) {
-                log.log(log.WARNING, null, "Main", `Ignoring connection from node ${from_node_id}: no such node`);
+                log.log(log.WARNING, null, "Main", `ignoring connection from node ${from_node_id}: no such node`);
             } else if (from_node_id === to_node_id) {
-                log.log(log.WARNING, null, "Main", `Ignoring connection from node ${from_node_id} to itself`);
+                log.log(log.WARNING, null, "Main", `ignoring connection from node ${from_node_id} to itself`);
             } else {
                 const link = link_model.create_link(
                     net.get_node(from_node_id), net.get_node(to_node_id), connection);
@@ -454,13 +454,13 @@ export function construct_simulation(is_from_web)
         for (let type in type_ids) {
             if (!types_with_connections_out[type]
                 && !types_with_connections_in[type]) {
-                log.log(log.WARNING, null, "Main", `No connections defined for node type "${type}"`);
+                log.log(log.WARNING, null, "Main", `no connections defined for node type "${type}"`);
             }
             else if (!types_with_connections_out[type]) {
-                log.log(log.WARNING, null, "Main", `No outgoing connections defined for node type "${type}"`);
+                log.log(log.WARNING, null, "Main", `no outgoing connections defined for node type "${type}"`);
             }
             else if (!types_with_connections_in[type]) {
-                log.log(log.WARNING, null, "Main", `No incoming connections defined for node type "${type}"`);
+                log.log(log.WARNING, null, "Main", `no incoming connections defined for node type "${type}"`);
             }
         }
     } else if (!config.TRACE_FILE) {
@@ -491,7 +491,7 @@ export function construct_simulation(is_from_web)
         try {
             filedata = fs.readFileSync(filename, 'utf8');
         } catch (x) {
-            log.log(log.ERROR, null, "Main", `Failed to read the user script file ${config.SIMULATION_SCRIPT_FILE}: ${x}`);
+            log.log(log.ERROR, null, "Main", `failed to read the user script file ${config.SIMULATION_SCRIPT_FILE}: ${x}`);
         }
 
         try {
@@ -500,12 +500,14 @@ export function construct_simulation(is_from_web)
             if (callbacks) {
                 state.callbacks = callbacks;
             } else {
-                log.log(log.WARNING, null, "Main", `The user script did not return any callbacks`);
+                log.log(log.WARNING, null, "Main", `the user script did not return any callbacks`);
             }
         } catch (x) {
-            log.log(log.ERROR, null, "Main", `Failed to evaluate the user script from file ${config.SIMULATION_SCRIPT_FILE}: ${x}`);
+            log.log(log.ERROR, null, "Main", `failed to evaluate the user script from file ${config.SIMULATION_SCRIPT_FILE}: ${x}`);
         }
     }
+
+    log.log(log.INFO, null, "Main", `simulation created`);
 
     return net;
 }
