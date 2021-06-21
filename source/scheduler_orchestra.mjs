@@ -38,7 +38,7 @@ import config from './config.mjs';
 import constants from './constants.mjs';
 import * as log from './log.mjs';
 import * as time from './time.mjs';
-import { addr_to_id, id_to_addr, addr_equal } from './utils.mjs';
+import { addr_to_id, id_to_addr, addr_equal, assert } from './utils.mjs';
 
 /*---------------------------------------------------------------------------*/
 
@@ -56,12 +56,14 @@ function mlog(severity, node, msg) {
 function default_common_select_packet(node, packet)
 {
     /* We are the default slotframe, select anything */
-    return {is_selected: true, slotframe: node.sf_common.handle, timeslot: 0};
+    return {slotframe: node.sf_common, timeslot: 0};
 }
 
 function default_common_init(node, slotframe_handle)
 {
-    node.sf_common = node.add_slotframe(slotframe_handle, config.ORCHESTRA_COMMON_SHARED_PERIOD);
+    node.sf_common = node.add_slotframe(slotframe_handle,
+                                        orchestra_rule_default_common.name,
+                                        config.ORCHESTRA_COMMON_SHARED_PERIOD);
 
     node.add_cell(node.sf_common,
                   constants.CELL_OPTION_RX | constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
@@ -97,14 +99,16 @@ function eb_select_packet(node, packet)
 {
     /* Select EBs only */
     if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_BEACONFRAME) {
-        return { is_selected: true, slotframe: node.sf_eb.handle, timeslot: eb_get_node_timeslot(node.addr) };
+        return { slotframe: node.sf_eb, timeslot: eb_get_node_timeslot(node.addr) };
     }
-    return { is_selected: false };
+    return null;
 }
 
 function eb_init(node, slotframe_handle)
 {
-    node.sf_eb = node.add_slotframe(slotframe_handle, config.ORCHESTRA_EBSF_PERIOD);
+    node.sf_eb = node.add_slotframe(slotframe_handle,
+                                    orchestra_rule_eb_per_time_source.name,
+                                    config.ORCHESTRA_EBSF_PERIOD);
 
     /* EB cell: every neighbor uses its own to avoid contention */
     node.add_cell(node.sf_eb,
@@ -201,23 +205,27 @@ function unicast_get_node_channel_offset(addr)
 function ns_select_packet(node, packet)
 {
     const dest_addr = packet.nexthop_addr;
+    const dest_id = packet.nexthop_id;
 
-    /* mlog(log.DEBUG, node, `ns_select_packet, type=${packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE}, dest_addr=${dest_addr}`) */
+    /* mlog(log.DEBUG, node, `ns_select_packet, type=${packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE}, dest_id=${dest_id}`) */
 
-    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr != null) {
-        return { is_selected: true,
-                 slotframe: node.sf_unicast.handle,
+    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME
+        && dest_addr != null
+        && !orchestra_is_root_schedule_active(node, dest_id)) {
+        return { slotframe: node.sf_unicast,
                  timeslot: unicast_get_node_timeslot(dest_addr),
                  channel_offset: unicast_get_node_channel_offset(dest_addr) 
                };
     }
-    return { is_selected: false };
+    return null;
 }
 
 function ns_init(node, slotframe_handle)
 {
     /* Slotframe for unicast transmissions */
-    node.sf_unicast = node.add_slotframe(slotframe_handle, config.ORCHESTRA_UNICAST_PERIOD);
+    node.sf_unicast = node.add_slotframe(slotframe_handle,
+                                         orchestra_rule_unicast_per_neighbor_rpl_ns.name,
+                                         config.ORCHESTRA_UNICAST_PERIOD);
 
     const rx_timeslot = unicast_get_node_timeslot(node.addr);
     const channel_offset = unicast_get_node_channel_offset(node.addr);
@@ -272,13 +280,15 @@ function storing_neighbor_has_uc_cell(node, linkaddr)
 function storing_select_packet(node, packet)
 {
     const dest_addr = packet.nexthop_addr;
+    const dest_id = packet.nexthop_id;
 
-    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr != null) {
+    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME
+        && dest_addr != null
+        && !orchestra_is_root_schedule_active(node, dest_id)) {
 
         if (storing_neighbor_has_uc_cell(node, dest_addr)) {
 
-            return { is_selected: true,
-                     slotframe: node.sf_unicast.handle,
+            return { slotframe: node.sf_unicast,
                      timeslot: unicast_get_node_timeslot(config.ORCHESTRA_UNICAST_SENDER_BASED ? node.addr : dest_addr),
                      channel_offset: unicast_get_node_channel_offset(dest_addr)
                    };
@@ -286,10 +296,10 @@ function storing_select_packet(node, packet)
             mlog(log.DEBUG, node, `storing_select_packet: unicast, but neighbor=${packet.nexthop_id} does not have a cell`);
         }
     } else {
-        mlog(log.DEBUG, node, `storing_select_packet: type=${packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE} dest_addr=${dest_addr} to=${packet.nexthop_id}`);
+        mlog(log.DEBUG, node, `storing_select_packet: type=${packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE} dest_id=${dest_id} to=${packet.nexthop_id}`);
     }
 
-    return { is_selected: false };
+    return null;
 }
 
 function add_uc_cell(node, addr)
@@ -408,7 +418,9 @@ function storing_init(node, slotframe_handle)
     mlog(log.INFO, node, `storing rule, ${rule_type}`);
 
     /* Slotframe for unicast transmissions */
-    node.sf_unicast = node.add_slotframe(slotframe_handle, config.ORCHESTRA_UNICAST_PERIOD);
+    node.sf_unicast = node.add_slotframe(slotframe_handle,
+                                         orchestra_rule_unicast_per_neighbor_rpl_storing.name,
+                                         config.ORCHESTRA_UNICAST_PERIOD);
 
     const timeslot = unicast_get_node_timeslot(node.addr);
     const local_channel_offset = unicast_get_node_channel_offset(node.addr);
@@ -434,6 +446,107 @@ const orchestra_rule_unicast_per_neighbor_rpl_storing = {
 
 /* ------------------------------------------------- */
 
+/*
+ *         Orchestra: a slotframe dedicated to unicast data transmission to the root.
+ *         See the paper "TSCH for Long Range Low Data Rate Applications", IEEE Access
+ */
+
+function to_root_get_node_timeslot(addr)
+{
+    if (addr && config.ORCHESTRA_ROOT_PERIOD > 0) {
+        return config.ORCHESTRA_LINKADDR_HASH(addr) % config.ORCHESTRA_ROOT_PERIOD;
+    } else {
+        return 0xffffffff;
+    }
+}
+
+function orchestra_is_root_schedule_active(node, root_id)
+{
+    return node.sf_to_root != null && node.roots[root_id];
+}
+
+function special_for_root_select_packet(node, packet)
+{
+    const dest_addr = packet.nexthop_addr;
+    const dest_id = packet.nexthop_id;
+
+    if (!node.is_coordinator
+        && packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME
+        && orchestra_is_root_schedule_active(node, dest_id)) {
+
+        mlog(log.DEBUG, node, `special_for_root_select_packet: use the root rule to neighbor=${packet.nexthop_id}`);
+
+        return { slotframe: node.sf_to_root,
+                 timeslot: to_root_get_node_timeslot(node.addr),
+                 channel_offset: unicast_get_node_channel_offset(dest_addr)
+               };
+    }
+
+    return null;
+}
+
+function special_for_root_root_node_updated(node, root_id, is_added)
+{
+    assert(is_added, "Root node removal not supported yet");
+
+    mlog(log.INFO, node, `special_for_root_root_node_updated: ${root_id} becomes root`);
+
+    const root_addr = id_to_addr(root_id);
+
+    const timeslot = to_root_get_node_timeslot(node.addr);
+    const channel_offset = unicast_get_node_channel_offset(root_addr);
+
+    node.add_cell(node.sf_to_root,
+                  constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
+                  constants.CELL_TYPE_NORMAL,
+                  constants.BROADCAST_ID,
+                  timeslot, channel_offset);
+}
+
+function special_for_root_init_on_root(node)
+{
+    if (node.sf_to_root == null) {
+        /* wait for initialization of the rule */
+        return;
+    }
+
+    const slotframe_rx_handle = node.sf_to_root.handle | 0x8000;
+
+    /* Add a 1-slot slotframe for unicast reception */
+    const sf_rx = node.add_slotframe(slotframe_rx_handle, orchestra_rule_special_for_root.name, 1);
+    /* Rx link */
+    const timeslot = 0;
+    const local_channel_offset = unicast_get_node_channel_offset(node.addr);
+
+    node.add_cell(sf_rx,
+                  constants.CELL_OPTION_RX,
+                  constants.CELL_TYPE_NORMAL,
+                  constants.BROADCAST_ID,
+                  timeslot, local_channel_offset);
+}
+
+function special_for_root_init(node, slotframe_handle)
+{
+    /* Slotframe for unicast transmissions */
+    node.sf_to_root = node.add_slotframe(slotframe_handle,
+                                         orchestra_rule_special_for_root.name,
+                                         config.ORCHESTRA_ROOT_PERIOD);
+
+    if (node.is_coordinator) {
+        special_for_root_init_on_root(node);
+    }
+}
+
+const orchestra_rule_special_for_root = {
+    name: "special for root",
+    init: special_for_root_init,
+    select_packet: special_for_root_select_packet,
+    root_updated: special_for_root_root_node_updated,
+    get_sf_size: function() { return config.ORCHESTRA_ROOT_PERIOD; },
+};
+
+/* ------------------------------------------------- */
+
 function link_based_neighbor_has_uc_cell(node, linkaddr)
 {
     if (linkaddr != null) {
@@ -455,13 +568,15 @@ function link_based_neighbor_has_uc_cell(node, linkaddr)
 function link_based_select_packet(node, packet)
 {
     const dest_addr = packet.nexthop_addr;
+    const dest_id = packet.nexthop_id;
 
-    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME && dest_addr != null) {
+    if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_DATAFRAME
+        && dest_addr != null
+        && !orchestra_is_root_schedule_active(node, dest_id)) {
 
         if (link_based_neighbor_has_uc_cell(node, dest_addr)) {
 
-            return { is_selected: true,
-                     slotframe: node.sf_unicast.handle,
+            return { slotframe: node.sf_unicast,
                      timeslot: unicast_get_node_pair_timeslot(node.addr, dest_addr),
                      channel_offset: unicast_get_node_channel_offset(dest_addr)
                    };
@@ -469,11 +584,11 @@ function link_based_select_packet(node, packet)
             mlog(log.DEBUG, node, `link_based_select_packet: unicast, but neighbor=${packet.nexthop_id} does not have a cell`);
         }
     } else {
-        mlog(log.DEBUG, node, `link_based_select_packet: type=${packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE} dest_addr=${dest_addr} to=${packet.nexthop_id}`);
+        mlog(log.DEBUG, node, `link_based_select_packet: type=${packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE} dest_id=${dest_id} to=${packet.nexthop_id}`);
 
     }
 
-    return { is_selected: false };
+    return null;
 }
 
 function link_based_add_uc_cells(node, addr)
@@ -542,7 +657,9 @@ function link_based_child_removed(node, addr)
 function link_based_init(node, slotframe_handle)
 {
     /* Slotframe for unicast transmissions */
-    node.sf_unicast = node.add_slotframe(slotframe_handle, config.ORCHESTRA_UNICAST_PERIOD);
+    node.sf_unicast = node.add_slotframe(slotframe_handle,
+                                         orchestra_rule_unicast_per_neighbor_link_based.name,
+                                         config.ORCHESTRA_UNICAST_PERIOD);
 }
 
 const orchestra_rule_unicast_per_neighbor_link_based = {
@@ -630,36 +747,55 @@ export function on_tx(node, packet, status_ok)
 export function on_packet_ready(node, packet)
 {
     /* By default, use any slotframe, any timeslot */
-    let slotframe_handle = 0xffffffff;
-    let timeslot = 0xffffffff;
+    packet.packetbuf.PACKETBUF_ATTR_TSCH_SLOTFRAME = 0xffffffff;
+    packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT = 0xffffffff;
     /* The default channel offset 0xffffffff means that the channel offset in the scheduled
      * tsch_cell structure is used instead. Any other value specified in the packetbuf
      * overrides per-cell value, allowing to implement multi-channel Orchestra. */
-    let channel_offset = 0xffffffff;
+    packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET = 0xffffffff;
 
     /* Loop over all rules until finding one able to handle the packet */
     for (let i = 0; i < node.orchestra_rules.length; i++) {
         const rule = node.orchestra_rules[i];
         if (rule.select_packet != null) {
             const obj = rule.select_packet(node, packet);
-            if (obj.is_selected) {
-                slotframe_handle = obj.slotframe;
-                timeslot = obj.timeslot;
-                if (obj.hasOwnProperty("channel_offset")) {
-                    channel_offset = obj.channel_offset;
-                }
-                break;
+            if (obj != null) {
+                /* found a matching rule */
+                packet.packetbuf.PACKETBUF_ATTR_TSCH_SLOTFRAME = obj.slotframe.handle;
+                packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT = obj.timeslot;
+                let channel_offset = obj.hasOwnProperty("channel_offset") ? obj.channel_offset : 0xffffffff;
+                packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET = channel_offset;
+                mlog(log.DEBUG, node, `selected slotframe="${obj.slotframe.rule_name}" timeslot=${obj.timeslot === 0xffffffff ? -1 : obj.timeslot} choffset=${channel_offset === 0xffffffff ? -1 : channel_offset}`);
+                return true;
             }
         }
     }
 
-    mlog(log.DEBUG, node, `selected slotframe=${slotframe_handle} timeslot=${timeslot} choffset=${channel_offset}`);
+    mlog(log.DEBUG, node, `no matching slotframes!`);
+    return false;
+}
 
-    packet.packetbuf.PACKETBUF_ATTR_TSCH_SLOTFRAME = slotframe_handle;
-    packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT = timeslot;
-    packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET = channel_offset;
+/* ------------------------------------------------- */
 
-    return slotframe_handle !== 0xffffffff;
+export function add_root(node, root_id)
+{
+    if (!node.roots[root_id]) {
+        node.roots[root_id] = true;
+        /* Initialize all Orchestra rules */
+        for (let i = 0; i < node.orchestra_rules.length; i++) {
+            const rule = node.orchestra_rules[i];
+            if (rule.root_updated != null) {
+                rule.root_updated(node, root_id, true);
+            }
+        }
+    }
+}
+
+/* ------------------------------------------------- */
+
+export function on_node_becomes_root(node)
+{
+    special_for_root_init_on_root(node);
 }
 
 /* ------------------------------------------------- */
@@ -683,6 +819,7 @@ const all_rules = {
     orchestra_rule_unicast_per_neighbor_rpl_storing,
     orchestra_rule_unicast_per_neighbor_rpl_ns,
     orchestra_rule_unicast_per_neighbor_link_based,
+    orchestra_rule_special_for_root,
     orchestra_rule_default_common
 }
 
@@ -695,6 +832,8 @@ export function node_init(node)
     node.orchestra_parent_linkaddr = null;
     /* Set to one only after getting an ACK for a DAO sent to our preferred parent */
     node.orchestra_parent_knows_us = false;
+    /* Dictionary of all known direct neighbor root node ID */
+    node.roots = {};
 
     node.orchestra_rules = [];
     for (const rule of node.config.ORCHESTRA_RULES) {
@@ -745,6 +884,7 @@ export function initialize()
         ORCHESTRA_EBSF_PERIOD:                     397,
         ORCHESTRA_COMMON_SHARED_PERIOD:            31,
         ORCHESTRA_UNICAST_PERIOD:                  17,
+        ORCHESTRA_ROOT_PERIOD:                     7,
 
         /* Is the per-neighbor unicast slotframe sender-based (if not, it is receiver-based).
          * Note: sender-based works only with RPL storing mode as it relies on DAO and
