@@ -5,7 +5,7 @@ all: mesh grid star line
 mesh: mesh.json
 	rm -rf results
 	../../tsch-sim.sh $< > /dev/null
-	grep "set position x=-407.19 y=-61.38" results/log.txt > /dev/null
+	grep "set position x=-445.05 y=-96.50" results/log.txt > /dev/null
 
 grid: grid.json
 	rm -rf results
