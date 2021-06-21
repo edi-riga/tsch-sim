@@ -378,13 +378,13 @@ export class RPL
             if (route) {
                 /* A DAO route was found so we set the down flag. */
                 rpl_opt_flags |= RPL_HDR_OPT_DOWN;
-                mlog(log.DEBUG, this.node, `going down according to RPL: from=${this.node.id} to=${route.nexthop_id}`);
+                mlog(log.DEBUG, this.node, `going down according to RPL: via=${packet.lasthop_id}->${this.node.id}->${route.nexthop_id}`);
             } else {
                 /* No route was found, so this packet will go towards the RPL
                    root. If so, we should not set the down flag. */
                 rpl_opt_flags &= ~RPL_HDR_OPT_DOWN;
                 const nexthop_id = this.node.routes.default_route ? this.node.routes.default_route.nexthop_id : -1;
-                mlog(log.DEBUG, this.node, `going up according to RPL: from=${this.node.id} to=${nexthop_id}`);
+                mlog(log.DEBUG, this.node, `going up according to RPL: via=${packet.lasthop_id}->${this.node.id}->${nexthop_id}`);
             }
         }
 
@@ -685,7 +685,7 @@ export class RPL
 
         /* Update DIO counter for redundancy mngt */
         if (dio.payload.rank !== RPL_INFINITE_RANK) {
-            this.dio_counter++;
+            this.dio_counter += 1;
         }
 
         /* The DIO has a newer version: global repair.
@@ -912,6 +912,8 @@ export class RPL
             this.node.routes.remove_default_route();
             if (nbr) {
                 this.node.routes.add_default_route(nbr.neighbor.id);
+            } else {
+                mlog(log.ERROR, this.node, `drop preferred parent: rank=${this.preferred_parent.rank} link=${this.preferred_parent.link_metric()}`);
             }
 
             this.preferred_parent = nbr;
@@ -954,7 +956,11 @@ export class RPL
             }
 
             /* Now we have an acceptable parent, check if it is the new best */
-            best = this.of_best_parent(best, nbr);
+            if (best == null) {
+                best = nbr;
+            } else {
+                best = this.of_best_parent(best, nbr);
+            }
         }
 
         return best;
@@ -1148,14 +1154,10 @@ export class RPL
     }
 
     mrhof_nbr_path_cost(nbr) {
-        //mlog(log.DEBUG, this.node, `path cost: rank=${nbr.rank} metric=${nbr.link_metric()}`);
         return Math.min(nbr.rank + nbr.link_metric(), RPL_INFINITE_RANK);
     }
 
     mrhof_nbr_is_acceptable_parent(nbr) {
-        if (!nbr) {
-            return null;
-        }
         /* Exclude links with too high link metrics  */
         const has_usable_link = nbr.link_metric() <= MRHOF_MAX_LINK_METRIC;
         const path_cost = this.mrhof_nbr_path_cost(nbr);
@@ -1300,7 +1302,7 @@ export class RPL
         } else {
             /* check if we need to double interval */
             if (this.dio_intcurrent < this.node.config.RPL_DIO_INTERVAL_MIN + this.node.config.RPL_DIO_INTERVAL_DOUBLINGS) {
-                this.dio_intcurrent++;
+                this.dio_intcurrent += 1;
             }
             this.new_dio_interval();
         }
@@ -1397,7 +1399,7 @@ export class RPL
     resend_dao() {
         this.dao_timer = null;
         /* Increment transmission counter before sending */
-        this.dao_transmissions++;
+        this.dao_transmissions += 1;
         /* Send a DAO with own prefix as target and default lifetime */
         this.dao_output(this.preferred_parent, this.node.config.RPL_DEFAULT_LIFETIME_MIN);
 

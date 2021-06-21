@@ -111,6 +111,11 @@ const constants = {
     RUN_10_PERCENT:       4,
     RUN_STEP_NEXT_ACTIVE: 5,
     RUN_STEP_SINGLE:      6,
+
+    /* Query packet statuses */
+    PACKET_IS_DATA: 0,
+    PACKET_IS_REQUEST: 1,
+    PACKET_IS_RESPONSE: 2,
 };
 
 export default constants;

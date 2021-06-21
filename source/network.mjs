@@ -55,6 +55,7 @@ export class Network {
     reset_stats() {
         /* statistics: end-to-end */
         this.stats_app_num_tx = 0;
+        this.stats_app_num_replied = 0;
         this.stats_app_num_endpoint_rx = 0;
         this.stats_app_num_lost = 0;
         this.stats_app_num_queue_drops = 0;
@@ -166,6 +167,18 @@ export class Network {
         return this.protocol_handlers.get(key);
     }
 
+    get_time_source_tree() {
+        const result = {};
+        for (let [id, node] of this.nodes) {
+            if (node.current_time_source != null) {
+                result[id] = node.current_time_source.id;
+            } else {
+                result[id] = null;
+            }
+        }
+        return result;
+    }
+
     aggregate_stats() {
         let stats = {};
         let charge_uc = 0;
@@ -178,6 +191,7 @@ export class Network {
 
             /* statistics: end-to-end */
             this.stats_app_num_tx += node_stats.app_num_tx;
+            this.stats_app_num_replied += node_stats.app_num_replied;
             this.stats_app_num_endpoint_rx += node_stats.app_num_endpoint_rx;
             this.stats_app_num_lost += node_stats.app_num_lost;
             this.stats_app_num_queue_drops += node_stats.app_num_queue_drops;
@@ -257,6 +271,12 @@ export class Network {
                 {
                     "total": this.stats_app_num_lost,
                     "name": "Number of application packets lost"
+                }
+            ],
+            "app-packets-replied": [
+                {
+                    "total": this.stats_app_num_replied,
+                    "name": "Number of application query requests replied"
                 }
             ],
             "current-consumed": [

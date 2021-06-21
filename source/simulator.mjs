@@ -245,7 +245,7 @@ export function construct_simulation(is_from_web)
             previous_id = id;
             net.add_node(id, type_config);
             type_ids[node_type.NAME].push(id);
-            id++;
+            id += 1;
         }
 
         if (!net.mobility_model && type_config.MOBILITY_MODEL && type_config.MOBILITY_MODEL !== "Static") {
@@ -307,10 +307,7 @@ export function construct_simulation(is_from_web)
         /* Generate default some packet sources for a data collection application */
         for (let i = 2; i <= net.nodes.size; ++i) {
             /* packet sources */
-            const period_sec = config.APP_PACKET_PERIOD_SEC;
-            new ps.PacketSource(net.get_node(i),
-                                net.get_node(1),
-                                period_sec, false, false, config.APP_PACKET_SIZE);
+            new ps.PacketSource(net.get_node(i), net.get_node(1));
         }
     }
 
@@ -355,6 +352,8 @@ export function construct_simulation(is_from_web)
             const data = from_node_type.APP_PACKETS;
             const period_sec = "APP_PACKET_PERIOD_SEC" in data ? data.APP_PACKET_PERIOD_SEC : config.APP_PACKET_PERIOD_SEC;
             const size = "APP_PACKET_SIZE" in data ? data.APP_PACKET_SIZE : config.APP_PACKET_SIZE;
+            const warmup_period = "APP_WARMUP_PERIOD_SEC" in data ? data.APP_WARMUP_PERIOD_SEC : config.APP_WARMUP_PERIOD_SEC;
+
             const is_query = "IS_QUERY" in data ? data.IS_QUERY : false;
             if ("TO_TYPE" in data) {
                 const to_type = data.TO_TYPE;
@@ -364,7 +363,7 @@ export function construct_simulation(is_from_web)
                         if (from_node_id !== to_node_id) {
                             new ps.PacketSource(net.get_node(from_node_id),
                                                 net.get_node(to_node_id),
-                                                period_sec, false, is_query, size);
+                                                period_sec, false, is_query, size, warmup_period);
                         }
                     }
                 }
@@ -376,7 +375,7 @@ export function construct_simulation(is_from_web)
                         if (from_node_id !== to_node_id) {
                             new ps.PacketSource(net.get_node(from_node_id),
                                                 to_node_id === -1 ? null : net.get_node(to_node_id),
-                                                period_sec, false, is_query, size);
+                                                period_sec, false, is_query, size, warmup_period);
                         }
                     }
                 } else {
@@ -531,9 +530,43 @@ function finish_simulation(network)
     const stats = network.aggregate_stats();
     /* write to a file, if needed */
     if (config.SAVE_RESULTS) {
+        let filename;
         const is_child = config.SIMULATION_RUN_ID !== 0;
-        const filename = is_child ? `stats_${config.SIMULATION_RUN_ID}.json` : "stats.json";
+
+        filename = "stats";
+        if (is_child) {
+            filename += `_${config.SIMULATION_RUN_ID}`;
+        }
+        filename += ".json";
         fs.writeFileSync(path.join(dirnames.results_dir, filename), JSON.stringify(stats, null, 2));
+
+        let s = "digraph time_source_tree {\n";
+        s += '  rankdir="BT";\n';
+        const tree = network.get_time_source_tree();
+        const has_children = {};
+        for (let id in tree) {
+            if (tree[id] != null) {
+                s += `  "${id}" -> "${tree[id]}";\n`;
+                has_children[tree[id]] = true;
+            }
+        }
+
+        /* parents */
+        for (let id in has_children) {
+            s += `  "${id}" [fillcolor="yellow" style="filled"];\n`;
+        }
+
+        /* root node */
+        s += '  "1" [rank="source" fillcolor="#00FF7F" style="filled"];\n';
+
+        s += '}\n';
+
+        filename = "time_source_tree";
+        if (is_child) {
+            filename += `_${config.SIMULATION_RUN_ID}`;
+        }
+        filename += ".dot";
+        fs.writeFileSync(path.join(dirnames.results_dir, filename), s);
     }
 }
 

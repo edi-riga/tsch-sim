@@ -90,7 +90,7 @@ export class Packet {
         this.generation_time_s = time.timeline.seconds;
         this.packet_protocol = -1;
         this.msg_type = 0;
-        this.is_query = false;
+        this.query_status = constants.PACKET_IS_DATA;
         /* 6LoWPAN fragmentation */
         this.fragment_info = null;
         /* function called when the packet is completed sending (ACKed or dropped) */
@@ -120,7 +120,7 @@ export class Packet {
         this.generation_time_s = other.generation_time_s;
         this.packet_protocol = other.packet_protocol;
         this.msg_type = other.msg_type;
-        this.is_query = other.is_query;
+        this.query_status = other.query_status;
         this.fragment_info = other.fragment_info;
         this.sent_callback = other.sent_callback;
         this.reserved_bit_set = false;
