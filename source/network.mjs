@@ -98,7 +98,7 @@ export class Network {
     }
 
     add_node(id, type_config) {
-        utils.assert(!this.nodes.has(id), `node with ID ${id} already present`);
+        utils.assert(!this.nodes.has(id), `node with ID ${id} already present[NETWORK]`);
         const index = this.nodes.size;
         let n = new networknode.Node(id, index, type_config, this);
         this.nodes.set(id, n);
