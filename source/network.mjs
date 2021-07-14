@@ -106,7 +106,7 @@ export class Network {
     }
     get_node(id) {
         const result = this.nodes.get(id);
-        utils.assert(result !== undefined, `unknown node ID ${id}`);
+        utils.assert(result !== undefined, `unknown node ID ${id}[NETWORK]`);
         return result;
     }
     find_node(id) {
@@ -115,7 +115,7 @@ export class Network {
 
     add_link(lnk) {
         const key = lnk.from.id + "#" + lnk.to.id;
-        utils.assert(!this.links.has(key), `link from ${lnk.from.id} to ${lnk.to.id} already present`);
+        utils.assert(!this.links.has(key), `link from ${lnk.from.id} to ${lnk.to.id} already present[NETWORK]`);
         this.links.set(key, lnk);
         if (lnk.is_active) {
             lnk.from.links.set(lnk.to.id, lnk);
@@ -127,7 +127,7 @@ export class Network {
     get_link(from_id, to_id) {
         const key = from_id + "#" + to_id;
         const result = this.links.get(key);
-        utils.assert(result !== undefined, `unknown link from ${from_id} to ${to_id}`);
+        utils.assert(result !== undefined, `unknown link from ${from_id} to ${to_id}[NETWORK]`);
         return result;
     }
     find_link(from_id, to_id) {
@@ -316,8 +316,8 @@ export class Network {
             ]
         };
 
-        log.log(log.INFO, null, "Main", `packet stats: PDR=${pdr.toFixed(2)}% generated=${this.stats_app_num_tx} received=${this.stats_app_num_endpoint_rx} lost=${this.stats_app_num_lost} (tx_limit/queue/routing/scheduling/other=${this.stats_app_num_tx_limit_drops}/${this.stats_app_num_queue_drops}/${this.stats_app_num_routing_drops}/${this.stats_app_num_scheduling_drops}/${this.stats_app_num_other_drops})`);
-        log.log(log.INFO, null, "Main", `link stats: PAR=${ll_par.toFixed(2)}% tx=${this.stats_mac_parent_tx_unicast} acked=${this.stats_mac_parent_acked}`);
+        log.log(log.INFO, null, "Main", `packet stats: PDR=${pdr.toFixed(2)}% generated=${this.stats_app_num_tx} received=${this.stats_app_num_endpoint_rx} lost=${this.stats_app_num_lost} (tx_limit/queue/routing/scheduling/other=${this.stats_app_num_tx_limit_drops}/${this.stats_app_num_queue_drops}/${this.stats_app_num_routing_drops}/${this.stats_app_num_scheduling_drops}/${this.stats_app_num_other_drops})[NETWORK]`);
+        log.log(log.INFO, null, "Main", `link stats: PAR=${ll_par.toFixed(2)}% tx=${this.stats_mac_parent_tx_unicast} acked=${this.stats_mac_parent_acked}[NETWORK]`);
 
         /* stats can come from multiple runs, they are merged at the end; use "0" as the run ID for now */
         stats = {"0" : stats};
