@@ -132,7 +132,7 @@ export class Neighbor {
         if (is_ack_required) {
             const old_etx = this.etx;
             this.update_etx(num_tx, is_success, cell);
-            log.log(log.DEBUG, this.node, "Node", `on tx, to=${this.id}, success=${is_success} num_tx=${num_tx} etx=${this.etx} old_etx=${old_etx} freshness=${this.freshness}`);
+            log.log(log.DEBUG, this.node, "Node", `on tx, to=${this.id}, success=${is_success} num_tx=${num_tx} etx=${this.etx} old_etx=${old_etx} freshness=${this.freshness}[NEIGHBOR]`);
         }
     }
 
@@ -209,7 +209,7 @@ export class Neighbor {
 export function periodic_process(period_seconds, current_seconds)
 {
     if (current_seconds >= next_periodic_processing_seconds) {
-        log.log(log.INFO, null, "Main", `periodic neighbor processing for all nodes`);
+        log.log(log.INFO, null, "Main", `periodic neighbor processing for all nodes [NEIGHBOR]`);
         for (const [_, node] of simulator.get_nodes()) {
             for (const [_, neighbor] of node.neighbors) {
                 neighbor.freshness = Math.trunc(neighbor.freshness / 2);

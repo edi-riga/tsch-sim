@@ -75,14 +75,14 @@ export class RoutingTable {
 
     add_route(destination_id, nexthop_id) {
         assert(!this.routes.get(destination_id));
-        log.log(log.INFO, this.node, "Node", `add route to ${destination_id} via ${nexthop_id}`);
+        log.log(log.INFO, this.node, "Node", `add route to ${destination_id} via ${nexthop_id}[ROUTE]`);
         let route = new Route(destination_id, nexthop_id);
         this.routes.set(destination_id, route);
         return route;
     }
 
     remove_route(destination_id) {
-        log.log(log.INFO, this.node, "Node", `remove route to ${destination_id}`);
+        log.log(log.INFO, this.node, "Node", `remove route to ${destination_id}[ROUTE]`);
         this.routes.delete(destination_id);
     }
 
@@ -90,7 +90,7 @@ export class RoutingTable {
         if (this.default_route) {
             this.default_route.nexthop_id = nexthop_id;
         } else {
-            log.log(log.INFO, this.node, "Node", `add the default route via ${nexthop_id}`);
+            log.log(log.INFO, this.node, "Node", `add the default route via ${nexthop_id}[ROUTE]`);
             this.default_route = new Route(0, nexthop_id);
         }
         return this.default_route;
@@ -98,7 +98,7 @@ export class RoutingTable {
 
     remove_default_route() {
         if (this.default_route) {
-            log.log(log.INFO, this.node, "Node", `remove the default route`);
+            log.log(log.INFO, this.node, "Node", `remove the default route [ROUTE]`);
             this.default_route = null;
         }
     }
@@ -122,17 +122,17 @@ export class RoutingTable {
         }
         const route = this.lookup_route(destination_id);
         if (!route) {
-            log.log(log.WARNING, this.node, "Node", `failed to find a nexthop for=${destination_id}`);
+            log.log(log.WARNING, this.node, "Node", `failed to find a nexthop for=${destination_id} [ROUTE]`);
         }
         return route ? route.nexthop_id : null;
     }
 }
 
 /*---------------------------------------------------------------------------*/
-
+// Code to update the routing table periodically
 export function periodic_process(period_seconds)
 {
-    log.log(log.INFO, null, "Main", `periodic route processing for all nodes`);
+    log.log(log.INFO, null, "Main", `periodic route processing for all nodes [ROUTE]`);
 
     const total_nodes = simulator.get_nodes().size;
     let num_joined_tsch = 0;
@@ -160,6 +160,6 @@ export function periodic_process(period_seconds)
         }
     }
 
-    log.log(log.INFO, null, "Main", `joined_routing/joined_tsch/total=${num_joined_routing}/${num_joined_tsch}/${total_nodes}`);
+    log.log(log.INFO, null, "Main", `joined_routing/joined_tsch/total=${num_joined_routing}/${num_joined_tsch}/${total_nodes} [ROUTE]`);
 
 }

@@ -69,7 +69,7 @@ if (config.SCHEDULING_ALGORITHM === "Orchestra") {
     scheduler = scheduler_lf;
 } else if (config.SCHEDULING_ALGORITHM !== "6tischMin") {
     /* use default, but complain! */
-    log.log(log.ERROR, null, "Main", `failed to find scheduler "${config.SCHEDULING_ALGORITHM}", using 6tisch minimal`);
+    log.log(log.ERROR, null, "Main", `failed to find scheduler "${config.SCHEDULING_ALGORITHM}", using 6tisch minimal[SIMULATOR]`);
 }
 
 /* ------------------------------------- */
@@ -80,7 +80,7 @@ function periodic_bookeeping(user_param, seconds)
 {
     /* print time and simulation progress periodically */
     const progress = 100 * seconds / config.SIMULATION_DURATION_SEC;
-    log.log(log.INFO, null, "Main", `${Math.trunc(seconds)} seconds, progress ${progress.toFixed(2)}%`);
+    log.log(log.INFO, null, "Main", `${Math.trunc(seconds)} seconds, progress ${progress.toFixed(2)}%[SIMULATOR]`);
     /* process routes */
     route.periodic_process(PERIODIC_TIMER_SEC, seconds);
     /* process neighbors */
@@ -98,12 +98,12 @@ function periodic_bookeeping(user_param, seconds)
 function check_config_validity()
 {
     if (config.APP_PACKETS_GENERATE_ALWAYS && config.EMULATE_6TISCHSIM) {
-        log.log(log.WARNING, null, "Main", `options config.APP_PACKETS_GENERATE_ALWAYS and config.EMULATE_6TISCHSIM are incompatible, ignoring the former`);
+        log.log(log.WARNING, null, "Main", `options config.APP_PACKETS_GENERATE_ALWAYS and config.EMULATE_6TISCHSIM are incompatible, ignoring the former[SIMULATOR]`);
         config.APP_PACKETS_GENERATE_ALWAYS = false;
     }
 
     if (utils.has_nonempty_array(config, "CONNECTIONS") && config.TRACE_FILE) {
-        log.log(log.WARNING, null, "Main", `options config.CONNECTIONS and config.TRACE_FILE are incompatible, ignoring the former`);
+        log.log(log.WARNING, null, "Main", `options config.CONNECTIONS and config.TRACE_FILE are incompatible, ignoring the former[SIMULATOR]`);
         config.CONNECTIONS = [];
     }
 }
@@ -111,7 +111,7 @@ function check_config_validity()
 function check_node_validity(node)
 {
     if (node.links.size === 0 && !config.TRACE_FILE) {
-        log.log(log.WARNING, null, "Main", `node ${node.id} of type "${node.config.NAME}" has no valid connections`);
+        log.log(log.WARNING, null, "Main", `node ${node.id} of type "${node.config.NAME}" has no valid connections[SIMULATOR]`);
     }
 }
 
@@ -142,19 +142,19 @@ function parse_position(network, position)
         if (position.hasOwnProperty("X")) {
             node.pos_x = parseInt(position.X);
             if (isNaN(node.pos_x)) {
-                log.log(log.WARNING, node, "Main", `invalid position X coordinate=${position.X} specified`);
+                log.log(log.WARNING, node, "Main", `invalid position X coordinate=${position.X} specified[SIMULATOR]`);
                 node.pos_x = 0;
             }
         }
         if (position.hasOwnProperty("Y")) {
             node.pos_y = parseInt(position.Y);
             if (isNaN(node.pos_y)) {
-                log.log(log.WARNING, node, "Main", `invalid position Y coordinate=${position.Y} specified`);
+                log.log(log.WARNING, node, "Main", `invalid position Y coordinate=${position.Y} specified[SIMULATOR]`);
                 node.pos_y = 0;
             }
         }
     } else {
-        log.log(log.WARNING, null, "Main", `position specified for unknown node ID=${node_id}`);
+        log.log(log.WARNING, null, "Main", `position specified for unknown node ID=${node_id}[SIMULATOR]`);
     }
 }
 
@@ -166,7 +166,7 @@ export function construct_simulation(is_from_web)
     time.reset_time();
     time.add_timer(PERIODIC_TIMER_SEC, true, null, periodic_bookeeping);
 
-    log.log(log.INFO, null, "Main", `initializing ${config.SIMULATION_DURATION_SEC} seconds long simulation...`);
+    log.log(log.INFO, null, "Main", `initializing ${config.SIMULATION_DURATION_SEC} seconds long simulation...[SIMULATOR]`);
 
     check_config_validity();
 
@@ -177,7 +177,7 @@ export function construct_simulation(is_from_web)
     status.log = [];
 
     /* now start component initialization */
-    log.log(log.DEBUG, null, "Main", `initializing the RNG with seed ${config.SIMULATION_SEED}`);
+    log.log(log.DEBUG, null, "Main", `initializing the RNG with seed ${config.SIMULATION_SEED}[SIMULATOR]`);
     random.rng.seed(config.SIMULATION_SEED);
 
     /* init link model configuration */
@@ -227,11 +227,11 @@ export function construct_simulation(is_from_web)
 
     for (const node_type of config.NODE_TYPES) {
         if (!check_node_type_validity(node_type)) {
-            log.log(log.WARNING, null, "Main", `invalid node type "${node_type.NAME}"`);
+            log.log(log.WARNING, null, "Main", `invalid node type "${node_type.NAME}"[SIMULATOR]`);
             continue;
         }
 
-        log.log(log.INFO, null, "Main", `creating ${node_type.COUNT} "${node_type.NAME}" nodes...`);
+        log.log(log.INFO, null, "Main", `creating ${node_type.COUNT} "${node_type.NAME}" nodes...[SIMULATOR]`);
 
         /* set the default config and override it with type-speficific values */
         const type_config = JSON.parse(JSON.stringify(config));
@@ -298,7 +298,7 @@ export function construct_simulation(is_from_web)
                 const node = net.get_node(i + 1);
                 node.pos_x = positions[i].pos_x;
                 node.pos_y = positions[i].pos_y;
-                log.log(log.INFO, node, "Main", `set position x=${node.pos_x.toFixed(2)} y=${node.pos_y.toFixed(2)}`);
+                log.log(log.INFO, node, "Main", `set position x=${node.pos_x.toFixed(2)} y=${node.pos_y.toFixed(2)}[SIMULATOR]`);
             }
         }
     }
@@ -323,14 +323,14 @@ export function construct_simulation(is_from_web)
             types_with_connections_out[from_node_type.NAME] = true;
 
             if (config.TRACE_FILE) {
-                log.log(log.WARNING, null, "Main", `ignoring connections for node type "${from_node_type.NAME}": trace file supplied`);
+                log.log(log.WARNING, null, "Main", `ignoring connections for node type "${from_node_type.NAME}": trace file supplied[SIMULATOR]`);
                 continue;
             }
             /* Connections defined for the node type */
             for (const connection of from_node_type.CONNECTIONS) {
                 const TO_NODE_TYPE = ("NODE_TYPE" in connection) ? connection["NODE_TYPE"] : connection["TO_NODE_TYPE"];
                 if (!(TO_NODE_TYPE in type_ids)) {
-                    log.log(log.WARNING, null, "Main", `ignoring connections with unknown node type "${TO_NODE_TYPE}"`);
+                    log.log(log.WARNING, null, "Main", `ignoring connections with unknown node type "${TO_NODE_TYPE}"[SIMULATOR]`);
                     continue;
                 }
                 types_with_connections_in[TO_NODE_TYPE] = true;
@@ -379,7 +379,7 @@ export function construct_simulation(is_from_web)
                         }
                     }
                 } else {
-                    log.log(log.WARNING, null, "Main", `application packet specification: invalid to node ID "${to_node_id}"`);
+                    log.log(log.WARNING, null, "Main", `application packet specification: invalid to node ID "${to_node_id}"[SIMULATOR]`);
                 }
             }
         }
@@ -398,27 +398,27 @@ export function construct_simulation(is_from_web)
 
             if (node_type !== undefined || from_node_type !== undefined || to_node_type !== undefined) {
                 if (to_node_id !== undefined || from_node_id !== undefined) {
-                    log.log(log.WARNING, null, "Main", `ignoring TO_ID/FROM_ID in connection configuration as *NODE_TYPE is specified`);
+                    log.log(log.WARNING, null, "Main", `ignoring TO_ID/FROM_ID in connection configuration as *NODE_TYPE is specified[SIMULATOR]`);
                 }
                 if (node_type !== undefined) {
                     if (from_node_type !== undefined) {
-                        log.log(log.WARNING, null, "Main", `ignoring FROM_NODE_TYPE in connection configuration as NODE_TYPE is specified`);
+                        log.log(log.WARNING, null, "Main", `ignoring FROM_NODE_TYPE in connection configuration as NODE_TYPE is specified[SIMULATOR]`);
                     }
                     if (to_node_type !== undefined) {
-                        log.log(log.WARNING, null, "Main", `ignoring TO_NODE_TYPE in connection configuration as NODE_TYPE is specified`);
+                        log.log(log.WARNING, null, "Main", `ignoring TO_NODE_TYPE in connection configuration as NODE_TYPE is specified[SIMULATOR]`);
                     }
                     from_node_type = node_type;
                     to_node_type = node_type;
                 }
 
                 if (!(from_node_type in type_ids)) {
-                    log.log(log.WARNING, null, "Main", `ignoring connections from unknown node type "${from_node_type}"`);
+                    log.log(log.WARNING, null, "Main", `ignoring connections from unknown node type "${from_node_type}"[SIMULATOR]`);
                     continue;
                 }
                 types_with_connections_out[from_node_type] = true;
 
                 if (!(to_node_type in type_ids)) {
-                    log.log(log.WARNING, null, "Main", `ignoring connections from unknown node type "${to_node_type}"`);
+                    log.log(log.WARNING, null, "Main", `ignoring connections from unknown node type "${to_node_type}"[SIMULATOR]`);
                     continue;
                 }
                 types_with_connections_in[to_node_type] = true;
@@ -436,11 +436,11 @@ export function construct_simulation(is_from_web)
             }
 
             if (!is_valid_node_id(net, to_node_id)) {
-                log.log(log.WARNING, null, "Main", `ignoring connection to node ${to_node_id}: no such node`);
+                log.log(log.WARNING, null, "Main", `ignoring connection to node ${to_node_id}: no such node[SIMULATOR]`);
             } else if (!is_valid_node_id(net, from_node_id)) {
-                log.log(log.WARNING, null, "Main", `ignoring connection from node ${from_node_id}: no such node`);
+                log.log(log.WARNING, null, "Main", `ignoring connection from node ${from_node_id}: no such node[SIMULATOR]`);
             } else if (from_node_id === to_node_id) {
-                log.log(log.WARNING, null, "Main", `ignoring connection from node ${from_node_id} to itself`);
+                log.log(log.WARNING, null, "Main", `ignoring connection from node ${from_node_id} to itself[SIMULATOR]`);
             } else {
                 const link = link_model.create_link(
                     net.get_node(from_node_id), net.get_node(to_node_id), connection);
@@ -453,13 +453,13 @@ export function construct_simulation(is_from_web)
         for (let type in type_ids) {
             if (!types_with_connections_out[type]
                 && !types_with_connections_in[type]) {
-                log.log(log.WARNING, null, "Main", `no connections defined for node type "${type}"`);
+                log.log(log.WARNING, null, "Main", `no connections defined for node type "${type}"[SIMULATOR]`);
             }
             else if (!types_with_connections_out[type]) {
-                log.log(log.WARNING, null, "Main", `no outgoing connections defined for node type "${type}"`);
+                log.log(log.WARNING, null, "Main", `no outgoing connections defined for node type "${type}"[SIMULATOR]`);
             }
             else if (!types_with_connections_in[type]) {
-                log.log(log.WARNING, null, "Main", `no incoming connections defined for node type "${type}"`);
+                log.log(log.WARNING, null, "Main", `no incoming connections defined for node type "${type}"[SIMULATOR]`);
             }
         }
     } else if (!config.TRACE_FILE) {
@@ -490,7 +490,7 @@ export function construct_simulation(is_from_web)
         try {
             filedata = fs.readFileSync(filename, 'utf8');
         } catch (x) {
-            log.log(log.ERROR, null, "Main", `failed to read the user script file ${config.SIMULATION_SCRIPT_FILE}: ${x}`);
+            log.log(log.ERROR, null, "Main", `failed to read the user script file ${config.SIMULATION_SCRIPT_FILE}: ${x}[SIMULATOR]`);
         }
 
         try {
@@ -499,14 +499,14 @@ export function construct_simulation(is_from_web)
             if (callbacks) {
                 state.callbacks = callbacks;
             } else {
-                log.log(log.WARNING, null, "Main", `the user script did not return any callbacks`);
+                log.log(log.WARNING, null, "Main", `the user script did not return any callbacks[SIMULATOR]`);
             }
         } catch (x) {
-            log.log(log.ERROR, null, "Main", `failed to evaluate the user script from file ${config.SIMULATION_SCRIPT_FILE}: ${x}`);
+            log.log(log.ERROR, null, "Main", `failed to evaluate the user script from file ${config.SIMULATION_SCRIPT_FILE}: ${x}[SIMULATOR]`);
         }
     }
 
-    log.log(log.INFO, null, "Main", `simulation created`);
+    log.log(log.INFO, null, "Main", `simulation created[SIMULATOR]`);
 
     return net;
 }
@@ -515,7 +515,7 @@ function start_simulation(network)
 {
     state.is_running = true;
     state.is_reset_requested = false;
-    log.log(log.INFO, null, "Main", `starting simulation main loop...`);
+    log.log(log.INFO, null, "Main", `starting simulation main loop...[SIMULATOR]`);
 
     /* initialize all nodes */
     for (let [_, node] of network.nodes) {
@@ -525,7 +525,7 @@ function start_simulation(network)
 
 function finish_simulation(network)
 {
-    log.log(log.INFO, null, "Main", `ending simulation at ${time.timeline.seconds.toFixed(3)} seconds`);
+    log.log(log.INFO, null, "Main", `ending simulation at ${time.timeline.seconds.toFixed(3)} seconds[SIMULATOR]`);
     /* get stats */
     const stats = network.aggregate_stats();
     /* write to a file, if needed */
@@ -720,7 +720,7 @@ export async function run_interactive()
                     if (has_advanced) {
                         finish_simulation(network);
                     } else {
-                        log.log(log.INFO, null, "Main", `already at the end of configured time limit of ${time.timeline.seconds.toFixed(3)} seconds...`);
+                        log.log(log.INFO, null, "Main", `already at the end of configured time limit of ${time.timeline.seconds.toFixed(3)} seconds...[SIMULATOR]`);
                     }
                 }
             }
@@ -787,7 +787,7 @@ export function get_status()
 export function update_node_positions(node_positions)
 {
     if (!state.network) {
-        log.log(log.WARNING, null, "Main", `update positions: network not present`);
+        log.log(log.WARNING, null, "Main", `update positions: network not present[SIMULATOR]`);
         return;
     }
 
@@ -795,7 +795,7 @@ export function update_node_positions(node_positions)
         const id = node_positions[i].ID;
         const node = state.network.find_node(id);
         if (!node) {
-            log.log(log.INFO, null, "Main", `update positions: cannot find node by id=${id}`);
+            log.log(log.INFO, null, "Main", `update positions: cannot find node by id=${id}[SIMULATOR]`);
             continue;
         }
         node.pos_x = node_positions[i].X;

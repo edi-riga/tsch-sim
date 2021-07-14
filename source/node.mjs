@@ -311,18 +311,18 @@ export class Node {
     /* Act on EB timer being expired */
     eb_timer_callback() {
         if (!this.has_joined) {
-            log.log(log.DEBUG, this, "TSCH", `skip sending EB: not joined a TSCH network`);
+            log.log(log.DEBUG, this, "TSCH", `skip sending EB: not joined a TSCH network[NODE]`);
         } else if (this.current_eb_period <= 0) {
-            log.log(log.DEBUG, this, "TSCH", `skip sending EB: EB period disabled`);
+            log.log(log.DEBUG, this, "TSCH", `skip sending EB: EB period disabled[NODE]`);
         } else if (this.config.ROUTING_IS_LEAF) {
-            log.log(log.DEBUG, this, "TSCH", `skip sending EB: in the leaf mode`);
+            log.log(log.DEBUG, this, "TSCH", `skip sending EB: in the leaf mode[NODE]`);
         } else if (!this.routing.is_joined()) {
-            log.log(log.DEBUG, this, "TSCH", `skip sending EB: not joined a routing DAG`);
+            log.log(log.DEBUG, this, "TSCH", `skip sending EB: not joined a routing DAG[NODE]`);
         } else {
             const neighbor = this.neighbors.get(constants.EB_ID);
             /* Enqueue EB only if there isn't already one in queue */
             if (neighbor.has_packets()) {
-                this.log(log.DEBUG, "skip sending EB: already queued");
+                this.log(log.DEBUG, "skip sending EB: already queued[NODE]");
             } else {
                 const packet = new pkt.Packet(this, constants.EB_ID, config.MAC_EB_PACKET_SIZE, true);
                 packet.packet_protocol = constants.PROTO_TSCH;
@@ -397,7 +397,7 @@ export class Node {
         this.keepalive_timer = null;
 
         if (this.current_time_source) {
-            this.log(log.INFO, `send keepalive packet to=${this.current_time_source.id}`);
+            this.log(log.INFO, `send keepalive packet to=${this.current_time_source.id}[NODE]`);
 
             /* add an empty packet (only headers, no payload) */
             const packet = new pkt.Packet(this, this.current_time_source.id, this.config.MAC_HEADER_SIZE, true);
@@ -419,16 +419,16 @@ export class Node {
     keepalive_packet_sent(packet, is_success) {
         this.stats_tsch_keepalive_tx += 1;
         if (is_success) {
-            this.log(log.DEBUG, `keepalive packet sent: ok, to=${packet.destination_id}`);
+            this.log(log.DEBUG, `keepalive packet sent: ok, to=${packet.destination_id}[NODE]`);
             /* leave? */
         } else {
-            this.log(log.INFO, `keepalive packet sent: failed, to=${packet.destination_id}`);
+            this.log(log.INFO, `keepalive packet sent: failed, to=${packet.destination_id}[NODE]`);
         }
     }
 
     leave_network() {
         this.leave_timer = null;
-        this.log(log.WARNING, `leaving network, did not resynchronize with the time source for seconds=${this.config.MAC_DESYNC_THRESHOLD_S}`);
+        this.log(log.WARNING, `leaving network, did not resynchronize with the time source for seconds=${this.config.MAC_DESYNC_THRESHOLD_S}[NODE]`);
         this.reset_node(false);
     }
 
@@ -441,7 +441,7 @@ export class Node {
         const channel_offset = rng.randint(0, this.join_hopseq.length);
         const period = this.config.MAC_CHANNEL_SCAN_DURATION_SEC;
         if (!this.scanning_rx_cell || this.scanning_rx_cell.channel_offset !== channel_offset) {
-            this.log(log.INFO, `scanning on channel=${this.join_hopseq[channel_offset]}...`);
+            this.log(log.INFO, `scanning on channel=${this.join_hopseq[channel_offset]}...[NODE]`);
             this.scanning_rx_cell = new sf.Cell(0, channel_offset, this, constants.CELL_OPTION_RX);
         }
         this.scanning_timer = time.add_timer(period, false, this, function(node) { node.scanning_timer_cb(); });
@@ -488,7 +488,7 @@ export class Node {
     /* Add multiple new cells in a specific timeslot range to a given slotframe */
     add_multi_cell(slotframe, type, options, neighbor_id, timeslot_from, timeslot_count, channel_offset) {
         /* simply add a cell for each for of the timeslots in range */
-        this.log(log.DEBUG, `add multi cell from=${timeslot_from} count=${timeslot_count} offset=${channel_offset}`);
+        this.log(log.DEBUG, `add multi cell from=${timeslot_from} count=${timeslot_count} offset=${channel_offset}[NODE]`);
         for (let ts = timeslot_from; ts < timeslot_from + timeslot_count; ++ts) {
             this.add_cell(slotframe, type, options, neighbor_id, ts, channel_offset);
         }
@@ -528,14 +528,14 @@ export class Node {
     queue_backoff_reset(neighbor) {
         neighbor.backoff_window = 0;
         neighbor.backoff_exponent = this.config.MAC_MIN_BE;
-        log.log(log.DEBUG, this, "TSCH", `reset backoff exponent=${neighbor.backoff_exponent}`);
+        log.log(log.DEBUG, this, "TSCH", `reset backoff exponent=${neighbor.backoff_exponent}[NODE]`);
     }
 
     /* Increment backoff exponent, pick a new window */
     queue_backoff_inc(neighbor) {
         /* Increment exponent */
         neighbor.backoff_exponent = Math.min(neighbor.backoff_exponent + 1, this.config.MAC_MAX_BE);
-        log.log(log.DEBUG, this, "TSCH", `set backoff exponent=${neighbor.backoff_exponent}`);
+        log.log(log.DEBUG, this, "TSCH", `set backoff exponent=${neighbor.backoff_exponent}[NODE]`);
         /* Pick a window (number of shared slots to skip) */
         neighbor.backoff_window = rng.randint(0, 65536) % (1 << neighbor.backoff_exponent);
         /* Add one to the window as we will decrement it at the end of the current slot
@@ -728,10 +728,10 @@ export class Node {
         if (!scheduler.on_packet_ready(this, packet)) {
             /* There is no matching slotframe in which to send the packet  */
             if (packet.packet_protocol === constants.PROTO_APP) {
-                log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: no cell in the schedule`);
+                log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: no cell in the schedule[NODE]`);
                 packet.source.stats_app_num_scheduling_drops += 1;
             } else {
-                this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: no cell in the schedule`);
+                this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: no cell in the schedule[NODE]`);
             }
             this.packet_sent(packet, neighbor, false, null);
             return null;
@@ -743,10 +743,10 @@ export class Node {
             /* the queue would get too big  */
             this.log(log.DEBUG, `dropping packet ${packet.seqnum} as queue full`);
             if (packet.packet_protocol === constants.PROTO_APP) {
-                log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: queue full`);
+                log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: queue full[NODE]`);
                 packet.source.stats_app_num_queue_drops += 1;
             } else {
-                this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: queue full`);
+                this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: queue full[NODE]`);
             }
             this.packet_sent(packet, neighbor, false, null);
             return null;
@@ -839,7 +839,7 @@ export class Node {
         let reassembly_info = this.fragments_pending[key];
         if (reassembly_info === undefined) {
             /* add new reassembly info */
-            log.log(log.INFO, this, "Main", `packet reassembly started, seqnum=${packet.seqnum} from=${packet.source.id}`);
+            log.log(log.INFO, this, "Main", `packet reassembly started, seqnum=${packet.seqnum} from=${packet.source.id}[NODE]`);
             reassembly_info = {};
             reassembly_info[packet.fragment_info.number] = packet;
             reassembly_info.timer = time.add_timer(this.config.IP_REASSEMBLY_TIMEOUT_SEC, false, this, function(node) { node.reassembly_timeout(key); });
@@ -858,7 +858,7 @@ export class Node {
             }
             if (all_present) {
                 /* reassembly done; clean up and receive the complete packet */
-                log.log(log.INFO, this, "Main", `packet reassembly completed, seqnum=${packet.seqnum} from=${packet.source.id}`);
+                log.log(log.INFO, this, "Main", `packet reassembly completed, seqnum=${packet.seqnum} from=${packet.source.id}[NODE]`);
                 time.remove_timer(reassembly_info.timer);
                 delete this.fragments_pending[key];
                 packet.length = total_length;
@@ -869,9 +869,9 @@ export class Node {
     }
 
     reassembly_timeout(key) {
-        log.log(log.WARNING, this, "Main", `packet reassembly timeout`);
+        log.log(log.WARNING, this, "Main", `packet reassembly timeout[NODE]`);
         const reassembly_info = this.fragments_pending[key];
-        assert(reassembly_info !== undefined, `reassembly context not found, key=${key}`);
+        assert(reassembly_info !== undefined, `reassembly context not found, key=${key}[NODE]`);
         delete this.fragments_pending[key];
     }
 
@@ -895,7 +895,7 @@ export class Node {
                 if (callback) {
                     callback(this, packet);
                 } else {
-                    log.log(log.WARNING, this, "Main", `no handler for protocol=${packet.packet_protocol}`);
+                    log.log(log.WARNING, this, "Main", `no handler for protocol=${packet.packet_protocol}[NODE]`);
                 }
                 return;
             }
@@ -904,20 +904,20 @@ export class Node {
             const effective_source = (packet.query_status == constants.PACKET_IS_RESPONSE ? this : packet.source);
             const seqnum = effective_source.id + "#" + packet.seqnum;
             if (this.stats_app_packets_rxed.has(seqnum)) {
-                log.log(log.WARNING, this, "App", `rx duplicate app packet seqnum=${packet.seqnum} from=${packet.source.id}`);
+                log.log(log.WARNING, this, "App", `rx duplicate app packet seqnum=${packet.seqnum} from=${packet.source.id}[NODE]`);
             } else {
                 this.stats_app_packets_rxed.add(seqnum);
 
                 if (packet.query_status == constants.PACKET_IS_REQUEST) {
                     /* only half-way done! send it back to the source before adding to PDR and latency statistics */
-                    log.log(log.INFO, this, "App", `rx app request seqnum=${packet.seqnum} from=${effective_source.id}, sending response`);
+                    log.log(log.INFO, this, "App", `rx app request seqnum=${packet.seqnum} from=${effective_source.id}, sending response[NODE]`);
                     this.send_reply(packet);
                 } else {
                     /* account for the end-to-end packet */
                     if (packet.query_status == constants.PACKET_IS_RESPONSE) {
-                        log.log(log.INFO, this, "App", `rx app response seqnum=${packet.seqnum} from=${packet.source.id}`);
+                        log.log(log.INFO, this, "App", `rx app response seqnum=${packet.seqnum} from=${packet.source.id}[NODE]`);
                     } else {
-                        log.log(log.INFO, this, "App", `rx app packet seqnum=${packet.seqnum} from=${effective_source.id}`);
+                        log.log(log.INFO, this, "App", `rx app packet seqnum=${packet.seqnum} from=${effective_source.id}[NODE]`);
                     }
                     /* update the stats of the original source, unless it is query response */
                     effective_source.stats_app_num_endpoint_rx += 1;
@@ -958,7 +958,7 @@ export class Node {
 
         if (join_priority >= this.config.MAC_MAX_JOIN_PRIORITY) {
             /* Join priority unacceptable. Leave network. */
-            log.log(log.WARNING, this, "TSCH", `EB join priority too high (${join_priority}), leaving the network`);
+            log.log(log.WARNING, this, "TSCH", `EB join priority too high (${join_priority}), leaving the network[NODE]`);
             this.reset_node(false);
             return;
         }
@@ -974,14 +974,14 @@ export class Node {
         const join_priority = eb.packetbuf.PACKETBUF_ATTR_JOIN_PRIORITY + 1;
         if (join_priority >= this.config.MAC_MAX_JOIN_PRIORITY) {
             /* too high JP */
-            log.log(log.WARNING, this, "TSCH", `EB join priority too high (${join_priority}), not joining`);
+            log.log(log.WARNING, this, "TSCH", `EB join priority too high (${join_priority}), not joining[NODE]`);
             return;
         }
 
         const source = this.neighbors.get(eb.lasthop_id);
         const sec = time.timeline.seconds;
 
-        log.log(log.INFO, this, "TSCH", `joined/associated at ${round_to_ms(sec)} on receiving an EB packet from ${eb.lasthop_id}`);
+        log.log(log.INFO, this, "TSCH", `joined/associated at ${round_to_ms(sec)} on receiving an EB packet from ${eb.lasthop_id}[NODE]`);
         this.join_priority = join_priority;
         this.has_joined = true;
         if (this.stats_tsch_join_time_sec == null) {
@@ -1020,13 +1020,13 @@ export class Node {
         schedule_status[this.index].l = packet.length;
 
         if (packet.packetbuf.PACKETBUF_ATTR_FRAME_TYPE === constants.FRAME802154_BEACONFRAME) {
-            log.log(log.DEBUG, this, "TSCH", `rx EB from ${packet.lasthop_id}`);
+            log.log(log.DEBUG, this, "TSCH", `rx EB from ${packet.lasthop_id}[NODE]`);
             this.rx_eb(packet);
             return true;
         }
 
         if (!this.has_joined) {
-            this.log(log.DEBUG, `rx packet from ${packet.lasthop_id}: not associated!`);
+            this.log(log.DEBUG, `rx packet from ${packet.lasthop_id}: not associated![NODE]`);
             return false;
         }
 
@@ -1038,11 +1038,11 @@ export class Node {
             /* TODO: add a stats entry for this! */
 
             this.stats_slots_rx_packet[packet.length] += 1;
-            this.log(log.DEBUG, `rx packet from ${packet.lasthop_id}: not for me!`);
+            this.log(log.DEBUG, `rx packet from ${packet.lasthop_id}: not for me![NODE]`);
             return false;
         }
 
-        this.log(log.DEBUG, `rx packet from ${packet.lasthop_id}: seqnum=${packet.seqnum}`);
+        this.log(log.DEBUG, `rx packet from ${packet.lasthop_id}: seqnum=${packet.seqnum}[NODE]`);
 
         /* update the slot stats; if an ACK is required, at this point we know it will be sent */
         if (packet.is_ack_required) {
@@ -1057,7 +1057,7 @@ export class Node {
 
         if (neighbor.is_time_source) {
             /* Got packet from time source, reset keepalive timer */
-            this.log(log.DEBUG, `time resynchronized: got a packet from the time source`);
+            this.log(log.DEBUG, `time resynchronized: got a packet from the time source[NODE]`);
             this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S, this.config.MAC_DESYNC_THRESHOLD_S);
         }
 
@@ -1088,14 +1088,14 @@ export class Node {
 
         this.stats_app_num_replied += 1;
         if (this.add_packet(new_packet)) {
-            this.log(log.DEBUG, `reply to packet ${packet.seqnum} to=${packet.source.id} via=${new_packet.nexthop_id}`);
+            this.log(log.DEBUG, `reply to packet ${packet.seqnum} to=${packet.source.id} via=${new_packet.nexthop_id}[NODE]`);
         }
     }
 
     /* Forward a network layer packet to a neighbor */
     forward_packet(packet) {
         if (this.config.ROUTING_IS_LEAF) {
-            this.log(log.DEBUG, `leaf mode, not forwarding packet to=${packet.nexthop_id}`);
+            this.log(log.DEBUG, `leaf mode, not forwarding packet to=${packet.nexthop_id}[NODE]`);
             return;
         }
 
@@ -1114,16 +1114,16 @@ export class Node {
 
         if (!this.routing.on_forward(packet, new_packet)) {
             if (packet.packet_protocol === constants.PROTO_APP) {
-                log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id}: routing loop detected`);
+                log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id}: routing loop detected[NODE]`);
                 packet.source.stats_app_num_routing_drops += 1;
             } else {
-                this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id}: routing loop detected`);
+                this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id}: routing loop detected[NODE]`);
             }
             return;
         }
 
         if (this.add_packet(new_packet)) {
-            this.log(log.DEBUG, `forward packet ${packet.seqnum} from=${packet.source.id} to=${new_packet.nexthop_id}`);
+            this.log(log.DEBUG, `forward packet ${packet.seqnum} from=${packet.source.id} to=${new_packet.nexthop_id}[NODE]`);
         }
     }
 
@@ -1164,7 +1164,7 @@ export class Node {
             const packet = this.queue_get_packet_for_nbr(constants.EB_ID, cell);
             if (packet != null) {
                 const channel = this.get_channel(cell.channel_offset);
-                log.log(log.DEBUG, this, "TSCH", `will tx an EB packet on channel ${channel}`);
+                log.log(log.DEBUG, this, "TSCH", `will tx an EB packet on channel ${channel}[NODE]`);
                 return packet;
             }
             if (cell.type === constants.CELL_TYPE_ADVERTISING_ONLY) {
@@ -1176,9 +1176,9 @@ export class Node {
         const packet = this.queue_get_packet_for_nbr(cell.neighbor_id, cell);
         if (packet != null) {
             if (cell.neighbor_id === constants.BROADCAST_ID) {
-                log.log(log.DEBUG, this, "TSCH", `tx a broadcast packet`);
+                log.log(log.DEBUG, this, "TSCH", `tx a broadcast packet[NODE]`);
             } else {
-                log.log(log.DEBUG, this, "TSCH", `tx a packet to=${packet.nexthop_id} for=${packet.destination_id} in neighbor's slot`);
+                log.log(log.DEBUG, this, "TSCH", `tx a packet to=${packet.nexthop_id} for=${packet.destination_id} in neighbor's slot[NODE]`);
             }
             return packet;
         }
@@ -1192,7 +1192,7 @@ export class Node {
                 }
                 const packet = this.queue_get_packet_for_nbr(id, cell);
                 if (packet != null) {
-                    log.log(log.DEBUG, this, "TSCH", `tx a packet to=${packet.nexthop_id} for=${packet.destination_id}, nbr=${id}`);
+                    log.log(log.DEBUG, this, "TSCH", `tx a packet to=${packet.nexthop_id} for=${packet.destination_id}, nbr=${id}[NODE]`);
                     return packet;
                 }
             }
@@ -1375,7 +1375,7 @@ export class Node {
         schedule_status[this.index].to = this.tx_packet.nexthop_id;
         schedule_status[this.index].l = this.tx_packet.length;
 
-        this.log(log.DEBUG, `tx length=${this.tx_packet.length} to=${this.tx_packet.nexthop_id} ack_required=${this.tx_packet.is_ack_required}`);
+        this.log(log.DEBUG, `tx length=${this.tx_packet.length} to=${this.tx_packet.nexthop_id} ack_required=${this.tx_packet.is_ack_required}[NODE]`);
         /* try to send to each potential neigbhbor; the neighbors will filter out packets by the nexthop */
         for (const [dst_id, _] of this.links) {
             const dst = this.network.get_node(dst_id);
@@ -1426,7 +1426,7 @@ export class Node {
         if (can_receive) {
             /* successfully Tx'ed at the link layer? */
             const send_success = link_to.try_send(channel_tx);
-            this.log(log.DEBUG, `  commit_tx_to ${dst.id}: reception_possible=${send_success}`);
+            this.log(log.DEBUG, `  commit_tx_to ${dst.id}: reception_possible=${send_success}[NODE]`);
             /* copy the RSSI of this Tx attempt */
             this.tx_packet.rx_info[dst.id] = new pkt.RxInfo(link_to.last_rssi);
             /* add this dst to the nodes that have received some packets in this round */
@@ -1612,20 +1612,20 @@ export class Node {
                     nexthop.stats_app_packets_seen;
                 if (search_set.has(seqnum)) {
                     /* the packet will be dropped by the intermediate node, but the nexthop already has received it */
-                    log.log(log.DEBUG, this, "App", `giving up on app packet transmissions seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: tx_limit=${tx_limit} reached`);
+                    log.log(log.DEBUG, this, "App", `giving up on app packet transmissions seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: tx_limit=${tx_limit} reached[NODE]`);
                 } else {
                     /* the packet is truly lost */
-                    log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: tx_limit=${tx_limit} reached`);
+                    log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: tx_limit=${tx_limit} reached[NODE]`);
                     packet.source.stats_app_num_tx_limit_drops += 1;
                 }
             } else {
-                this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: tx_limit=${tx_limit} reached`);
+                this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: tx_limit=${tx_limit} reached[NODE]`);
             }
         }
 
         if (do_remove) {
             if (packet.is_ack_required) {
-                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} acked=${status_ok}, remove packet`);
+                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} acked=${status_ok}, remove packet[NODE]`);
              }
             /* update the neighbor, as the Tx of this packet is done */
             this.packet_sent(packet, neighbor, status_ok, this.selected_cell);
@@ -1633,7 +1633,7 @@ export class Node {
             neighbor.pop_packet();
         } else {
             if (packet.is_ack_required) {
-                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} acked=${status_ok}`);
+                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} acked=${status_ok}[NODE]`);
             }
         }
 
@@ -1778,6 +1778,6 @@ export function periodic_process()
             tx_data: Object.values(node.stats_slots_tx_packet).sum(),
             tx_data_rx_ack: Object.values(node.stats_slots_tx_packet_rx_ack).sum(),
         };
-        log.log(log.INFO, node, "TSCH", `stats: ` + JSON.stringify(obj));
+        log.log(log.INFO, node, "TSCH", `stats: ` + JSON.stringify(obj) + `[NODE]`);
     }
 }
