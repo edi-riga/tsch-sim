@@ -202,14 +202,17 @@ export class Node {
         this.stats_mac_parent_acked = 0;
         this.stats_mac_parent_rx = 0;
         /* statistics: slot usage */
-        this.stats_slots_rx_idle = 0;
+        this.stats_slots_rx_idle = 0; // Number of idle slots
         this.stats_slots_rx_scanning = 0;
+        // Dictionary objects
         this.stats_slots_rx_packet = {}; /* packet_size -> num_packets */
         this.stats_slots_rx_packet_tx_ack = {}; /* packet_size -> num_packets */
         this.stats_slots_tx_packet = {}; /* packet_size -> num_packets */
         this.stats_slots_tx_packet_rx_ack = {}; /* packet_size -> num_packets */
+        // Total packet size, including data and header
         const max_packet_size = this.config.MAC_MAX_PACKET_SIZE + this.config.MAC_HEADER_SIZE;
         for (let i = 0; i <= max_packet_size; ++i) {
+            // Reset values to 0
             this.stats_slots_rx_packet[i] = 0;
             this.stats_slots_rx_packet_tx_ack[i] = 0;
             this.stats_slots_tx_packet[i] = 0;
@@ -1377,6 +1380,7 @@ export class Node {
 
         this.log(log.DEBUG, `tx length=${this.tx_packet.length} to=${this.tx_packet.nexthop_id} ack_required=${this.tx_packet.is_ack_required}[NODE]`);
         /* try to send to each potential neigbhbor; the neighbors will filter out packets by the nexthop */
+        // Loop through all possible neighbor in the links map
         for (const [dst_id, _] of this.links) {
             const dst = this.network.get_node(dst_id);
 
@@ -1688,7 +1692,7 @@ export class Node {
 
     /* ------------------------------------------------------------- */
 
-    /* Get node statistics */
+
     aggregate_stats() {
         const charge_uc = energy_model.estimate_charge_uc(this);
         const pretty_charge_uc = parseFloat(charge_uc.total.toFixed(1));
@@ -1702,6 +1706,7 @@ export class Node {
               + this.stats_app_num_routing_drops
               + this.stats_app_num_scheduling_drops
               + this.stats_app_num_other_drops;
+        // Return stats as a structure
         return {
             app_num_tx: this.stats_app_num_tx,
             app_num_replied: this.stats_app_num_replied,
@@ -1764,8 +1769,11 @@ export class Node {
     }
 }
 
+// This process is executed periodically for every node
 export function periodic_process()
 {
+    log.log(log.INFO, null, "TSCH", `Periodic process called for Node`);
+    // loop through all nodes in the simulator
     for (const [_, node] of simulator.get_nodes()) {
         /* process routing */
         node.routing.on_periodic_timer();

@@ -126,7 +126,7 @@ function main()
         const dst_config_file = path.join(dirnames.results_dir, path.basename(config.CONFIG_FILE));
         if (config.CONFIG_FILE !== dst_config_file) {
             /* copy the configuration file to the output directory */
-            log.log(log.INFO, null, "Main", `copying configuration file ${config.CONFIG_FILE} to output directory ${dst_config_file}`);
+            log.log(log.INFO, null, "Main", `copying configuration file ${config.CONFIG_FILE} to output directory ${dst_config_file}[MAIN]`);
             fs.copyFileSync(config.CONFIG_FILE, dst_config_file);
         }
     }
@@ -136,11 +136,11 @@ function main()
         /* if multiple runs specified, run N times and save the logs and stats in N separate files */
         const name = path.join(dirnames.self_dir, "main.mjs");
         const args = [config.CONFIG_FILE, i, dirnames.results_dir];
-        log.log(log.INFO, null, "Main", `starting child process ${i}`);
+        log.log(log.INFO, null, "Main", `starting child process ${i}[MAIN]`);
         const child = fork(name, args);
 
         child.on('close', (code) => {
-            log.log(log.INFO, null, "Main", `child process ${i} exited with code ${code}`);
+            log.log(log.INFO, null, "Main", `child process ${i} exited with code ${code}[MAIN]`);
             is_done[i] = true;
             /* when the parent and all child processes have completed their runs, finish */
             if (is_done.every((x) => x)) {
@@ -164,9 +164,9 @@ function main()
 function finish()
 {
     if (config.SAVE_RESULTS) {
-        log.log(log.INFO, null, "Main", `simulation completed, results saved at ${dirnames.results_dir}`);
+        log.log(log.INFO, null, "Main", `simulation completed, results saved at ${dirnames.results_dir}[MAIN]`);
     } else {
-        log.log(log.INFO, null, "Main", `simulation completed`);
+        log.log(log.INFO, null, "Main", `simulation completed[MAIN]`);
     }
 
     if (config.SAVE_RESULTS) {

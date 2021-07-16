@@ -50,7 +50,7 @@ export class Route {
         this.nexthop_id = nexthop_id;
         this.lifetime = ROUTE_INFINITE_LIFETIME;
     }
-
+    
     is_direct() {
         return this.nexthop_id === this.prefix;
     }
@@ -138,6 +138,7 @@ export function periodic_process(period_seconds)
     let num_joined_tsch = 0;
     let num_joined_routing = 0;
 
+    // Loop through all of the simulator's nodes
     for (const [_, node] of simulator.get_nodes()) {
         const to_remove = [];
         for (const [_, route] of node.routes.routes) {

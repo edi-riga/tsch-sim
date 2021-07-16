@@ -104,11 +104,14 @@ export class Network {
         this.nodes.set(id, n);
         return n;
     }
+    
     get_node(id) {
         const result = this.nodes.get(id);
         utils.assert(result !== undefined, `unknown node ID ${id}[NETWORK]`);
         return result;
     }
+    
+    // Same as get node
     find_node(id) {
         return this.nodes.get(id);
     }
@@ -180,6 +183,7 @@ export class Network {
     }
 
     aggregate_stats() {
+        log.log(log.INFO, null, "Main", `aggregate stats method called`);
         let stats = {};
         let charge_uc = 0;
         let charge_joined_uc = 0;
@@ -200,11 +204,13 @@ export class Network {
             this.stats_app_num_scheduling_drops += node_stats.app_num_scheduling_drops;
             this.stats_app_num_other_drops += node_stats.app_num_other_drops;
             this.stats_app_latencies = this.stats_app_latencies.concat(node_stats.app_latencies);
+            
             /* statistics: TSCH protocol */
             this.stats_tsch_eb_tx += node_stats.tsch_eb_tx;
             this.stats_tsch_eb_rx += node_stats.tsch_eb_rx;
             this.stats_tsch_keepalive_tx += node_stats.tsch_keepalive_tx;
             this.stats_tsch_keepalive_rx += node_stats.tsch_keepalive_rx;
+            
             /* statistics: link layer */
             this.stats_mac_tx += node_stats.mac_tx;
             this.stats_mac_tx_unicast += node_stats.mac_tx_unicast;
@@ -213,10 +219,12 @@ export class Network {
             this.stats_mac_rx_error += node_stats.mac_rx_error;
             this.stats_mac_rx_collision += node_stats.mac_rx_collision;
             this.stats_mac_ack_error += node_stats.mac_ack_error;
+            
             /* statistics: link layer, for the parent neighbor */
             this.stats_mac_parent_tx_unicast += node_stats.mac_parent_tx_unicast;
             this.stats_mac_parent_acked += node_stats.mac_parent_acked;
             this.stats_mac_parent_rx += node_stats.mac_parent_rx;
+            
             /* statistics: slot usage */
             this.stats_slots_rx_idle += node_stats.slots_rx_idle;
             this.stats_slots_rx_scanning += node_stats.slots_rx_scanning;
@@ -224,6 +232,7 @@ export class Network {
             this.stats_slots_rx_packet_tx_ack += node_stats.slots_rx_packet_tx_ack;
             this.stats_slots_tx_packet += node_stats.slots_tx_packet;
             this.stats_slots_tx_packet_rx_ack += node_stats.slots_tx_packet_rx_ack;
+            
             /* statistics: joining */
             if (this.stats_tsch_join_time_sec != null) {
                 if (node_stats.tsch_join_time_sec == null) {
@@ -347,12 +356,13 @@ export class Network {
                 tx_nodes.push(node);
             }
 
+            // The schedule_status values wont be undefined if some transmissions have occured. Each call to commit _tx from [NODE] sets values for that particular node
             if (schedule_status[node.index].co !== undefined) {
                 /* set the physical channel from the channel offset */
                 schedule_status[node.index].ch = node.get_channel(schedule_status[node.index].co);
             }
         }
-        /* commit transmissions */
+        // commit transmissions from each node that is ready for transmission
         for (const node of tx_nodes) {
             node.commit_tx(rx_nodes, schedule_status, transmissions);
         }
