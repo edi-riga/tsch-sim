@@ -48,9 +48,10 @@ export class Route {
     constructor(prefix, nexthop_id) {
         this.prefix = prefix;
         this.nexthop_id = nexthop_id;
+        // Route is set to have an infinite lifetime by default
         this.lifetime = ROUTE_INFINITE_LIFETIME;
     }
-    
+
     is_direct() {
         return this.nexthop_id === this.prefix;
     }
@@ -60,6 +61,7 @@ export class Route {
 
 export class RoutingTable {
     constructor(node) {
+        // Each node has a routing table associated with it
         this.node = node;
         this.clear();
     }
@@ -69,6 +71,7 @@ export class RoutingTable {
         this.default_route = null;
     }
 
+    // Retrieve the route for a particular destination ID
     get_route(destination_id) {
         return this.routes.get(destination_id);
     }
@@ -86,6 +89,7 @@ export class RoutingTable {
         this.routes.delete(destination_id);
     }
 
+    // Add a default route for a particular destination. For instance, in a hierarchical topology, default routes would reflect a parent child relationship
     add_default_route(nexthop_id) {
         if (this.default_route) {
             this.default_route.nexthop_id = nexthop_id;
@@ -96,6 +100,7 @@ export class RoutingTable {
         return this.default_route;
     }
 
+    // Remove the default routes in a routing table
     remove_default_route() {
         if (this.default_route) {
             log.log(log.INFO, this.node, "Node", `remove the default route [ROUTE]`);
@@ -103,6 +108,7 @@ export class RoutingTable {
         }
     }
 
+    // Find route to a specific destination
     lookup_route(destination_id) {
         /* if there is a specific route with /128 bit match, return it */
         if (this.routes.has(destination_id)) {
@@ -149,13 +155,15 @@ export function periodic_process(period_seconds)
                 }
             }
         }
+        
         if (node.has_joined) {
             num_joined_tsch += 1;
             if (node.routing.is_joined()) {
                 num_joined_routing += 1;
             }
         }
-
+        
+        // Remove the routes whos lifetime has ended
         for (const rr of to_remove) {
             node.routes.remove_route(rr.prefix);
         }

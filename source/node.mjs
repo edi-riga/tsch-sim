@@ -227,11 +227,13 @@ export class Node {
     reset_node(is_from_init) {
         this.cancel_syncing();
         if (this.config.MAC_START_JOINED) {
+            log.log(log.INFO, this, "TSCH", `Node has joined TSCH [NODE]`);
             this.has_joined = true;
             if (!this.is_coordinator) {
                 this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S, this.config.MAC_DESYNC_THRESHOLD_S);
             }
         } else {
+            log.log(log.INFO, this, "TSCH", `Node has joined TSCH [NODE]`);
             this.has_joined = this.is_coordinator;
         }
         if (this.has_joined) {
@@ -295,6 +297,8 @@ export class Node {
     }
 
     start_coordinator() {
+        log.log(log.INFO, this, "TSCH", `Node has joined TSCH as coordinator [NODE]`);
+        // Node has to join TSCH to become coordinator
         this.has_joined = true;
         this.cancel_syncing();
         if (this.stats_tsch_join_time_sec == null) {
@@ -986,6 +990,7 @@ export class Node {
 
         log.log(log.INFO, this, "TSCH", `joined/associated at ${round_to_ms(sec)} on receiving an EB packet from ${eb.lasthop_id}[NODE]`);
         this.join_priority = join_priority;
+        log.log(log.INFO, this, "TSCH", `Node has joined TSCH in TSCH Associate [NODE]`);
         this.has_joined = true;
         if (this.stats_tsch_join_time_sec == null) {
             this.stats_tsch_join_time_sec = round_to_ms(time.timeline.seconds);

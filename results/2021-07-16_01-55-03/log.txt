@@ -1,4 +1,4 @@
-asn=0    	id=-1  	Main	copying configuration file /home/cinnamon/WSN/tsch-sim/examples/hierarchical/config.json to output directory /home/cinnamon/WSN/tsch-sim/results/2021-07-15_22-55-36/config.json[MAIN]
+asn=0    	id=-1  	Main	copying configuration file /home/cinnamon/WSN/tsch-sim/examples/hierarchical/config.json to output directory /home/cinnamon/WSN/tsch-sim/results/2021-07-16_01-55-03/config.json[MAIN]
 asn=0    	id=-1  	Main	initializing 600 seconds long simulation...[SIMULATOR]
 asn=0    	id=-1  	TSCH	Orchestra: initializing Orchestra infrastructure
 asn=0    	id=-1  	Main	creating 1 "root" nodes...[SIMULATOR]
@@ -36,12 +36,15 @@ asn=0    	id=1   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=1   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=1   	TSCH	Orchestra: initialization done
 asn=0    	id=1   	Node	becomes TSCH coordinator
+asn=0    	id=1   	TSCH	Node has joined TSCH as coordinator [NODE]
+asn=0    	id=1   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=2   	TSCH	Orchestra: *** initializing
 asn=0    	id=2   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
 asn=0    	id=2   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
 asn=0    	id=2   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=2   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=2   	TSCH	Orchestra: initialization done
+asn=0    	id=2   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=2   	Node	scanning on channel=26...[NODE]
 asn=0    	id=3   	TSCH	Orchestra: *** initializing
 asn=0    	id=3   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
@@ -49,6 +52,7 @@ asn=0    	id=3   	TSCH	Orchestra: initializing rule unicast per neighbor storing
 asn=0    	id=3   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=3   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=3   	TSCH	Orchestra: initialization done
+asn=0    	id=3   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=3   	Node	scanning on channel=26...[NODE]
 asn=0    	id=4   	TSCH	Orchestra: *** initializing
 asn=0    	id=4   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
@@ -56,6 +60,7 @@ asn=0    	id=4   	TSCH	Orchestra: initializing rule unicast per neighbor storing
 asn=0    	id=4   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=4   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=4   	TSCH	Orchestra: initialization done
+asn=0    	id=4   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=4   	Node	scanning on channel=26...[NODE]
 asn=0    	id=5   	TSCH	Orchestra: *** initializing
 asn=0    	id=5   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
@@ -63,6 +68,7 @@ asn=0    	id=5   	TSCH	Orchestra: initializing rule unicast per neighbor storing
 asn=0    	id=5   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=5   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=5   	TSCH	Orchestra: initialization done
+asn=0    	id=5   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=5   	Node	scanning on channel=15...[NODE]
 asn=0    	id=6   	TSCH	Orchestra: *** initializing
 asn=0    	id=6   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
@@ -70,6 +76,7 @@ asn=0    	id=6   	TSCH	Orchestra: initializing rule unicast per neighbor storing
 asn=0    	id=6   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=6   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=6   	TSCH	Orchestra: initialization done
+asn=0    	id=6   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=6   	Node	scanning on channel=15...[NODE]
 asn=0    	id=7   	TSCH	Orchestra: *** initializing
 asn=0    	id=7   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
@@ -77,6 +84,7 @@ asn=0    	id=7   	TSCH	Orchestra: initializing rule unicast per neighbor storing
 asn=0    	id=7   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=7   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=7   	TSCH	Orchestra: initialization done
+asn=0    	id=7   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=7   	Node	scanning on channel=20...[NODE]
 asn=0    	id=8   	TSCH	Orchestra: *** initializing
 asn=0    	id=8   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
@@ -84,6 +92,7 @@ asn=0    	id=8   	TSCH	Orchestra: initializing rule unicast per neighbor storing
 asn=0    	id=8   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=8   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=8   	TSCH	Orchestra: initialization done
+asn=0    	id=8   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=8   	Node	scanning on channel=26...[NODE]
 asn=0    	id=9   	TSCH	Orchestra: *** initializing
 asn=0    	id=9   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
@@ -91,6 +100,7 @@ asn=0    	id=9   	TSCH	Orchestra: initializing rule unicast per neighbor storing
 asn=0    	id=9   	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=9   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=9   	TSCH	Orchestra: initialization done
+asn=0    	id=9   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=9   	Node	scanning on channel=20...[NODE]
 asn=0    	id=10  	TSCH	Orchestra: *** initializing
 asn=0    	id=10  	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
@@ -98,6 +108,7 @@ asn=0    	id=10  	TSCH	Orchestra: initializing rule unicast per neighbor storing
 asn=0    	id=10  	TSCH	Orchestra: storing rule, receiver based
 asn=0    	id=10  	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
 asn=0    	id=10  	TSCH	Orchestra: initialization done
+asn=0    	id=10  	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=10  	Node	scanning on channel=20...[NODE]
 asn=100  	id=10  	Node	scanning on channel=25...[NODE]
 asn=100  	id=2   	Node	scanning on channel=20...[NODE]
@@ -202,6 +213,7 @@ asn=1513 	id=2   	Node	scanning on channel=15...[NODE]
 asn=1513 	id=3   	Node	scanning on channel=15...[NODE]
 asn=1589 	id=4   	Node	add neighbor id=1
 asn=1589 	id=4   	TSCH	joined/associated at 15.89 on receiving an EB packet from 1[NODE]
+asn=1589 	id=4   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=1589 	id=4   	TSCH	Orchestra: new time source 1
 asn=1589 	id=4   	TSCH	Orchestra: storing mode: add uc cell to 1, timeslot=1
 asn=1589 	id=4   	RPL	DIS output to -1
@@ -360,6 +372,7 @@ asn=3516 	id=7   	Node	scanning on channel=15...[NODE]
 asn=3516 	id=6   	Node	scanning on channel=15...[NODE]
 asn=3577 	id=5   	Node	add neighbor id=4
 asn=3577 	id=5   	TSCH	joined/associated at 35.77 on receiving an EB packet from 4[NODE]
+asn=3577 	id=5   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=3577 	id=5   	TSCH	Orchestra: new time source 4
 asn=3577 	id=5   	TSCH	Orchestra: storing mode: add uc cell to 4, timeslot=4
 asn=3577 	id=5   	RPL	DIS output to -1
@@ -385,6 +398,7 @@ asn=3939 	id=3   	Node	scanning on channel=15...[NODE]
 asn=3970 	id=4   	RPL	DIO output to -1
 asn=3974 	id=8   	Node	add neighbor id=4
 asn=3974 	id=8   	TSCH	joined/associated at 39.74 on receiving an EB packet from 4[NODE]
+asn=3974 	id=8   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=3974 	id=8   	TSCH	Orchestra: new time source 4
 asn=3974 	id=8   	TSCH	Orchestra: storing mode: add uc cell to 4, timeslot=4
 asn=3974 	id=8   	RPL	DIS output to -1
@@ -419,6 +433,7 @@ asn=4324 	id=6   	Node	scanning on channel=26...[NODE]
 asn=4324 	id=7   	Node	scanning on channel=25...[NODE]
 asn=4371 	id=9   	Node	add neighbor id=4
 asn=4371 	id=9   	TSCH	joined/associated at 43.71 on receiving an EB packet from 4[NODE]
+asn=4371 	id=9   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=4371 	id=9   	TSCH	Orchestra: new time source 4
 asn=4371 	id=9   	TSCH	Orchestra: storing mode: add uc cell to 4, timeslot=4
 asn=4371 	id=9   	RPL	DIS output to -1
@@ -473,16 +488,19 @@ asn=4764 	id=8   	RPL	parent switch: null -> 4
 asn=4764 	id=8   	Node	add the default route via 4[ROUTE]
 asn=4765 	id=3   	Node	add neighbor id=1
 asn=4765 	id=3   	TSCH	joined/associated at 47.65 on receiving an EB packet from 1[NODE]
+asn=4765 	id=3   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=4765 	id=3   	TSCH	Orchestra: new time source 1
 asn=4765 	id=3   	TSCH	Orchestra: storing mode: add uc cell to 1, timeslot=1
 asn=4765 	id=3   	RPL	DIS output to -1
 asn=4768 	id=7   	Node	add neighbor id=4
 asn=4768 	id=7   	TSCH	joined/associated at 47.68 on receiving an EB packet from 4[NODE]
+asn=4768 	id=7   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=4768 	id=7   	TSCH	Orchestra: new time source 4
 asn=4768 	id=7   	TSCH	Orchestra: storing mode: add uc cell to 4, timeslot=4
 asn=4768 	id=7   	RPL	DIS output to -1
 asn=4768 	id=10  	Node	add neighbor id=4
 asn=4768 	id=10  	TSCH	joined/associated at 47.68 on receiving an EB packet from 4[NODE]
+asn=4768 	id=10  	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=4768 	id=10  	TSCH	Orchestra: new time source 4
 asn=4768 	id=10  	TSCH	Orchestra: storing mode: add uc cell to 4, timeslot=4
 asn=4768 	id=10  	RPL	DIS output to -1
@@ -523,6 +541,7 @@ asn=5155 	id=4   	RPL	got DAO ACK seqno 241 (our 241), status 0
 asn=5155 	id=1   	Node	tx done to=4 numtx=2 acked=true, remove packet[NODE]
 asn=5165 	id=6   	Node	add neighbor id=4
 asn=5165 	id=6   	TSCH	joined/associated at 51.65 on receiving an EB packet from 4[NODE]
+asn=5165 	id=6   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=5165 	id=6   	TSCH	Orchestra: new time source 4
 asn=5165 	id=6   	TSCH	Orchestra: storing mode: add uc cell to 4, timeslot=4
 asn=5165 	id=6   	RPL	DIS output to -1
@@ -660,6 +679,7 @@ asn=6980 	id=10  	RPL	got DAO ACK seqno 241 (our 241), status 0
 asn=6980 	id=4   	Node	tx done to=10 numtx=2 acked=true, remove packet[NODE]
 asn=7147 	id=2   	Node	add neighbor id=1
 asn=7147 	id=2   	TSCH	joined/associated at 71.47 on receiving an EB packet from 1[NODE]
+asn=7147 	id=2   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
 asn=7147 	id=2   	TSCH	Orchestra: new time source 1
 asn=7147 	id=2   	TSCH	Orchestra: storing mode: add uc cell to 1, timeslot=1
 asn=7147 	id=2   	RPL	DIS output to -1
@@ -2467,4 +2487,4 @@ asn=60000	id=-1  	Main	ending simulation at 600.000 seconds[SIMULATOR]
 asn=60000	id=-1  	Main	aggregate stats method called
 asn=60000	id=-1  	Main	packet stats: PDR=100.00% generated=292 received=292 lost=0 (tx_limit/queue/routing/scheduling/other=0/0/0/0/0)[NETWORK]
 asn=60000	id=-1  	Main	link stats: PAR=64.79% tx=815 acked=528[NETWORK]
-asn=60000	id=-1  	Main	simulation completed, results saved at /home/cinnamon/WSN/tsch-sim/results/2021-07-15_22-55-36[MAIN]
+asn=60000	id=-1  	Main	simulation completed, results saved at /home/cinnamon/WSN/tsch-sim/results/2021-07-16_01-55-03[MAIN]
