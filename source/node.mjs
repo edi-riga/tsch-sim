@@ -480,13 +480,16 @@ export class Node {
     add_slotframe(handle, rule_name, size) {
         const slotframe = new sf.Slotframe(this, handle, rule_name, size);
         this.slotframes.push(slotframe);
+        log.log(log.INFO, this, "Node", `Slotframe added [NODE]`);
         return slotframe;
     }
 
     /* Add a new cell to a given slotframe */
     add_cell(slotframe, type, options, neighbor_id, timeslot, channel_offset, keep_old) {
         /* add a new cell to the slotframe */
+
         let result = slotframe.add_cell(type, options, neighbor_id, timeslot, channel_offset, keep_old);
+        // log.log(log.INFO, this, "Node", `cell added to Slotframe added [NODE]`);
         /* make sure there is a neighbor with a queue for this cell */
         this.ensure_neighbor(neighbor_id);
         return result;
@@ -1389,6 +1392,7 @@ export class Node {
         for (const [dst_id, _] of this.links) {
             const dst = this.network.get_node(dst_id);
 
+            // Now dst stores the id of the destination node
             /* if the tx is unicast to the parent, update parent stats */
             if (this.tx_packet.is_ack_required
                 && this.current_time_source

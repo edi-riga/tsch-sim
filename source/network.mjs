@@ -183,7 +183,7 @@ export class Network {
     }
 
     aggregate_stats() {
-        log.log(log.INFO, null, "Main", `aggregate stats method called`);
+        log.log(log.INFO, null, "Main", `aggregate stats method called [NETWORK]`);
         let stats = {};
         let charge_uc = 0;
         let charge_joined_uc = 0;
@@ -379,7 +379,7 @@ export class Network {
 
         /* return true if there was some activity in this slot */
         const was_active_slot = tx_nodes.length > 0;
-
+        //log.log(log.INFO, null, "Main", `step[NETWORK] called was_active_slot: ${was_active_slot}; transmissions: ${transmissions}`);
         return {was_active_slot, schedule_status, transmissions};
     }
 }

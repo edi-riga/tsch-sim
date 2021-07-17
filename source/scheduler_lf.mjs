@@ -42,6 +42,7 @@ import * as time from './time.mjs';
 
 function set_timings()
 {
+    // Slotframe size
     const sf_size = config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH ? config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH : 1;
 
     let timings_usec = new Array(sf_size);
@@ -49,14 +50,16 @@ function set_timings()
     for (let i = 0; i < sf_size; ++i) {
         timings_usec[i] = config.MAC_SLOT_DURATION_US;
     }
+    // MAC_SLOT_DURATION is in microseconds, convert them to seconds using the map method
     time.timeline.slot_timings = timings_usec.map(x => x / 1000000); /* convert to seconds */
 }
 
 /* ------------------------------------------------- */
-
+// Executed when a packet is ready for transmission
 export function on_packet_ready(node, packet)
 {
     let remote_offset = 0;
+    // No packet exists for next hop
     if (packet.nexthop_id <= 0) {
         /* broadcast transmission attempted? */
         log.log(log.ERROR, node, "TSCH", `the LeafAndForwarder scheduler is currently not suitable for broadcast`);
@@ -65,7 +68,9 @@ export function on_packet_ready(node, packet)
             remote_offset = 1 + constants.ROOT_NODE_ID % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
         }
     } else {
+        // Set the destination address as the next hop ID
         const dest_addr = packet.nexthop_addr;
+        // Offset of the channel packet is to be sent on
         remote_offset = 1 + dest_addr.u8[dest_addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
     }
 
@@ -92,7 +97,6 @@ export function on_packet_ready(node, packet)
 }
 
 /*---------------------------------------------------------------------------*/
-
 export function on_new_time_source(node, old_neighbor, new_neighbor)
 {
     /* nothing */

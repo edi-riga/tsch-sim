@@ -103,6 +103,7 @@ export class Packet {
         this.rx_info = {};
     }
 
+    // Copy all attributes of a packet to another packet object
     copy(other) {
         this.source = other.source;
         this.destination_id = other.destination_id;
