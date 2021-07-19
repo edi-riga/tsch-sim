@@ -34,6 +34,8 @@
  */
 
 import config from './config.mjs';
+import * as log from './log.mjs';
+import * as route from './route.mjs';
 
 /* Initialize the routing protocol configuration */
 export function initialize(network)
@@ -58,15 +60,15 @@ export class NullRouting
     }
 
     start() {
-        /* nothing */
+        log.log(log.INFO, this.node, "Main", `Start method called from NullRouting`);
     }
 
     on_tx(neighbor, packet, is_ok, is_ack_required) {
-        /* nothing */
+        log.log(log.INFO, this.node, "Main", `On tx method called from NullRouting`);    
     }
 
     on_prepare_tx_packet(packet) {
-        /* nothing */
+        log.log(log.INFO, this.node, "Main", `On prepare tx packet method called from NullRouting`);      
     }
 
     on_forward(packet) {
@@ -74,11 +76,12 @@ export class NullRouting
     }
 
     on_new_time_source(old_time_source, new_time_source) {
-        /* nothing */
+        log.log(log.INFO, this.node, "Main", `On new time source method called from NullRouting`);    
+        
     }
 
     local_repair() {
-        /* nothing */
+        log.log(log.INFO, this.node, "Main", `Local repair method called from NullRouting`);    
     }
 
     is_joined() {
@@ -86,10 +89,11 @@ export class NullRouting
     }
 
     on_periodic_timer() {
-        /* nothing */
+        log.log(log.INFO, this.node, "Main", `On periodic timer method called from NullRouting`);           
     }
 
     stats_get() {
+        log.log(log.INFO, this.node, "Main", `Method to get stats called from NullRouting`);    
         return {
             routing_tx: 0,
             routing_rx: 0,
