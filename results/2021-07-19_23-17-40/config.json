@@ -12,7 +12,7 @@
         {
             "NAME": "leaf",
             "START_ID": 2,
-            "COUNT": 9,
+            "COUNT": 5,
             "ROUTING_IS_LEAF": true,
             "CONNECTIONS": [{"NODE_TYPE": "root", "LINK_MODEL": "LogisticLoss"}],
             "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}

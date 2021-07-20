@@ -215,6 +215,7 @@ export function periodic_process(period_seconds, current_seconds)
                 neighbor.freshness = Math.trunc(neighbor.freshness / 2);
             }
         }
+        
         next_periodic_processing_seconds += FRESHNESS_HALF_LIFE_SEC;
     }
 }

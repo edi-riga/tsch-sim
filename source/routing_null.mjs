@@ -67,6 +67,7 @@ export class NullRouting
         log.log(log.INFO, this.node, "Main", `On tx method called from NullRouting`);    
     }
 
+    // This method is called once a packet has been generated from the app
     on_prepare_tx_packet(packet) {
         log.log(log.INFO, this.node, "Main", `On prepare tx packet method called from NullRouting`);      
     }
@@ -80,6 +81,7 @@ export class NullRouting
         
     }
 
+    // Local repair called once the Node joins TSCH
     local_repair() {
         log.log(log.INFO, this.node, "Main", `Local repair method called from NullRouting`);    
     }

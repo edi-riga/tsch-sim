@@ -643,6 +643,7 @@ export class Node {
         }
     }
 
+    // Add route to the routing table [keep the next hop for the destination]
     add_route(destination_id, nexthop_id) {
         let route = this.routes.get_route(destination_id);
         if (route) {
@@ -659,6 +660,7 @@ export class Node {
         if (route.is_direct()) {
             scheduler.on_child_added(this, id_to_addr(destination_id));
         }
+        log.log(log.INFO, this, "Node", `Route added to destination node id: ${destination_id} through next hop node id: ${nexthop_id} for in the routing table of node: ${this.id}`)
         return route;
     }
 
@@ -1781,7 +1783,7 @@ export class Node {
 // This process is executed periodically for every node
 export function periodic_process()
 {
-    log.log(log.INFO, null, "TSCH", `Periodic process called for Node`);
+    log.log(log.INFO, null, "TSCH", `Periodic process called for [Node]`);
     // loop through all nodes in the simulator
     for (const [_, node] of simulator.get_nodes()) {
         /* process routing */
@@ -1795,6 +1797,7 @@ export function periodic_process()
             tx_data: Object.values(node.stats_slots_tx_packet).sum(),
             tx_data_rx_ack: Object.values(node.stats_slots_tx_packet_rx_ack).sum(),
         };
+
         log.log(log.INFO, node, "TSCH", `stats: ` + JSON.stringify(obj) + `[NODE]`);
     }
 }
