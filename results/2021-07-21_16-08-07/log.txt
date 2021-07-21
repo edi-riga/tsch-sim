@@ -1,4 +1,4 @@
-asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/RR/tsch-sim/examples/NullRouting/config.json to output directory /home/tegsingh/RR/tsch-sim/results/2021-07-20_20-34-53/config.json[MAIN]
+asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/RR/tsch-sim/examples/NullRouting/config.json to output directory /home/tegsingh/RR/tsch-sim/results/2021-07-21_16-08-07/config.json[MAIN]
 asn=0    	id=-1  	Main	initializing 600 seconds long simulation...[SIMULATOR]
 asn=0    	id=-1  	TSCH	initializing 6tisch minimal infrastructure
 asn=0    	id=-1  	Main	creating 1 "root" nodes...[SIMULATOR]
@@ -1739,3 +1739,38 @@ asn=60000	id=-1  	Main	ending simulation at 600.000 seconds[SIMULATOR]
 asn=60000	id=-1  	Main	aggregate stats method called [NETWORK]
 asn=60000	id=1   	Node	aggregate stats method called for Node 1 [NODE]
 asn=60000	id=1   	Node	Final routes for Node 1 [NODE]
+asn=60000	id=1   	Node	Total Routes 5 [NODE]
+asn=60000	id=1   	Node	route destination: 2 and next hop id: 2
+asn=60000	id=1   	Node	route destination: 3 and next hop id: 3
+asn=60000	id=1   	Node	route destination: 4 and next hop id: 4
+asn=60000	id=1   	Node	route destination: 5 and next hop id: 5
+asn=60000	id=1   	Node	route destination: 6 and next hop id: 6
+asn=60000	id=1   	Main	Method to get stats called from NullRouting
+asn=60000	id=2   	Node	aggregate stats method called for Node 2 [NODE]
+asn=60000	id=2   	Node	Final routes for Node 2 [NODE]
+asn=60000	id=2   	Node	Total Routes 1 [NODE]
+asn=60000	id=2   	Node	route destination: 1 and next hop id: 1
+asn=60000	id=2   	Main	Method to get stats called from NullRouting
+asn=60000	id=3   	Node	aggregate stats method called for Node 3 [NODE]
+asn=60000	id=3   	Node	Final routes for Node 3 [NODE]
+asn=60000	id=3   	Node	Total Routes 1 [NODE]
+asn=60000	id=3   	Node	route destination: 1 and next hop id: 1
+asn=60000	id=3   	Main	Method to get stats called from NullRouting
+asn=60000	id=4   	Node	aggregate stats method called for Node 4 [NODE]
+asn=60000	id=4   	Node	Final routes for Node 4 [NODE]
+asn=60000	id=4   	Node	Total Routes 1 [NODE]
+asn=60000	id=4   	Node	route destination: 1 and next hop id: 1
+asn=60000	id=4   	Main	Method to get stats called from NullRouting
+asn=60000	id=5   	Node	aggregate stats method called for Node 5 [NODE]
+asn=60000	id=5   	Node	Final routes for Node 5 [NODE]
+asn=60000	id=5   	Node	Total Routes 1 [NODE]
+asn=60000	id=5   	Node	route destination: 1 and next hop id: 1
+asn=60000	id=5   	Main	Method to get stats called from NullRouting
+asn=60000	id=6   	Node	aggregate stats method called for Node 6 [NODE]
+asn=60000	id=6   	Node	Final routes for Node 6 [NODE]
+asn=60000	id=6   	Node	Total Routes 1 [NODE]
+asn=60000	id=6   	Node	route destination: 1 and next hop id: 1
+asn=60000	id=6   	Main	Method to get stats called from NullRouting
+asn=60000	id=-1  	Main	packet stats: PDR=100.00% generated=216 received=215 lost=0 (tx_limit/queue/routing/scheduling/other=0/0/0/0/0)[NETWORK]
+asn=60000	id=-1  	Main	link stats: PAR=49.21% tx=443 acked=218[NETWORK]
+asn=60000	id=-1  	Main	simulation completed, results saved at /home/tegsingh/RR/tsch-sim/results/2021-07-21_16-08-07[MAIN]

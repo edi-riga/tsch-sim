@@ -310,7 +310,7 @@ export class Node {
 
         // Add routes statically [Remove this line in case you wish to run a normal simulation]
         // The following line of code only executed for the coordinator
-        //this.add_static();
+        this.add_static();
         
         scheduler.on_node_becomes_root(this);
     }
@@ -1738,6 +1738,7 @@ export class Node {
         
         log.log(log.INFO, this, "Node", `aggregate stats method called for Node ${this.id} [NODE]`);
         log.log(log.INFO, this, "Node", `Final routes for Node ${this.id} [NODE]`);
+        log.log(log.INFO, this, "Node", `Total Routes ${this.routes.routes.size} [NODE]`);
         this.list_routes();
         const charge_uc = energy_model.estimate_charge_uc(this);
         const pretty_charge_uc = parseFloat(charge_uc.total.toFixed(1));
@@ -1814,7 +1815,9 @@ export class Node {
     }
     // Method to display the routes in the routing table [preferrably call at the end]
     list_routes() {
-        
+        for (const [_,route] of this.routes.routes) {
+            log.log(log.INFO, this, "Node", `route destination: ${route.prefix} and next hop id: ${route.nexthop_id}`);
+        }
     }
 }
 
