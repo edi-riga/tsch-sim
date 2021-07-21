@@ -105,6 +105,7 @@ export function assert(condition, msg, node)
 
 /*---------------------------------------------------------------------------*/
 
+// Method to convert node id to its respective address in the network
 export function id_to_addr(id)
 {
     let addr = { u8 : new Array(constants.IEEE_ADDR_SIZE) };

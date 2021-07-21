@@ -78,9 +78,10 @@ export class RoutingTable {
 
     add_route(destination_id, nexthop_id) {
         assert(!this.routes.get(destination_id));
-        log.log(log.INFO, this.node, "Node", `add route to ${destination_id} via ${nexthop_id}[ROUTE]`);
+        //log.log(log.INFO, this.node, "Node", `add route to ${destination_id} via ${nexthop_id}[ROUTE]`);
         let route = new Route(destination_id, nexthop_id);
         this.routes.set(destination_id, route);
+        log.log(log.INFO, this.node, "Node", `Route added to destination node id: ${destination_id} through next hop node id: ${nexthop_id} in the routing table of node: ${this.node.id}`);
         return route;
     }
 
@@ -132,6 +133,7 @@ export class RoutingTable {
         }
         return route ? route.nexthop_id : null;
     }
+
 }
 
 /*---------------------------------------------------------------------------*/

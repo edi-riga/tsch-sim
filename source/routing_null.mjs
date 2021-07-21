@@ -35,7 +35,6 @@
 
 import config from './config.mjs';
 import * as log from './log.mjs';
-import * as route from './route.mjs';
 
 /* Initialize the routing protocol configuration */
 export function initialize(network)
@@ -64,6 +63,7 @@ export class NullRouting
     }
 
     on_tx(neighbor, packet, is_ok, is_ack_required) {
+
         log.log(log.INFO, this.node, "Main", `On tx method called from NullRouting`);    
     }
 

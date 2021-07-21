@@ -307,7 +307,28 @@ export class Node {
         this.set_eb_period(this.config.MAC_EB_PERIOD_S);
         this.join_priority = 0;
         this.routing.start();
+
+        // Add routes statically [Remove this line in case you wish to run a normal simulation]
+        // The following line of code only executed for the coordinator
+        this.add_static();
+        
         scheduler.on_node_becomes_root(this);
+    }
+
+    // Method to add static routes in the beginning of the process
+    add_static() {
+        log.log(log.INFO, this, "Main", `add_static method called for ${this.id}`);
+        // if node is the route
+        if (this.id === 1) {
+            this.routes.add_route(2, 2);
+            this.routes.add_route(3, 3);
+            this.routes.add_route(4, 4);
+            this.routes.add_route(5, 5);
+            this.routes.add_route(6, 6);
+        } else {
+            // In case its any other topology
+            this.routes.add_route(1, 1);
+        }
     }
 
     set_eb_period(period) {
@@ -645,22 +666,31 @@ export class Node {
 
     // Add route to the routing table [keep the next hop for the destination]
     add_route(destination_id, nexthop_id) {
+        // gets the route to the specified destination if
         let route = this.routes.get_route(destination_id);
+        
         if (route) {
+            // The value for next hop in the routing table for the node is the same as the next hop for the route to be added, then return the route from the routing table, else update the previously stored route and remove
             if (route.nexthop_id === nexthop_id) {
                 return route;
             }
+            // Remove the old route
             this.routes.remove_route(destination_id);
             if (route.is_direct()) {
+                // Call the event handler in case a route is removed
                 scheduler.on_child_removed(this, id_to_addr(destination_id));
             }
         }
 
+        // Add the updated route
         route = this.routes.add_route(destination_id, nexthop_id);
+        
+        // is_direct() method returns true if the destination id is the same as the next hop id
         if (route.is_direct()) {
             scheduler.on_child_added(this, id_to_addr(destination_id));
         }
-        log.log(log.INFO, this, "Node", `Route added to destination node id: ${destination_id} through next hop node id: ${nexthop_id} for in the routing table of node: ${this.id}`)
+
+        // log.log(log.INFO, this, "Node", `Route added to destination node id: ${destination_id} through next hop node id: ${nexthop_id} for in the routing table of node: ${this.id}`)
         return route;
     }
 
@@ -1705,6 +1735,8 @@ export class Node {
 
 
     aggregate_stats() {
+
+        log.log(log.INFO, this, "Node", `aggregate stats method called for Node ${this.id} [NODE]`);
         const charge_uc = energy_model.estimate_charge_uc(this);
         const pretty_charge_uc = parseFloat(charge_uc.total.toFixed(1));
         const pretty_charge_joined_uc = parseFloat((charge_uc.total - charge_uc.scanning).toFixed(1));

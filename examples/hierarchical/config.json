@@ -1,5 +1,7 @@
 {
     "SIMULATION_DURATION_SEC": 600,
+    "SCHEDULING_ALGORITHM": "6tischMin",
+    "ROUTING_ALGORITHM": "NullRouting",
     "NODE_TYPES": [
         {
             "NAME": "root",
