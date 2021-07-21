@@ -1,0 +1,52 @@
+{
+  "LOGLOSS_TRANSMIT_RANGE_M": 200,
+  "LOGLOSS_RX_SENSITIVITY_DBM": -100,
+  "LOGLOSS_RSSI_INFLECTION_POINT_DBM": -96,
+  "LOGLOSS_PATH_LOSS_EXPONENT": 3,
+  "AWGN_GAUSSIAN_STD": 3,
+  "NODE_TYPES": [
+    {
+      "NAME": "node",
+      "START_ID": 1,
+      "COUNT": 6,
+      "CONNECTIONS": [
+        {
+          "NODE_TYPE": "node",
+          "LINK_MODEL": "LogisticLoss"
+        }
+      ]
+    }
+  ],
+  "POSITIONS": [
+    {
+      "ID": 1,
+      "X": 124.29562517785402,
+      "Y": 124.29562517785402
+    },
+    {
+      "ID": 2,
+      "X": 162.7050856842695,
+      "Y": 242.50778945023205
+    },
+    {
+      "ID": 3,
+      "X": 23.738352082511533,
+      "Y": 197.35476058186964
+    },
+    {
+      "ID": 4,
+      "X": 23.73835208251152,
+      "Y": 51.236489773838436
+    },
+    {
+      "ID": 5,
+      "X": 162.70508568426948,
+      "Y": 6.083460905475989
+    },
+    {
+      "ID": 6,
+      "X": 248.59125035570804,
+      "Y": 124.29562517785399
+    }
+  ]
+}
