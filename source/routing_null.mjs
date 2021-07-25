@@ -62,22 +62,36 @@ export class NullRouting
 
     start() {
         log.log(log.INFO, this.node, "Node", `Start method called from NullRouting for ${this.node.id}`);
+        
         // Read the routes.json 
         let route_file_data = null;
+
+        // Read the routes.json file and store in a variable
         try {
             const route_file = "examples/NullRouting/routes.json";
             route_file_data = fs.readFileSync(route_file);    
-            log.log(log.INFO, this.node, "Node", `File Read successfully`);
+            if (route_file_data) {
+                log.log(log.INFO, this.node, "Node", `File Read successfully`);                
+            }
         } catch (error) {
             log.log(log.ERROR, this.node, "Node", `Failed to find file`);
         }
 
+        // Parse the JSON file into a structure
         try {
             const route_struct = JSON.parse(route_file_data);
             log.log(log.INFO, this.node, "Node", `File loaded into struct successfully`);          
+            for (const route of route_struct) {
+                if (route.NODE_ID == this.node.id) {
+                    log.log(log.INFO, this.node, "Node", `Reading routes for Node ${this.node.id}`);
+                    this.node.add_route(route.DESTINATION_ID, route.NEXTHOP_ID);
+                }
+            }
         } catch (error) {
             log.log(log.ERROR, this.node, "Node", `Failed to parse data`)
         }
+
+        
     }
 
     on_tx(neighbor, packet, is_ok, is_ack_required) {

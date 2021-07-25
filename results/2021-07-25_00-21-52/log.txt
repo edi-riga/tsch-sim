@@ -1,4 +1,4 @@
-asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/RR/tsch-sim/examples/NullRouting/config.json to output directory /home/tegsingh/RR/tsch-sim/results/2021-07-24_23-56-58/config.json[MAIN]
+asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/RR/tsch-sim/examples/NullRouting/config.json to output directory /home/tegsingh/RR/tsch-sim/results/2021-07-25_00-21-52/config.json[MAIN]
 asn=0    	id=-1  	Main	initializing 600 seconds long simulation...[SIMULATOR]
 asn=0    	id=-1  	TSCH	initializing 6tisch minimal infrastructure
 asn=0    	id=-1  	Main	creating 1 "root" nodes...[SIMULATOR]
@@ -24,6 +24,16 @@ asn=0    	id=1   	TSCH	Node has joined TSCH as coordinator [NODE]
 asn=0    	id=1   	Node	Start method called from NullRouting for 1
 asn=0    	id=1   	Node	File Read successfully
 asn=0    	id=1   	Node	File loaded into struct successfully
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Route added to destination node id: 2 through next hop node id: 2 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Route added to destination node id: 3 through next hop node id: 3 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Route added to destination node id: 4 through next hop node id: 4 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Route added to destination node id: 5 through next hop node id: 5 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Route added to destination node id: 6 through next hop node id: 6 in the routing table of node: 1
 asn=0    	id=1   	TSCH	Node has joined TSCH [NODE]
 asn=0    	id=1   	Main	Local repair method called from NullRouting
 asn=0    	id=2   	TSCH	*** initializing 6tisch minimal, slotframe_size=7
@@ -60,6 +70,7 @@ asn=7    	id=6   	Main	On new time source method called from NullRouting
 asn=7    	id=6   	Node	Start method called from NullRouting for 6
 asn=7    	id=6   	Node	File Read successfully
 asn=7    	id=6   	Node	File loaded into struct successfully
+asn=7    	id=6   	Node	Reading routes for Node 6
 asn=7    	id=1   	Main	On tx method called from NullRouting
 asn=100  	id=4   	Node	scanning on channel=26...[NODE]
 asn=100  	id=5   	Node	scanning on channel=15...[NODE]
@@ -118,6 +129,7 @@ asn=1568 	id=3   	Main	On new time source method called from NullRouting
 asn=1568 	id=3   	Node	Start method called from NullRouting for 3
 asn=1568 	id=3   	Node	File Read successfully
 asn=1568 	id=3   	Node	File loaded into struct successfully
+asn=1568 	id=3   	Node	Reading routes for Node 3
 asn=1568 	id=5   	Node	add neighbor id=1
 asn=1568 	id=5   	Node	Add_route called from ensure neighbor
 asn=1568 	id=5   	Node	Route added to destination node id: 1 through next hop node id: 1 in the routing table of node: 5
@@ -127,6 +139,7 @@ asn=1568 	id=5   	Main	On new time source method called from NullRouting
 asn=1568 	id=5   	Node	Start method called from NullRouting for 5
 asn=1568 	id=5   	Node	File Read successfully
 asn=1568 	id=5   	Node	File loaded into struct successfully
+asn=1568 	id=5   	Node	Reading routes for Node 5
 asn=1568 	id=1   	Main	On tx method called from NullRouting
 asn=1613 	id=2   	Node	scanning on channel=26...[NODE]
 asn=1713 	id=4   	Node	scanning on channel=25...[NODE]
@@ -150,7 +163,6 @@ asn=3007 	id=6   	Node	send keepalive packet to=1[NODE]
 asn=3007 	id=6   	Main	On prepare tx packet method called from NullRouting
 asn=3010 	id=1   	Node	add neighbor id=6
 asn=3010 	id=1   	Node	Add_route called from ensure neighbor
-asn=3010 	id=1   	Node	Route added to destination node id: 6 through next hop node id: 6 in the routing table of node: 1
 asn=3010 	id=6   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
 asn=3010 	id=6   	Main	On tx method called from NullRouting
 asn=3013 	id=2   	Node	scanning on channel=20...[NODE]
@@ -163,6 +175,7 @@ asn=3087 	id=2   	Main	On new time source method called from NullRouting
 asn=3087 	id=2   	Node	Start method called from NullRouting for 2
 asn=3087 	id=2   	Node	File Read successfully
 asn=3087 	id=2   	Node	File loaded into struct successfully
+asn=3087 	id=2   	Node	Reading routes for Node 2
 asn=3087 	id=1   	Main	On tx method called from NullRouting
 asn=3213 	id=4   	Node	scanning on channel=15...[NODE]
 asn=3314 	id=4   	Node	scanning on channel=25...[NODE]
@@ -180,13 +193,11 @@ asn=4569 	id=3   	Node	send keepalive packet to=1[NODE]
 asn=4569 	id=3   	Main	On prepare tx packet method called from NullRouting
 asn=4571 	id=1   	Node	add neighbor id=3
 asn=4571 	id=1   	Node	Add_route called from ensure neighbor
-asn=4571 	id=1   	Node	Route added to destination node id: 3 through next hop node id: 3 in the routing table of node: 1
 asn=4571 	id=3   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
 asn=4571 	id=3   	Main	On tx method called from NullRouting
 asn=4571 	id=5   	Node	tx done to=1 numtx=1 acked=false[NODE]
 asn=4606 	id=1   	Node	add neighbor id=5
 asn=4606 	id=1   	Node	Add_route called from ensure neighbor
-asn=4606 	id=1   	Node	Route added to destination node id: 5 through next hop node id: 5 in the routing table of node: 1
 asn=4606 	id=5   	Node	tx done to=1 numtx=2 acked=true, remove packet[NODE]
 asn=4606 	id=5   	Main	On tx method called from NullRouting
 asn=4627 	id=4   	Node	scanning on channel=15...[NODE]
@@ -219,7 +230,6 @@ asn=6088 	id=2   	Node	send keepalive packet to=1[NODE]
 asn=6088 	id=2   	Main	On prepare tx packet method called from NullRouting
 asn=6090 	id=1   	Node	add neighbor id=2
 asn=6090 	id=1   	Node	Add_route called from ensure neighbor
-asn=6090 	id=1   	Node	Route added to destination node id: 2 through next hop node id: 2 in the routing table of node: 1
 asn=6090 	id=2   	Node	tx done to=1 numtx=1 acked=false[NODE]
 asn=6104 	id=2   	Node	tx done to=1 numtx=2 acked=true, remove packet[NODE]
 asn=6104 	id=2   	Main	On tx method called from NullRouting
@@ -394,12 +404,12 @@ asn=12985	id=4   	Main	On new time source method called from NullRouting
 asn=12985	id=4   	Node	Start method called from NullRouting for 4
 asn=12985	id=4   	Node	File Read successfully
 asn=12985	id=4   	Node	File loaded into struct successfully
+asn=12985	id=4   	Node	Reading routes for Node 4
 asn=12985	id=1   	Main	On tx method called from NullRouting
 asn=13080	id=4   	App	generate a packet, seqnum=1 for=1
 asn=13080	id=4   	Main	On prepare tx packet method called from NullRouting
 asn=13083	id=1   	Node	add neighbor id=4
 asn=13083	id=1   	Node	Add_route called from ensure neighbor
-asn=13083	id=1   	Node	Route added to destination node id: 4 through next hop node id: 4 in the routing table of node: 1
 asn=13083	id=1   	App	rx app packet seqnum=1 from=4[NODE]
 asn=13083	id=4   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
 asn=13083	id=4   	Main	On tx method called from NullRouting
@@ -1761,11 +1771,11 @@ asn=60000	id=-1  	Main	aggregate stats method called [NETWORK]
 asn=60000	id=1   	Node	aggregate stats method called for Node 1 [NODE]
 asn=60000	id=1   	Node	Final routes for Node 1 [NODE]
 asn=60000	id=1   	Node	Total Routes 5 [NODE]
-asn=60000	id=1   	Node	route destination: 6 and next hop id: 6
-asn=60000	id=1   	Node	route destination: 3 and next hop id: 3
-asn=60000	id=1   	Node	route destination: 5 and next hop id: 5
 asn=60000	id=1   	Node	route destination: 2 and next hop id: 2
+asn=60000	id=1   	Node	route destination: 3 and next hop id: 3
 asn=60000	id=1   	Node	route destination: 4 and next hop id: 4
+asn=60000	id=1   	Node	route destination: 5 and next hop id: 5
+asn=60000	id=1   	Node	route destination: 6 and next hop id: 6
 asn=60000	id=1   	Main	Method to get stats called from NullRouting
 asn=60000	id=2   	Node	aggregate stats method called for Node 2 [NODE]
 asn=60000	id=2   	Node	Final routes for Node 2 [NODE]
@@ -1794,4 +1804,4 @@ asn=60000	id=6   	Node	route destination: 1 and next hop id: 1
 asn=60000	id=6   	Main	Method to get stats called from NullRouting
 asn=60000	id=-1  	Main	packet stats: PDR=100.00% generated=216 received=215 lost=0 (tx_limit/queue/routing/scheduling/other=0/0/0/0/0)[NETWORK]
 asn=60000	id=-1  	Main	link stats: PAR=49.21% tx=443 acked=218[NETWORK]
-asn=60000	id=-1  	Main	simulation completed, results saved at /home/tegsingh/RR/tsch-sim/results/2021-07-24_23-56-58[MAIN]
+asn=60000	id=-1  	Main	simulation completed, results saved at /home/tegsingh/RR/tsch-sim/results/2021-07-25_00-21-52[MAIN]
