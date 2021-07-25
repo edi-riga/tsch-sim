@@ -1,0 +1,76 @@
+asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/RR/tsch-sim/examples/NullRouting/config.json to output directory /home/tegsingh/RR/tsch-sim/results/2021-07-22_14-45-50/config.json[MAIN]
+asn=0    	id=-1  	Main	initializing 600 seconds long simulation...[SIMULATOR]
+asn=0    	id=-1  	TSCH	initializing 6tisch minimal infrastructure
+asn=0    	id=-1  	Main	creating 1 "root" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	creating 5 "leaf" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	generating a star network with 6 nodes
+asn=0    	id=1   	Main	set position x=124.30 y=124.30[SIMULATOR]
+asn=0    	id=2   	Main	set position x=162.71 y=242.51[SIMULATOR]
+asn=0    	id=3   	Main	set position x=23.74 y=197.35[SIMULATOR]
+asn=0    	id=4   	Main	set position x=23.74 y=51.24[SIMULATOR]
+asn=0    	id=5   	Main	set position x=162.71 y=6.08[SIMULATOR]
+asn=0    	id=6   	Main	set position x=248.59 y=124.30[SIMULATOR]
+asn=0    	id=-1  	App	new packet source, from=2 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=3 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=4 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=5 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=6 for=1 period=10 warmup=100
+asn=0    	id=-1  	Main	simulation created[SIMULATOR]
+asn=0    	id=-1  	Main	starting simulation main loop...[SIMULATOR]
+asn=0    	id=1   	TSCH	*** initializing 6tisch minimal, slotframe_size=7
+asn=0    	id=1   	Node	Slotframe added [NODE]
+asn=0    	id=1   	Node	becomes TSCH coordinator
+asn=0    	id=1   	TSCH	Node has joined TSCH as coordinator [NODE]
+asn=0    	id=1   	Main	Start method called from NullRouting
+asn=0    	id=1   	Main	add_static method called for 1
+asn=0    	id=1   	Node	Route added to destination node id: 2 through next hop node id: 2 in the routing table of node: 1
+asn=0    	id=1   	Node	Route added to destination node id: 3 through next hop node id: 3 in the routing table of node: 1
+asn=0    	id=1   	Node	Route added to destination node id: 4 through next hop node id: 4 in the routing table of node: 1
+asn=0    	id=1   	Node	Route added to destination node id: 5 through next hop node id: 5 in the routing table of node: 1
+asn=0    	id=1   	Node	Route added to destination node id: 6 through next hop node id: 6 in the routing table of node: 1
+asn=0    	id=1   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=1   	Main	Local repair method called from NullRouting
+asn=0    	id=2   	TSCH	*** initializing 6tisch minimal, slotframe_size=7
+asn=0    	id=2   	Node	Slotframe added [NODE]
+asn=0    	id=2   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=2   	Main	Local repair method called from NullRouting
+asn=0    	id=2   	Node	scanning on channel=26...[NODE]
+asn=0    	id=3   	TSCH	*** initializing 6tisch minimal, slotframe_size=7
+asn=0    	id=3   	Node	Slotframe added [NODE]
+asn=0    	id=3   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=3   	Main	Local repair method called from NullRouting
+asn=0    	id=3   	Node	scanning on channel=26...[NODE]
+asn=0    	id=4   	TSCH	*** initializing 6tisch minimal, slotframe_size=7
+asn=0    	id=4   	Node	Slotframe added [NODE]
+asn=0    	id=4   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=4   	Main	Local repair method called from NullRouting
+asn=0    	id=4   	Node	scanning on channel=15...[NODE]
+asn=0    	id=5   	TSCH	*** initializing 6tisch minimal, slotframe_size=7
+asn=0    	id=5   	Node	Slotframe added [NODE]
+asn=0    	id=5   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=5   	Main	Local repair method called from NullRouting
+asn=0    	id=5   	Node	scanning on channel=25...[NODE]
+asn=0    	id=6   	TSCH	*** initializing 6tisch minimal, slotframe_size=7
+asn=0    	id=6   	Node	Slotframe added [NODE]
+asn=0    	id=6   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=6   	Main	Local repair method called from NullRouting
+asn=0    	id=6   	Node	scanning on channel=20...[NODE]
+asn=7    	id=6   	Node	add neighbor id=1
+asn=7    	id=6   	Node	Route added to destination node id: 1 through next hop node id: 1 in the routing table of node: 6
+asn=7    	id=6   	TSCH	joined/associated at 0.07 on receiving an EB packet from 1[NODE]
+asn=7    	id=6   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=7    	id=6   	Main	On new time source method called from NullRouting
+asn=7    	id=6   	Main	Start method called from NullRouting
+asn=7    	id=6   	Main	add_static method called for 6
+asn=7    	id=-1  	Main	error: assertion failed: undefined
+asn=7    	id=-1  	Main	error: Error: stack trace
+asn=7    	id=-1  	Main	error:     at assert (file:///home/tegsingh/RR/tsch-sim/source/utils.mjs:98:23)
+asn=7    	id=-1  	Main	error:     at RoutingTable.add_route (file:///home/tegsingh/RR/tsch-sim/source/route.mjs:80:9)
+asn=7    	id=-1  	Main	error:     at Node.add_static (file:///home/tegsingh/RR/tsch-sim/source/node.mjs:330:25)
+asn=7    	id=-1  	Main	error:     at NullRouting.start (file:///home/tegsingh/RR/tsch-sim/source/routing_null.mjs:63:19)
+asn=7    	id=-1  	Main	error:     at Node.tsch_associate (file:///home/tegsingh/RR/tsch-sim/source/node.mjs:1046:22)
+asn=7    	id=-1  	Main	error:     at Node.rx_eb (file:///home/tegsingh/RR/tsch-sim/source/node.mjs:986:18)
+asn=7    	id=-1  	Main	error:     at Node.rx_packet_link_layer (file:///home/tegsingh/RR/tsch-sim/source/node.mjs:1067:18)
+asn=7    	id=-1  	Main	error:     at Node.commit_rx (file:///home/tegsingh/RR/tsch-sim/source/node.mjs:1525:34)
+asn=7    	id=-1  	Main	error:     at Network.step (file:///home/tegsingh/RR/tsch-sim/source/network.mjs:372:22)
+asn=7    	id=-1  	Main	error:     at run_simulation (file:///home/tegsingh/RR/tsch-sim/source/simulator.mjs:595:17)

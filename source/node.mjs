@@ -310,26 +310,28 @@ export class Node {
 
         // Add routes statically [Remove this line in case you wish to run a normal simulation]
         // The following line of code only executed for the coordinator
-        this.add_static();
+        // this.add_static();
         
         scheduler.on_node_becomes_root(this);
     }
 
     // Method to add static routes in the beginning of the process
-    add_static() {
-        log.log(log.INFO, this, "Main", `add_static method called for ${this.id}`);
-        // if node is the route
-        if (this.id === 1) {
-            this.routes.add_route(2, 2);
-            this.routes.add_route(3, 3);
-            this.routes.add_route(4, 4);
-            this.routes.add_route(5, 5);
-            this.routes.add_route(6, 6);
-        } else {
-            // In case its any other topology
-            this.routes.add_route(1, 1);
-        }
-    }
+    // add_static() {
+    //     log.log(log.INFO, this, "Main", `add_static method called for ${this.id}`);
+    //     // if node is the route
+    //     if (this.id === 1) {
+    //         log.log(log.INFO, this, "Node", `Root Node from Add static`);
+    //         this.routes.add_route(2, 2);
+    //         this.routes.add_route(3, 3);
+    //         this.routes.add_route(4, 4);
+    //         this.routes.add_route(5, 5);
+    //         this.routes.add_route(6, 6);
+    //     } else {
+    //         // In case its any other topology
+    //         log.log(log.INFO, this, "Node", `Not a Root Node from Add static`);
+    //         this.routes.add_route(1, 1);
+    //     }
+    // }
 
     set_eb_period(period) {
         this.current_eb_period = Math.min(period, this.config.MAC_MAX_EB_PERIOD_S);
@@ -477,13 +479,15 @@ export class Node {
 
     ensure_neighbor(neighbor_id) {
         assert(neighbor_id, "neighbor_id must be set");
-        assert(neighbor_id != this.id, "node cannot be a neighbor to itself")
+        assert(neighbor_id != this.id, "node cannot be a neighbor to itself");
         if (!this.neighbors.has(neighbor_id)) {
             this.log(log.INFO, `add neighbor id=${neighbor_id}`);
             this.neighbors.set(neighbor_id, new neighbor.Neighbor(this, neighbor_id));
             /* if using a simple routing method, add a route to the neighbor via itself */
             if (this.config.ROUTING_ALGORITHM !== "RPL") {
+                log.log(log.INFO, this, "Node", `Add_route called from ensure neighbor`);
                 this.add_route(neighbor_id, neighbor_id);
+                //this.add_static();
             }
         }
         return this.neighbors.get(neighbor_id);

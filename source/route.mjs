@@ -91,6 +91,7 @@ export class RoutingTable {
     }
 
     // Add a default route for a particular destination. For instance, in a hierarchical topology, default routes would reflect a parent child relationship
+    // Email the author about this
     add_default_route(nexthop_id) {
         if (this.default_route) {
             this.default_route.nexthop_id = nexthop_id;

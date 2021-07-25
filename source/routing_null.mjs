@@ -33,6 +33,8 @@
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
+import fs from 'fs';
+import process from 'process';
 import config from './config.mjs';
 import * as log from './log.mjs';
 
@@ -59,7 +61,23 @@ export class NullRouting
     }
 
     start() {
-        log.log(log.INFO, this.node, "Main", `Start method called from NullRouting`);
+        log.log(log.INFO, this.node, "Node", `Start method called from NullRouting for ${this.node.id}`);
+        // Read the routes.json 
+        let route_file_data = null;
+        try {
+            const route_file = "examples/NullRouting/routes.json";
+            route_file_data = fs.readFileSync(route_file);    
+            log.log(log.INFO, this.node, "Node", `File Read successfully`);
+        } catch (error) {
+            log.log(log.ERROR, this.node, "Node", `Failed to find file`);
+        }
+
+        try {
+            const route_struct = JSON.parse(route_file_data);
+            log.log(log.INFO, this.node, "Node", `File loaded into struct successfully`);          
+        } catch (error) {
+            log.log(log.ERROR, this.node, "Node", `Failed to parse data`)
+        }
     }
 
     on_tx(neighbor, packet, is_ok, is_ack_required) {

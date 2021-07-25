@@ -1,0 +1,22 @@
+{
+    "SIMULATION_DURATION_SEC": 600,
+    "SCHEDULING_ALGORITHM": "6tischMin",
+    "ROUTING_ALGORITHM": "NullRouting",
+    "NODE_TYPES": [
+        {
+            "NAME": "root",
+            "START_ID": 1,
+            "COUNT": 1,
+            "CONNECTIONS": [{"NODE_TYPE": "leaf", "LINK_MODEL": "LogisticLoss"}]
+        },
+        {
+            "NAME": "leaf",
+            "START_ID": 2,
+            "COUNT": 5,
+            "ROUTING_IS_LEAF": true,
+            "CONNECTIONS": [{"NODE_TYPE": "root", "LINK_MODEL": "LogisticLoss"}],
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 10, "TO_ID": 1}
+        }
+    ],
+    "POSITIONING_LAYOUT": "Star"
+}
