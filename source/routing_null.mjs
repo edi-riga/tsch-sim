@@ -68,6 +68,7 @@ export class NullRouting
 
         // Read the routes.json file and store in a variable
         try {
+            // Specify the path for the routes.json file
             const route_file = "examples/NullRouting/routes.json";
             route_file_data = fs.readFileSync(route_file);    
             if (route_file_data) {
@@ -82,20 +83,19 @@ export class NullRouting
             const route_struct = JSON.parse(route_file_data);
             log.log(log.INFO, this.node, "Node", `File loaded into struct successfully`);          
             for (const route of route_struct) {
+                // Check if the node_id is the same as the node whose routing is being performed
                 if (route.NODE_ID == this.node.id) {
                     log.log(log.INFO, this.node, "Node", `Reading routes for Node ${this.node.id}`);
+                    // Call the add_route method from the related node
                     this.node.add_route(route.DESTINATION_ID, route.NEXTHOP_ID);
                 }
             }
         } catch (error) {
             log.log(log.ERROR, this.node, "Node", `Failed to parse data`)
         }
-
-        
     }
 
     on_tx(neighbor, packet, is_ok, is_ack_required) {
-
         log.log(log.INFO, this.node, "Main", `On tx method called from NullRouting`);    
     }
 

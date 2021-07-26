@@ -70,8 +70,9 @@ export class Packet {
         this.seqnum = -1; /* end-to-end sequence number */
         this.link_layer_seqnum = -1; /* link layer sequence number */
         this.packetbuf = {}; /* attributes for TSCH and other protocol layers */
-        this.packetbuf.PACKETBUF_ATTR_FRAME_TYPE = constants.FRAME802154_DATAFRAME;
+        this.packetbuf.PACKETBUF_ATTR_FRAME_TYPE = constants.FRAME802154_DATAFRAME; 
         this.subslot = 0; /* some TSCH slots may have multiple subslots */
+        // The value of is on link is defaulted to false in the function header
         if (is_on_link) {
             this.nexthop_id = destination_id;
         } else {

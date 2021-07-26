@@ -307,31 +307,10 @@ export class Node {
         this.set_eb_period(this.config.MAC_EB_PERIOD_S);
         this.join_priority = 0;
         this.routing.start();
-
-        // Add routes statically [Remove this line in case you wish to run a normal simulation]
-        // The following line of code only executed for the coordinator
-        // this.add_static();
         
         scheduler.on_node_becomes_root(this);
     }
 
-    // Method to add static routes in the beginning of the process
-    // add_static() {
-    //     log.log(log.INFO, this, "Main", `add_static method called for ${this.id}`);
-    //     // if node is the route
-    //     if (this.id === 1) {
-    //         log.log(log.INFO, this, "Node", `Root Node from Add static`);
-    //         this.routes.add_route(2, 2);
-    //         this.routes.add_route(3, 3);
-    //         this.routes.add_route(4, 4);
-    //         this.routes.add_route(5, 5);
-    //         this.routes.add_route(6, 6);
-    //     } else {
-    //         // In case its any other topology
-    //         log.log(log.INFO, this, "Node", `Not a Root Node from Add static`);
-    //         this.routes.add_route(1, 1);
-    //     }
-    // }
 
     set_eb_period(period) {
         this.current_eb_period = Math.min(period, this.config.MAC_MAX_EB_PERIOD_S);
@@ -626,6 +605,7 @@ export class Node {
     }
 
     update_time_source(new_time_source) {
+        log.log(log.INFO, this, "Node", `update time source called [NODE]`);
         if (new_time_source !== this.current_time_source) {
             this.stats_tsch_num_parent_changes += 1;
             const old_time_source = this.current_time_source;
@@ -636,8 +616,10 @@ export class Node {
                 new_time_source.is_time_source = true;
             }
             this.current_time_source = new_time_source;
+            
             /* update the routing module */
             this.routing.on_new_time_source(old_time_source, new_time_source);
+            
             /* update the scheduler */
             scheduler.on_new_time_source(this, old_time_source, new_time_source);
         }
@@ -1017,6 +999,7 @@ export class Node {
 
     /* Attempt to associate to a network from an incoming EB */
     tsch_associate(eb) {
+        // Increase the JP value everytime a node plans to associate with the tsch network using an EB
         const join_priority = eb.packetbuf.PACKETBUF_ATTR_JOIN_PRIORITY + 1;
         if (join_priority >= this.config.MAC_MAX_JOIN_PRIORITY) {
             /* too high JP */
@@ -1034,6 +1017,8 @@ export class Node {
         if (this.stats_tsch_join_time_sec == null) {
             this.stats_tsch_join_time_sec = round_to_ms(time.timeline.seconds);
         }
+
+        // Update time source for the receiver of the EB packet
         this.update_time_source(source);
 
         /* schedule the first keepalive at half the usual time to make drift learning faster */
