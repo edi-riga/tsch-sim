@@ -465,8 +465,8 @@ export class Node {
             /* if using a simple routing method, add a route to the neighbor via itself */
             if (this.config.ROUTING_ALGORITHM !== "RPL") {
                 log.log(log.INFO, this, "Node", `Add_route called from ensure neighbor`);
-                this.add_route(neighbor_id, neighbor_id);
-                //this.add_static();
+                // DISABLE THE FOLLOWING LINE TO CHECK THE ROUTES.JSON FUNCTIONALITY
+                // this.add_route(neighbor_id, neighbor_id);
             }
         }
         return this.neighbors.get(neighbor_id);
@@ -607,14 +607,19 @@ export class Node {
     update_time_source(new_time_source) {
         log.log(log.INFO, this, "Node", `update time source called [NODE]`);
         if (new_time_source !== this.current_time_source) {
+            // Add a parent change
             this.stats_tsch_num_parent_changes += 1;
+            // Move the current time source as the old time source
             const old_time_source = this.current_time_source;
+
+            // Define the specified node as the new time source
             if (old_time_source) {
                 old_time_source.is_time_source = false;
             }
             if (new_time_source) {
                 new_time_source.is_time_source = true;
             }
+            // Change the current time source
             this.current_time_source = new_time_source;
             
             /* update the routing module */
@@ -1726,9 +1731,10 @@ export class Node {
     aggregate_stats() {
         
         log.log(log.INFO, this, "Node", `aggregate stats method called for Node ${this.id} [NODE]`);
-        log.log(log.INFO, this, "Node", `Final routes for Node ${this.id} [NODE]`);
-        log.log(log.INFO, this, "Node", `Total Routes ${this.routes.routes.size} [NODE]`);
+       
+        // Call the list routes method for this node
         this.list_routes();
+
         const charge_uc = energy_model.estimate_charge_uc(this);
         const pretty_charge_uc = parseFloat(charge_uc.total.toFixed(1));
         const pretty_charge_joined_uc = parseFloat((charge_uc.total - charge_uc.scanning).toFixed(1));
@@ -1804,6 +1810,8 @@ export class Node {
     }
     // Method to display the routes in the routing table [preferrably call at the end]
     list_routes() {
+        log.log(log.INFO, this, "Node", `Final routes for Node ${this.id} [NODE]`);
+        log.log(log.INFO, this, "Node", `Total Routes ${this.routes.routes.size} [NODE]`);
         for (const [_,route] of this.routes.routes) {
             log.log(log.INFO, this, "Node", `route destination: ${route.prefix} and next hop id: ${route.nexthop_id}`);
         }

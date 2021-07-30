@@ -69,7 +69,8 @@ export class NullRouting
         // Read the routes.json file and store in a variable
         try {
             // Specify the path for the routes.json file
-            const route_file = "examples/NullRouting/routes.json";
+            // NOTE: PLEASE CHANGE THIS PATH BASED ON LOCATION OF THE EXAMPLE
+            const route_file = "examples/hierarchical/routes.json";
             route_file_data = fs.readFileSync(route_file);    
             if (route_file_data) {
                 log.log(log.INFO, this.node, "Node", `File Read successfully`);                
@@ -87,6 +88,7 @@ export class NullRouting
                 if (route.NODE_ID == this.node.id) {
                     log.log(log.INFO, this.node, "Node", `Reading routes for Node ${this.node.id}`);
                     // Call the add_route method from the related node
+                    log.log(log.INFO, this.node, "Node", `Destination = ${route.DESTINATION_ID}, Nexthop = ${route.NEXTHOP_ID}`)
                     this.node.add_route(route.DESTINATION_ID, route.NEXTHOP_ID);
                 }
             }
@@ -110,7 +112,6 @@ export class NullRouting
 
     on_new_time_source(old_time_source, new_time_source) {
         log.log(log.INFO, this.node, "Main", `On new time source method called from NullRouting`);    
-        
     }
 
     // Local repair called once the Node joins TSCH

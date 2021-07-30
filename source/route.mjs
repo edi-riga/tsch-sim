@@ -95,8 +95,9 @@ export class RoutingTable {
         if (this.default_route) {
             this.default_route.nexthop_id = nexthop_id;
         } else {
-            log.log(log.INFO, this.node, "Node", `add the default route via ${nexthop_id}[ROUTE]`);
+            log.log(log.INFO, this.node, "RPL", `add the default route via ${nexthop_id}[ROUTE]`);
             this.default_route = new Route(0, nexthop_id);
+            log.log(log.INFO, this.node, "RPL", `prefix = ${this.default_route.prefix}, nexthop = ${this.default_route.nexthop_id}`);
         }
         return this.default_route;
     }

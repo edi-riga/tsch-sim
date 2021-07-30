@@ -56,38 +56,37 @@ function set_timings()
 
 export function on_new_time_source(node, old_neighbor, new_neighbor)
 {
-    /* nothing */
+    log.log(log.INFO, node, "Node", `On new time source called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function on_child_added(node, addr)
 {
-    /* nothing */
+    log.log(log.INFO, node, "Node", `On child added called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function on_child_removed(node, addr)
 {
-    /* nothing */
+    log.log(log.INFO, node, "Node", `child removed event handler called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function on_packet_ready(node, packet)
 {
-    /* always accept */
     return true;
 }
 
 export function on_tx(node, packet, status_ok)
 {
-    /* nothing */
+    log.log(log.INFO, node, "Node", `on tx called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function add_root(node, root_id)
 {
-    /* nothing */
+    log.log(log.INFO, node, "Node", `Add root called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function on_node_becomes_root(node)
 {
-    /* nothing */
+    log.log(log.INFO, node, "Node", `On node becomes root called from 6Tisch Min [SCHEDULER]`);
 }
 
 /*---------------------------------------------------------------------------*/

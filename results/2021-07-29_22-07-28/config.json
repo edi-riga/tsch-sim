@@ -1,5 +1,6 @@
 {
     "SIMULATION_DURATION_SEC": 600,
+    "ROUTING_ALGORITHM": "NullRouting",
     "NODE_TYPES": [
         {
             "NAME": "root",

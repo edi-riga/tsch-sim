@@ -1,0 +1,2735 @@
+asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/RR/tsch-sim/examples/hierarchical/config.json to output directory /home/tegsingh/RR/tsch-sim/results/2021-07-29_22-16-43/config.json[MAIN]
+asn=0    	id=-1  	Main	initializing 600 seconds long simulation...[SIMULATOR]
+asn=0    	id=-1  	TSCH	Orchestra: initializing Orchestra infrastructure
+asn=0    	id=-1  	Main	creating 1 "root" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	creating 3 "forwarder" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	creating 6 "leaf" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	generating a star network with 10 nodes
+asn=0    	id=1   	Main	set position x=124.30 y=124.30[SIMULATOR]
+asn=0    	id=2   	Main	set position x=219.51 y=204.19[SIMULATOR]
+asn=0    	id=3   	Main	set position x=145.88 y=246.70[SIMULATOR]
+asn=0    	id=4   	Main	set position x=62.15 y=231.94[SIMULATOR]
+asn=0    	id=5   	Main	set position x=7.50 y=166.81[SIMULATOR]
+asn=0    	id=6   	Main	set position x=7.50 y=81.78[SIMULATOR]
+asn=0    	id=7   	Main	set position x=62.15 y=16.65[SIMULATOR]
+asn=0    	id=8   	Main	set position x=145.88 y=1.89[SIMULATOR]
+asn=0    	id=9   	Main	set position x=219.51 y=44.40[SIMULATOR]
+asn=0    	id=10  	Main	set position x=248.59 y=124.30[SIMULATOR]
+asn=0    	id=-1  	App	new packet source, from=2 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=3 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=4 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=5 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=6 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=7 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=8 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=9 for=1 period=10 warmup=100
+asn=0    	id=-1  	App	new packet source, from=10 for=1 period=10 warmup=100
+asn=0    	id=-1  	Main	warning: no connections defined for node type "root"[SIMULATOR]
+asn=0    	id=-1  	Main	warning: no connections defined for node type "forwarder"[SIMULATOR]
+asn=0    	id=-1  	Main	warning: no connections defined for node type "leaf"[SIMULATOR]
+asn=0    	id=-1  	Main	simulation created[SIMULATOR]
+asn=0    	id=-1  	Main	starting simulation main loop...[SIMULATOR]
+asn=0    	id=1   	TSCH	Orchestra: *** initializing
+asn=0    	id=1   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=1   	Node	Slotframe added [NODE]
+asn=0    	id=1   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=1   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=1   	Node	Slotframe added [NODE]
+asn=0    	id=1   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=1   	Node	Slotframe added [NODE]
+asn=0    	id=1   	TSCH	Orchestra: initialization done
+asn=0    	id=1   	Node	becomes TSCH coordinator
+asn=0    	id=1   	TSCH	Node has joined TSCH as coordinator [NODE]
+asn=0    	id=1   	Node	Start method called from NullRouting for 1
+asn=0    	id=1   	Node	File Read successfully
+asn=0    	id=1   	Node	File loaded into struct successfully
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 2, Nexthop = 2
+asn=0    	id=1   	Node	Route added to destination node id: 2 through next hop node id: 2 in the routing table of node: 1
+asn=0    	id=1   	TSCH	Orchestra: child added 2
+asn=0    	id=1   	TSCH	Orchestra: storing mode: add uc cell to 2, timeslot=2
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 3, Nexthop = 3
+asn=0    	id=1   	Node	Route added to destination node id: 3 through next hop node id: 3 in the routing table of node: 1
+asn=0    	id=1   	TSCH	Orchestra: child added 3
+asn=0    	id=1   	TSCH	Orchestra: storing mode: add uc cell to 3, timeslot=3
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 4, Nexthop = 4
+asn=0    	id=1   	Node	Route added to destination node id: 4 through next hop node id: 4 in the routing table of node: 1
+asn=0    	id=1   	TSCH	Orchestra: child added 4
+asn=0    	id=1   	TSCH	Orchestra: storing mode: add uc cell to 4, timeslot=4
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 5, Nexthop = 2
+asn=0    	id=1   	Node	Route added to destination node id: 5 through next hop node id: 2 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 6, Nexthop = 2
+asn=0    	id=1   	Node	Route added to destination node id: 6 through next hop node id: 2 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 7, Nexthop = 3
+asn=0    	id=1   	Node	Route added to destination node id: 7 through next hop node id: 3 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 8, Nexthop = 3
+asn=0    	id=1   	Node	Route added to destination node id: 8 through next hop node id: 3 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 9, Nexthop = 4
+asn=0    	id=1   	Node	Route added to destination node id: 9 through next hop node id: 4 in the routing table of node: 1
+asn=0    	id=1   	Node	Reading routes for Node 1
+asn=0    	id=1   	Node	Destination = 10, Nexthop = 4
+asn=0    	id=1   	Node	Route added to destination node id: 10 through next hop node id: 4 in the routing table of node: 1
+asn=0    	id=1   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=1   	Node	update time source called [NODE]
+asn=0    	id=1   	Main	Local repair method called from NullRouting
+asn=0    	id=2   	TSCH	Orchestra: *** initializing
+asn=0    	id=2   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=2   	Node	Slotframe added [NODE]
+asn=0    	id=2   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=2   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=2   	Node	Slotframe added [NODE]
+asn=0    	id=2   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=2   	Node	Slotframe added [NODE]
+asn=0    	id=2   	TSCH	Orchestra: initialization done
+asn=0    	id=2   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=2   	Node	update time source called [NODE]
+asn=0    	id=2   	Main	Local repair method called from NullRouting
+asn=0    	id=2   	Node	scanning on channel=25...[NODE]
+asn=0    	id=3   	TSCH	Orchestra: *** initializing
+asn=0    	id=3   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=3   	Node	Slotframe added [NODE]
+asn=0    	id=3   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=3   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=3   	Node	Slotframe added [NODE]
+asn=0    	id=3   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=3   	Node	Slotframe added [NODE]
+asn=0    	id=3   	TSCH	Orchestra: initialization done
+asn=0    	id=3   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=3   	Node	update time source called [NODE]
+asn=0    	id=3   	Main	Local repair method called from NullRouting
+asn=0    	id=3   	Node	scanning on channel=26...[NODE]
+asn=0    	id=4   	TSCH	Orchestra: *** initializing
+asn=0    	id=4   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=4   	Node	Slotframe added [NODE]
+asn=0    	id=4   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=4   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=4   	Node	Slotframe added [NODE]
+asn=0    	id=4   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=4   	Node	Slotframe added [NODE]
+asn=0    	id=4   	TSCH	Orchestra: initialization done
+asn=0    	id=4   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=4   	Node	update time source called [NODE]
+asn=0    	id=4   	Main	Local repair method called from NullRouting
+asn=0    	id=4   	Node	scanning on channel=26...[NODE]
+asn=0    	id=5   	TSCH	Orchestra: *** initializing
+asn=0    	id=5   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=5   	Node	Slotframe added [NODE]
+asn=0    	id=5   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=5   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=5   	Node	Slotframe added [NODE]
+asn=0    	id=5   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=5   	Node	Slotframe added [NODE]
+asn=0    	id=5   	TSCH	Orchestra: initialization done
+asn=0    	id=5   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=5   	Node	update time source called [NODE]
+asn=0    	id=5   	Main	Local repair method called from NullRouting
+asn=0    	id=5   	Node	scanning on channel=26...[NODE]
+asn=0    	id=6   	TSCH	Orchestra: *** initializing
+asn=0    	id=6   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=6   	Node	Slotframe added [NODE]
+asn=0    	id=6   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=6   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=6   	Node	Slotframe added [NODE]
+asn=0    	id=6   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=6   	Node	Slotframe added [NODE]
+asn=0    	id=6   	TSCH	Orchestra: initialization done
+asn=0    	id=6   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=6   	Node	update time source called [NODE]
+asn=0    	id=6   	Main	Local repair method called from NullRouting
+asn=0    	id=6   	Node	scanning on channel=26...[NODE]
+asn=0    	id=7   	TSCH	Orchestra: *** initializing
+asn=0    	id=7   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=7   	Node	Slotframe added [NODE]
+asn=0    	id=7   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=7   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=7   	Node	Slotframe added [NODE]
+asn=0    	id=7   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=7   	Node	Slotframe added [NODE]
+asn=0    	id=7   	TSCH	Orchestra: initialization done
+asn=0    	id=7   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=7   	Node	update time source called [NODE]
+asn=0    	id=7   	Main	Local repair method called from NullRouting
+asn=0    	id=7   	Node	scanning on channel=15...[NODE]
+asn=0    	id=8   	TSCH	Orchestra: *** initializing
+asn=0    	id=8   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=8   	Node	Slotframe added [NODE]
+asn=0    	id=8   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=8   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=8   	Node	Slotframe added [NODE]
+asn=0    	id=8   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=8   	Node	Slotframe added [NODE]
+asn=0    	id=8   	TSCH	Orchestra: initialization done
+asn=0    	id=8   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=8   	Node	update time source called [NODE]
+asn=0    	id=8   	Main	Local repair method called from NullRouting
+asn=0    	id=8   	Node	scanning on channel=20...[NODE]
+asn=0    	id=9   	TSCH	Orchestra: *** initializing
+asn=0    	id=9   	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=9   	Node	Slotframe added [NODE]
+asn=0    	id=9   	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=9   	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=9   	Node	Slotframe added [NODE]
+asn=0    	id=9   	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=9   	Node	Slotframe added [NODE]
+asn=0    	id=9   	TSCH	Orchestra: initialization done
+asn=0    	id=9   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=9   	Node	update time source called [NODE]
+asn=0    	id=9   	Main	Local repair method called from NullRouting
+asn=0    	id=9   	Node	scanning on channel=25...[NODE]
+asn=0    	id=10  	TSCH	Orchestra: *** initializing
+asn=0    	id=10  	TSCH	Orchestra: initializing rule EB per time source (handle=0 slotframe_size=397)
+asn=0    	id=10  	Node	Slotframe added [NODE]
+asn=0    	id=10  	TSCH	Orchestra: initializing rule unicast per neighbor storing (handle=1 slotframe_size=17)
+asn=0    	id=10  	TSCH	Orchestra: storing rule, receiver based
+asn=0    	id=10  	Node	Slotframe added [NODE]
+asn=0    	id=10  	TSCH	Orchestra: initializing rule default common (handle=2 slotframe_size=31)
+asn=0    	id=10  	Node	Slotframe added [NODE]
+asn=0    	id=10  	TSCH	Orchestra: initialization done
+asn=0    	id=10  	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=10  	Node	update time source called [NODE]
+asn=0    	id=10  	Main	Local repair method called from NullRouting
+asn=0    	id=10  	Node	scanning on channel=25...[NODE]
+asn=1    	id=2   	Node	add neighbor id=1
+asn=1    	id=2   	Node	Add_route called from ensure neighbor
+asn=1    	id=2   	TSCH	joined/associated at 0.01 on receiving an EB packet from 1[NODE]
+asn=1    	id=2   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=1    	id=2   	Node	update time source called [NODE]
+asn=1    	id=2   	Main	On new time source method called from NullRouting
+asn=1    	id=2   	TSCH	Orchestra: new time source 1
+asn=1    	id=2   	TSCH	Orchestra: storing mode: add uc cell to 1, timeslot=1
+asn=1    	id=2   	Node	Start method called from NullRouting for 2
+asn=1    	id=2   	Node	File Read successfully
+asn=1    	id=2   	Node	File loaded into struct successfully
+asn=1    	id=2   	Node	Reading routes for Node 2
+asn=1    	id=2   	Node	Destination = 5, Nexthop = 5
+asn=1    	id=2   	Node	Route added to destination node id: 5 through next hop node id: 5 in the routing table of node: 2
+asn=1    	id=2   	TSCH	Orchestra: child added 5
+asn=1    	id=2   	TSCH	Orchestra: storing mode: add uc cell to 5, timeslot=5
+asn=1    	id=2   	Node	Reading routes for Node 2
+asn=1    	id=2   	Node	Destination = 6, Nexthop = 6
+asn=1    	id=2   	Node	Route added to destination node id: 6 through next hop node id: 6 in the routing table of node: 2
+asn=1    	id=2   	TSCH	Orchestra: child added 6
+asn=1    	id=2   	TSCH	Orchestra: storing mode: add uc cell to 6, timeslot=6
+asn=1    	id=1   	Main	On tx method called from NullRouting
+asn=100  	id=6   	Node	scanning on channel=15...[NODE]
+asn=100  	id=9   	Node	scanning on channel=26...[NODE]
+asn=100  	id=10  	Node	scanning on channel=20...[NODE]
+asn=100  	id=3   	Node	scanning on channel=20...[NODE]
+asn=100  	id=4   	Node	scanning on channel=25...[NODE]
+asn=100  	id=5   	Node	scanning on channel=25...[NODE]
+asn=200  	id=4   	Node	scanning on channel=20...[NODE]
+asn=200  	id=5   	Node	scanning on channel=15...[NODE]
+asn=200  	id=8   	Node	scanning on channel=26...[NODE]
+asn=200  	id=7   	Node	scanning on channel=26...[NODE]
+asn=200  	id=6   	Node	scanning on channel=26...[NODE]
+asn=200  	id=3   	Node	scanning on channel=26...[NODE]
+asn=301  	id=10  	Node	scanning on channel=26...[NODE]
+asn=301  	id=9   	Node	scanning on channel=25...[NODE]
+asn=301  	id=8   	Node	scanning on channel=25...[NODE]
+asn=301  	id=5   	Node	scanning on channel=26...[NODE]
+asn=301  	id=4   	Node	scanning on channel=25...[NODE]
+asn=301  	id=3   	Node	scanning on channel=20...[NODE]
+asn=301  	id=6   	Node	scanning on channel=20...[NODE]
+asn=301  	id=7   	Node	scanning on channel=15...[NODE]
+asn=402  	id=6   	Node	scanning on channel=26...[NODE]
+asn=402  	id=7   	Node	scanning on channel=26...[NODE]
+asn=402  	id=9   	Node	scanning on channel=20...[NODE]
+asn=402  	id=3   	Node	scanning on channel=15...[NODE]
+asn=402  	id=4   	Node	scanning on channel=26...[NODE]
+asn=503  	id=4   	Node	scanning on channel=25...[NODE]
+asn=503  	id=5   	Node	scanning on channel=20...[NODE]
+asn=503  	id=8   	Node	scanning on channel=26...[NODE]
+asn=503  	id=7   	Node	scanning on channel=20...[NODE]
+asn=503  	id=6   	Node	scanning on channel=25...[NODE]
+asn=503  	id=3   	Node	scanning on channel=25...[NODE]
+asn=503  	id=10  	Node	scanning on channel=20...[NODE]
+asn=503  	id=9   	Node	scanning on channel=15...[NODE]
+asn=604  	id=10  	Node	scanning on channel=26...[NODE]
+asn=604  	id=9   	Node	scanning on channel=26...[NODE]
+asn=604  	id=8   	Node	scanning on channel=20...[NODE]
+asn=604  	id=4   	Node	scanning on channel=26...[NODE]
+asn=604  	id=6   	Node	scanning on channel=15...[NODE]
+asn=604  	id=7   	Node	scanning on channel=26...[NODE]
+asn=705  	id=7   	Node	scanning on channel=20...[NODE]
+asn=705  	id=8   	Node	scanning on channel=25...[NODE]
+asn=705  	id=9   	Node	scanning on channel=20...[NODE]
+asn=705  	id=10  	Node	scanning on channel=25...[NODE]
+asn=705  	id=3   	Node	scanning on channel=26...[NODE]
+asn=705  	id=4   	Node	scanning on channel=15...[NODE]
+asn=705  	id=5   	Node	scanning on channel=15...[NODE]
+asn=806  	id=8   	Node	scanning on channel=20...[NODE]
+asn=806  	id=7   	Node	scanning on channel=25...[NODE]
+asn=806  	id=6   	Node	scanning on channel=20...[NODE]
+asn=806  	id=10  	Node	scanning on channel=26...[NODE]
+asn=806  	id=9   	Node	scanning on channel=25...[NODE]
+asn=907  	id=9   	Node	scanning on channel=20...[NODE]
+asn=907  	id=10  	Node	scanning on channel=20...[NODE]
+asn=907  	id=8   	Node	scanning on channel=25...[NODE]
+asn=907  	id=5   	Node	scanning on channel=20...[NODE]
+asn=907  	id=4   	Node	scanning on channel=26...[NODE]
+asn=907  	id=6   	Node	scanning on channel=15...[NODE]
+asn=1008 	id=7   	Node	scanning on channel=20...[NODE]
+asn=1008 	id=8   	Node	scanning on channel=15...[NODE]
+asn=1008 	id=10  	Node	scanning on channel=26...[NODE]
+asn=1008 	id=5   	Node	scanning on channel=25...[NODE]
+asn=1109 	id=4   	Node	scanning on channel=20...[NODE]
+asn=1109 	id=5   	Node	scanning on channel=26...[NODE]
+asn=1109 	id=8   	Node	scanning on channel=25...[NODE]
+asn=1109 	id=7   	Node	scanning on channel=15...[NODE]
+asn=1109 	id=6   	Node	scanning on channel=25...[NODE]
+asn=1109 	id=3   	Node	scanning on channel=20...[NODE]
+asn=1109 	id=9   	Node	scanning on channel=25...[NODE]
+asn=1109 	id=10  	Node	scanning on channel=20...[NODE]
+asn=1193 	id=6   	Node	add neighbor id=2
+asn=1193 	id=6   	Node	Add_route called from ensure neighbor
+asn=1193 	id=6   	TSCH	joined/associated at 11.93 on receiving an EB packet from 2[NODE]
+asn=1193 	id=6   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=1193 	id=6   	Node	update time source called [NODE]
+asn=1193 	id=6   	Main	On new time source method called from NullRouting
+asn=1193 	id=6   	TSCH	Orchestra: new time source 2
+asn=1193 	id=6   	TSCH	Orchestra: storing mode: add uc cell to 2, timeslot=2
+asn=1193 	id=6   	Node	Start method called from NullRouting for 6
+asn=1193 	id=6   	Node	File Read successfully
+asn=1193 	id=6   	Node	File loaded into struct successfully
+asn=1193 	id=8   	Node	add neighbor id=2
+asn=1193 	id=8   	Node	Add_route called from ensure neighbor
+asn=1193 	id=8   	TSCH	joined/associated at 11.93 on receiving an EB packet from 2[NODE]
+asn=1193 	id=8   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=1193 	id=8   	Node	update time source called [NODE]
+asn=1193 	id=8   	Main	On new time source method called from NullRouting
+asn=1193 	id=8   	TSCH	Orchestra: new time source 2
+asn=1193 	id=8   	TSCH	Orchestra: storing mode: add uc cell to 2, timeslot=2
+asn=1193 	id=8   	Node	Start method called from NullRouting for 8
+asn=1193 	id=8   	Node	File Read successfully
+asn=1193 	id=8   	Node	File loaded into struct successfully
+asn=1193 	id=9   	Node	add neighbor id=2
+asn=1193 	id=9   	Node	Add_route called from ensure neighbor
+asn=1193 	id=9   	TSCH	joined/associated at 11.93 on receiving an EB packet from 2[NODE]
+asn=1193 	id=9   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=1193 	id=9   	Node	update time source called [NODE]
+asn=1193 	id=9   	Main	On new time source method called from NullRouting
+asn=1193 	id=9   	TSCH	Orchestra: new time source 2
+asn=1193 	id=9   	TSCH	Orchestra: storing mode: add uc cell to 2, timeslot=2
+asn=1193 	id=9   	Node	Start method called from NullRouting for 9
+asn=1193 	id=9   	Node	File Read successfully
+asn=1193 	id=9   	Node	File loaded into struct successfully
+asn=1193 	id=2   	Main	On tx method called from NullRouting
+asn=1210 	id=5   	Node	scanning on channel=20...[NODE]
+asn=1210 	id=4   	Node	scanning on channel=25...[NODE]
+asn=1210 	id=10  	Node	scanning on channel=26...[NODE]
+asn=1210 	id=7   	Node	scanning on channel=25...[NODE]
+asn=1311 	id=3   	Node	scanning on channel=25...[NODE]
+asn=1311 	id=7   	Node	scanning on channel=15...[NODE]
+asn=1311 	id=4   	Node	scanning on channel=20...[NODE]
+asn=1311 	id=5   	Node	scanning on channel=15...[NODE]
+asn=1412 	id=4   	Node	scanning on channel=15...[NODE]
+asn=1412 	id=5   	Node	scanning on channel=26...[NODE]
+asn=1412 	id=7   	Node	scanning on channel=25...[NODE]
+asn=1412 	id=3   	Node	scanning on channel=15...[NODE]
+asn=1513 	id=3   	Node	scanning on channel=20...[NODE]
+asn=1513 	id=7   	Node	scanning on channel=20...[NODE]
+asn=1513 	id=10  	Node	scanning on channel=25...[NODE]
+asn=1513 	id=5   	Node	scanning on channel=25...[NODE]
+asn=1513 	id=4   	Node	scanning on channel=20...[NODE]
+asn=1589 	id=1   	Main	On tx method called from NullRouting
+asn=1613 	id=4   	Node	scanning on channel=25...[NODE]
+asn=1613 	id=10  	Node	scanning on channel=15...[NODE]
+asn=1613 	id=7   	Node	scanning on channel=15...[NODE]
+asn=1613 	id=3   	Node	scanning on channel=25...[NODE]
+asn=1713 	id=7   	Node	scanning on channel=20...[NODE]
+asn=1713 	id=3   	Node	scanning on channel=15...[NODE]
+asn=1713 	id=10  	Node	scanning on channel=25...[NODE]
+asn=1713 	id=4   	Node	scanning on channel=15...[NODE]
+asn=1713 	id=5   	Node	scanning on channel=20...[NODE]
+asn=1813 	id=4   	Node	scanning on channel=26...[NODE]
+asn=1813 	id=5   	Node	scanning on channel=26...[NODE]
+asn=1813 	id=3   	Node	scanning on channel=25...[NODE]
+asn=1913 	id=10  	Node	scanning on channel=15...[NODE]
+asn=1913 	id=5   	Node	scanning on channel=15...[NODE]
+asn=2013 	id=5   	Node	scanning on channel=20...[NODE]
+asn=2013 	id=3   	Node	scanning on channel=15...[NODE]
+asn=2013 	id=7   	Node	scanning on channel=15...[NODE]
+asn=2113 	id=3   	Node	scanning on channel=20...[NODE]
+asn=2113 	id=7   	Node	scanning on channel=26...[NODE]
+asn=2113 	id=10  	Node	scanning on channel=25...[NODE]
+asn=2113 	id=4   	Node	scanning on channel=15...[NODE]
+asn=2213 	id=4   	Node	scanning on channel=25...[NODE]
+asn=2213 	id=5   	Node	scanning on channel=15...[NODE]
+asn=2213 	id=10  	Node	scanning on channel=15...[NODE]
+asn=2213 	id=7   	Node	scanning on channel=15...[NODE]
+asn=2213 	id=3   	Node	scanning on channel=26...[NODE]
+asn=2313 	id=3   	Node	scanning on channel=20...[NODE]
+asn=2313 	id=10  	Node	scanning on channel=20...[NODE]
+asn=2313 	id=5   	Node	scanning on channel=20...[NODE]
+asn=2313 	id=4   	Node	scanning on channel=20...[NODE]
+asn=2384 	id=7   	Node	add neighbor id=2
+asn=2384 	id=7   	Node	Add_route called from ensure neighbor
+asn=2384 	id=7   	TSCH	joined/associated at 23.84 on receiving an EB packet from 2[NODE]
+asn=2384 	id=7   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=2384 	id=7   	Node	update time source called [NODE]
+asn=2384 	id=7   	Main	On new time source method called from NullRouting
+asn=2384 	id=7   	TSCH	Orchestra: new time source 2
+asn=2384 	id=7   	TSCH	Orchestra: storing mode: add uc cell to 2, timeslot=2
+asn=2384 	id=7   	Node	Start method called from NullRouting for 7
+asn=2384 	id=7   	Node	File Read successfully
+asn=2384 	id=7   	Node	File loaded into struct successfully
+asn=2384 	id=2   	Main	On tx method called from NullRouting
+asn=2413 	id=4   	Node	scanning on channel=25...[NODE]
+asn=2413 	id=10  	Node	scanning on channel=25...[NODE]
+asn=2513 	id=5   	Node	scanning on channel=15...[NODE]
+asn=2513 	id=10  	Node	scanning on channel=20...[NODE]
+asn=2613 	id=4   	Node	scanning on channel=20...[NODE]
+asn=2613 	id=5   	Node	scanning on channel=26...[NODE]
+asn=2613 	id=3   	Node	scanning on channel=26...[NODE]
+asn=2713 	id=5   	Node	scanning on channel=20...[NODE]
+asn=2713 	id=10  	Node	scanning on channel=25...[NODE]
+asn=2713 	id=3   	Node	scanning on channel=25...[NODE]
+asn=2813 	id=3   	Node	scanning on channel=26...[NODE]
+asn=2813 	id=10  	Node	scanning on channel=26...[NODE]
+asn=2813 	id=4   	Node	scanning on channel=25...[NODE]
+asn=2813 	id=5   	Node	scanning on channel=26...[NODE]
+asn=2913 	id=5   	Node	scanning on channel=25...[NODE]
+asn=2913 	id=3   	Node	scanning on channel=20...[NODE]
+asn=2913 	id=4   	Node	scanning on channel=26...[NODE]
+asn=3001 	id=2   	Node	send keepalive packet to=1[NODE]
+asn=3001 	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=3010 	id=1   	Node	add neighbor id=2
+asn=3010 	id=1   	Node	Add_route called from ensure neighbor
+asn=3010 	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=3010 	id=2   	Main	On tx method called from NullRouting
+asn=3013 	id=4   	Node	scanning on channel=15...[NODE]
+asn=3013 	id=5   	Node	scanning on channel=15...[NODE]
+asn=3013 	id=3   	Node	scanning on channel=25...[NODE]
+asn=3013 	id=10  	Node	scanning on channel=20...[NODE]
+asn=3113 	id=5   	Node	scanning on channel=20...[NODE]
+asn=3177 	id=3   	Node	add neighbor id=1
+asn=3177 	id=3   	Node	Add_route called from ensure neighbor
+asn=3177 	id=3   	TSCH	joined/associated at 31.77 on receiving an EB packet from 1[NODE]
+asn=3177 	id=3   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=3177 	id=3   	Node	update time source called [NODE]
+asn=3177 	id=3   	Main	On new time source method called from NullRouting
+asn=3177 	id=3   	TSCH	Orchestra: new time source 1
+asn=3177 	id=3   	TSCH	Orchestra: storing mode: add uc cell to 1, timeslot=1
+asn=3177 	id=3   	Node	Start method called from NullRouting for 3
+asn=3177 	id=3   	Node	File Read successfully
+asn=3177 	id=3   	Node	File loaded into struct successfully
+asn=3177 	id=3   	Node	Reading routes for Node 3
+asn=3177 	id=3   	Node	Destination = 7, Nexthop = 7
+asn=3177 	id=3   	Node	Route added to destination node id: 7 through next hop node id: 7 in the routing table of node: 3
+asn=3177 	id=3   	TSCH	Orchestra: child added 7
+asn=3177 	id=3   	TSCH	Orchestra: storing mode: add uc cell to 7, timeslot=7
+asn=3177 	id=3   	Node	Reading routes for Node 3
+asn=3177 	id=3   	Node	Destination = 8, Nexthop = 8
+asn=3177 	id=3   	Node	Route added to destination node id: 8 through next hop node id: 8 in the routing table of node: 3
+asn=3177 	id=3   	TSCH	Orchestra: child added 8
+asn=3177 	id=3   	TSCH	Orchestra: storing mode: add uc cell to 8, timeslot=8
+asn=3177 	id=1   	Main	On tx method called from NullRouting
+asn=3213 	id=10  	Node	scanning on channel=26...[NODE]
+asn=3213 	id=4   	Node	scanning on channel=25...[NODE]
+asn=3213 	id=5   	Node	scanning on channel=26...[NODE]
+asn=3314 	id=10  	Node	scanning on channel=15...[NODE]
+asn=3314 	id=4   	Node	scanning on channel=15...[NODE]
+asn=3415 	id=10  	Node	scanning on channel=26...[NODE]
+asn=3415 	id=4   	Node	scanning on channel=25...[NODE]
+asn=3415 	id=5   	Node	scanning on channel=20...[NODE]
+asn=3516 	id=4   	Node	scanning on channel=15...[NODE]
+asn=3516 	id=5   	Node	scanning on channel=15...[NODE]
+asn=3576 	id=5   	Node	add neighbor id=3
+asn=3576 	id=5   	Node	Add_route called from ensure neighbor
+asn=3576 	id=5   	TSCH	joined/associated at 35.76 on receiving an EB packet from 3[NODE]
+asn=3576 	id=5   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=3576 	id=5   	Node	update time source called [NODE]
+asn=3576 	id=5   	Main	On new time source method called from NullRouting
+asn=3576 	id=5   	TSCH	Orchestra: new time source 3
+asn=3576 	id=5   	TSCH	Orchestra: storing mode: add uc cell to 3, timeslot=3
+asn=3576 	id=5   	Node	Start method called from NullRouting for 5
+asn=3576 	id=5   	Node	File Read successfully
+asn=3576 	id=5   	Node	File loaded into struct successfully
+asn=3576 	id=6   	Node	add neighbor id=3
+asn=3576 	id=6   	Node	Add_route called from ensure neighbor
+asn=3576 	id=3   	Main	On tx method called from NullRouting
+asn=3617 	id=10  	Node	scanning on channel=15...[NODE]
+asn=3617 	id=4   	Node	scanning on channel=26...[NODE]
+asn=3718 	id=10  	Node	scanning on channel=26...[NODE]
+asn=3718 	id=4   	Node	scanning on channel=25...[NODE]
+asn=3819 	id=10  	Node	scanning on channel=20...[NODE]
+asn=3972 	id=2   	Main	On tx method called from NullRouting
+asn=4021 	id=10  	Node	scanning on channel=26...[NODE]
+asn=4021 	id=4   	Node	scanning on channel=20...[NODE]
+asn=4122 	id=4   	Node	scanning on channel=25...[NODE]
+asn=4193 	id=6   	Node	send keepalive packet to=2[NODE]
+asn=4193 	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=4193 	id=8   	Node	send keepalive packet to=2[NODE]
+asn=4193 	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=4193 	id=9   	Node	send keepalive packet to=2[NODE]
+asn=4193 	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=4201 	id=6   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=4201 	id=8   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=4201 	id=9   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=4223 	id=10  	Node	scanning on channel=15...[NODE]
+asn=4235 	id=8   	Node	tx done to=2 numtx=2 acked=false[NODE]
+asn=4252 	id=2   	Node	add neighbor id=6
+asn=4252 	id=2   	Node	Add_route called from ensure neighbor
+asn=4252 	id=6   	Node	tx done to=2 numtx=2 acked=true, remove packet[NODE]
+asn=4252 	id=6   	Main	On tx method called from NullRouting
+asn=4252 	id=9   	Node	tx done to=2 numtx=2 acked=false[NODE]
+asn=4286 	id=2   	Node	add neighbor id=9
+asn=4286 	id=2   	Node	Add_route called from ensure neighbor
+asn=4286 	id=9   	Node	tx done to=2 numtx=3 acked=false[NODE]
+asn=4324 	id=4   	Node	scanning on channel=20...[NODE]
+asn=4354 	id=2   	Node	add neighbor id=8
+asn=4354 	id=2   	Node	Add_route called from ensure neighbor
+asn=4354 	id=8   	Node	tx done to=2 numtx=3 acked=true, remove packet[NODE]
+asn=4354 	id=8   	Main	On tx method called from NullRouting
+asn=4368 	id=1   	Main	On tx method called from NullRouting
+asn=4405 	id=9   	Node	tx done to=2 numtx=4 acked=true, remove packet[NODE]
+asn=4405 	id=9   	Main	On tx method called from NullRouting
+asn=4425 	id=10  	Node	scanning on channel=25...[NODE]
+asn=4425 	id=4   	Node	scanning on channel=25...[NODE]
+asn=4526 	id=10  	Node	scanning on channel=26...[NODE]
+asn=4526 	id=4   	Node	scanning on channel=20...[NODE]
+asn=4627 	id=10  	Node	scanning on channel=20...[NODE]
+asn=4627 	id=4   	Node	scanning on channel=26...[NODE]
+asn=4728 	id=4   	Node	scanning on channel=15...[NODE]
+asn=4767 	id=10  	Node	add neighbor id=3
+asn=4767 	id=10  	Node	Add_route called from ensure neighbor
+asn=4767 	id=10  	TSCH	joined/associated at 47.67 on receiving an EB packet from 3[NODE]
+asn=4767 	id=10  	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=4767 	id=10  	Node	update time source called [NODE]
+asn=4767 	id=10  	Main	On new time source method called from NullRouting
+asn=4767 	id=10  	TSCH	Orchestra: new time source 3
+asn=4767 	id=10  	TSCH	Orchestra: storing mode: add uc cell to 3, timeslot=3
+asn=4767 	id=10  	Node	Start method called from NullRouting for 10
+asn=4767 	id=10  	Node	File Read successfully
+asn=4767 	id=10  	Node	File loaded into struct successfully
+asn=4767 	id=3   	Main	On tx method called from NullRouting
+asn=4829 	id=4   	Node	scanning on channel=26...[NODE]
+asn=5233 	id=4   	Node	scanning on channel=20...[NODE]
+asn=5334 	id=4   	Node	scanning on channel=15...[NODE]
+asn=5385 	id=7   	Node	send keepalive packet to=2[NODE]
+asn=5385 	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=5391 	id=2   	Node	add neighbor id=7
+asn=5391 	id=2   	Node	Add_route called from ensure neighbor
+asn=5391 	id=7   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=5391 	id=7   	Main	On tx method called from NullRouting
+asn=5435 	id=4   	Node	scanning on channel=20...[NODE]
+asn=5536 	id=4   	Node	scanning on channel=26...[NODE]
+asn=5560 	id=2   	Main	On tx method called from NullRouting
+asn=5637 	id=4   	Node	scanning on channel=25...[NODE]
+asn=5738 	id=4   	Node	scanning on channel=26...[NODE]
+asn=5839 	id=4   	Node	scanning on channel=25...[NODE]
+asn=5958 	id=3   	Main	On tx method called from NullRouting
+asn=6001 	id=-1  	Main	60 seconds, progress 10.00%[SIMULATOR]
+asn=6001 	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=6001 	id=-1  	Main	joined_routing/joined_tsch/total=9/9/10 [ROUTE]
+asn=6001 	id=-1  	TSCH	Periodic process called for [Node]
+asn=6001 	id=1   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=1   	TSCH	stats: {"idle_listen":533,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":1,"tx_data":4,"tx_data_rx_ack":0}[NODE]
+asn=6001 	id=2   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=2   	TSCH	stats: {"idle_listen":543,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":5,"tx_data":4,"tx_data_rx_ack":1}[NODE]
+asn=6001 	id=3   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=3   	TSCH	stats: {"idle_listen":259,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":0,"tx_data":3,"tx_data_rx_ack":0}[NODE]
+asn=6001 	id=4   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=4   	TSCH	stats: {"idle_listen":0,"channel_scan":6000,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":0}[NODE]
+asn=6001 	id=5   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=5   	TSCH	stats: {"idle_listen":221,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":0}[NODE]
+asn=6001 	id=6   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=6   	TSCH	stats: {"idle_listen":440,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":2}[NODE]
+asn=6001 	id=7   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=7   	TSCH	stats: {"idle_listen":331,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":1}[NODE]
+asn=6001 	id=8   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=8   	TSCH	stats: {"idle_listen":441,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":3}[NODE]
+asn=6001 	id=9   	Main	On periodic timer method called from NullRouting
+asn=6001 	id=9   	TSCH	stats: {"idle_listen":440,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":4}[NODE]
+asn=6001 	id=10  	Main	On periodic timer method called from NullRouting
+asn=6001 	id=10  	TSCH	stats: {"idle_listen":114,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":0}[NODE]
+asn=6041 	id=4   	Node	scanning on channel=26...[NODE]
+asn=6142 	id=4   	Node	scanning on channel=25...[NODE]
+asn=6178 	id=3   	Node	send keepalive packet to=1[NODE]
+asn=6178 	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=6189 	id=3   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=6206 	id=1   	Node	add neighbor id=3
+asn=6206 	id=1   	Node	Add_route called from ensure neighbor
+asn=6206 	id=3   	Node	tx done to=1 numtx=2 acked=true, remove packet[NODE]
+asn=6206 	id=3   	Main	On tx method called from NullRouting
+asn=6243 	id=4   	Node	scanning on channel=15...[NODE]
+asn=6353 	id=1   	Main	On tx method called from NullRouting
+asn=6444 	id=4   	Node	scanning on channel=26...[NODE]
+asn=6544 	id=4   	Node	scanning on channel=25...[NODE]
+asn=6577 	id=5   	Node	send keepalive packet to=3[NODE]
+asn=6577 	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=6582 	id=3   	Node	add neighbor id=5
+asn=6582 	id=3   	Node	Add_route called from ensure neighbor
+asn=6582 	id=5   	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=6582 	id=5   	Main	On tx method called from NullRouting
+asn=6744 	id=4   	Node	scanning on channel=15...[NODE]
+asn=6751 	id=2   	Main	On tx method called from NullRouting
+asn=6844 	id=4   	Node	scanning on channel=25...[NODE]
+asn=6944 	id=4   	Node	scanning on channel=20...[NODE]
+asn=7044 	id=4   	Node	scanning on channel=26...[NODE]
+asn=7144 	id=4   	Node	scanning on channel=25...[NODE]
+asn=7149 	id=3   	Main	On tx method called from NullRouting
+asn=7244 	id=4   	Node	scanning on channel=20...[NODE]
+asn=7344 	id=4   	Node	scanning on channel=25...[NODE]
+asn=7544 	id=4   	Node	scanning on channel=26...[NODE]
+asn=7544 	id=1   	Main	On tx method called from NullRouting
+asn=7744 	id=4   	Node	scanning on channel=20...[NODE]
+asn=7767 	id=10  	Node	send keepalive packet to=3[NODE]
+asn=7767 	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=7772 	id=3   	Node	add neighbor id=10
+asn=7772 	id=3   	Node	Add_route called from ensure neighbor
+asn=7772 	id=10  	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=7772 	id=10  	Main	On tx method called from NullRouting
+asn=7844 	id=4   	Node	scanning on channel=25...[NODE]
+asn=8044 	id=4   	Node	scanning on channel=20...[NODE]
+asn=8144 	id=4   	Node	scanning on channel=26...[NODE]
+asn=8339 	id=2   	Main	On tx method called from NullRouting
+asn=8344 	id=4   	Node	scanning on channel=15...[NODE]
+asn=8444 	id=4   	Node	scanning on channel=25...[NODE]
+asn=8544 	id=4   	Node	scanning on channel=20...[NODE]
+asn=8644 	id=4   	Node	scanning on channel=25...[NODE]
+asn=8735 	id=1   	Main	On tx method called from NullRouting
+asn=8737 	id=3   	Main	On tx method called from NullRouting
+asn=8744 	id=4   	Node	scanning on channel=26...[NODE]
+asn=8844 	id=4   	Node	scanning on channel=15...[NODE]
+asn=8944 	id=4   	Node	scanning on channel=25...[NODE]
+asn=9010 	id=2   	Node	send keepalive packet to=1[NODE]
+asn=9010 	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=9011 	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=9011 	id=2   	Main	On tx method called from NullRouting
+asn=9044 	id=4   	Node	scanning on channel=20...[NODE]
+asn=9144 	id=4   	Node	scanning on channel=25...[NODE]
+asn=9344 	id=4   	Node	scanning on channel=20...[NODE]
+asn=9444 	id=4   	Node	scanning on channel=15...[NODE]
+asn=9544 	id=4   	Node	scanning on channel=26...[NODE]
+asn=9644 	id=4   	Node	scanning on channel=15...[NODE]
+asn=9744 	id=4   	Node	scanning on channel=20...[NODE]
+asn=9844 	id=4   	Node	scanning on channel=25...[NODE]
+asn=9927 	id=2   	Main	On tx method called from NullRouting
+asn=9944 	id=4   	Node	scanning on channel=15...[NODE]
+asn=10108	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=10108	id=5   	App	generate a packet, seqnum=1 for=1
+asn=10108	id=5   	App	dropping app packet seqnum=1 for=1: no route
+asn=10144	id=4   	Node	scanning on channel=20...[NODE]
+asn=10244	id=4   	Node	scanning on channel=15...[NODE]
+asn=10252	id=6   	Node	send keepalive packet to=2[NODE]
+asn=10252	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=10253	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=10253	id=6   	Main	On tx method called from NullRouting
+asn=10298	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=10298	id=6   	App	generate a packet, seqnum=1 for=1
+asn=10298	id=6   	App	dropping app packet seqnum=1 for=1: no route
+asn=10323	id=1   	Main	On tx method called from NullRouting
+asn=10325	id=3   	Main	On tx method called from NullRouting
+asn=10354	id=8   	Node	send keepalive packet to=2[NODE]
+asn=10354	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=10355	id=8   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=10389	id=8   	Node	tx done to=2 numtx=2 acked=true, remove packet[NODE]
+asn=10389	id=8   	Main	On tx method called from NullRouting
+asn=10405	id=9   	Node	send keepalive packet to=2[NODE]
+asn=10405	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=10406	id=9   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=10406	id=9   	Main	On tx method called from NullRouting
+asn=10441	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=10441	id=2   	App	generate a packet, seqnum=1 for=1
+asn=10441	id=2   	App	dropping app packet seqnum=1 for=1: no route
+asn=10444	id=4   	Node	scanning on channel=25...[NODE]
+asn=10544	id=4   	Node	scanning on channel=20...[NODE]
+asn=10631	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=10631	id=3   	App	generate a packet, seqnum=1 for=1
+asn=10631	id=3   	App	dropping app packet seqnum=1 for=1: no route
+asn=10644	id=4   	Node	scanning on channel=26...[NODE]
+asn=10669	id=4   	App	skipping generation of a packet, for=1
+asn=10682	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=10682	id=9   	App	generate a packet, seqnum=1 for=1
+asn=10682	id=9   	App	dropping app packet seqnum=1 for=1: no route
+asn=10744	id=4   	Node	scanning on channel=20...[NODE]
+asn=10780	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=10780	id=10  	App	generate a packet, seqnum=1 for=1
+asn=10780	id=10  	App	dropping app packet seqnum=1 for=1: no route
+asn=10844	id=4   	Node	scanning on channel=15...[NODE]
+asn=10912	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=10912	id=8   	App	generate a packet, seqnum=1 for=1
+asn=10912	id=8   	App	dropping app packet seqnum=1 for=1: no route
+asn=10944	id=4   	Node	scanning on channel=20...[NODE]
+asn=10977	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=10977	id=7   	App	generate a packet, seqnum=1 for=1
+asn=10977	id=7   	App	dropping app packet seqnum=1 for=1: no route
+asn=11044	id=4   	Node	scanning on channel=26...[NODE]
+asn=11118	id=2   	Main	On tx method called from NullRouting
+asn=11144	id=4   	Node	scanning on channel=20...[NODE]
+asn=11244	id=4   	Node	scanning on channel=26...[NODE]
+asn=11254	id=4   	App	skipping generation of a packet, for=1
+asn=11344	id=4   	Node	scanning on channel=15...[NODE]
+asn=11347	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=11347	id=2   	App	generate a packet, seqnum=2 for=1
+asn=11347	id=2   	App	dropping app packet seqnum=2 for=1: no route
+asn=11391	id=7   	Node	send keepalive packet to=2[NODE]
+asn=11391	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=11392	id=7   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=11392	id=7   	Main	On tx method called from NullRouting
+asn=11414	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=11414	id=7   	App	generate a packet, seqnum=2 for=1
+asn=11414	id=7   	App	dropping app packet seqnum=2 for=1: no route
+asn=11444	id=4   	Node	scanning on channel=20...[NODE]
+asn=11500	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=11500	id=10  	App	generate a packet, seqnum=2 for=1
+asn=11500	id=10  	App	dropping app packet seqnum=2 for=1: no route
+asn=11514	id=1   	Main	On tx method called from NullRouting
+asn=11516	id=3   	Main	On tx method called from NullRouting
+asn=11544	id=4   	Node	scanning on channel=25...[NODE]
+asn=11637	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=11637	id=9   	App	generate a packet, seqnum=2 for=1
+asn=11637	id=9   	App	dropping app packet seqnum=2 for=1: no route
+asn=11702	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=11702	id=8   	App	generate a packet, seqnum=2 for=1
+asn=11702	id=8   	App	dropping app packet seqnum=2 for=1: no route
+asn=11744	id=4   	Node	scanning on channel=20...[NODE]
+asn=11747	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=11747	id=5   	App	generate a packet, seqnum=2 for=1
+asn=11747	id=5   	App	dropping app packet seqnum=2 for=1: no route
+asn=11774	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=11774	id=6   	App	generate a packet, seqnum=2 for=1
+asn=11774	id=6   	App	dropping app packet seqnum=2 for=1: no route
+asn=11919	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=11919	id=3   	App	generate a packet, seqnum=2 for=1
+asn=11919	id=3   	App	dropping app packet seqnum=2 for=1: no route
+asn=11944	id=4   	Node	scanning on channel=15...[NODE]
+asn=12000	id=-1  	Main	120 seconds, progress 20.00%[SIMULATOR]
+asn=12000	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=12000	id=-1  	Main	joined_routing/joined_tsch/total=9/9/10 [ROUTE]
+asn=12000	id=-1  	TSCH	Periodic process called for [Node]
+asn=12000	id=1   	Main	On periodic timer method called from NullRouting
+asn=12000	id=1   	TSCH	stats: {"idle_listen":1065,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":3,"tx_data":9,"tx_data_rx_ack":0}[NODE]
+asn=12000	id=2   	Main	On periodic timer method called from NullRouting
+asn=12000	id=2   	TSCH	stats: {"idle_listen":1085,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":10,"tx_data":8,"tx_data_rx_ack":2}[NODE]
+asn=12000	id=3   	Main	On periodic timer method called from NullRouting
+asn=12000	id=3   	TSCH	stats: {"idle_listen":806,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":2,"tx_data":7,"tx_data_rx_ack":2}[NODE]
+asn=12000	id=4   	Main	On periodic timer method called from NullRouting
+asn=12000	id=4   	TSCH	stats: {"idle_listen":0,"channel_scan":11999,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":0}[NODE]
+asn=12000	id=5   	Main	On periodic timer method called from NullRouting
+asn=12000	id=5   	TSCH	stats: {"idle_listen":770,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":1}[NODE]
+asn=12000	id=6   	Main	On periodic timer method called from NullRouting
+asn=12000	id=6   	TSCH	stats: {"idle_listen":989,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":3}[NODE]
+asn=12000	id=7   	Main	On periodic timer method called from NullRouting
+asn=12000	id=7   	TSCH	stats: {"idle_listen":880,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":2}[NODE]
+asn=12000	id=8   	Main	On periodic timer method called from NullRouting
+asn=12000	id=8   	TSCH	stats: {"idle_listen":990,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":5}[NODE]
+asn=12000	id=9   	Main	On periodic timer method called from NullRouting
+asn=12000	id=9   	TSCH	stats: {"idle_listen":990,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":5}[NODE]
+asn=12000	id=10  	Main	On periodic timer method called from NullRouting
+asn=12000	id=10  	TSCH	stats: {"idle_listen":662,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":1}[NODE]
+asn=12044	id=4   	Node	scanning on channel=20...[NODE]
+asn=12144	id=4   	Node	scanning on channel=25...[NODE]
+asn=12206	id=3   	Node	send keepalive packet to=1[NODE]
+asn=12206	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=12207	id=3   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=12207	id=3   	Main	On tx method called from NullRouting
+asn=12317	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=12317	id=8   	App	generate a packet, seqnum=3 for=1
+asn=12317	id=8   	App	dropping app packet seqnum=3 for=1: no route
+asn=12387	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=12387	id=5   	App	generate a packet, seqnum=3 for=1
+asn=12387	id=5   	App	dropping app packet seqnum=3 for=1: no route
+asn=12544	id=4   	Node	scanning on channel=26...[NODE]
+asn=12578	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=12578	id=10  	App	generate a packet, seqnum=3 for=1
+asn=12578	id=10  	App	dropping app packet seqnum=3 for=1: no route
+asn=12582	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=12582	id=3   	App	generate a packet, seqnum=3 for=1
+asn=12582	id=3   	App	dropping app packet seqnum=3 for=1: no route
+asn=12582	id=5   	Node	send keepalive packet to=3[NODE]
+asn=12582	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=12583	id=5   	Node	tx done to=3 numtx=1 acked=false[NODE]
+asn=12634	id=5   	Node	tx done to=3 numtx=2 acked=true, remove packet[NODE]
+asn=12634	id=5   	Main	On tx method called from NullRouting
+asn=12644	id=4   	Node	scanning on channel=15...[NODE]
+asn=12701	id=4   	App	skipping generation of a packet, for=1
+asn=12706	id=2   	Main	On tx method called from NullRouting
+asn=12744	id=4   	Node	scanning on channel=25...[NODE]
+asn=12767	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=12767	id=7   	App	generate a packet, seqnum=3 for=1
+asn=12767	id=7   	App	dropping app packet seqnum=3 for=1: no route
+asn=12789	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=12789	id=6   	App	generate a packet, seqnum=3 for=1
+asn=12789	id=6   	App	dropping app packet seqnum=3 for=1: no route
+asn=12920	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=12920	id=2   	App	generate a packet, seqnum=3 for=1
+asn=12920	id=2   	App	dropping app packet seqnum=3 for=1: no route
+asn=12934	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=12934	id=9   	App	generate a packet, seqnum=3 for=1
+asn=12934	id=9   	App	dropping app packet seqnum=3 for=1: no route
+asn=12946	id=4   	Node	scanning on channel=15...[NODE]
+asn=13024	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=13024	id=9   	App	generate a packet, seqnum=4 for=1
+asn=13024	id=9   	App	dropping app packet seqnum=4 for=1: no route
+asn=13047	id=4   	Node	scanning on channel=20...[NODE]
+asn=13102	id=1   	Main	On tx method called from NullRouting
+asn=13104	id=3   	Main	On tx method called from NullRouting
+asn=13148	id=4   	Node	scanning on channel=25...[NODE]
+asn=13190	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=13190	id=7   	App	generate a packet, seqnum=4 for=1
+asn=13190	id=7   	App	dropping app packet seqnum=4 for=1: no route
+asn=13271	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=13271	id=10  	App	generate a packet, seqnum=4 for=1
+asn=13271	id=10  	App	dropping app packet seqnum=4 for=1: no route
+asn=13416	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=13416	id=3   	App	generate a packet, seqnum=4 for=1
+asn=13416	id=3   	App	dropping app packet seqnum=4 for=1: no route
+asn=13451	id=4   	Node	scanning on channel=15...[NODE]
+asn=13552	id=4   	Node	scanning on channel=26...[NODE]
+asn=13594	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=13594	id=2   	App	generate a packet, seqnum=4 for=1
+asn=13594	id=2   	App	dropping app packet seqnum=4 for=1: no route
+asn=13659	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=13659	id=5   	App	generate a packet, seqnum=4 for=1
+asn=13659	id=5   	App	dropping app packet seqnum=4 for=1: no route
+asn=13724	id=4   	App	skipping generation of a packet, for=1
+asn=13772	id=10  	Node	send keepalive packet to=3[NODE]
+asn=13772	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=13773	id=10  	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=13773	id=10  	Main	On tx method called from NullRouting
+asn=13855	id=4   	Node	scanning on channel=20...[NODE]
+asn=13905	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=13905	id=8   	App	generate a packet, seqnum=4 for=1
+asn=13905	id=8   	App	dropping app packet seqnum=4 for=1: no route
+asn=13928	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=13928	id=6   	App	generate a packet, seqnum=4 for=1
+asn=13928	id=6   	App	dropping app packet seqnum=4 for=1: no route
+asn=13956	id=4   	Node	scanning on channel=15...[NODE]
+asn=14042	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=14042	id=5   	App	generate a packet, seqnum=5 for=1
+asn=14042	id=5   	App	dropping app packet seqnum=5 for=1: no route
+asn=14057	id=4   	Node	scanning on channel=25...[NODE]
+asn=14158	id=4   	Node	scanning on channel=15...[NODE]
+asn=14224	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=14224	id=10  	App	generate a packet, seqnum=5 for=1
+asn=14224	id=10  	App	dropping app packet seqnum=5 for=1: no route
+asn=14226	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=14226	id=9   	App	generate a packet, seqnum=5 for=1
+asn=14226	id=9   	App	dropping app packet seqnum=5 for=1: no route
+asn=14259	id=4   	Node	scanning on channel=20...[NODE]
+asn=14294	id=2   	Main	On tx method called from NullRouting
+asn=14309	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=14309	id=2   	App	generate a packet, seqnum=5 for=1
+asn=14309	id=2   	App	dropping app packet seqnum=5 for=1: no route
+asn=14330	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=14330	id=6   	App	generate a packet, seqnum=5 for=1
+asn=14330	id=6   	App	dropping app packet seqnum=5 for=1: no route
+asn=14360	id=4   	Node	scanning on channel=26...[NODE]
+asn=14461	id=4   	Node	scanning on channel=15...[NODE]
+asn=14515	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=14515	id=3   	App	generate a packet, seqnum=5 for=1
+asn=14515	id=3   	App	dropping app packet seqnum=5 for=1: no route
+asn=14562	id=4   	Node	scanning on channel=25...[NODE]
+asn=14618	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=14618	id=8   	App	generate a packet, seqnum=5 for=1
+asn=14618	id=8   	App	dropping app packet seqnum=5 for=1: no route
+asn=14663	id=4   	Node	scanning on channel=15...[NODE]
+asn=14690	id=1   	Main	On tx method called from NullRouting
+asn=14691	id=4   	App	skipping generation of a packet, for=1
+asn=14692	id=3   	Main	On tx method called from NullRouting
+asn=14764	id=4   	Node	scanning on channel=20...[NODE]
+asn=14865	id=4   	Node	scanning on channel=26...[NODE]
+asn=14922	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=14922	id=7   	App	generate a packet, seqnum=5 for=1
+asn=14922	id=7   	App	dropping app packet seqnum=5 for=1: no route
+asn=14966	id=4   	Node	scanning on channel=15...[NODE]
+asn=15012	id=2   	Node	send keepalive packet to=1[NODE]
+asn=15012	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=15012	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=15012	id=2   	Main	On tx method called from NullRouting
+asn=15019	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=15019	id=3   	App	generate a packet, seqnum=6 for=1
+asn=15019	id=3   	App	dropping app packet seqnum=6 for=1: no route
+asn=15032	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=15032	id=8   	App	generate a packet, seqnum=6 for=1
+asn=15032	id=8   	App	dropping app packet seqnum=6 for=1: no route
+asn=15049	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=15049	id=2   	App	generate a packet, seqnum=6 for=1
+asn=15049	id=2   	App	dropping app packet seqnum=6 for=1: no route
+asn=15063	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=15063	id=7   	App	generate a packet, seqnum=6 for=1
+asn=15063	id=7   	App	dropping app packet seqnum=6 for=1: no route
+asn=15078	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=15078	id=5   	App	generate a packet, seqnum=6 for=1
+asn=15078	id=5   	App	dropping app packet seqnum=6 for=1: no route
+asn=15269	id=4   	Node	scanning on channel=26...[NODE]
+asn=15370	id=4   	Node	scanning on channel=20...[NODE]
+asn=15495	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=15495	id=9   	App	generate a packet, seqnum=6 for=1
+asn=15495	id=9   	App	dropping app packet seqnum=6 for=1: no route
+asn=15539	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=15539	id=6   	App	generate a packet, seqnum=6 for=1
+asn=15539	id=6   	App	dropping app packet seqnum=6 for=1: no route
+asn=15572	id=4   	Node	scanning on channel=15...[NODE]
+asn=15602	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=15602	id=10  	App	generate a packet, seqnum=6 for=1
+asn=15602	id=10  	App	dropping app packet seqnum=6 for=1: no route
+asn=15673	id=4   	Node	scanning on channel=25...[NODE]
+asn=15774	id=4   	Node	scanning on channel=20...[NODE]
+asn=15882	id=2   	Main	On tx method called from NullRouting
+asn=15883	id=3   	Main	On tx method called from NullRouting
+asn=15941	id=4   	App	skipping generation of a packet, for=1
+asn=15976	id=4   	Node	scanning on channel=15...[NODE]
+asn=16077	id=4   	Node	scanning on channel=25...[NODE]
+asn=16164	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=16164	id=2   	App	generate a packet, seqnum=7 for=1
+asn=16164	id=2   	App	dropping app packet seqnum=7 for=1: no route
+asn=16232	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=16232	id=9   	App	generate a packet, seqnum=7 for=1
+asn=16232	id=9   	App	dropping app packet seqnum=7 for=1: no route
+asn=16232	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=16232	id=3   	App	generate a packet, seqnum=7 for=1
+asn=16232	id=3   	App	dropping app packet seqnum=7 for=1: no route
+asn=16254	id=6   	Node	send keepalive packet to=2[NODE]
+asn=16254	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=16254	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=16254	id=6   	Main	On tx method called from NullRouting
+asn=16278	id=1   	Main	On tx method called from NullRouting
+asn=16279	id=4   	Node	scanning on channel=20...[NODE]
+asn=16343	id=4   	App	skipping generation of a packet, for=1
+asn=16390	id=8   	Node	send keepalive packet to=2[NODE]
+asn=16390	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=16390	id=8   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=16407	id=9   	Node	send keepalive packet to=2[NODE]
+asn=16407	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=16407	id=9   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=16407	id=9   	Main	On tx method called from NullRouting
+asn=16441	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=16441	id=5   	App	generate a packet, seqnum=7 for=1
+asn=16441	id=5   	App	dropping app packet seqnum=7 for=1: no route
+asn=16441	id=8   	Node	tx done to=2 numtx=2 acked=false[NODE]
+asn=16481	id=4   	Node	scanning on channel=26...[NODE]
+asn=16526	id=8   	Node	tx done to=2 numtx=3 acked=true, remove packet[NODE]
+asn=16526	id=8   	Main	On tx method called from NullRouting
+asn=16582	id=4   	Node	scanning on channel=15...[NODE]
+asn=16628	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=16628	id=10  	App	generate a packet, seqnum=7 for=1
+asn=16628	id=10  	App	dropping app packet seqnum=7 for=1: no route
+asn=16683	id=4   	Node	scanning on channel=26...[NODE]
+asn=16784	id=4   	Node	scanning on channel=15...[NODE]
+asn=16804	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=16804	id=7   	App	generate a packet, seqnum=7 for=1
+asn=16804	id=7   	App	dropping app packet seqnum=7 for=1: no route
+asn=16859	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=16859	id=8   	App	generate a packet, seqnum=7 for=1
+asn=16859	id=8   	App	dropping app packet seqnum=7 for=1: no route
+asn=16885	id=4   	Node	scanning on channel=25...[NODE]
+asn=16914	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=16914	id=6   	App	generate a packet, seqnum=7 for=1
+asn=16914	id=6   	App	dropping app packet seqnum=7 for=1: no route
+asn=17073	id=2   	Main	On tx method called from NullRouting
+asn=17087	id=4   	Node	scanning on channel=26...[NODE]
+asn=17129	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17129	id=9   	App	generate a packet, seqnum=8 for=1
+asn=17129	id=9   	App	dropping app packet seqnum=8 for=1: no route
+asn=17188	id=4   	Node	scanning on channel=20...[NODE]
+asn=17240	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17240	id=7   	App	generate a packet, seqnum=8 for=1
+asn=17240	id=7   	App	dropping app packet seqnum=8 for=1: no route
+asn=17263	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17263	id=10  	App	generate a packet, seqnum=8 for=1
+asn=17263	id=10  	App	dropping app packet seqnum=8 for=1: no route
+asn=17289	id=4   	Node	scanning on channel=15...[NODE]
+asn=17370	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17370	id=8   	App	generate a packet, seqnum=8 for=1
+asn=17370	id=8   	App	dropping app packet seqnum=8 for=1: no route
+asn=17383	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17383	id=5   	App	generate a packet, seqnum=8 for=1
+asn=17383	id=5   	App	dropping app packet seqnum=8 for=1: no route
+asn=17390	id=4   	Node	scanning on channel=25...[NODE]
+asn=17393	id=7   	Node	send keepalive packet to=2[NODE]
+asn=17393	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=17393	id=7   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=17459	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17459	id=3   	App	generate a packet, seqnum=8 for=1
+asn=17459	id=3   	App	dropping app packet seqnum=8 for=1: no route
+asn=17461	id=7   	Node	tx done to=2 numtx=2 acked=false[NODE]
+asn=17469	id=4   	Node	add neighbor id=1
+asn=17469	id=4   	Node	Add_route called from ensure neighbor
+asn=17469	id=4   	TSCH	joined/associated at 174.69 on receiving an EB packet from 1[NODE]
+asn=17469	id=4   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=17469	id=4   	Node	update time source called [NODE]
+asn=17469	id=4   	Main	On new time source method called from NullRouting
+asn=17469	id=4   	TSCH	Orchestra: new time source 1
+asn=17469	id=4   	TSCH	Orchestra: storing mode: add uc cell to 1, timeslot=1
+asn=17469	id=4   	Node	Start method called from NullRouting for 4
+asn=17469	id=4   	Node	File Read successfully
+asn=17469	id=4   	Node	File loaded into struct successfully
+asn=17469	id=4   	Node	Reading routes for Node 4
+asn=17469	id=4   	Node	Destination = 9, Nexthop = 9
+asn=17469	id=4   	Node	Route added to destination node id: 9 through next hop node id: 9 in the routing table of node: 4
+asn=17469	id=4   	TSCH	Orchestra: child added 9
+asn=17469	id=4   	TSCH	Orchestra: storing mode: add uc cell to 9, timeslot=9
+asn=17469	id=4   	Node	Reading routes for Node 4
+asn=17469	id=4   	Node	Destination = 10, Nexthop = 10
+asn=17469	id=4   	Node	Route added to destination node id: 10 through next hop node id: 10 in the routing table of node: 4
+asn=17469	id=4   	TSCH	Orchestra: child added 10
+asn=17469	id=4   	TSCH	Orchestra: storing mode: add uc cell to 10, timeslot=10
+asn=17469	id=1   	Main	On tx method called from NullRouting
+asn=17471	id=3   	Main	On tx method called from NullRouting
+asn=17483	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17483	id=2   	App	generate a packet, seqnum=8 for=1
+asn=17483	id=2   	App	dropping app packet seqnum=8 for=1: no route
+asn=17512	id=7   	Node	tx done to=2 numtx=3 acked=true, remove packet[NODE]
+asn=17512	id=7   	Main	On tx method called from NullRouting
+asn=17695	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17695	id=4   	App	generate a packet, seqnum=1 for=1
+asn=17695	id=4   	App	dropping app packet seqnum=1 for=1: no route
+asn=17976	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=17976	id=6   	App	generate a packet, seqnum=8 for=1
+asn=17976	id=6   	App	dropping app packet seqnum=8 for=1: no route
+asn=18001	id=-1  	Main	180 seconds, progress 30.00%[SIMULATOR]
+asn=18001	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=18001	id=-1  	Main	joined_routing/joined_tsch/total=10/10/10 [ROUTE]
+asn=18001	id=-1  	TSCH	Periodic process called for [Node]
+asn=18001	id=1   	Main	On periodic timer method called from NullRouting
+asn=18001	id=1   	TSCH	stats: {"idle_listen":1598,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":5,"tx_data":13,"tx_data_rx_ack":0}[NODE]
+asn=18001	id=2   	Main	On periodic timer method called from NullRouting
+asn=18001	id=2   	TSCH	stats: {"idle_listen":1630,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":14,"tx_data":12,"tx_data_rx_ack":3}[NODE]
+asn=18001	id=3   	Main	On periodic timer method called from NullRouting
+asn=18001	id=3   	TSCH	stats: {"idle_listen":1352,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":4,"tx_data":11,"tx_data_rx_ack":3}[NODE]
+asn=18001	id=4   	Main	On periodic timer method called from NullRouting
+asn=18001	id=4   	TSCH	stats: {"idle_listen":48,"channel_scan":17469,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":0}[NODE]
+asn=18001	id=5   	Main	On periodic timer method called from NullRouting
+asn=18001	id=5   	TSCH	stats: {"idle_listen":1319,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":3}[NODE]
+asn=18001	id=6   	Main	On periodic timer method called from NullRouting
+asn=18001	id=6   	TSCH	stats: {"idle_listen":1538,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":4}[NODE]
+asn=18001	id=7   	Main	On periodic timer method called from NullRouting
+asn=18001	id=7   	TSCH	stats: {"idle_listen":1429,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":5}[NODE]
+asn=18001	id=8   	Main	On periodic timer method called from NullRouting
+asn=18001	id=8   	TSCH	stats: {"idle_listen":1539,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":8}[NODE]
+asn=18001	id=9   	Main	On periodic timer method called from NullRouting
+asn=18001	id=9   	TSCH	stats: {"idle_listen":1538,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":6}[NODE]
+asn=18001	id=10  	Main	On periodic timer method called from NullRouting
+asn=18001	id=10  	TSCH	stats: {"idle_listen":1211,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":2}[NODE]
+asn=18072	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18072	id=4   	App	generate a packet, seqnum=2 for=1
+asn=18072	id=4   	App	dropping app packet seqnum=2 for=1: no route
+asn=18078	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18078	id=2   	App	generate a packet, seqnum=9 for=1
+asn=18078	id=2   	App	dropping app packet seqnum=9 for=1: no route
+asn=18208	id=3   	Node	send keepalive packet to=1[NODE]
+asn=18208	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=18208	id=3   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=18208	id=3   	Main	On tx method called from NullRouting
+asn=18266	id=4   	Main	On tx method called from NullRouting
+asn=18274	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18274	id=3   	App	generate a packet, seqnum=9 for=1
+asn=18274	id=3   	App	dropping app packet seqnum=9 for=1: no route
+asn=18297	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18297	id=10  	App	generate a packet, seqnum=9 for=1
+asn=18297	id=10  	App	dropping app packet seqnum=9 for=1: no route
+asn=18536	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18536	id=6   	App	generate a packet, seqnum=9 for=1
+asn=18536	id=6   	App	dropping app packet seqnum=9 for=1: no route
+asn=18635	id=5   	Node	send keepalive packet to=3[NODE]
+asn=18635	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=18635	id=5   	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=18635	id=5   	Main	On tx method called from NullRouting
+asn=18661	id=2   	Main	On tx method called from NullRouting
+asn=18662	id=3   	Main	On tx method called from NullRouting
+asn=18787	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18787	id=8   	App	generate a packet, seqnum=9 for=1
+asn=18787	id=8   	App	dropping app packet seqnum=9 for=1: no route
+asn=18856	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18856	id=7   	App	generate a packet, seqnum=9 for=1
+asn=18856	id=7   	App	dropping app packet seqnum=9 for=1: no route
+asn=18890	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18890	id=9   	App	generate a packet, seqnum=9 for=1
+asn=18890	id=9   	App	dropping app packet seqnum=9 for=1: no route
+asn=18958	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=18958	id=5   	App	generate a packet, seqnum=9 for=1
+asn=18958	id=5   	App	dropping app packet seqnum=9 for=1: no route
+asn=19018	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19018	id=7   	App	generate a packet, seqnum=10 for=1
+asn=19018	id=7   	App	dropping app packet seqnum=10 for=1: no route
+asn=19057	id=1   	Main	On tx method called from NullRouting
+asn=19059	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19059	id=2   	App	generate a packet, seqnum=10 for=1
+asn=19059	id=2   	App	dropping app packet seqnum=10 for=1: no route
+asn=19385	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19385	id=4   	App	generate a packet, seqnum=3 for=1
+asn=19385	id=4   	App	dropping app packet seqnum=3 for=1: no route
+asn=19413	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19413	id=9   	App	generate a packet, seqnum=10 for=1
+asn=19413	id=9   	App	dropping app packet seqnum=10 for=1: no route
+asn=19534	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19534	id=3   	App	generate a packet, seqnum=10 for=1
+asn=19534	id=3   	App	dropping app packet seqnum=10 for=1: no route
+asn=19722	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19722	id=6   	App	generate a packet, seqnum=10 for=1
+asn=19722	id=6   	App	dropping app packet seqnum=10 for=1: no route
+asn=19739	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19739	id=10  	App	generate a packet, seqnum=10 for=1
+asn=19739	id=10  	App	dropping app packet seqnum=10 for=1: no route
+asn=19766	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19766	id=5   	App	generate a packet, seqnum=10 for=1
+asn=19766	id=5   	App	dropping app packet seqnum=10 for=1: no route
+asn=19774	id=10  	Node	send keepalive packet to=3[NODE]
+asn=19774	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=19774	id=10  	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=19774	id=10  	Main	On tx method called from NullRouting
+asn=19854	id=4   	Main	On tx method called from NullRouting
+asn=19980	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=19980	id=8   	App	generate a packet, seqnum=10 for=1
+asn=19980	id=8   	App	dropping app packet seqnum=10 for=1: no route
+asn=20044	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20044	id=8   	App	generate a packet, seqnum=11 for=1
+asn=20044	id=8   	App	dropping app packet seqnum=11 for=1: no route
+asn=20248	id=1   	Main	On tx method called from NullRouting
+asn=20249	id=2   	Main	On tx method called from NullRouting
+asn=20250	id=3   	Main	On tx method called from NullRouting
+asn=20384	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20384	id=10  	App	generate a packet, seqnum=11 for=1
+asn=20384	id=10  	App	dropping app packet seqnum=11 for=1: no route
+asn=20404	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20404	id=9   	App	generate a packet, seqnum=11 for=1
+asn=20404	id=9   	App	dropping app packet seqnum=11 for=1: no route
+asn=20470	id=4   	Node	send keepalive packet to=1[NODE]
+asn=20470	id=4   	Main	On prepare tx packet method called from NullRouting
+asn=20486	id=1   	Node	add neighbor id=4
+asn=20486	id=1   	Node	Add_route called from ensure neighbor
+asn=20486	id=4   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=20503	id=4   	Node	tx done to=1 numtx=2 acked=false[NODE]
+asn=20513	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20513	id=2   	App	generate a packet, seqnum=11 for=1
+asn=20513	id=2   	App	dropping app packet seqnum=11 for=1: no route
+asn=20519	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20519	id=4   	App	generate a packet, seqnum=4 for=1
+asn=20519	id=4   	App	dropping app packet seqnum=4 for=1: no route
+asn=20530	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20530	id=7   	App	generate a packet, seqnum=11 for=1
+asn=20530	id=7   	App	dropping app packet seqnum=11 for=1: no route
+asn=20537	id=4   	Node	tx done to=1 numtx=3 acked=true, remove packet[NODE]
+asn=20537	id=4   	Main	On tx method called from NullRouting
+asn=20650	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20650	id=3   	App	generate a packet, seqnum=11 for=1
+asn=20650	id=3   	App	dropping app packet seqnum=11 for=1: no route
+asn=20765	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20765	id=6   	App	generate a packet, seqnum=11 for=1
+asn=20765	id=6   	App	dropping app packet seqnum=11 for=1: no route
+asn=20970	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=20970	id=5   	App	generate a packet, seqnum=11 for=1
+asn=20970	id=5   	App	dropping app packet seqnum=11 for=1: no route
+asn=21013	id=2   	Node	send keepalive packet to=1[NODE]
+asn=21013	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=21013	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=21013	id=2   	Main	On tx method called from NullRouting
+asn=21045	id=4   	Main	On tx method called from NullRouting
+asn=21085	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21085	id=2   	App	generate a packet, seqnum=12 for=1
+asn=21085	id=2   	App	dropping app packet seqnum=12 for=1: no route
+asn=21440	id=2   	Main	On tx method called from NullRouting
+asn=21505	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21505	id=10  	App	generate a packet, seqnum=12 for=1
+asn=21505	id=10  	App	dropping app packet seqnum=12 for=1: no route
+asn=21609	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21609	id=9   	App	generate a packet, seqnum=12 for=1
+asn=21609	id=9   	App	dropping app packet seqnum=12 for=1: no route
+asn=21615	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21615	id=6   	App	generate a packet, seqnum=12 for=1
+asn=21615	id=6   	App	dropping app packet seqnum=12 for=1: no route
+asn=21653	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21653	id=8   	App	generate a packet, seqnum=12 for=1
+asn=21653	id=8   	App	dropping app packet seqnum=12 for=1: no route
+asn=21676	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21676	id=4   	App	generate a packet, seqnum=5 for=1
+asn=21676	id=4   	App	dropping app packet seqnum=5 for=1: no route
+asn=21832	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21832	id=3   	App	generate a packet, seqnum=12 for=1
+asn=21832	id=3   	App	dropping app packet seqnum=12 for=1: no route
+asn=21836	id=1   	Main	On tx method called from NullRouting
+asn=21838	id=3   	Main	On tx method called from NullRouting
+asn=21870	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21870	id=7   	App	generate a packet, seqnum=12 for=1
+asn=21870	id=7   	App	dropping app packet seqnum=12 for=1: no route
+asn=21945	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=21945	id=5   	App	generate a packet, seqnum=12 for=1
+asn=21945	id=5   	App	dropping app packet seqnum=12 for=1: no route
+asn=22043	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22043	id=4   	App	generate a packet, seqnum=6 for=1
+asn=22043	id=4   	App	dropping app packet seqnum=6 for=1: no route
+asn=22236	id=4   	Main	On tx method called from NullRouting
+asn=22247	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22247	id=9   	App	generate a packet, seqnum=13 for=1
+asn=22247	id=9   	App	dropping app packet seqnum=13 for=1: no route
+asn=22255	id=6   	Node	send keepalive packet to=2[NODE]
+asn=22255	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=22255	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=22255	id=6   	Main	On tx method called from NullRouting
+asn=22408	id=9   	Node	send keepalive packet to=2[NODE]
+asn=22408	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=22408	id=9   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=22408	id=9   	Main	On tx method called from NullRouting
+asn=22527	id=8   	Node	send keepalive packet to=2[NODE]
+asn=22527	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=22527	id=8   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=22527	id=8   	Main	On tx method called from NullRouting
+asn=22674	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22674	id=2   	App	generate a packet, seqnum=13 for=1
+asn=22674	id=2   	App	dropping app packet seqnum=13 for=1: no route
+asn=22776	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22776	id=5   	App	generate a packet, seqnum=13 for=1
+asn=22776	id=5   	App	dropping app packet seqnum=13 for=1: no route
+asn=22782	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22782	id=10  	App	generate a packet, seqnum=13 for=1
+asn=22782	id=10  	App	dropping app packet seqnum=13 for=1: no route
+asn=22786	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22786	id=7   	App	generate a packet, seqnum=13 for=1
+asn=22786	id=7   	App	dropping app packet seqnum=13 for=1: no route
+asn=22879	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22879	id=3   	App	generate a packet, seqnum=13 for=1
+asn=22879	id=3   	App	dropping app packet seqnum=13 for=1: no route
+asn=22913	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22913	id=6   	App	generate a packet, seqnum=13 for=1
+asn=22913	id=6   	App	dropping app packet seqnum=13 for=1: no route
+asn=22976	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=22976	id=8   	App	generate a packet, seqnum=13 for=1
+asn=22976	id=8   	App	dropping app packet seqnum=13 for=1: no route
+asn=23020	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23020	id=6   	App	generate a packet, seqnum=14 for=1
+asn=23020	id=6   	App	dropping app packet seqnum=14 for=1: no route
+asn=23027	id=1   	Main	On tx method called from NullRouting
+asn=23028	id=10  	Node	add neighbor id=2
+asn=23028	id=10  	Node	Add_route called from ensure neighbor
+asn=23028	id=2   	Main	On tx method called from NullRouting
+asn=23029	id=3   	Main	On tx method called from NullRouting
+asn=23260	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23260	id=8   	App	generate a packet, seqnum=14 for=1
+asn=23260	id=8   	App	dropping app packet seqnum=14 for=1: no route
+asn=23513	id=7   	Node	send keepalive packet to=2[NODE]
+asn=23513	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=23513	id=7   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=23564	id=7   	Node	tx done to=2 numtx=2 acked=false[NODE]
+asn=23623	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23623	id=10  	App	generate a packet, seqnum=14 for=1
+asn=23623	id=10  	App	dropping app packet seqnum=14 for=1: no route
+asn=23632	id=7   	Node	tx done to=2 numtx=3 acked=true, remove packet[NODE]
+asn=23632	id=7   	Main	On tx method called from NullRouting
+asn=23694	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23694	id=7   	App	generate a packet, seqnum=14 for=1
+asn=23694	id=7   	App	dropping app packet seqnum=14 for=1: no route
+asn=23824	id=4   	Main	On tx method called from NullRouting
+asn=23888	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23888	id=2   	App	generate a packet, seqnum=14 for=1
+asn=23888	id=2   	App	dropping app packet seqnum=14 for=1: no route
+asn=23890	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23890	id=4   	App	generate a packet, seqnum=7 for=1
+asn=23890	id=4   	App	dropping app packet seqnum=7 for=1: no route
+asn=23907	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23907	id=5   	App	generate a packet, seqnum=14 for=1
+asn=23907	id=5   	App	dropping app packet seqnum=14 for=1: no route
+asn=23958	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23958	id=3   	App	generate a packet, seqnum=14 for=1
+asn=23958	id=3   	App	dropping app packet seqnum=14 for=1: no route
+asn=23968	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=23968	id=9   	App	generate a packet, seqnum=14 for=1
+asn=23968	id=9   	App	dropping app packet seqnum=14 for=1: no route
+asn=24001	id=-1  	Main	240 seconds, progress 40.00%[SIMULATOR]
+asn=24001	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=24001	id=-1  	Main	joined_routing/joined_tsch/total=10/10/10 [ROUTE]
+asn=24001	id=-1  	TSCH	Periodic process called for [Node]
+asn=24001	id=1   	Main	On periodic timer method called from NullRouting
+asn=24001	id=1   	TSCH	stats: {"idle_listen":2129,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":9,"tx_data":17,"tx_data_rx_ack":0}[NODE]
+asn=24001	id=2   	Main	On periodic timer method called from NullRouting
+asn=24001	id=2   	TSCH	stats: {"idle_listen":2171,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":20,"tx_data":16,"tx_data_rx_ack":4}[NODE]
+asn=24001	id=3   	Main	On periodic timer method called from NullRouting
+asn=24001	id=3   	TSCH	stats: {"idle_listen":1898,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":6,"tx_data":15,"tx_data_rx_ack":4}[NODE]
+asn=24001	id=4   	Main	On periodic timer method called from NullRouting
+asn=24001	id=4   	TSCH	stats: {"idle_listen":597,"channel_scan":17469,"rx_data":0,"rx_data_tx_ack":0,"tx_data":5,"tx_data_rx_ack":3}[NODE]
+asn=24001	id=5   	Main	On periodic timer method called from NullRouting
+asn=24001	id=5   	TSCH	stats: {"idle_listen":1867,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":4}[NODE]
+asn=24001	id=6   	Main	On periodic timer method called from NullRouting
+asn=24001	id=6   	TSCH	stats: {"idle_listen":2087,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":5}[NODE]
+asn=24001	id=7   	Main	On periodic timer method called from NullRouting
+asn=24001	id=7   	TSCH	stats: {"idle_listen":1977,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":8}[NODE]
+asn=24001	id=8   	Main	On periodic timer method called from NullRouting
+asn=24001	id=8   	TSCH	stats: {"idle_listen":2088,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":9}[NODE]
+asn=24001	id=9   	Main	On periodic timer method called from NullRouting
+asn=24001	id=9   	TSCH	stats: {"idle_listen":2087,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":7}[NODE]
+asn=24001	id=10  	Main	On periodic timer method called from NullRouting
+asn=24001	id=10  	TSCH	stats: {"idle_listen":1759,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":3}[NODE]
+asn=24209	id=3   	Node	send keepalive packet to=1[NODE]
+asn=24209	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=24209	id=3   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=24209	id=3   	Main	On tx method called from NullRouting
+asn=24218	id=1   	Main	On tx method called from NullRouting
+asn=24219	id=2   	Main	On tx method called from NullRouting
+asn=24223	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=24223	id=5   	App	generate a packet, seqnum=15 for=1
+asn=24223	id=5   	App	dropping app packet seqnum=15 for=1: no route
+asn=24458	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=24458	id=8   	App	generate a packet, seqnum=15 for=1
+asn=24458	id=8   	App	dropping app packet seqnum=15 for=1: no route
+asn=24549	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=24549	id=4   	App	generate a packet, seqnum=8 for=1
+asn=24549	id=4   	App	dropping app packet seqnum=8 for=1: no route
+asn=24617	id=3   	Main	On tx method called from NullRouting
+asn=24636	id=5   	Node	send keepalive packet to=3[NODE]
+asn=24636	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=24636	id=5   	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=24636	id=5   	Main	On tx method called from NullRouting
+asn=24640	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=24640	id=2   	App	generate a packet, seqnum=15 for=1
+asn=24640	id=2   	App	dropping app packet seqnum=15 for=1: no route
+asn=24746	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=24746	id=9   	App	generate a packet, seqnum=15 for=1
+asn=24746	id=9   	App	dropping app packet seqnum=15 for=1: no route
+asn=24825	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=24825	id=3   	App	generate a packet, seqnum=15 for=1
+asn=24825	id=3   	App	dropping app packet seqnum=15 for=1: no route
+asn=24854	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=24854	id=6   	App	generate a packet, seqnum=15 for=1
+asn=24854	id=6   	App	dropping app packet seqnum=15 for=1: no route
+asn=24883	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=24883	id=7   	App	generate a packet, seqnum=15 for=1
+asn=24883	id=7   	App	dropping app packet seqnum=15 for=1: no route
+asn=25191	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=25191	id=9   	App	generate a packet, seqnum=16 for=1
+asn=25191	id=9   	App	dropping app packet seqnum=16 for=1: no route
+asn=25236	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=25236	id=2   	App	generate a packet, seqnum=16 for=1
+asn=25236	id=2   	App	dropping app packet seqnum=16 for=1: no route
+asn=25268	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=25268	id=4   	App	generate a packet, seqnum=9 for=1
+asn=25268	id=4   	App	dropping app packet seqnum=9 for=1: no route
+asn=25374	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=25374	id=3   	App	generate a packet, seqnum=16 for=1
+asn=25374	id=3   	App	dropping app packet seqnum=16 for=1: no route
+asn=25410	id=2   	Main	On tx method called from NullRouting
+asn=25412	id=4   	Main	On tx method called from NullRouting
+asn=25423	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=25423	id=8   	App	generate a packet, seqnum=16 for=1
+asn=25423	id=8   	App	dropping app packet seqnum=16 for=1: no route
+asn=25494	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=25494	id=7   	App	generate a packet, seqnum=16 for=1
+asn=25494	id=7   	App	dropping app packet seqnum=16 for=1: no route
+asn=25544	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=25544	id=6   	App	generate a packet, seqnum=16 for=1
+asn=25544	id=6   	App	dropping app packet seqnum=16 for=1: no route
+asn=25760	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=25760	id=5   	App	generate a packet, seqnum=16 for=1
+asn=25760	id=5   	App	dropping app packet seqnum=16 for=1: no route
+asn=25775	id=10  	Node	send keepalive packet to=3[NODE]
+asn=25775	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=25775	id=10  	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=25775	id=10  	Main	On tx method called from NullRouting
+asn=25806	id=1   	Main	On tx method called from NullRouting
+asn=26123	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=26123	id=9   	App	generate a packet, seqnum=17 for=1
+asn=26123	id=9   	App	dropping app packet seqnum=17 for=1: no route
+asn=26205	id=3   	Main	On tx method called from NullRouting
+asn=26322	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=26322	id=5   	App	generate a packet, seqnum=17 for=1
+asn=26322	id=5   	App	dropping app packet seqnum=17 for=1: no route
+asn=26394	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=26394	id=2   	App	generate a packet, seqnum=17 for=1
+asn=26394	id=2   	App	dropping app packet seqnum=17 for=1: no route
+asn=26401	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=26401	id=7   	App	generate a packet, seqnum=17 for=1
+asn=26401	id=7   	App	dropping app packet seqnum=17 for=1: no route
+asn=26474	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=26474	id=8   	App	generate a packet, seqnum=17 for=1
+asn=26474	id=8   	App	dropping app packet seqnum=17 for=1: no route
+asn=26538	id=4   	Node	send keepalive packet to=1[NODE]
+asn=26538	id=4   	Main	On prepare tx packet method called from NullRouting
+asn=26538	id=4   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=26572	id=4   	Node	tx done to=1 numtx=2 acked=true, remove packet[NODE]
+asn=26572	id=4   	Main	On tx method called from NullRouting
+asn=26601	id=2   	Main	On tx method called from NullRouting
+asn=26603	id=4   	Main	On tx method called from NullRouting
+asn=26827	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=26827	id=6   	App	generate a packet, seqnum=17 for=1
+asn=26827	id=6   	App	dropping app packet seqnum=17 for=1: no route
+asn=26943	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=26943	id=4   	App	generate a packet, seqnum=10 for=1
+asn=26943	id=4   	App	dropping app packet seqnum=10 for=1: no route
+asn=26997	id=1   	Main	On tx method called from NullRouting
+asn=27005	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=27005	id=3   	App	generate a packet, seqnum=17 for=1
+asn=27005	id=3   	App	dropping app packet seqnum=17 for=1: no route
+asn=27014	id=2   	Node	send keepalive packet to=1[NODE]
+asn=27014	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=27014	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=27014	id=2   	Main	On tx method called from NullRouting
+asn=27143	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=27143	id=7   	App	generate a packet, seqnum=18 for=1
+asn=27143	id=7   	App	dropping app packet seqnum=18 for=1: no route
+asn=27158	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=27158	id=3   	App	generate a packet, seqnum=18 for=1
+asn=27158	id=3   	App	dropping app packet seqnum=18 for=1: no route
+asn=27237	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=27237	id=4   	App	generate a packet, seqnum=11 for=1
+asn=27237	id=4   	App	dropping app packet seqnum=11 for=1: no route
+asn=27396	id=3   	Main	On tx method called from NullRouting
+asn=27491	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=27491	id=9   	App	generate a packet, seqnum=18 for=1
+asn=27491	id=9   	App	dropping app packet seqnum=18 for=1: no route
+asn=27764	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=27764	id=8   	App	generate a packet, seqnum=18 for=1
+asn=27764	id=8   	App	dropping app packet seqnum=18 for=1: no route
+asn=27792	id=2   	Main	On tx method called from NullRouting
+asn=27897	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=27897	id=6   	App	generate a packet, seqnum=18 for=1
+asn=27897	id=6   	App	dropping app packet seqnum=18 for=1: no route
+asn=27994	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=27994	id=5   	App	generate a packet, seqnum=18 for=1
+asn=27994	id=5   	App	dropping app packet seqnum=18 for=1: no route
+asn=28003	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28003	id=2   	App	generate a packet, seqnum=18 for=1
+asn=28003	id=2   	App	dropping app packet seqnum=18 for=1: no route
+asn=28151	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28151	id=3   	App	generate a packet, seqnum=19 for=1
+asn=28151	id=3   	App	dropping app packet seqnum=19 for=1: no route
+asn=28256	id=6   	Node	send keepalive packet to=2[NODE]
+asn=28256	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=28256	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=28256	id=6   	Main	On tx method called from NullRouting
+asn=28262	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28262	id=9   	App	generate a packet, seqnum=19 for=1
+asn=28262	id=9   	App	dropping app packet seqnum=19 for=1: no route
+asn=28386	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28386	id=8   	App	generate a packet, seqnum=19 for=1
+asn=28386	id=8   	App	dropping app packet seqnum=19 for=1: no route
+asn=28409	id=9   	Node	send keepalive packet to=2[NODE]
+asn=28409	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=28409	id=9   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=28409	id=9   	Main	On tx method called from NullRouting
+asn=28436	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28436	id=4   	App	generate a packet, seqnum=12 for=1
+asn=28436	id=4   	App	dropping app packet seqnum=12 for=1: no route
+asn=28453	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28453	id=7   	App	generate a packet, seqnum=19 for=1
+asn=28453	id=7   	App	dropping app packet seqnum=19 for=1: no route
+asn=28528	id=8   	Node	send keepalive packet to=2[NODE]
+asn=28528	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=28528	id=8   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=28528	id=8   	Main	On tx method called from NullRouting
+asn=28585	id=1   	Main	On tx method called from NullRouting
+asn=28588	id=4   	Main	On tx method called from NullRouting
+asn=28679	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28679	id=2   	App	generate a packet, seqnum=19 for=1
+asn=28679	id=2   	App	dropping app packet seqnum=19 for=1: no route
+asn=28772	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28772	id=5   	App	generate a packet, seqnum=19 for=1
+asn=28772	id=5   	App	dropping app packet seqnum=19 for=1: no route
+asn=28976	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=28976	id=6   	App	generate a packet, seqnum=19 for=1
+asn=28976	id=6   	App	dropping app packet seqnum=19 for=1: no route
+asn=28984	id=3   	Main	On tx method called from NullRouting
+asn=29180	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29180	id=4   	App	generate a packet, seqnum=13 for=1
+asn=29180	id=4   	App	dropping app packet seqnum=13 for=1: no route
+asn=29213	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29213	id=10  	App	generate a packet, seqnum=15 for=1
+asn=29213	id=10  	App	dropping app packet seqnum=15 for=1: no route
+asn=29257	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29257	id=7   	App	generate a packet, seqnum=20 for=1
+asn=29257	id=7   	App	dropping app packet seqnum=20 for=1: no route
+asn=29295	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29295	id=8   	App	generate a packet, seqnum=20 for=1
+asn=29295	id=8   	App	dropping app packet seqnum=20 for=1: no route
+asn=29374	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29374	id=3   	App	generate a packet, seqnum=20 for=1
+asn=29374	id=3   	App	dropping app packet seqnum=20 for=1: no route
+asn=29380	id=2   	Main	On tx method called from NullRouting
+asn=29451	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29451	id=2   	App	generate a packet, seqnum=20 for=1
+asn=29451	id=2   	App	dropping app packet seqnum=20 for=1: no route
+asn=29614	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29614	id=9   	App	generate a packet, seqnum=20 for=1
+asn=29614	id=9   	App	dropping app packet seqnum=20 for=1: no route
+asn=29633	id=7   	Node	send keepalive packet to=2[NODE]
+asn=29633	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=29633	id=7   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=29633	id=7   	Main	On tx method called from NullRouting
+asn=29681	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29681	id=5   	App	generate a packet, seqnum=20 for=1
+asn=29681	id=5   	App	dropping app packet seqnum=20 for=1: no route
+asn=29845	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=29845	id=6   	App	generate a packet, seqnum=20 for=1
+asn=29845	id=6   	App	dropping app packet seqnum=20 for=1: no route
+asn=30001	id=-1  	Main	300 seconds, progress 50.00%[SIMULATOR]
+asn=30001	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=30001	id=-1  	Main	joined_routing/joined_tsch/total=10/10/10 [ROUTE]
+asn=30001	id=-1  	TSCH	Periodic process called for [Node]
+asn=30001	id=1   	Main	On periodic timer method called from NullRouting
+asn=30001	id=1   	TSCH	stats: {"idle_listen":2659,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":12,"tx_data":21,"tx_data_rx_ack":0}[NODE]
+asn=30001	id=2   	Main	On periodic timer method called from NullRouting
+asn=30001	id=2   	TSCH	stats: {"idle_listen":2716,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":24,"tx_data":21,"tx_data_rx_ack":5}[NODE]
+asn=30001	id=3   	Main	On periodic timer method called from NullRouting
+asn=30001	id=3   	TSCH	stats: {"idle_listen":2445,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":8,"tx_data":19,"tx_data_rx_ack":5}[NODE]
+asn=30001	id=4   	Main	On periodic timer method called from NullRouting
+asn=30001	id=4   	TSCH	stats: {"idle_listen":1146,"channel_scan":17469,"rx_data":0,"rx_data_tx_ack":0,"tx_data":8,"tx_data_rx_ack":5}[NODE]
+asn=30001	id=5   	Main	On periodic timer method called from NullRouting
+asn=30001	id=5   	TSCH	stats: {"idle_listen":2416,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":5}[NODE]
+asn=30001	id=6   	Main	On periodic timer method called from NullRouting
+asn=30001	id=6   	TSCH	stats: {"idle_listen":2635,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":6}[NODE]
+asn=30001	id=7   	Main	On periodic timer method called from NullRouting
+asn=30001	id=7   	TSCH	stats: {"idle_listen":2526,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":9}[NODE]
+asn=30001	id=8   	Main	On periodic timer method called from NullRouting
+asn=30001	id=8   	TSCH	stats: {"idle_listen":2637,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":10}[NODE]
+asn=30001	id=9   	Main	On periodic timer method called from NullRouting
+asn=30001	id=9   	TSCH	stats: {"idle_listen":2635,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":8}[NODE]
+asn=30001	id=10  	Main	On periodic timer method called from NullRouting
+asn=30001	id=10  	TSCH	stats: {"idle_listen":2308,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":4}[NODE]
+asn=30143	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30143	id=6   	App	generate a packet, seqnum=21 for=1
+asn=30143	id=6   	App	dropping app packet seqnum=21 for=1: no route
+asn=30173	id=1   	Main	On tx method called from NullRouting
+asn=30175	id=3   	Main	On tx method called from NullRouting
+asn=30176	id=4   	Main	On tx method called from NullRouting
+asn=30178	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30178	id=10  	App	generate a packet, seqnum=16 for=1
+asn=30178	id=10  	App	dropping app packet seqnum=16 for=1: no route
+asn=30210	id=3   	Node	send keepalive packet to=1[NODE]
+asn=30210	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=30210	id=3   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=30210	id=3   	Main	On tx method called from NullRouting
+asn=30241	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30241	id=8   	App	generate a packet, seqnum=21 for=1
+asn=30241	id=8   	App	dropping app packet seqnum=21 for=1: no route
+asn=30288	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30288	id=7   	App	generate a packet, seqnum=21 for=1
+asn=30288	id=7   	App	dropping app packet seqnum=21 for=1: no route
+asn=30477	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30477	id=4   	App	generate a packet, seqnum=14 for=1
+asn=30477	id=4   	App	dropping app packet seqnum=14 for=1: no route
+asn=30613	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30613	id=10  	App	generate a packet, seqnum=17 for=1
+asn=30613	id=10  	App	dropping app packet seqnum=17 for=1: no route
+asn=30621	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30621	id=5   	App	generate a packet, seqnum=21 for=1
+asn=30621	id=5   	App	dropping app packet seqnum=21 for=1: no route
+asn=30637	id=5   	Node	send keepalive packet to=3[NODE]
+asn=30637	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=30637	id=5   	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=30637	id=5   	Main	On tx method called from NullRouting
+asn=30703	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30703	id=2   	App	generate a packet, seqnum=21 for=1
+asn=30703	id=2   	App	dropping app packet seqnum=21 for=1: no route
+asn=30956	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30956	id=9   	App	generate a packet, seqnum=21 for=1
+asn=30956	id=9   	App	dropping app packet seqnum=21 for=1: no route
+asn=30968	id=2   	Main	On tx method called from NullRouting
+asn=30989	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=30989	id=3   	App	generate a packet, seqnum=21 for=1
+asn=30989	id=3   	App	dropping app packet seqnum=21 for=1: no route
+asn=31044	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31044	id=5   	App	generate a packet, seqnum=22 for=1
+asn=31044	id=5   	App	dropping app packet seqnum=22 for=1: no route
+asn=31169	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31169	id=8   	App	generate a packet, seqnum=22 for=1
+asn=31169	id=8   	App	dropping app packet seqnum=22 for=1: no route
+asn=31208	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31208	id=7   	App	generate a packet, seqnum=22 for=1
+asn=31208	id=7   	App	dropping app packet seqnum=22 for=1: no route
+asn=31268	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31268	id=9   	App	generate a packet, seqnum=22 for=1
+asn=31268	id=9   	App	dropping app packet seqnum=22 for=1: no route
+asn=31364	id=1   	Main	On tx method called from NullRouting
+asn=31367	id=4   	Main	On tx method called from NullRouting
+asn=31409	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31409	id=4   	App	generate a packet, seqnum=15 for=1
+asn=31409	id=4   	App	dropping app packet seqnum=15 for=1: no route
+asn=31566	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31566	id=6   	App	generate a packet, seqnum=22 for=1
+asn=31566	id=6   	App	dropping app packet seqnum=22 for=1: no route
+asn=31678	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31678	id=3   	App	generate a packet, seqnum=22 for=1
+asn=31678	id=3   	App	dropping app packet seqnum=22 for=1: no route
+asn=31763	id=3   	Main	On tx method called from NullRouting
+asn=31776	id=10  	Node	send keepalive packet to=3[NODE]
+asn=31776	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=31776	id=10  	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=31776	id=10  	Main	On tx method called from NullRouting
+asn=31839	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31839	id=10  	App	generate a packet, seqnum=18 for=1
+asn=31839	id=10  	App	dropping app packet seqnum=18 for=1: no route
+asn=31869	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=31869	id=2   	App	generate a packet, seqnum=22 for=1
+asn=31869	id=2   	App	dropping app packet seqnum=22 for=1: no route
+asn=32159	id=2   	Main	On tx method called from NullRouting
+asn=32174	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32174	id=4   	App	generate a packet, seqnum=16 for=1
+asn=32174	id=4   	App	dropping app packet seqnum=16 for=1: no route
+asn=32186	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32186	id=5   	App	generate a packet, seqnum=23 for=1
+asn=32186	id=5   	App	dropping app packet seqnum=23 for=1: no route
+asn=32455	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32455	id=9   	App	generate a packet, seqnum=23 for=1
+asn=32455	id=9   	App	dropping app packet seqnum=23 for=1: no route
+asn=32556	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32556	id=8   	App	generate a packet, seqnum=23 for=1
+asn=32556	id=8   	App	dropping app packet seqnum=23 for=1: no route
+asn=32558	id=4   	Main	On tx method called from NullRouting
+asn=32573	id=4   	Node	send keepalive packet to=1[NODE]
+asn=32573	id=4   	Main	On prepare tx packet method called from NullRouting
+asn=32573	id=4   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=32573	id=4   	Main	On tx method called from NullRouting
+asn=32583	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32583	id=7   	App	generate a packet, seqnum=23 for=1
+asn=32583	id=7   	App	dropping app packet seqnum=23 for=1: no route
+asn=32620	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32620	id=10  	App	generate a packet, seqnum=19 for=1
+asn=32620	id=10  	App	dropping app packet seqnum=19 for=1: no route
+asn=32874	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32874	id=6   	App	generate a packet, seqnum=23 for=1
+asn=32874	id=6   	App	dropping app packet seqnum=23 for=1: no route
+asn=32905	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32905	id=3   	App	generate a packet, seqnum=23 for=1
+asn=32905	id=3   	App	dropping app packet seqnum=23 for=1: no route
+asn=32952	id=1   	Main	On tx method called from NullRouting
+asn=32954	id=3   	Main	On tx method called from NullRouting
+asn=32975	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=32975	id=2   	App	generate a packet, seqnum=23 for=1
+asn=32975	id=2   	App	dropping app packet seqnum=23 for=1: no route
+asn=33015	id=2   	Node	send keepalive packet to=1[NODE]
+asn=33015	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=33015	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=33015	id=2   	Main	On tx method called from NullRouting
+asn=33028	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33028	id=7   	App	generate a packet, seqnum=24 for=1
+asn=33028	id=7   	App	dropping app packet seqnum=24 for=1: no route
+asn=33112	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33112	id=9   	App	generate a packet, seqnum=24 for=1
+asn=33112	id=9   	App	dropping app packet seqnum=24 for=1: no route
+asn=33701	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33701	id=10  	App	generate a packet, seqnum=20 for=1
+asn=33701	id=10  	App	dropping app packet seqnum=20 for=1: no route
+asn=33722	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33722	id=4   	App	generate a packet, seqnum=17 for=1
+asn=33722	id=4   	App	dropping app packet seqnum=17 for=1: no route
+asn=33747	id=2   	Main	On tx method called from NullRouting
+asn=33794	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33794	id=5   	App	generate a packet, seqnum=24 for=1
+asn=33794	id=5   	App	dropping app packet seqnum=24 for=1: no route
+asn=33860	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33860	id=2   	App	generate a packet, seqnum=24 for=1
+asn=33860	id=2   	App	dropping app packet seqnum=24 for=1: no route
+asn=33868	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33868	id=8   	App	generate a packet, seqnum=24 for=1
+asn=33868	id=8   	App	dropping app packet seqnum=24 for=1: no route
+asn=33946	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33946	id=6   	App	generate a packet, seqnum=24 for=1
+asn=33946	id=6   	App	dropping app packet seqnum=24 for=1: no route
+asn=33984	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=33984	id=3   	App	generate a packet, seqnum=24 for=1
+asn=33984	id=3   	App	dropping app packet seqnum=24 for=1: no route
+asn=34143	id=1   	Main	On tx method called from NullRouting
+asn=34146	id=10  	Node	add neighbor id=4
+asn=34146	id=10  	Node	Add_route called from ensure neighbor
+asn=34146	id=4   	Main	On tx method called from NullRouting
+asn=34257	id=6   	Node	send keepalive packet to=2[NODE]
+asn=34257	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=34257	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=34257	id=6   	Main	On tx method called from NullRouting
+asn=34342	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=34342	id=4   	App	generate a packet, seqnum=18 for=1
+asn=34342	id=4   	App	dropping app packet seqnum=18 for=1: no route
+asn=34354	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=34354	id=10  	App	generate a packet, seqnum=21 for=1
+asn=34354	id=10  	App	dropping app packet seqnum=21 for=1: no route
+asn=34393	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=34393	id=6   	App	generate a packet, seqnum=25 for=1
+asn=34393	id=6   	App	dropping app packet seqnum=25 for=1: no route
+asn=34410	id=9   	Node	send keepalive packet to=2[NODE]
+asn=34410	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=34410	id=9   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=34429	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=34429	id=8   	App	generate a packet, seqnum=25 for=1
+asn=34429	id=8   	App	dropping app packet seqnum=25 for=1: no route
+asn=34444	id=9   	Node	tx done to=2 numtx=2 acked=true, remove packet[NODE]
+asn=34444	id=9   	Main	On tx method called from NullRouting
+asn=34527	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=34527	id=3   	App	generate a packet, seqnum=25 for=1
+asn=34527	id=3   	App	dropping app packet seqnum=25 for=1: no route
+asn=34529	id=8   	Node	send keepalive packet to=2[NODE]
+asn=34529	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=34529	id=8   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=34529	id=8   	Main	On tx method called from NullRouting
+asn=34542	id=3   	Main	On tx method called from NullRouting
+asn=34665	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=34665	id=5   	App	generate a packet, seqnum=25 for=1
+asn=34665	id=5   	App	dropping app packet seqnum=25 for=1: no route
+asn=34932	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=34932	id=7   	App	generate a packet, seqnum=25 for=1
+asn=34932	id=7   	App	dropping app packet seqnum=25 for=1: no route
+asn=35003	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35003	id=9   	App	generate a packet, seqnum=25 for=1
+asn=35003	id=9   	App	dropping app packet seqnum=25 for=1: no route
+asn=35014	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35014	id=2   	App	generate a packet, seqnum=25 for=1
+asn=35014	id=2   	App	dropping app packet seqnum=25 for=1: no route
+asn=35284	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35284	id=2   	App	generate a packet, seqnum=26 for=1
+asn=35284	id=2   	App	dropping app packet seqnum=26 for=1: no route
+asn=35334	id=1   	Main	On tx method called from NullRouting
+asn=35335	id=2   	Main	On tx method called from NullRouting
+asn=35337	id=4   	Main	On tx method called from NullRouting
+asn=35451	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35451	id=6   	App	generate a packet, seqnum=26 for=1
+asn=35451	id=6   	App	dropping app packet seqnum=26 for=1: no route
+asn=35458	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35458	id=7   	App	generate a packet, seqnum=26 for=1
+asn=35458	id=7   	App	dropping app packet seqnum=26 for=1: no route
+asn=35526	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35526	id=5   	App	generate a packet, seqnum=26 for=1
+asn=35526	id=5   	App	dropping app packet seqnum=26 for=1: no route
+asn=35634	id=7   	Node	send keepalive packet to=2[NODE]
+asn=35634	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=35634	id=7   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=35634	id=7   	Main	On tx method called from NullRouting
+asn=35669	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35669	id=3   	App	generate a packet, seqnum=26 for=1
+asn=35669	id=3   	App	dropping app packet seqnum=26 for=1: no route
+asn=35796	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35796	id=9   	App	generate a packet, seqnum=26 for=1
+asn=35796	id=9   	App	dropping app packet seqnum=26 for=1: no route
+asn=35862	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35862	id=4   	App	generate a packet, seqnum=19 for=1
+asn=35862	id=4   	App	dropping app packet seqnum=19 for=1: no route
+asn=35906	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=35906	id=8   	App	generate a packet, seqnum=26 for=1
+asn=35906	id=8   	App	dropping app packet seqnum=26 for=1: no route
+asn=36001	id=-1  	Main	360 seconds, progress 60.00%[SIMULATOR]
+asn=36001	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=36001	id=-1  	Main	joined_routing/joined_tsch/total=10/10/10 [ROUTE]
+asn=36001	id=-1  	TSCH	Periodic process called for [Node]
+asn=36001	id=1   	Main	On periodic timer method called from NullRouting
+asn=36001	id=1   	TSCH	stats: {"idle_listen":3192,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":15,"tx_data":26,"tx_data_rx_ack":0}[NODE]
+asn=36001	id=2   	Main	On periodic timer method called from NullRouting
+asn=36001	id=2   	TSCH	stats: {"idle_listen":3259,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":28,"tx_data":25,"tx_data_rx_ack":6}[NODE]
+asn=36001	id=3   	Main	On periodic timer method called from NullRouting
+asn=36001	id=3   	TSCH	stats: {"idle_listen":2992,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":10,"tx_data":23,"tx_data_rx_ack":6}[NODE]
+asn=36001	id=4   	Main	On periodic timer method called from NullRouting
+asn=36001	id=4   	TSCH	stats: {"idle_listen":1695,"channel_scan":17469,"rx_data":0,"rx_data_tx_ack":0,"tx_data":13,"tx_data_rx_ack":6}[NODE]
+asn=36001	id=5   	Main	On periodic timer method called from NullRouting
+asn=36001	id=5   	TSCH	stats: {"idle_listen":2965,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":6}[NODE]
+asn=36001	id=6   	Main	On periodic timer method called from NullRouting
+asn=36001	id=6   	TSCH	stats: {"idle_listen":3184,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":7}[NODE]
+asn=36001	id=7   	Main	On periodic timer method called from NullRouting
+asn=36001	id=7   	TSCH	stats: {"idle_listen":3076,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":10}[NODE]
+asn=36001	id=8   	Main	On periodic timer method called from NullRouting
+asn=36001	id=8   	TSCH	stats: {"idle_listen":3185,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":11}[NODE]
+asn=36001	id=9   	Main	On periodic timer method called from NullRouting
+asn=36001	id=9   	TSCH	stats: {"idle_listen":3183,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":10}[NODE]
+asn=36001	id=10  	Main	On periodic timer method called from NullRouting
+asn=36001	id=10  	TSCH	stats: {"idle_listen":2857,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":5}[NODE]
+asn=36059	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36059	id=5   	App	generate a packet, seqnum=27 for=1
+asn=36059	id=5   	App	dropping app packet seqnum=27 for=1: no route
+asn=36109	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36109	id=10  	App	generate a packet, seqnum=22 for=1
+asn=36109	id=10  	App	dropping app packet seqnum=22 for=1: no route
+asn=36130	id=3   	Main	On tx method called from NullRouting
+asn=36146	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36146	id=6   	App	generate a packet, seqnum=27 for=1
+asn=36146	id=6   	App	dropping app packet seqnum=27 for=1: no route
+asn=36211	id=3   	Node	send keepalive packet to=1[NODE]
+asn=36211	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=36211	id=3   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=36228	id=3   	Node	tx done to=1 numtx=2 acked=true, remove packet[NODE]
+asn=36228	id=3   	Main	On tx method called from NullRouting
+asn=36336	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36336	id=2   	App	generate a packet, seqnum=27 for=1
+asn=36336	id=2   	App	dropping app packet seqnum=27 for=1: no route
+asn=36393	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36393	id=9   	App	generate a packet, seqnum=27 for=1
+asn=36393	id=9   	App	dropping app packet seqnum=27 for=1: no route
+asn=36423	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36423	id=7   	App	generate a packet, seqnum=27 for=1
+asn=36423	id=7   	App	dropping app packet seqnum=27 for=1: no route
+asn=36469	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36469	id=10  	App	generate a packet, seqnum=23 for=1
+asn=36469	id=10  	App	dropping app packet seqnum=23 for=1: no route
+asn=36525	id=1   	Main	On tx method called from NullRouting
+asn=36526	id=2   	Main	On tx method called from NullRouting
+asn=36638	id=5   	Node	send keepalive packet to=3[NODE]
+asn=36638	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=36638	id=5   	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=36638	id=5   	Main	On tx method called from NullRouting
+asn=36792	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36792	id=3   	App	generate a packet, seqnum=27 for=1
+asn=36792	id=3   	App	dropping app packet seqnum=27 for=1: no route
+asn=36893	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36893	id=4   	App	generate a packet, seqnum=20 for=1
+asn=36893	id=4   	App	dropping app packet seqnum=20 for=1: no route
+asn=36925	id=4   	Main	On tx method called from NullRouting
+asn=36991	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=36991	id=8   	App	generate a packet, seqnum=27 for=1
+asn=36991	id=8   	App	dropping app packet seqnum=27 for=1: no route
+asn=37186	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37186	id=3   	App	generate a packet, seqnum=28 for=1
+asn=37186	id=3   	App	dropping app packet seqnum=28 for=1: no route
+asn=37305	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37305	id=7   	App	generate a packet, seqnum=28 for=1
+asn=37305	id=7   	App	dropping app packet seqnum=28 for=1: no route
+asn=37321	id=3   	Main	On tx method called from NullRouting
+asn=37370	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37370	id=6   	App	generate a packet, seqnum=28 for=1
+asn=37370	id=6   	App	dropping app packet seqnum=28 for=1: no route
+asn=37395	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37395	id=9   	App	generate a packet, seqnum=28 for=1
+asn=37395	id=9   	App	dropping app packet seqnum=28 for=1: no route
+asn=37462	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37462	id=4   	App	generate a packet, seqnum=21 for=1
+asn=37462	id=4   	App	dropping app packet seqnum=21 for=1: no route
+asn=37700	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37700	id=10  	App	generate a packet, seqnum=24 for=1
+asn=37700	id=10  	App	dropping app packet seqnum=24 for=1: no route
+asn=37777	id=10  	Node	send keepalive packet to=3[NODE]
+asn=37777	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=37777	id=10  	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=37777	id=10  	Main	On tx method called from NullRouting
+asn=37779	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37779	id=5   	App	generate a packet, seqnum=28 for=1
+asn=37779	id=5   	App	dropping app packet seqnum=28 for=1: no route
+asn=37806	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37806	id=2   	App	generate a packet, seqnum=28 for=1
+asn=37806	id=2   	App	dropping app packet seqnum=28 for=1: no route
+asn=37815	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=37815	id=8   	App	generate a packet, seqnum=28 for=1
+asn=37815	id=8   	App	dropping app packet seqnum=28 for=1: no route
+asn=38106	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38106	id=5   	App	generate a packet, seqnum=29 for=1
+asn=38106	id=5   	App	dropping app packet seqnum=29 for=1: no route
+asn=38113	id=1   	Main	On tx method called from NullRouting
+asn=38114	id=2   	Main	On tx method called from NullRouting
+asn=38116	id=4   	Main	On tx method called from NullRouting
+asn=38206	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38206	id=2   	App	generate a packet, seqnum=29 for=1
+asn=38206	id=2   	App	dropping app packet seqnum=29 for=1: no route
+asn=38231	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38231	id=7   	App	generate a packet, seqnum=29 for=1
+asn=38231	id=7   	App	dropping app packet seqnum=29 for=1: no route
+asn=38360	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38360	id=10  	App	generate a packet, seqnum=25 for=1
+asn=38360	id=10  	App	dropping app packet seqnum=25 for=1: no route
+asn=38364	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38364	id=4   	App	generate a packet, seqnum=22 for=1
+asn=38364	id=4   	App	dropping app packet seqnum=22 for=1: no route
+asn=38574	id=4   	Node	send keepalive packet to=1[NODE]
+asn=38574	id=4   	Main	On prepare tx packet method called from NullRouting
+asn=38574	id=4   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=38574	id=4   	Main	On tx method called from NullRouting
+asn=38752	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38752	id=3   	App	generate a packet, seqnum=29 for=1
+asn=38752	id=3   	App	dropping app packet seqnum=29 for=1: no route
+asn=38818	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38818	id=6   	App	generate a packet, seqnum=29 for=1
+asn=38818	id=6   	App	dropping app packet seqnum=29 for=1: no route
+asn=38909	id=3   	Main	On tx method called from NullRouting
+asn=38931	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38931	id=8   	App	generate a packet, seqnum=29 for=1
+asn=38931	id=8   	App	dropping app packet seqnum=29 for=1: no route
+asn=38950	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=38950	id=9   	App	generate a packet, seqnum=29 for=1
+asn=38950	id=9   	App	dropping app packet seqnum=29 for=1: no route
+asn=39016	id=2   	Node	send keepalive packet to=1[NODE]
+asn=39016	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=39016	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=39016	id=2   	Main	On tx method called from NullRouting
+asn=39068	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39068	id=8   	App	generate a packet, seqnum=30 for=1
+asn=39068	id=8   	App	dropping app packet seqnum=30 for=1: no route
+asn=39088	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39088	id=2   	App	generate a packet, seqnum=30 for=1
+asn=39088	id=2   	App	dropping app packet seqnum=30 for=1: no route
+asn=39155	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39155	id=3   	App	generate a packet, seqnum=30 for=1
+asn=39155	id=3   	App	dropping app packet seqnum=30 for=1: no route
+asn=39304	id=1   	Main	On tx method called from NullRouting
+asn=39390	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39390	id=5   	App	generate a packet, seqnum=30 for=1
+asn=39390	id=5   	App	dropping app packet seqnum=30 for=1: no route
+asn=39497	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39497	id=7   	App	generate a packet, seqnum=30 for=1
+asn=39497	id=7   	App	dropping app packet seqnum=30 for=1: no route
+asn=39638	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39638	id=10  	App	generate a packet, seqnum=26 for=1
+asn=39638	id=10  	App	dropping app packet seqnum=26 for=1: no route
+asn=39702	id=2   	Main	On tx method called from NullRouting
+asn=39704	id=4   	Main	On tx method called from NullRouting
+asn=39830	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39830	id=4   	App	generate a packet, seqnum=23 for=1
+asn=39830	id=4   	App	dropping app packet seqnum=23 for=1: no route
+asn=39860	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39860	id=6   	App	generate a packet, seqnum=30 for=1
+asn=39860	id=6   	App	dropping app packet seqnum=30 for=1: no route
+asn=39993	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=39993	id=9   	App	generate a packet, seqnum=30 for=1
+asn=39993	id=9   	App	dropping app packet seqnum=30 for=1: no route
+asn=40060	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=40060	id=7   	App	generate a packet, seqnum=31 for=1
+asn=40060	id=7   	App	dropping app packet seqnum=31 for=1: no route
+asn=40106	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=40106	id=8   	App	generate a packet, seqnum=31 for=1
+asn=40106	id=8   	App	dropping app packet seqnum=31 for=1: no route
+asn=40258	id=6   	Node	send keepalive packet to=2[NODE]
+asn=40258	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=40258	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=40258	id=6   	Main	On tx method called from NullRouting
+asn=40289	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=40289	id=6   	App	generate a packet, seqnum=31 for=1
+asn=40289	id=6   	App	dropping app packet seqnum=31 for=1: no route
+asn=40445	id=9   	Node	send keepalive packet to=2[NODE]
+asn=40445	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=40445	id=9   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=40445	id=9   	Main	On tx method called from NullRouting
+asn=40495	id=1   	Main	On tx method called from NullRouting
+asn=40497	id=3   	Main	On tx method called from NullRouting
+asn=40530	id=8   	Node	send keepalive packet to=2[NODE]
+asn=40530	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=40530	id=8   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=40530	id=8   	Main	On tx method called from NullRouting
+asn=40566	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=40566	id=2   	App	generate a packet, seqnum=31 for=1
+asn=40566	id=2   	App	dropping app packet seqnum=31 for=1: no route
+asn=40574	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=40574	id=9   	App	generate a packet, seqnum=31 for=1
+asn=40574	id=9   	App	dropping app packet seqnum=31 for=1: no route
+asn=40733	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=40733	id=4   	App	generate a packet, seqnum=24 for=1
+asn=40733	id=4   	App	dropping app packet seqnum=24 for=1: no route
+asn=40893	id=2   	Main	On tx method called from NullRouting
+asn=40895	id=4   	Main	On tx method called from NullRouting
+asn=40937	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=40937	id=5   	App	generate a packet, seqnum=31 for=1
+asn=40937	id=5   	App	dropping app packet seqnum=31 for=1: no route
+asn=40994	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=40994	id=3   	App	generate a packet, seqnum=31 for=1
+asn=40994	id=3   	App	dropping app packet seqnum=31 for=1: no route
+asn=41198	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=41198	id=10  	App	generate a packet, seqnum=27 for=1
+asn=41198	id=10  	App	dropping app packet seqnum=27 for=1: no route
+asn=41230	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=41230	id=5   	App	generate a packet, seqnum=32 for=1
+asn=41230	id=5   	App	dropping app packet seqnum=32 for=1: no route
+asn=41305	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=41305	id=4   	App	generate a packet, seqnum=25 for=1
+asn=41305	id=4   	App	dropping app packet seqnum=25 for=1: no route
+asn=41336	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=41336	id=7   	App	generate a packet, seqnum=32 for=1
+asn=41336	id=7   	App	dropping app packet seqnum=32 for=1: no route
+asn=41520	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=41520	id=8   	App	generate a packet, seqnum=32 for=1
+asn=41520	id=8   	App	dropping app packet seqnum=32 for=1: no route
+asn=41561	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=41561	id=2   	App	generate a packet, seqnum=32 for=1
+asn=41561	id=2   	App	dropping app packet seqnum=32 for=1: no route
+asn=41635	id=7   	Node	send keepalive packet to=2[NODE]
+asn=41635	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=41635	id=7   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=41669	id=7   	Node	tx done to=2 numtx=2 acked=true, remove packet[NODE]
+asn=41669	id=7   	Main	On tx method called from NullRouting
+asn=41688	id=3   	Main	On tx method called from NullRouting
+asn=41802	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=41802	id=9   	App	generate a packet, seqnum=32 for=1
+asn=41802	id=9   	App	dropping app packet seqnum=32 for=1: no route
+asn=41997	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=41997	id=3   	App	generate a packet, seqnum=32 for=1
+asn=41997	id=3   	App	dropping app packet seqnum=32 for=1: no route
+asn=42001	id=-1  	Main	420 seconds, progress 70.00%[SIMULATOR]
+asn=42001	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=42001	id=-1  	Main	joined_routing/joined_tsch/total=10/10/10 [ROUTE]
+asn=42001	id=-1  	TSCH	Periodic process called for [Node]
+asn=42001	id=1   	Main	On periodic timer method called from NullRouting
+asn=42001	id=1   	TSCH	stats: {"idle_listen":3721,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":19,"tx_data":30,"tx_data_rx_ack":0}[NODE]
+asn=42001	id=2   	Main	On periodic timer method called from NullRouting
+asn=42001	id=2   	TSCH	stats: {"idle_listen":3804,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":32,"tx_data":29,"tx_data_rx_ack":7}[NODE]
+asn=42001	id=3   	Main	On periodic timer method called from NullRouting
+asn=42001	id=3   	TSCH	stats: {"idle_listen":3538,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":12,"tx_data":28,"tx_data_rx_ack":8}[NODE]
+asn=42001	id=4   	Main	On periodic timer method called from NullRouting
+asn=42001	id=4   	TSCH	stats: {"idle_listen":2243,"channel_scan":17469,"rx_data":0,"rx_data_tx_ack":0,"tx_data":17,"tx_data_rx_ack":7}[NODE]
+asn=42001	id=5   	Main	On periodic timer method called from NullRouting
+asn=42001	id=5   	TSCH	stats: {"idle_listen":3514,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":7}[NODE]
+asn=42001	id=6   	Main	On periodic timer method called from NullRouting
+asn=42001	id=6   	TSCH	stats: {"idle_listen":3733,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":8}[NODE]
+asn=42001	id=7   	Main	On periodic timer method called from NullRouting
+asn=42001	id=7   	TSCH	stats: {"idle_listen":3624,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":12}[NODE]
+asn=42001	id=8   	Main	On periodic timer method called from NullRouting
+asn=42001	id=8   	TSCH	stats: {"idle_listen":3734,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":12}[NODE]
+asn=42001	id=9   	Main	On periodic timer method called from NullRouting
+asn=42001	id=9   	TSCH	stats: {"idle_listen":3733,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":11}[NODE]
+asn=42001	id=10  	Main	On periodic timer method called from NullRouting
+asn=42001	id=10  	TSCH	stats: {"idle_listen":3406,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":6}[NODE]
+asn=42015	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42015	id=6   	App	generate a packet, seqnum=32 for=1
+asn=42015	id=6   	App	dropping app packet seqnum=32 for=1: no route
+asn=42045	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42045	id=10  	App	generate a packet, seqnum=28 for=1
+asn=42045	id=10  	App	dropping app packet seqnum=28 for=1: no route
+asn=42083	id=1   	Main	On tx method called from NullRouting
+asn=42084	id=2   	Main	On tx method called from NullRouting
+asn=42086	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42086	id=9   	App	generate a packet, seqnum=33 for=1
+asn=42086	id=9   	App	dropping app packet seqnum=33 for=1: no route
+asn=42086	id=4   	Main	On tx method called from NullRouting
+asn=42126	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42126	id=2   	App	generate a packet, seqnum=33 for=1
+asn=42126	id=2   	App	dropping app packet seqnum=33 for=1: no route
+asn=42229	id=3   	Node	send keepalive packet to=1[NODE]
+asn=42229	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=42229	id=3   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=42229	id=3   	Main	On tx method called from NullRouting
+asn=42416	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42416	id=7   	App	generate a packet, seqnum=33 for=1
+asn=42416	id=7   	App	dropping app packet seqnum=33 for=1: no route
+asn=42434	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42434	id=4   	App	generate a packet, seqnum=26 for=1
+asn=42434	id=4   	App	dropping app packet seqnum=26 for=1: no route
+asn=42639	id=5   	Node	send keepalive packet to=3[NODE]
+asn=42639	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=42639	id=5   	Node	tx done to=3 numtx=1 acked=false[NODE]
+asn=42673	id=5   	Node	tx done to=3 numtx=2 acked=true, remove packet[NODE]
+asn=42673	id=5   	Main	On tx method called from NullRouting
+asn=42813	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42813	id=5   	App	generate a packet, seqnum=33 for=1
+asn=42813	id=5   	App	dropping app packet seqnum=33 for=1: no route
+asn=42834	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42834	id=8   	App	generate a packet, seqnum=33 for=1
+asn=42834	id=8   	App	dropping app packet seqnum=33 for=1: no route
+asn=42879	id=3   	Main	On tx method called from NullRouting
+asn=42913	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42913	id=6   	App	generate a packet, seqnum=33 for=1
+asn=42913	id=6   	App	dropping app packet seqnum=33 for=1: no route
+asn=42956	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=42956	id=3   	App	generate a packet, seqnum=33 for=1
+asn=42956	id=3   	App	dropping app packet seqnum=33 for=1: no route
+asn=43000	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43000	id=10  	App	generate a packet, seqnum=29 for=1
+asn=43000	id=10  	App	dropping app packet seqnum=29 for=1: no route
+asn=43072	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43072	id=6   	App	generate a packet, seqnum=34 for=1
+asn=43072	id=6   	App	dropping app packet seqnum=34 for=1: no route
+asn=43213	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43213	id=7   	App	generate a packet, seqnum=34 for=1
+asn=43213	id=7   	App	dropping app packet seqnum=34 for=1: no route
+asn=43274	id=1   	Main	On tx method called from NullRouting
+asn=43323	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43323	id=5   	App	generate a packet, seqnum=34 for=1
+asn=43323	id=5   	App	dropping app packet seqnum=34 for=1: no route
+asn=43544	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43544	id=9   	App	generate a packet, seqnum=34 for=1
+asn=43544	id=9   	App	dropping app packet seqnum=34 for=1: no route
+asn=43606	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43606	id=3   	App	generate a packet, seqnum=34 for=1
+asn=43606	id=3   	App	dropping app packet seqnum=34 for=1: no route
+asn=43640	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43640	id=8   	App	generate a packet, seqnum=34 for=1
+asn=43640	id=8   	App	dropping app packet seqnum=34 for=1: no route
+asn=43672	id=2   	Main	On tx method called from NullRouting
+asn=43674	id=4   	Main	On tx method called from NullRouting
+asn=43696	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43696	id=10  	App	generate a packet, seqnum=30 for=1
+asn=43696	id=10  	App	dropping app packet seqnum=30 for=1: no route
+asn=43778	id=10  	Node	send keepalive packet to=3[NODE]
+asn=43778	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=43778	id=10  	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=43778	id=10  	Main	On tx method called from NullRouting
+asn=43792	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43792	id=4   	App	generate a packet, seqnum=27 for=1
+asn=43792	id=4   	App	dropping app packet seqnum=27 for=1: no route
+asn=43841	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=43841	id=2   	App	generate a packet, seqnum=34 for=1
+asn=43841	id=2   	App	dropping app packet seqnum=34 for=1: no route
+asn=44070	id=3   	Main	On tx method called from NullRouting
+asn=44093	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44093	id=2   	App	generate a packet, seqnum=35 for=1
+asn=44093	id=2   	App	dropping app packet seqnum=35 for=1: no route
+asn=44264	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44264	id=7   	App	generate a packet, seqnum=35 for=1
+asn=44264	id=7   	App	dropping app packet seqnum=35 for=1: no route
+asn=44400	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44400	id=6   	App	generate a packet, seqnum=35 for=1
+asn=44400	id=6   	App	dropping app packet seqnum=35 for=1: no route
+asn=44531	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44531	id=3   	App	generate a packet, seqnum=35 for=1
+asn=44531	id=3   	App	dropping app packet seqnum=35 for=1: no route
+asn=44531	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44531	id=5   	App	generate a packet, seqnum=35 for=1
+asn=44531	id=5   	App	dropping app packet seqnum=35 for=1: no route
+asn=44569	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44569	id=10  	App	generate a packet, seqnum=31 for=1
+asn=44569	id=10  	App	dropping app packet seqnum=31 for=1: no route
+asn=44575	id=4   	Node	send keepalive packet to=1[NODE]
+asn=44575	id=4   	Main	On prepare tx packet method called from NullRouting
+asn=44575	id=4   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=44601	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44601	id=8   	App	generate a packet, seqnum=35 for=1
+asn=44601	id=8   	App	dropping app packet seqnum=35 for=1: no route
+asn=44609	id=4   	Node	tx done to=1 numtx=2 acked=false[NODE]
+asn=44626	id=4   	Node	tx done to=1 numtx=3 acked=true, remove packet[NODE]
+asn=44626	id=4   	Main	On tx method called from NullRouting
+asn=44750	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44750	id=4   	App	generate a packet, seqnum=28 for=1
+asn=44750	id=4   	App	dropping app packet seqnum=28 for=1: no route
+asn=44821	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=44821	id=9   	App	generate a packet, seqnum=35 for=1
+asn=44821	id=9   	App	dropping app packet seqnum=35 for=1: no route
+asn=44862	id=1   	Main	On tx method called from NullRouting
+asn=44863	id=2   	Main	On tx method called from NullRouting
+asn=45017	id=2   	Node	send keepalive packet to=1[NODE]
+asn=45017	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=45017	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=45017	id=2   	Main	On tx method called from NullRouting
+asn=45133	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45133	id=8   	App	generate a packet, seqnum=36 for=1
+asn=45133	id=8   	App	dropping app packet seqnum=36 for=1: no route
+asn=45198	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45198	id=4   	App	generate a packet, seqnum=29 for=1
+asn=45198	id=4   	App	dropping app packet seqnum=29 for=1: no route
+asn=45262	id=4   	Main	On tx method called from NullRouting
+asn=45408	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45408	id=5   	App	generate a packet, seqnum=36 for=1
+asn=45408	id=5   	App	dropping app packet seqnum=36 for=1: no route
+asn=45584	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45584	id=7   	App	generate a packet, seqnum=36 for=1
+asn=45584	id=7   	App	dropping app packet seqnum=36 for=1: no route
+asn=45637	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45637	id=10  	App	generate a packet, seqnum=32 for=1
+asn=45637	id=10  	App	dropping app packet seqnum=32 for=1: no route
+asn=45658	id=3   	Main	On tx method called from NullRouting
+asn=45685	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45685	id=3   	App	generate a packet, seqnum=36 for=1
+asn=45685	id=3   	App	dropping app packet seqnum=36 for=1: no route
+asn=45790	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45790	id=9   	App	generate a packet, seqnum=36 for=1
+asn=45790	id=9   	App	dropping app packet seqnum=36 for=1: no route
+asn=45790	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45790	id=6   	App	generate a packet, seqnum=36 for=1
+asn=45790	id=6   	App	dropping app packet seqnum=36 for=1: no route
+asn=45902	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=45902	id=2   	App	generate a packet, seqnum=36 for=1
+asn=45902	id=2   	App	dropping app packet seqnum=36 for=1: no route
+asn=46053	id=1   	Main	On tx method called from NullRouting
+asn=46130	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46130	id=7   	App	generate a packet, seqnum=37 for=1
+asn=46130	id=7   	App	dropping app packet seqnum=37 for=1: no route
+asn=46143	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46143	id=2   	App	generate a packet, seqnum=37 for=1
+asn=46143	id=2   	App	dropping app packet seqnum=37 for=1: no route
+asn=46183	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46183	id=6   	App	generate a packet, seqnum=37 for=1
+asn=46183	id=6   	App	dropping app packet seqnum=37 for=1: no route
+asn=46259	id=6   	Node	send keepalive packet to=2[NODE]
+asn=46259	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=46259	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=46259	id=6   	Main	On tx method called from NullRouting
+asn=46285	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46285	id=5   	App	generate a packet, seqnum=37 for=1
+asn=46285	id=5   	App	dropping app packet seqnum=37 for=1: no route
+asn=46292	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46292	id=10  	App	generate a packet, seqnum=33 for=1
+asn=46292	id=10  	App	dropping app packet seqnum=33 for=1: no route
+asn=46355	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46355	id=9   	App	generate a packet, seqnum=37 for=1
+asn=46355	id=9   	App	dropping app packet seqnum=37 for=1: no route
+asn=46446	id=9   	Node	send keepalive packet to=2[NODE]
+asn=46446	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=46446	id=9   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=46446	id=9   	Main	On tx method called from NullRouting
+asn=46451	id=2   	Main	On tx method called from NullRouting
+asn=46531	id=8   	Node	send keepalive packet to=2[NODE]
+asn=46531	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=46531	id=8   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=46531	id=8   	Main	On tx method called from NullRouting
+asn=46681	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46681	id=4   	App	generate a packet, seqnum=30 for=1
+asn=46681	id=4   	App	dropping app packet seqnum=30 for=1: no route
+asn=46829	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46829	id=8   	App	generate a packet, seqnum=37 for=1
+asn=46829	id=8   	App	dropping app packet seqnum=37 for=1: no route
+asn=46849	id=3   	Main	On tx method called from NullRouting
+asn=46850	id=4   	Main	On tx method called from NullRouting
+asn=46911	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=46911	id=3   	App	generate a packet, seqnum=37 for=1
+asn=46911	id=3   	App	dropping app packet seqnum=37 for=1: no route
+asn=47049	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=47049	id=2   	App	generate a packet, seqnum=38 for=1
+asn=47049	id=2   	App	dropping app packet seqnum=38 for=1: no route
+asn=47098	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=47098	id=3   	App	generate a packet, seqnum=38 for=1
+asn=47098	id=3   	App	dropping app packet seqnum=38 for=1: no route
+asn=47102	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=47102	id=6   	App	generate a packet, seqnum=38 for=1
+asn=47102	id=6   	App	dropping app packet seqnum=38 for=1: no route
+asn=47147	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=47147	id=4   	App	generate a packet, seqnum=31 for=1
+asn=47147	id=4   	App	dropping app packet seqnum=31 for=1: no route
+asn=47149	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=47149	id=7   	App	generate a packet, seqnum=38 for=1
+asn=47149	id=7   	App	dropping app packet seqnum=38 for=1: no route
+asn=47222	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=47222	id=8   	App	generate a packet, seqnum=38 for=1
+asn=47222	id=8   	App	dropping app packet seqnum=38 for=1: no route
+asn=47244	id=1   	Main	On tx method called from NullRouting
+asn=47284	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=47284	id=9   	App	generate a packet, seqnum=38 for=1
+asn=47284	id=9   	App	dropping app packet seqnum=38 for=1: no route
+asn=47642	id=2   	Main	On tx method called from NullRouting
+asn=47670	id=7   	Node	send keepalive packet to=2[NODE]
+asn=47670	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=47670	id=7   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=47670	id=7   	Main	On tx method called from NullRouting
+asn=47961	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=47961	id=10  	App	generate a packet, seqnum=34 for=1
+asn=47961	id=10  	App	dropping app packet seqnum=34 for=1: no route
+asn=48001	id=-1  	Main	480 seconds, progress 80.00%[SIMULATOR]
+asn=48001	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=48001	id=-1  	Main	joined_routing/joined_tsch/total=10/10/10 [ROUTE]
+asn=48001	id=-1  	TSCH	Periodic process called for [Node]
+asn=48001	id=1   	Main	On periodic timer method called from NullRouting
+asn=48001	id=1   	TSCH	stats: {"idle_listen":4251,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":24,"tx_data":35,"tx_data_rx_ack":0}[NODE]
+asn=48001	id=2   	Main	On periodic timer method called from NullRouting
+asn=48001	id=2   	TSCH	stats: {"idle_listen":4350,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":36,"tx_data":34,"tx_data_rx_ack":8}[NODE]
+asn=48001	id=3   	Main	On periodic timer method called from NullRouting
+asn=48001	id=3   	TSCH	stats: {"idle_listen":4083,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":15,"tx_data":32,"tx_data_rx_ack":9}[NODE]
+asn=48001	id=4   	Main	On periodic timer method called from NullRouting
+asn=48001	id=4   	TSCH	stats: {"idle_listen":2791,"channel_scan":17469,"rx_data":0,"rx_data_tx_ack":0,"tx_data":21,"tx_data_rx_ack":10}[NODE]
+asn=48001	id=5   	Main	On periodic timer method called from NullRouting
+asn=48001	id=5   	TSCH	stats: {"idle_listen":4063,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":9}[NODE]
+asn=48001	id=6   	Main	On periodic timer method called from NullRouting
+asn=48001	id=6   	TSCH	stats: {"idle_listen":4282,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":9}[NODE]
+asn=48001	id=7   	Main	On periodic timer method called from NullRouting
+asn=48001	id=7   	TSCH	stats: {"idle_listen":4173,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":13}[NODE]
+asn=48001	id=8   	Main	On periodic timer method called from NullRouting
+asn=48001	id=8   	TSCH	stats: {"idle_listen":4282,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":13}[NODE]
+asn=48001	id=9   	Main	On periodic timer method called from NullRouting
+asn=48001	id=9   	TSCH	stats: {"idle_listen":4281,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":12}[NODE]
+asn=48001	id=10  	Main	On periodic timer method called from NullRouting
+asn=48001	id=10  	TSCH	stats: {"idle_listen":3954,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":7}[NODE]
+asn=48011	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48011	id=5   	App	generate a packet, seqnum=38 for=1
+asn=48011	id=5   	App	dropping app packet seqnum=38 for=1: no route
+asn=48041	id=4   	Main	On tx method called from NullRouting
+asn=48081	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48081	id=2   	App	generate a packet, seqnum=39 for=1
+asn=48081	id=2   	App	dropping app packet seqnum=39 for=1: no route
+asn=48084	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48084	id=8   	App	generate a packet, seqnum=39 for=1
+asn=48084	id=8   	App	dropping app packet seqnum=39 for=1: no route
+asn=48085	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48085	id=3   	App	generate a packet, seqnum=39 for=1
+asn=48085	id=3   	App	dropping app packet seqnum=39 for=1: no route
+asn=48161	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48161	id=5   	App	generate a packet, seqnum=39 for=1
+asn=48161	id=5   	App	dropping app packet seqnum=39 for=1: no route
+asn=48172	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48172	id=4   	App	generate a packet, seqnum=32 for=1
+asn=48172	id=4   	App	dropping app packet seqnum=32 for=1: no route
+asn=48230	id=3   	Node	send keepalive packet to=1[NODE]
+asn=48230	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=48230	id=3   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=48264	id=3   	Node	tx done to=1 numtx=2 acked=true, remove packet[NODE]
+asn=48264	id=3   	Main	On tx method called from NullRouting
+asn=48329	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48329	id=9   	App	generate a packet, seqnum=39 for=1
+asn=48329	id=9   	App	dropping app packet seqnum=39 for=1: no route
+asn=48437	id=3   	Main	On tx method called from NullRouting
+asn=48654	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48654	id=6   	App	generate a packet, seqnum=39 for=1
+asn=48654	id=6   	App	dropping app packet seqnum=39 for=1: no route
+asn=48674	id=5   	Node	send keepalive packet to=3[NODE]
+asn=48674	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=48674	id=5   	Node	tx done to=3 numtx=1 acked=false[NODE]
+asn=48708	id=5   	Node	tx done to=3 numtx=2 acked=true, remove packet[NODE]
+asn=48708	id=5   	Main	On tx method called from NullRouting
+asn=48808	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48808	id=7   	App	generate a packet, seqnum=39 for=1
+asn=48808	id=7   	App	dropping app packet seqnum=39 for=1: no route
+asn=48832	id=1   	Main	On tx method called from NullRouting
+asn=48896	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=48896	id=10  	App	generate a packet, seqnum=35 for=1
+asn=48896	id=10  	App	dropping app packet seqnum=35 for=1: no route
+asn=49230	id=2   	Main	On tx method called from NullRouting
+asn=49232	id=4   	Main	On tx method called from NullRouting
+asn=49259	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49259	id=2   	App	generate a packet, seqnum=40 for=1
+asn=49259	id=2   	App	dropping app packet seqnum=40 for=1: no route
+asn=49351	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49351	id=5   	App	generate a packet, seqnum=40 for=1
+asn=49351	id=5   	App	dropping app packet seqnum=40 for=1: no route
+asn=49400	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49400	id=9   	App	generate a packet, seqnum=40 for=1
+asn=49400	id=9   	App	dropping app packet seqnum=40 for=1: no route
+asn=49510	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49510	id=3   	App	generate a packet, seqnum=40 for=1
+asn=49510	id=3   	App	dropping app packet seqnum=40 for=1: no route
+asn=49542	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49542	id=4   	App	generate a packet, seqnum=33 for=1
+asn=49542	id=4   	App	dropping app packet seqnum=33 for=1: no route
+asn=49648	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49648	id=10  	App	generate a packet, seqnum=36 for=1
+asn=49648	id=10  	App	dropping app packet seqnum=36 for=1: no route
+asn=49779	id=10  	Node	send keepalive packet to=3[NODE]
+asn=49779	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=49779	id=10  	Node	tx done to=3 numtx=1 acked=true, remove packet[NODE]
+asn=49779	id=10  	Main	On tx method called from NullRouting
+asn=49838	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49838	id=7   	App	generate a packet, seqnum=40 for=1
+asn=49838	id=7   	App	dropping app packet seqnum=40 for=1: no route
+asn=49916	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49916	id=8   	App	generate a packet, seqnum=40 for=1
+asn=49916	id=8   	App	dropping app packet seqnum=40 for=1: no route
+asn=49938	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=49938	id=6   	App	generate a packet, seqnum=40 for=1
+asn=49938	id=6   	App	dropping app packet seqnum=40 for=1: no route
+asn=50023	id=1   	Main	On tx method called from NullRouting
+asn=50025	id=3   	Main	On tx method called from NullRouting
+asn=50099	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=50099	id=7   	App	generate a packet, seqnum=41 for=1
+asn=50099	id=7   	App	dropping app packet seqnum=41 for=1: no route
+asn=50138	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=50138	id=2   	App	generate a packet, seqnum=41 for=1
+asn=50138	id=2   	App	dropping app packet seqnum=41 for=1: no route
+asn=50171	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=50171	id=9   	App	generate a packet, seqnum=41 for=1
+asn=50171	id=9   	App	dropping app packet seqnum=41 for=1: no route
+asn=50352	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=50352	id=5   	App	generate a packet, seqnum=41 for=1
+asn=50352	id=5   	App	dropping app packet seqnum=41 for=1: no route
+asn=50468	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=50468	id=8   	App	generate a packet, seqnum=41 for=1
+asn=50468	id=8   	App	dropping app packet seqnum=41 for=1: no route
+asn=50547	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=50547	id=4   	App	generate a packet, seqnum=34 for=1
+asn=50547	id=4   	App	dropping app packet seqnum=34 for=1: no route
+asn=50627	id=4   	Node	send keepalive packet to=1[NODE]
+asn=50627	id=4   	Main	On prepare tx packet method called from NullRouting
+asn=50627	id=4   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=50627	id=4   	Main	On tx method called from NullRouting
+asn=50818	id=2   	Main	On tx method called from NullRouting
+asn=50820	id=4   	Main	On tx method called from NullRouting
+asn=50848	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=50848	id=3   	App	generate a packet, seqnum=41 for=1
+asn=50848	id=3   	App	dropping app packet seqnum=41 for=1: no route
+asn=50930	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=50930	id=6   	App	generate a packet, seqnum=41 for=1
+asn=50930	id=6   	App	dropping app packet seqnum=41 for=1: no route
+asn=51018	id=2   	Node	send keepalive packet to=1[NODE]
+asn=51018	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=51018	id=2   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=51035	id=2   	Node	tx done to=1 numtx=2 acked=false[NODE]
+asn=51052	id=2   	Node	tx done to=1 numtx=3 acked=true, remove packet[NODE]
+asn=51052	id=2   	Main	On tx method called from NullRouting
+asn=51163	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51163	id=5   	App	generate a packet, seqnum=42 for=1
+asn=51163	id=5   	App	dropping app packet seqnum=42 for=1: no route
+asn=51214	id=1   	Main	On tx method called from NullRouting
+asn=51216	id=3   	Main	On tx method called from NullRouting
+asn=51226	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51226	id=3   	App	generate a packet, seqnum=42 for=1
+asn=51226	id=3   	App	dropping app packet seqnum=42 for=1: no route
+asn=51242	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51242	id=10  	App	generate a packet, seqnum=37 for=1
+asn=51242	id=10  	App	dropping app packet seqnum=37 for=1: no route
+asn=51367	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51367	id=9   	App	generate a packet, seqnum=42 for=1
+asn=51367	id=9   	App	dropping app packet seqnum=42 for=1: no route
+asn=51403	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51403	id=4   	App	generate a packet, seqnum=35 for=1
+asn=51403	id=4   	App	dropping app packet seqnum=35 for=1: no route
+asn=51434	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51434	id=10  	App	generate a packet, seqnum=38 for=1
+asn=51434	id=10  	App	dropping app packet seqnum=38 for=1: no route
+asn=51531	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51531	id=8   	App	generate a packet, seqnum=42 for=1
+asn=51531	id=8   	App	dropping app packet seqnum=42 for=1: no route
+asn=51632	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51632	id=7   	App	generate a packet, seqnum=42 for=1
+asn=51632	id=7   	App	dropping app packet seqnum=42 for=1: no route
+asn=51809	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=51809	id=6   	App	generate a packet, seqnum=42 for=1
+asn=51809	id=6   	App	dropping app packet seqnum=42 for=1: no route
+asn=52009	id=2   	Main	On tx method called from NullRouting
+asn=52011	id=4   	Main	On tx method called from NullRouting
+asn=52253	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=52253	id=2   	App	generate a packet, seqnum=42 for=1
+asn=52253	id=2   	App	dropping app packet seqnum=42 for=1: no route
+asn=52260	id=6   	Node	send keepalive packet to=2[NODE]
+asn=52260	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=52260	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=52260	id=6   	Main	On tx method called from NullRouting
+asn=52299	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=52299	id=3   	App	generate a packet, seqnum=43 for=1
+asn=52299	id=3   	App	dropping app packet seqnum=43 for=1: no route
+asn=52407	id=3   	Main	On tx method called from NullRouting
+asn=52428	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=52428	id=5   	App	generate a packet, seqnum=43 for=1
+asn=52428	id=5   	App	dropping app packet seqnum=43 for=1: no route
+asn=52447	id=9   	Node	send keepalive packet to=2[NODE]
+asn=52447	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=52447	id=9   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=52447	id=9   	Main	On tx method called from NullRouting
+asn=52485	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=52485	id=9   	App	generate a packet, seqnum=43 for=1
+asn=52485	id=9   	App	dropping app packet seqnum=43 for=1: no route
+asn=52488	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=52488	id=7   	App	generate a packet, seqnum=43 for=1
+asn=52488	id=7   	App	dropping app packet seqnum=43 for=1: no route
+asn=52532	id=8   	Node	send keepalive packet to=2[NODE]
+asn=52532	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=52532	id=8   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=52532	id=8   	Main	On tx method called from NullRouting
+asn=52652	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=52652	id=4   	App	generate a packet, seqnum=36 for=1
+asn=52652	id=4   	App	dropping app packet seqnum=36 for=1: no route
+asn=52802	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=52802	id=10  	App	generate a packet, seqnum=39 for=1
+asn=52802	id=10  	App	dropping app packet seqnum=39 for=1: no route
+asn=52802	id=1   	Main	On tx method called from NullRouting
+asn=52971	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=52971	id=8   	App	generate a packet, seqnum=43 for=1
+asn=52971	id=8   	App	dropping app packet seqnum=43 for=1: no route
+asn=53026	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53026	id=6   	App	generate a packet, seqnum=43 for=1
+asn=53026	id=6   	App	dropping app packet seqnum=43 for=1: no route
+asn=53076	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53076	id=4   	App	generate a packet, seqnum=37 for=1
+asn=53076	id=4   	App	dropping app packet seqnum=37 for=1: no route
+asn=53199	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53199	id=2   	App	generate a packet, seqnum=43 for=1
+asn=53199	id=2   	App	dropping app packet seqnum=43 for=1: no route
+asn=53200	id=2   	Main	On tx method called from NullRouting
+asn=53279	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53279	id=7   	App	generate a packet, seqnum=44 for=1
+asn=53279	id=7   	App	dropping app packet seqnum=44 for=1: no route
+asn=53547	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53547	id=2   	App	generate a packet, seqnum=44 for=1
+asn=53547	id=2   	App	dropping app packet seqnum=44 for=1: no route
+asn=53598	id=3   	Main	On tx method called from NullRouting
+asn=53599	id=4   	Main	On tx method called from NullRouting
+asn=53623	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53623	id=8   	App	generate a packet, seqnum=44 for=1
+asn=53623	id=8   	App	dropping app packet seqnum=44 for=1: no route
+asn=53660	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53660	id=5   	App	generate a packet, seqnum=44 for=1
+asn=53660	id=5   	App	dropping app packet seqnum=44 for=1: no route
+asn=53671	id=7   	Node	send keepalive packet to=2[NODE]
+asn=53671	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=53671	id=7   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=53722	id=7   	Node	tx done to=2 numtx=2 acked=false[NODE]
+asn=53726	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53726	id=6   	App	generate a packet, seqnum=44 for=1
+asn=53726	id=6   	App	dropping app packet seqnum=44 for=1: no route
+asn=53739	id=7   	Node	tx done to=2 numtx=3 acked=false[NODE]
+asn=53815	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53815	id=3   	App	generate a packet, seqnum=44 for=1
+asn=53815	id=3   	App	dropping app packet seqnum=44 for=1: no route
+asn=53943	id=7   	Node	tx done to=2 numtx=4 acked=true, remove packet[NODE]
+asn=53943	id=7   	Main	On tx method called from NullRouting
+asn=53947	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53947	id=9   	App	generate a packet, seqnum=44 for=1
+asn=53947	id=9   	App	dropping app packet seqnum=44 for=1: no route
+asn=53948	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=53948	id=10  	App	generate a packet, seqnum=40 for=1
+asn=53948	id=10  	App	dropping app packet seqnum=40 for=1: no route
+asn=53993	id=1   	Main	On tx method called from NullRouting
+asn=54001	id=-1  	Main	540 seconds, progress 90.00%[SIMULATOR]
+asn=54001	id=-1  	Main	periodic route processing for all nodes [ROUTE]
+asn=54001	id=-1  	Main	joined_routing/joined_tsch/total=10/10/10 [ROUTE]
+asn=54001	id=-1  	TSCH	Periodic process called for [Node]
+asn=54001	id=1   	Main	On periodic timer method called from NullRouting
+asn=54001	id=1   	TSCH	stats: {"idle_listen":4780,"channel_scan":0,"rx_data":0,"rx_data_tx_ack":29,"tx_data":40,"tx_data_rx_ack":0}[NODE]
+asn=54001	id=2   	Main	On periodic timer method called from NullRouting
+asn=54001	id=2   	TSCH	stats: {"idle_listen":4893,"channel_scan":1,"rx_data":0,"rx_data_tx_ack":42,"tx_data":38,"tx_data_rx_ack":11}[NODE]
+asn=54001	id=3   	Main	On periodic timer method called from NullRouting
+asn=54001	id=3   	TSCH	stats: {"idle_listen":4630,"channel_scan":3177,"rx_data":0,"rx_data_tx_ack":18,"tx_data":37,"tx_data_rx_ack":11}[NODE]
+asn=54001	id=4   	Main	On periodic timer method called from NullRouting
+asn=54001	id=4   	TSCH	stats: {"idle_listen":3340,"channel_scan":17469,"rx_data":0,"rx_data_tx_ack":0,"tx_data":26,"tx_data_rx_ack":11}[NODE]
+asn=54001	id=5   	Main	On periodic timer method called from NullRouting
+asn=54001	id=5   	TSCH	stats: {"idle_listen":4612,"channel_scan":3576,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":11}[NODE]
+asn=54001	id=6   	Main	On periodic timer method called from NullRouting
+asn=54001	id=6   	TSCH	stats: {"idle_listen":4832,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":10}[NODE]
+asn=54001	id=7   	Main	On periodic timer method called from NullRouting
+asn=54001	id=7   	TSCH	stats: {"idle_listen":4723,"channel_scan":2384,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":17}[NODE]
+asn=54001	id=8   	Main	On periodic timer method called from NullRouting
+asn=54001	id=8   	TSCH	stats: {"idle_listen":4832,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":14}[NODE]
+asn=54001	id=9   	Main	On periodic timer method called from NullRouting
+asn=54001	id=9   	TSCH	stats: {"idle_listen":4830,"channel_scan":1193,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":13}[NODE]
+asn=54001	id=10  	Main	On periodic timer method called from NullRouting
+asn=54001	id=10  	TSCH	stats: {"idle_listen":4504,"channel_scan":4767,"rx_data":0,"rx_data_tx_ack":0,"tx_data":0,"tx_data_rx_ack":8}[NODE]
+asn=54119	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=54119	id=6   	App	generate a packet, seqnum=45 for=1
+asn=54119	id=6   	App	dropping app packet seqnum=45 for=1: no route
+asn=54213	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=54213	id=3   	App	generate a packet, seqnum=45 for=1
+asn=54213	id=3   	App	dropping app packet seqnum=45 for=1: no route
+asn=54265	id=3   	Node	send keepalive packet to=1[NODE]
+asn=54265	id=3   	Main	On prepare tx packet method called from NullRouting
+asn=54265	id=3   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=54273	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=54273	id=5   	App	generate a packet, seqnum=45 for=1
+asn=54273	id=5   	App	dropping app packet seqnum=45 for=1: no route
+asn=54282	id=3   	Node	tx done to=1 numtx=2 acked=true, remove packet[NODE]
+asn=54282	id=3   	Main	On tx method called from NullRouting
+asn=54391	id=2   	Main	On tx method called from NullRouting
+asn=54467	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=54467	id=7   	App	generate a packet, seqnum=45 for=1
+asn=54467	id=7   	App	dropping app packet seqnum=45 for=1: no route
+asn=54496	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=54496	id=8   	App	generate a packet, seqnum=45 for=1
+asn=54496	id=8   	App	dropping app packet seqnum=45 for=1: no route
+asn=54630	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=54630	id=9   	App	generate a packet, seqnum=45 for=1
+asn=54630	id=9   	App	dropping app packet seqnum=45 for=1: no route
+asn=54709	id=5   	Node	send keepalive packet to=3[NODE]
+asn=54709	id=5   	Main	On prepare tx packet method called from NullRouting
+asn=54709	id=5   	Node	tx done to=3 numtx=1 acked=false[NODE]
+asn=54726	id=5   	Node	tx done to=3 numtx=2 acked=true, remove packet[NODE]
+asn=54726	id=5   	Main	On tx method called from NullRouting
+asn=54790	id=4   	Main	On tx method called from NullRouting
+asn=54836	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=54836	id=10  	App	generate a packet, seqnum=41 for=1
+asn=54836	id=10  	App	dropping app packet seqnum=41 for=1: no route
+asn=54885	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=54885	id=2   	App	generate a packet, seqnum=45 for=1
+asn=54885	id=2   	App	dropping app packet seqnum=45 for=1: no route
+asn=55186	id=3   	Main	On tx method called from NullRouting
+asn=55289	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=55289	id=5   	App	generate a packet, seqnum=46 for=1
+asn=55289	id=5   	App	dropping app packet seqnum=46 for=1: no route
+asn=55290	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=55290	id=8   	App	generate a packet, seqnum=46 for=1
+asn=55290	id=8   	App	dropping app packet seqnum=46 for=1: no route
+asn=55430	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=55430	id=3   	App	generate a packet, seqnum=46 for=1
+asn=55430	id=3   	App	dropping app packet seqnum=46 for=1: no route
+asn=55486	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=55486	id=10  	App	generate a packet, seqnum=42 for=1
+asn=55486	id=10  	App	dropping app packet seqnum=42 for=1: no route
+asn=55581	id=1   	Main	On tx method called from NullRouting
+asn=55702	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=55702	id=7   	App	generate a packet, seqnum=46 for=1
+asn=55702	id=7   	App	dropping app packet seqnum=46 for=1: no route
+asn=55747	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=55747	id=2   	App	generate a packet, seqnum=46 for=1
+asn=55747	id=2   	App	dropping app packet seqnum=46 for=1: no route
+asn=55766	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=55766	id=9   	App	generate a packet, seqnum=46 for=1
+asn=55766	id=9   	App	dropping app packet seqnum=46 for=1: no route
+asn=55780	id=10  	Node	send keepalive packet to=3[NODE]
+asn=55780	id=10  	Main	On prepare tx packet method called from NullRouting
+asn=55780	id=10  	Node	tx done to=3 numtx=1 acked=false[NODE]
+asn=55831	id=10  	Node	tx done to=3 numtx=2 acked=false[NODE]
+asn=55908	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=55908	id=6   	App	generate a packet, seqnum=46 for=1
+asn=55908	id=6   	App	dropping app packet seqnum=46 for=1: no route
+asn=55916	id=10  	Node	tx done to=3 numtx=3 acked=true, remove packet[NODE]
+asn=55916	id=10  	Main	On tx method called from NullRouting
+asn=55979	id=2   	Main	On tx method called from NullRouting
+asn=56122	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56122	id=5   	App	generate a packet, seqnum=47 for=1
+asn=56122	id=5   	App	dropping app packet seqnum=47 for=1: no route
+asn=56151	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56151	id=3   	App	generate a packet, seqnum=47 for=1
+asn=56151	id=3   	App	dropping app packet seqnum=47 for=1: no route
+asn=56280	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56280	id=7   	App	generate a packet, seqnum=47 for=1
+asn=56280	id=7   	App	dropping app packet seqnum=47 for=1: no route
+asn=56347	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56347	id=6   	App	generate a packet, seqnum=47 for=1
+asn=56347	id=6   	App	dropping app packet seqnum=47 for=1: no route
+asn=56363	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56363	id=10  	App	generate a packet, seqnum=43 for=1
+asn=56363	id=10  	App	dropping app packet seqnum=43 for=1: no route
+asn=56378	id=6   	Node	add neighbor id=4
+asn=56378	id=6   	Node	Add_route called from ensure neighbor
+asn=56378	id=4   	Main	On tx method called from NullRouting
+asn=56381	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56381	id=8   	App	generate a packet, seqnum=47 for=1
+asn=56381	id=8   	App	dropping app packet seqnum=47 for=1: no route
+asn=56509	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56509	id=2   	App	generate a packet, seqnum=47 for=1
+asn=56509	id=2   	App	dropping app packet seqnum=47 for=1: no route
+asn=56560	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56560	id=9   	App	generate a packet, seqnum=47 for=1
+asn=56560	id=9   	App	dropping app packet seqnum=47 for=1: no route
+asn=56628	id=4   	Node	send keepalive packet to=1[NODE]
+asn=56628	id=4   	Main	On prepare tx packet method called from NullRouting
+asn=56628	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56628	id=4   	App	generate a packet, seqnum=38 for=1
+asn=56628	id=4   	App	dropping app packet seqnum=38 for=1: no route
+asn=56628	id=4   	Node	tx done to=1 numtx=1 acked=false[NODE]
+asn=56662	id=4   	Node	tx done to=1 numtx=2 acked=true, remove packet[NODE]
+asn=56662	id=4   	Main	On tx method called from NullRouting
+asn=56772	id=1   	Main	On tx method called from NullRouting
+asn=56774	id=3   	Main	On tx method called from NullRouting
+asn=56972	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=56972	id=4   	App	generate a packet, seqnum=39 for=1
+asn=56972	id=4   	App	dropping app packet seqnum=39 for=1: no route
+asn=57053	id=2   	Node	send keepalive packet to=1[NODE]
+asn=57053	id=2   	Main	On prepare tx packet method called from NullRouting
+asn=57053	id=2   	Node	tx done to=1 numtx=1 acked=true, remove packet[NODE]
+asn=57053	id=2   	Main	On tx method called from NullRouting
+asn=57145	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=57145	id=6   	App	generate a packet, seqnum=48 for=1
+asn=57145	id=6   	App	dropping app packet seqnum=48 for=1: no route
+asn=57179	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=57179	id=7   	App	generate a packet, seqnum=48 for=1
+asn=57179	id=7   	App	dropping app packet seqnum=48 for=1: no route
+asn=57280	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=57280	id=8   	App	generate a packet, seqnum=48 for=1
+asn=57280	id=8   	App	dropping app packet seqnum=48 for=1: no route
+asn=57331	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=57331	id=9   	App	generate a packet, seqnum=48 for=1
+asn=57331	id=9   	App	dropping app packet seqnum=48 for=1: no route
+asn=57567	id=2   	Main	On tx method called from NullRouting
+asn=57569	id=4   	Main	On tx method called from NullRouting
+asn=57689	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=57689	id=5   	App	generate a packet, seqnum=48 for=1
+asn=57689	id=5   	App	dropping app packet seqnum=48 for=1: no route
+asn=57751	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=57751	id=4   	App	generate a packet, seqnum=40 for=1
+asn=57751	id=4   	App	dropping app packet seqnum=40 for=1: no route
+asn=57894	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=57894	id=3   	App	generate a packet, seqnum=48 for=1
+asn=57894	id=3   	App	dropping app packet seqnum=48 for=1: no route
+asn=57963	id=1   	Main	On tx method called from NullRouting
+asn=57965	id=3   	Main	On tx method called from NullRouting
+asn=58176	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=58176	id=10  	App	generate a packet, seqnum=44 for=1
+asn=58176	id=10  	App	dropping app packet seqnum=44 for=1: no route
+asn=58216	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=58216	id=5   	App	generate a packet, seqnum=49 for=1
+asn=58216	id=5   	App	dropping app packet seqnum=49 for=1: no route
+asn=58261	id=6   	Node	send keepalive packet to=2[NODE]
+asn=58261	id=6   	Main	On prepare tx packet method called from NullRouting
+asn=58261	id=6   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=58261	id=6   	Main	On tx method called from NullRouting
+asn=58279	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=58279	id=3   	App	generate a packet, seqnum=49 for=1
+asn=58279	id=3   	App	dropping app packet seqnum=49 for=1: no route
+asn=58324	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=58324	id=2   	App	generate a packet, seqnum=48 for=1
+asn=58324	id=2   	App	dropping app packet seqnum=48 for=1: no route
+asn=58448	id=9   	Node	send keepalive packet to=2[NODE]
+asn=58448	id=9   	Main	On prepare tx packet method called from NullRouting
+asn=58448	id=9   	Node	tx done to=2 numtx=1 acked=false[NODE]
+asn=58499	id=9   	Node	tx done to=2 numtx=2 acked=true, remove packet[NODE]
+asn=58499	id=9   	Main	On tx method called from NullRouting
+asn=58533	id=8   	Node	send keepalive packet to=2[NODE]
+asn=58533	id=8   	Main	On prepare tx packet method called from NullRouting
+asn=58533	id=8   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=58533	id=8   	Main	On tx method called from NullRouting
+asn=58599	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=58599	id=8   	App	generate a packet, seqnum=49 for=1
+asn=58599	id=8   	App	dropping app packet seqnum=49 for=1: no route
+asn=58749	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=58749	id=2   	App	generate a packet, seqnum=49 for=1
+asn=58749	id=2   	App	dropping app packet seqnum=49 for=1: no route
+asn=58819	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=58819	id=6   	App	generate a packet, seqnum=49 for=1
+asn=58819	id=6   	App	dropping app packet seqnum=49 for=1: no route
+asn=58945	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=58945	id=9   	App	generate a packet, seqnum=49 for=1
+asn=58945	id=9   	App	dropping app packet seqnum=49 for=1: no route
+asn=59043	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59043	id=7   	App	generate a packet, seqnum=49 for=1
+asn=59043	id=7   	App	dropping app packet seqnum=49 for=1: no route
+asn=59085	id=6   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59085	id=6   	App	generate a packet, seqnum=50 for=1
+asn=59085	id=6   	App	dropping app packet seqnum=50 for=1: no route
+asn=59139	id=7   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59139	id=7   	App	generate a packet, seqnum=50 for=1
+asn=59139	id=7   	App	dropping app packet seqnum=50 for=1: no route
+asn=59155	id=2   	Main	On tx method called from NullRouting
+asn=59156	id=3   	Main	On tx method called from NullRouting
+asn=59157	id=4   	Main	On tx method called from NullRouting
+asn=59165	id=3   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59165	id=3   	App	generate a packet, seqnum=50 for=1
+asn=59165	id=3   	App	dropping app packet seqnum=50 for=1: no route
+asn=59187	id=10  	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59187	id=10  	App	generate a packet, seqnum=45 for=1
+asn=59187	id=10  	App	dropping app packet seqnum=45 for=1: no route
+asn=59529	id=9   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59529	id=9   	App	generate a packet, seqnum=50 for=1
+asn=59529	id=9   	App	dropping app packet seqnum=50 for=1: no route
+asn=59551	id=1   	Main	On tx method called from NullRouting
+asn=59580	id=4   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59580	id=4   	App	generate a packet, seqnum=41 for=1
+asn=59580	id=4   	App	dropping app packet seqnum=41 for=1: no route
+asn=59817	id=2   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59817	id=2   	App	generate a packet, seqnum=50 for=1
+asn=59817	id=2   	App	dropping app packet seqnum=50 for=1: no route
+asn=59907	id=5   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59907	id=5   	App	generate a packet, seqnum=50 for=1
+asn=59907	id=5   	App	dropping app packet seqnum=50 for=1: no route
+asn=59937	id=8   	Node	warning: failed to find a nexthop for=1 [ROUTE]
+asn=59937	id=8   	App	generate a packet, seqnum=50 for=1
+asn=59937	id=8   	App	dropping app packet seqnum=50 for=1: no route
+asn=59944	id=7   	Node	send keepalive packet to=2[NODE]
+asn=59944	id=7   	Main	On prepare tx packet method called from NullRouting
+asn=59944	id=7   	Node	tx done to=2 numtx=1 acked=true, remove packet[NODE]
+asn=59944	id=7   	Main	On tx method called from NullRouting
+asn=60000	id=-1  	Main	ending simulation at 600.000 seconds[SIMULATOR]
+asn=60000	id=-1  	Main	aggregate stats method called [NETWORK]
+asn=60000	id=1   	Node	aggregate stats method called for Node 1 [NODE]
+asn=60000	id=1   	Node	Final routes for Node 1 [NODE]
+asn=60000	id=1   	Node	Total Routes 9 [NODE]
+asn=60000	id=1   	Node	route destination: 2 and next hop id: 2
+asn=60000	id=1   	Node	route destination: 3 and next hop id: 3
+asn=60000	id=1   	Node	route destination: 4 and next hop id: 4
+asn=60000	id=1   	Node	route destination: 5 and next hop id: 2
+asn=60000	id=1   	Node	route destination: 6 and next hop id: 2
+asn=60000	id=1   	Node	route destination: 7 and next hop id: 3
+asn=60000	id=1   	Node	route destination: 8 and next hop id: 3
+asn=60000	id=1   	Node	route destination: 9 and next hop id: 4
+asn=60000	id=1   	Node	route destination: 10 and next hop id: 4
+asn=60000	id=1   	Main	Method to get stats called from NullRouting
+asn=60000	id=2   	Node	aggregate stats method called for Node 2 [NODE]
+asn=60000	id=2   	Node	Final routes for Node 2 [NODE]
+asn=60000	id=2   	Node	Total Routes 2 [NODE]
+asn=60000	id=2   	Node	route destination: 5 and next hop id: 5
+asn=60000	id=2   	Node	route destination: 6 and next hop id: 6
+asn=60000	id=2   	Main	Method to get stats called from NullRouting
+asn=60000	id=3   	Node	aggregate stats method called for Node 3 [NODE]
+asn=60000	id=3   	Node	Final routes for Node 3 [NODE]
+asn=60000	id=3   	Node	Total Routes 2 [NODE]
+asn=60000	id=3   	Node	route destination: 7 and next hop id: 7
+asn=60000	id=3   	Node	route destination: 8 and next hop id: 8
+asn=60000	id=3   	Main	Method to get stats called from NullRouting
+asn=60000	id=4   	Node	aggregate stats method called for Node 4 [NODE]
+asn=60000	id=4   	Node	Final routes for Node 4 [NODE]
+asn=60000	id=4   	Node	Total Routes 2 [NODE]
+asn=60000	id=4   	Node	route destination: 9 and next hop id: 9
+asn=60000	id=4   	Node	route destination: 10 and next hop id: 10
+asn=60000	id=4   	Main	Method to get stats called from NullRouting
+asn=60000	id=5   	Node	aggregate stats method called for Node 5 [NODE]
+asn=60000	id=5   	Node	Final routes for Node 5 [NODE]
+asn=60000	id=5   	Node	Total Routes 0 [NODE]
+asn=60000	id=5   	Main	Method to get stats called from NullRouting
+asn=60000	id=6   	Node	aggregate stats method called for Node 6 [NODE]
+asn=60000	id=6   	Node	Final routes for Node 6 [NODE]
+asn=60000	id=6   	Node	Total Routes 0 [NODE]
+asn=60000	id=6   	Main	Method to get stats called from NullRouting
+asn=60000	id=7   	Node	aggregate stats method called for Node 7 [NODE]
+asn=60000	id=7   	Node	Final routes for Node 7 [NODE]
+asn=60000	id=7   	Node	Total Routes 0 [NODE]
+asn=60000	id=7   	Main	Method to get stats called from NullRouting
+asn=60000	id=8   	Node	aggregate stats method called for Node 8 [NODE]
+asn=60000	id=8   	Node	Final routes for Node 8 [NODE]
+asn=60000	id=8   	Node	Total Routes 0 [NODE]
+asn=60000	id=8   	Main	Method to get stats called from NullRouting
+asn=60000	id=9   	Node	aggregate stats method called for Node 9 [NODE]
+asn=60000	id=9   	Node	Final routes for Node 9 [NODE]
+asn=60000	id=9   	Node	Total Routes 0 [NODE]
+asn=60000	id=9   	Main	Method to get stats called from NullRouting
+asn=60000	id=10  	Node	aggregate stats method called for Node 10 [NODE]
+asn=60000	id=10  	Node	Final routes for Node 10 [NODE]
+asn=60000	id=10  	Node	Total Routes 0 [NODE]
+asn=60000	id=10  	Main	Method to get stats called from NullRouting
+asn=60000	id=-1  	Main	packet stats: PDR=0.00% generated=436 received=0 lost=436 (tx_limit/queue/routing/scheduling/other=0/0/436/0/0)[NETWORK]
+asn=60000	id=-1  	Main	link stats: PAR=69.42% tx=121 acked=84[NETWORK]
+asn=60000	id=-1  	Main	simulation completed, results saved at /home/tegsingh/RR/tsch-sim/results/2021-07-29_22-16-43[MAIN]
