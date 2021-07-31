@@ -137,16 +137,21 @@ function is_valid_node_id(network, node_id)
 function parse_position(network, position)
 {
     const node_id = position.ID;
+    // Check if the node id is valid
     if (is_valid_node_id(network, node_id)) {
         const node = network.get_node(node_id);
+        // Check position subarray for X coordinate
         if (position.hasOwnProperty("X")) {
+            // Set node position values
             node.pos_x = parseInt(position.X);
             if (isNaN(node.pos_x)) {
                 log.log(log.WARNING, node, "Main", `invalid position X coordinate=${position.X} specified[SIMULATOR]`);
                 node.pos_x = 0;
             }
         }
+        // Check position subarray for Y coordinate
         if (position.hasOwnProperty("Y")) {
+            // Set node position values
             node.pos_y = parseInt(position.Y);
             if (isNaN(node.pos_y)) {
                 log.log(log.WARNING, node, "Main", `invalid position Y coordinate=${position.Y} specified[SIMULATOR]`);
@@ -217,14 +222,20 @@ export function construct_simulation(is_from_web)
     state.pkt = pkt;
     state.constants = constants;
 
+    // previous id is the id of the last node created for a certain node type
     let previous_id = 0;
+    // List of nodes of a particular type
     const type_ids = {};
+    // Boolean indicators to shows if the values are specified in config.json
     let nodes_set_manually = false;
     let positions_set_manually = false;
     let connections_set_manually = false;
+
     const types_with_connections_out = {};
     const types_with_connections_in = {};
 
+    // Loop through all Node types in the configuration
+    // NODE_TYPES is an array in config.json which contains keys for sub arrays
     for (const node_type of config.NODE_TYPES) {
         if (!check_node_type_validity(node_type)) {
             log.log(log.WARNING, null, "Main", `invalid node type "${node_type.NAME}"[SIMULATOR]`);
@@ -233,16 +244,21 @@ export function construct_simulation(is_from_web)
 
         log.log(log.INFO, null, "Main", `creating ${node_type.COUNT} "${node_type.NAME}" nodes...[SIMULATOR]`);
 
-        /* set the default config and override it with type-speficific values */
+        /* set the default config and override it with type-specific values */
         const type_config = JSON.parse(JSON.stringify(config));
+        // Display all Keys in the NODE TYPE
+        log.log(log.INFO, this, "Node", `Keys for Node Type ${node_type.NAME}`);
         for (let key in node_type) {
+            log.log(log.INFO, this, "Node", `Key: ${key}`)
             type_config[key] = node_type[key];
         }
 
+        // Set the node type starting from START_ID
         type_ids[node_type.NAME] = [];
         let id = "START_ID" in node_type ? node_type["START_ID"] : previous_id + 1;
         for (let i = 0; i < node_type.COUNT; ++i) {
             previous_id = id;
+            // Add node to the network after determining its type
             net.add_node(id, type_config);
             type_ids[node_type.NAME].push(id);
             id += 1;
@@ -255,6 +271,7 @@ export function construct_simulation(is_from_web)
         nodes_set_manually = true;
     }
 
+    // Add automatically created nodes in case the nodes havent been specified in the config.json file
     if (!nodes_set_manually) {
         /* Add some automatically created nodes */
         const type_name = "node";
@@ -268,11 +285,13 @@ export function construct_simulation(is_from_web)
     }
 
     /* Set up positions */
+    // Loop through each node type
     for (const from_node_type of config.NODE_TYPES) {
         if (!check_node_type_validity(from_node_type)) {
             continue;
         }
 
+        // If the NODE_TYPES array inside config.json specifies positions of the nodes
         if (utils.has_nonempty_array(from_node_type, "POSITIONS")) {
             /* Positions for the node type */
             positions_set_manually = true;
@@ -290,6 +309,7 @@ export function construct_simulation(is_from_web)
         }
     }
 
+    // Call generate network in case the positions have not been specifed already
     if (!positions_set_manually) {
         /* Generate the positions using a positioning method */
         const positions = generate_network(net.nodes.size);
@@ -319,6 +339,7 @@ export function construct_simulation(is_from_web)
         }
 
         if (utils.has_nonempty_array(from_node_type, "CONNECTIONS")) {
+            
             connections_set_manually = true;
             types_with_connections_out[from_node_type.NAME] = true;
 
@@ -326,6 +347,7 @@ export function construct_simulation(is_from_web)
                 log.log(log.WARNING, null, "Main", `ignoring connections for node type "${from_node_type.NAME}": trace file supplied[SIMULATOR]`);
                 continue;
             }
+
             /* Connections defined for the node type */
             for (const connection of from_node_type.CONNECTIONS) {
                 const TO_NODE_TYPE = ("NODE_TYPE" in connection) ? connection["NODE_TYPE"] : connection["TO_NODE_TYPE"];
@@ -339,8 +361,10 @@ export function construct_simulation(is_from_web)
                 for (let from_node_id of from) {
                     for (let to_node_id of to) {
                         if (from_node_id !== to_node_id) {
+                            // Use the link model class to create link
                             const link = link_model.create_link(
                                 net.get_node(from_node_id), net.get_node(to_node_id), connection);
+                            // Add links to network
                             net.add_link(link);
                         }
                     }
@@ -348,13 +372,16 @@ export function construct_simulation(is_from_web)
             }
         }
 
+        // App packets is a sub array in NODE_TYPES in config.json
         if ("APP_PACKETS" in from_node_type) {
             const data = from_node_type.APP_PACKETS;
-            const period_sec = "APP_PACKET_PERIOD_SEC" in data ? data.APP_PACKET_PERIOD_SEC : config.APP_PACKET_PERIOD_SEC;
-            const size = "APP_PACKET_SIZE" in data ? data.APP_PACKET_SIZE : config.APP_PACKET_SIZE;
-            const warmup_period = "APP_WARMUP_PERIOD_SEC" in data ? data.APP_WARMUP_PERIOD_SEC : config.APP_WARMUP_PERIOD_SEC;
+            // Set app packet configurations
+            const period_sec = "APP_PACKET_PERIOD_SEC" in data ? data.APP_PACKET_PERIOD_SEC : config.APP_PACKET_PERIOD_SEC; // Time interval between application packets
+            const size = "APP_PACKET_SIZE" in data ? data.APP_PACKET_SIZE : config.APP_PACKET_SIZE; // Application packets size
+            const warmup_period = "APP_WARMUP_PERIOD_SEC" in data ? data.APP_WARMUP_PERIOD_SEC : config.APP_WARMUP_PERIOD_SEC; // Time to wait before sending the application packet after it is generated
 
             const is_query = "IS_QUERY" in data ? data.IS_QUERY : false;
+            // If TO_TYPE exists in APP_PACKETS data, that is if destination node has a type and the generated app packet is to be sent to all nodes of those type [stored in to_type_id]
             if ("TO_TYPE" in data) {
                 const to_type = data.TO_TYPE;
                 for (let to_node_id of type_ids[to_type]) {
