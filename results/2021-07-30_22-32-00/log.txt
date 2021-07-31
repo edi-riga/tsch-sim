@@ -1,1 +1,0 @@
-asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/RR/tsch-sim/examples/hierarchical/config.jso to output directory /home/tegsingh/RR/tsch-sim/results/2021-07-30_22-32-00/config.jso[MAIN]
