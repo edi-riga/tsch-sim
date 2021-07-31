@@ -55,7 +55,7 @@ export class PacketSource {
         this.is_in_warmup = true;
         this.timer_time = this.warmup_period;
 
-        log.log(log.INFO, null, "App", `new packet source, from=${source.id} for=${this.destination_id} period=${this.period} warmup=${this.warmup_period}`);
+        log.log(log.INFO, null, "App", `new packet source, from=${source.id} for=${this.destination_id} period=${this.period} warmup=${this.warmup_period} [PACKET_SOURCE]`);
 
         if (this.destination_id === -1) {
             log.log(log.WARNING, null, "App", `destination ID for a packet source is unspecified; the "app_reliability" statistics will be unreliable and should be ignored`);
@@ -86,10 +86,10 @@ export class PacketSource {
             if (this.is_query) {
                 packet.query_status = constants.PACKET_IS_REQUEST;
             }
-            log.log(log.INFO, this.source, "App", `generate a packet, seqnum=${packet.seqnum} for=${this.destination_id}`);
+            log.log(log.INFO, this.source, "App", `generate a packet, seqnum=${packet.seqnum} for=${this.destination_id} [PACKET_SOURCE]`);
             this.source.add_app_packet(packet);
         } else {
-            log.log(log.INFO, this.source, "App", `skipping generation of a packet, for=${this.destination_id}`);
+            log.log(log.INFO, this.source, "App", `skipping generation of a packet, for=${this.destination_id} [PACKET_SOURCE]`);
         }
 
         /* add the next timer */
