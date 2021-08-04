@@ -38,6 +38,8 @@ import config from './config.mjs';
 import * as scheduler_orchestra from './scheduler_orchestra.mjs';
 import * as scheduler_6tisch_min from './scheduler_6tisch_min.mjs';
 import * as scheduler_lf from './scheduler_lf.mjs';
+// Import new scheduler file
+import * as scheduler_new from './scheduler_new.mjs';
 import * as pkt from './packet.mjs';
 import { dbm_to_mw, mw_to_dbm, assert, id_to_addr, get_hopseq,
          div_safe, round_to_ms } from './utils.mjs';
@@ -59,6 +61,8 @@ if (config.SCHEDULING_ALGORITHM === "Orchestra") {
     scheduler = scheduler_orchestra;
 } else if (config.SCHEDULING_ALGORITHM === "LeafAndForwarder") {
     scheduler = scheduler_lf;
+} else if (config.SCHEDULING_ALGORITHM == "NewScheduler") {
+    scheduler = scheduler_new
 }
 
 /* ------------------------------------- */

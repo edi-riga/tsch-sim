@@ -117,6 +117,7 @@ const default_config = {
     /* ------------------------------------- */
 
     /* Scheduling algorithm. Available: "Orchestra", "6tischMin", "LeafAndForwarder" */
+    // Set this value as "NewScheduler"
     SCHEDULING_ALGORITHM: "Orchestra",
 
     /* Note: the schedule size is given for each scheduling option separately:

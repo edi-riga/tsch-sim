@@ -42,6 +42,8 @@ import * as link_model from './link_model.mjs';
 import * as scheduler_orchestra from './scheduler_orchestra.mjs';
 import * as scheduler_6tisch_min from './scheduler_6tisch_min.mjs';
 import * as scheduler_lf from './scheduler_lf.mjs';
+// Import new scheduler
+import * as scheduler_new from './scheduler_new.mjs';
 import * as log from './log.mjs';
 import * as time from './time.mjs';
 import * as route from './route.mjs';
@@ -67,6 +69,8 @@ if (config.SCHEDULING_ALGORITHM === "Orchestra") {
     scheduler = scheduler_orchestra;
 } else if (config.SCHEDULING_ALGORITHM === "LeafAndForwarder") {
     scheduler = scheduler_lf;
+} else if (config.SCHEDULING_ALGORITHM === "NewScheduler") {
+    scheduler = scheduler_new;
 } else if (config.SCHEDULING_ALGORITHM !== "6tischMin") {
     /* use default, but complain! */
     log.log(log.ERROR, null, "Main", `failed to find scheduler "${config.SCHEDULING_ALGORITHM}", using 6tisch minimal[SIMULATOR]`);
