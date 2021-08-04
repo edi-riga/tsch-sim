@@ -62,7 +62,7 @@ export function on_packet_ready(node, packet)
     // No packet exists for next hop
     if (packet.nexthop_id <= 0) {
         /* broadcast transmission attempted? */
-        log.log(log.ERROR, node, "TSCH", `the LeafAndForwarder scheduler is currently not suitable for broadcast`);
+        log.log(log.ERROR, node, "TSCH", `the LeafAndForwarder scheduler is currently not suitable for broadcast [LEAF AND FORWARDER]`);
         if (!node.config.ROUTING_IS_LEAF && node.idd !== constants.ROOT_NODE_ID) {
             /* make the best guess and try to address the packet to the root */
             remote_offset = 1 + constants.ROOT_NODE_ID % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
@@ -74,7 +74,7 @@ export function on_packet_ready(node, packet)
         remote_offset = 1 + dest_addr.u8[dest_addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
     }
 
-    log.log(log.INFO, node, "TSCH", `schedule packet, channel offset=${remote_offset}`);
+    log.log(log.INFO, node, "TSCH", `schedule packet, channel offset=${remote_offset} [LEAF AND FORWARDER]`);
 
     let timeslot;
     if (packet.nexthop_id === constants.ROOT_NODE_ID) {
@@ -132,7 +132,7 @@ export function on_node_becomes_root(node)
 /* Initialize a specific node: function required by the scheduling module API */
 export function node_init(node)
 {
-    log.log(log.INFO, node, "TSCH", `*** initializing leaf-and-forwarder scheduler, slotframe_size=${node.config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH}`);
+    log.log(log.INFO, node, "TSCH", `*** initializing leaf-and-forwarder scheduler, slotframe_size=${node.config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH} [LEAF AND FORWARDER]`);
 
     /* Add a single slotframe */
     const sf_common = node.add_slotframe(0, "leaf-and-forwarder", node.config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH);
@@ -146,7 +146,7 @@ export function node_init(node)
 
     const local_offset = 1 + node.addr.u8[node.addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
 
-    log.log(log.INFO, node, "TSCH", `add cells at channel offset=${local_offset}`);
+    log.log(log.INFO, node, "TSCH", `add cells at channel offset=${local_offset} [LEAF AND FORWARDER]`);
 
     if (node.config.ROUTING_IS_LEAF) {
         node.add_cell(sf_common,
@@ -170,7 +170,7 @@ export function node_init(node)
 /* Initialize the module: function required by the scheduling module API */
 export function initialize()
 {
-    log.log(log.INFO, null, "TSCH", `initializing leaf-and-forwarder scheduler`);
+    log.log(log.INFO, null, "TSCH", `initializing leaf-and-forwarder scheduler [LEAF AND FORWARDER]`);
 
     const default_config = {
         /* The length of the leaf-and-forwarder slotframe */

@@ -42,6 +42,7 @@ import * as time from './time.mjs';
 
 function set_timings()
 {
+    log.log(log.INFO, 0, "TSCH", `Set timings for the 6Tisch Min [SCHEDULER]`);
     const sf_size = config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH ? config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH : 1;
 
     let timings_usec = new Array(sf_size);
@@ -56,17 +57,17 @@ function set_timings()
 
 export function on_new_time_source(node, old_neighbor, new_neighbor)
 {
-    log.log(log.INFO, node, "Node", `On new time source called from 6Tisch Min [SCHEDULER]`);
+    log.log(log.INFO, node, "TSCH", `On new time source called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function on_child_added(node, addr)
 {
-    log.log(log.INFO, node, "Node", `On child added called from 6Tisch Min [SCHEDULER]`);
+    log.log(log.INFO, node, "TSCH", `On child added called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function on_child_removed(node, addr)
 {
-    log.log(log.INFO, node, "Node", `child removed event handler called from 6Tisch Min [SCHEDULER]`);
+    log.log(log.INFO, node, "TSCH", `child removed event handler called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function on_packet_ready(node, packet)
@@ -76,17 +77,17 @@ export function on_packet_ready(node, packet)
 
 export function on_tx(node, packet, status_ok)
 {
-    log.log(log.INFO, node, "Node", `on tx called from 6Tisch Min [SCHEDULER]`);
+    log.log(log.INFO, node, "TSCH", `on tx called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function add_root(node, root_id)
 {
-    log.log(log.INFO, node, "Node", `Add root called from 6Tisch Min [SCHEDULER]`);
+    log.log(log.INFO, node, "TSCH", `Add root called from 6Tisch Min [SCHEDULER]`);
 }
 
 export function on_node_becomes_root(node)
 {
-    log.log(log.INFO, node, "Node", `On node becomes root called from 6Tisch Min [SCHEDULER]`);
+    log.log(log.INFO, node, "TSCH", `On node becomes root called from 6Tisch Min [SCHEDULER]`);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -111,7 +112,7 @@ export function node_init(node)
 /* Initialize the module: function required by the scheduling module API */
 export function initialize()
 {
-    log.log(log.INFO, null, "TSCH", `initializing 6tisch minimal infrastructure`)
+    log.log(log.INFO, null, "TSCH", `initializing 6tisch minimal infrastructure[6 TISCH MIN]`)
 
     const default_config = {
         /* The length of the 6tisch minimal slotframe */
