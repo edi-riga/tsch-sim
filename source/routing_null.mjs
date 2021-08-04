@@ -70,7 +70,7 @@ export class NullRouting
         try {
             // Specify the path for the routes.json file
             // NOTE: PLEASE CHANGE THIS PATH BASED ON LOCATION OF THE EXAMPLE
-            const route_file = "examples/star/routes.json";
+            const route_file = "examples/line/routes.json";
             route_file_data = fs.readFileSync(route_file);    
             if (route_file_data) {
                 log.log(log.INFO, this.node, "Node", `File Read successfully`);                
