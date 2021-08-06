@@ -88,7 +88,7 @@ export class Link {
               this.link_quality[channel] :
               this.link_quality;
         const is_success = rng.random() < q;
-        mlog(log.DEBUG, `tx from=${this.from.id} to=${this.to.id} quality=${q} ok=${is_success}`);
+        mlog(log.DEBUG, `tx from=${this.from.id} to=${this.to.id} quality=${q} ok=${is_success} [LINK MODEL]`);
         return is_success;
     }
 

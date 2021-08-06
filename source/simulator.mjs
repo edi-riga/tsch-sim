@@ -251,9 +251,9 @@ export function construct_simulation(is_from_web)
         /* set the default config and override it with type-specific values */
         const type_config = JSON.parse(JSON.stringify(config));
         // Display all Keys in the NODE TYPE
-        log.log(log.INFO, this, "Node", `Keys for Node Type ${node_type.NAME}`);
+        //log.log(log.INFO, this, "Node", `Keys for Node Type ${node_type.NAME}`);
         for (let key in node_type) {
-            log.log(log.INFO, this, "Node", `Key: ${key}`)
+            //log.log(log.INFO, this, "Node", `Key: ${key}`)
             type_config[key] = node_type[key];
         }
 
@@ -694,6 +694,8 @@ export async function run_interactive()
                 if (status.schedule.length >= config.WEB_MAX_CELLS) {
                     status.schedule.shift();
                 }
+
+                // Add time and cells returned by the network step method
                 status.schedule.push({
                     asn: time.timeline.asn,
                     seconds: time.timeline.seconds,

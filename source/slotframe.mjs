@@ -93,6 +93,7 @@ export class Slotframe {
     /* This function works similarly as `tsch_schedule_add_link` in the Contiki-NG code */
     add_cell(options, type, neighbor_id, timeslot, channel_offset, keep_old) {
 
+        // Channel offset and channel number is the same
         /* validate arguments */
         if (timeslot >= this.size) {
             log.log(log.ERROR, this.node, "Node", `add cell: too large timeslot=${timeslot}`);

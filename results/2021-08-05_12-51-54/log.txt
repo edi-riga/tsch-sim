@@ -1,0 +1,1869 @@
+asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/tsch-sim/examples/hierarchical/config.json to output directory /home/tegsingh/tsch-sim/results/2021-08-05_12-51-54/config.json[MAIN]
+asn=0    	id=-1  	Main	initializing 600 seconds long simulation...[SIMULATOR]
+asn=0    	id=-1  	TSCH	initializing leaf-and-forwarder scheduler [SCHEDULER_NEW]
+asn=0    	id=-1  	Main	creating 1 "root" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	creating 3 "forwarder" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	creating 6 "leaf" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	generating a star network with 10 nodes
+asn=0    	id=1   	Main	set position x=124.30 y=124.30[SIMULATOR]
+asn=0    	id=2   	Main	set position x=219.51 y=204.19[SIMULATOR]
+asn=0    	id=3   	Main	set position x=145.88 y=246.70[SIMULATOR]
+asn=0    	id=4   	Main	set position x=62.15 y=231.94[SIMULATOR]
+asn=0    	id=5   	Main	set position x=7.50 y=166.81[SIMULATOR]
+asn=0    	id=6   	Main	set position x=7.50 y=81.78[SIMULATOR]
+asn=0    	id=7   	Main	set position x=62.15 y=16.65[SIMULATOR]
+asn=0    	id=8   	Main	set position x=145.88 y=1.89[SIMULATOR]
+asn=0    	id=9   	Main	set position x=219.51 y=44.40[SIMULATOR]
+asn=0    	id=10  	Main	set position x=248.59 y=124.30[SIMULATOR]
+asn=0    	id=-1  	App	new packet source, from=2 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=3 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=4 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=5 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=6 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=7 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=8 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=9 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=10 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	Main	warning: no connections defined for node type "root"[SIMULATOR]
+asn=0    	id=-1  	Main	warning: no connections defined for node type "forwarder"[SIMULATOR]
+asn=0    	id=-1  	Main	warning: no connections defined for node type "leaf"[SIMULATOR]
+asn=0    	id=-1  	Main	simulation created[SIMULATOR]
+asn=0    	id=-1  	Main	starting simulation main loop...[SIMULATOR]
+asn=0    	id=1   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=1   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=1   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=1   	TSCH	add cells at channel offset=2 [SCHEDULER NEW]
+asn=0    	id=1   	Node	Add cell in timeslot: 1 channel offset: 2 in slotframe: [object Object]
+asn=0    	id=1   	Node	Add cell in timeslot: 2 channel offset: 2 in slotframe: [object Object]
+asn=0    	id=1   	Node	Add cell in timeslot: 3 channel offset: 2 in slotframe: [object Object]
+asn=0    	id=1   	Node	Add cell in timeslot: 4 channel offset: 2 in slotframe: [object Object]
+asn=0    	id=1   	Node	Add cell in timeslot: 5 channel offset: 2 in slotframe: [object Object]
+asn=0    	id=1   	Node	Add cell in timeslot: 6 channel offset: 2 in slotframe: [object Object]
+asn=0    	id=1   	Node	becomes TSCH coordinator
+asn=0    	id=1   	TSCH	Node has joined TSCH as coordinator [NODE]
+asn=0    	id=1   	Node	Start method called from NullRouting for 1
+asn=0    	id=1   	Node	File Read successfully
+asn=0    	id=1   	Node	File loaded into struct successfully
+asn=0    	id=1   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=0    	id=1   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=1   	Node	update time source called [NODE]
+asn=0    	id=1   	Main	Local repair method called from NullRouting
+asn=0    	id=2   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=2   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=2   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=2   	TSCH	add cells at channel offset=3 [SCHEDULER NEW]
+asn=0    	id=2   	Node	Add cell in timeslot: 1 channel offset: 3 in slotframe: [object Object]
+asn=0    	id=2   	Node	Add cell in timeslot: 2 channel offset: 3 in slotframe: [object Object]
+asn=0    	id=2   	Node	Add cell in timeslot: 3 channel offset: 3 in slotframe: [object Object]
+asn=0    	id=2   	Node	Add cell in timeslot: 4 channel offset: 3 in slotframe: [object Object]
+asn=0    	id=2   	Node	Add cell in timeslot: 5 channel offset: 3 in slotframe: [object Object]
+asn=0    	id=2   	Node	Add cell in timeslot: 6 channel offset: 3 in slotframe: [object Object]
+asn=0    	id=2   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=2   	Node	update time source called [NODE]
+asn=0    	id=2   	Main	Local repair method called from NullRouting
+asn=0    	id=2   	Node	scanning on channel=25...[NODE]
+asn=0    	id=3   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=3   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=3   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=3   	TSCH	add cells at channel offset=4 [SCHEDULER NEW]
+asn=0    	id=3   	Node	Add cell in timeslot: 1 channel offset: 4 in slotframe: [object Object]
+asn=0    	id=3   	Node	Add cell in timeslot: 2 channel offset: 4 in slotframe: [object Object]
+asn=0    	id=3   	Node	Add cell in timeslot: 3 channel offset: 4 in slotframe: [object Object]
+asn=0    	id=3   	Node	Add cell in timeslot: 4 channel offset: 4 in slotframe: [object Object]
+asn=0    	id=3   	Node	Add cell in timeslot: 5 channel offset: 4 in slotframe: [object Object]
+asn=0    	id=3   	Node	Add cell in timeslot: 6 channel offset: 4 in slotframe: [object Object]
+asn=0    	id=3   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=3   	Node	update time source called [NODE]
+asn=0    	id=3   	Main	Local repair method called from NullRouting
+asn=0    	id=3   	Node	scanning on channel=26...[NODE]
+asn=0    	id=4   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=4   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=4   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=4   	TSCH	add cells at channel offset=5 [SCHEDULER NEW]
+asn=0    	id=4   	Node	Add cell in timeslot: 1 channel offset: 5 in slotframe: [object Object]
+asn=0    	id=4   	Node	Add cell in timeslot: 2 channel offset: 5 in slotframe: [object Object]
+asn=0    	id=4   	Node	Add cell in timeslot: 3 channel offset: 5 in slotframe: [object Object]
+asn=0    	id=4   	Node	Add cell in timeslot: 4 channel offset: 5 in slotframe: [object Object]
+asn=0    	id=4   	Node	Add cell in timeslot: 5 channel offset: 5 in slotframe: [object Object]
+asn=0    	id=4   	Node	Add cell in timeslot: 6 channel offset: 5 in slotframe: [object Object]
+asn=0    	id=4   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=4   	Node	update time source called [NODE]
+asn=0    	id=4   	Main	Local repair method called from NullRouting
+asn=0    	id=4   	Node	scanning on channel=26...[NODE]
+asn=0    	id=5   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=5   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=5   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=5   	TSCH	add cells at channel offset=6 [SCHEDULER NEW]
+asn=0    	id=5   	Node	Add cell in timeslot: 6 channel offset: 6 in slotframe: [object Object]
+asn=0    	id=5   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=5   	Node	update time source called [NODE]
+asn=0    	id=5   	Main	Local repair method called from NullRouting
+asn=0    	id=5   	Node	scanning on channel=26...[NODE]
+asn=0    	id=6   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=6   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=6   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=6   	TSCH	add cells at channel offset=1 [SCHEDULER NEW]
+asn=0    	id=6   	Node	Add cell in timeslot: 1 channel offset: 1 in slotframe: [object Object]
+asn=0    	id=6   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=6   	Node	update time source called [NODE]
+asn=0    	id=6   	Main	Local repair method called from NullRouting
+asn=0    	id=6   	Node	scanning on channel=26...[NODE]
+asn=0    	id=7   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=7   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=7   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=7   	TSCH	add cells at channel offset=2 [SCHEDULER NEW]
+asn=0    	id=7   	Node	Add cell in timeslot: 2 channel offset: 2 in slotframe: [object Object]
+asn=0    	id=7   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=7   	Node	update time source called [NODE]
+asn=0    	id=7   	Main	Local repair method called from NullRouting
+asn=0    	id=7   	Node	scanning on channel=15...[NODE]
+asn=0    	id=8   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=8   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=8   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=8   	TSCH	add cells at channel offset=3 [SCHEDULER NEW]
+asn=0    	id=8   	Node	Add cell in timeslot: 3 channel offset: 3 in slotframe: [object Object]
+asn=0    	id=8   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=8   	Node	update time source called [NODE]
+asn=0    	id=8   	Main	Local repair method called from NullRouting
+asn=0    	id=8   	Node	scanning on channel=20...[NODE]
+asn=0    	id=9   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=9   	Node	Slotframe number 1 added [NODE]
+asn=0    	id=9   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=9   	TSCH	add cells at channel offset=4 [SCHEDULER NEW]
+asn=0    	id=9   	Node	Add cell in timeslot: 4 channel offset: 4 in slotframe: [object Object]
+asn=0    	id=9   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=9   	Node	update time source called [NODE]
+asn=0    	id=9   	Main	Local repair method called from NullRouting
+asn=0    	id=9   	Node	scanning on channel=25...[NODE]
+asn=0    	id=10  	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=10  	Node	Slotframe number 1 added [NODE]
+asn=0    	id=10  	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: [object Object]
+asn=0    	id=10  	TSCH	add cells at channel offset=5 [SCHEDULER NEW]
+asn=0    	id=10  	Node	Add cell in timeslot: 5 channel offset: 5 in slotframe: [object Object]
+asn=0    	id=10  	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=10  	Node	update time source called [NODE]
+asn=0    	id=10  	Main	Local repair method called from NullRouting
+asn=0    	id=10  	Node	scanning on channel=25...[NODE]
+asn=1    	id=1   	Node	This is the node 1
+asn=1    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=1    	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=1    	id=2   	Node	This is the node 2
+asn=1    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=1    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=1    	id=3   	Node	This is the node 3
+asn=1    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=1    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=1    	id=4   	Node	This is the node 4
+asn=1    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=1    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=1    	id=5   	Node	This is the node 5
+asn=1    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=1    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=1    	id=6   	Node	This is the node 6
+asn=1    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=1    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=1    	id=7   	Node	This is the node 7
+asn=1    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=1    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=1    	id=8   	Node	This is the node 8
+asn=1    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=1    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=1    	id=9   	Node	This is the node 9
+asn=1    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=1    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=1    	id=10  	Node	This is the node 10
+asn=1    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=1    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=1    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=2    	id=1   	Node	This is the node 1
+asn=2    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=2    	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=2    	id=2   	Node	This is the node 2
+asn=2    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=2    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=2    	id=3   	Node	This is the node 3
+asn=2    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=2    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=2    	id=4   	Node	This is the node 4
+asn=2    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=2    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=2    	id=5   	Node	This is the node 5
+asn=2    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=2    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=2    	id=6   	Node	This is the node 6
+asn=2    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=2    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=2    	id=7   	Node	This is the node 7
+asn=2    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=2    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=2    	id=8   	Node	This is the node 8
+asn=2    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=2    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=2    	id=9   	Node	This is the node 9
+asn=2    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=2    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=2    	id=10  	Node	This is the node 10
+asn=2    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=2    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=2    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=3    	id=1   	Node	This is the node 1
+asn=3    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=3    	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=3    	id=2   	Node	This is the node 2
+asn=3    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=3    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=3    	id=3   	Node	This is the node 3
+asn=3    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=3    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=3    	id=4   	Node	This is the node 4
+asn=3    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=3    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=3    	id=5   	Node	This is the node 5
+asn=3    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=3    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=3    	id=6   	Node	This is the node 6
+asn=3    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=3    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=3    	id=7   	Node	This is the node 7
+asn=3    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=3    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=3    	id=8   	Node	This is the node 8
+asn=3    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=3    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=3    	id=9   	Node	This is the node 9
+asn=3    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=3    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=3    	id=10  	Node	This is the node 10
+asn=3    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=3    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=3    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=4    	id=1   	Node	This is the node 1
+asn=4    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=4    	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=4    	id=2   	Node	This is the node 2
+asn=4    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=4    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=4    	id=3   	Node	This is the node 3
+asn=4    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=4    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=4    	id=4   	Node	This is the node 4
+asn=4    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=4    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=4    	id=5   	Node	This is the node 5
+asn=4    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=4    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=4    	id=6   	Node	This is the node 6
+asn=4    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=4    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=4    	id=7   	Node	This is the node 7
+asn=4    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=4    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=4    	id=8   	Node	This is the node 8
+asn=4    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=4    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=4    	id=9   	Node	This is the node 9
+asn=4    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=4    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=4    	id=10  	Node	This is the node 10
+asn=4    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=4    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=4    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=5    	id=1   	Node	This is the node 1
+asn=5    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=5    	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=5    	id=2   	Node	This is the node 2
+asn=5    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=5    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=5    	id=3   	Node	This is the node 3
+asn=5    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=5    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=5    	id=4   	Node	This is the node 4
+asn=5    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=5    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=5    	id=5   	Node	This is the node 5
+asn=5    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=5    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=5    	id=6   	Node	This is the node 6
+asn=5    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=5    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=5    	id=7   	Node	This is the node 7
+asn=5    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=5    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=5    	id=8   	Node	This is the node 8
+asn=5    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=5    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=5    	id=9   	Node	This is the node 9
+asn=5    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=5    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=5    	id=10  	Node	This is the node 10
+asn=5    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=5    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=5    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=6    	id=1   	Node	This is the node 1
+asn=6    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=6    	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=6    	id=2   	Node	This is the node 2
+asn=6    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=6    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=6    	id=3   	Node	This is the node 3
+asn=6    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=6    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=6    	id=4   	Node	This is the node 4
+asn=6    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=6    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=6    	id=5   	Node	This is the node 5
+asn=6    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=6    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=6    	id=6   	Node	This is the node 6
+asn=6    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=6    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=6    	id=7   	Node	This is the node 7
+asn=6    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=6    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=6    	id=8   	Node	This is the node 8
+asn=6    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=6    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=6    	id=9   	Node	This is the node 9
+asn=6    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=6    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=6    	id=10  	Node	This is the node 10
+asn=6    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=6    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=6    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=7    	id=1   	Node	This is the node 1
+asn=7    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=2 slotframe =0 channel=undefined
+asn=7    	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=2 slotframe =0 channel=20
+asn=7    	id=2   	Node	This is the node 2
+asn=7    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=7    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=7    	id=3   	Node	This is the node 3
+asn=7    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=7    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=7    	id=4   	Node	This is the node 4
+asn=7    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=7    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=7    	id=5   	Node	This is the node 5
+asn=7    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=7    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=7    	id=6   	Node	This is the node 6
+asn=7    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=7    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=7    	id=7   	Node	This is the node 7
+asn=7    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=7    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=7    	id=8   	Node	This is the node 8
+asn=7    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=7    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=7    	id=9   	Node	This is the node 9
+asn=7    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=7    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=7    	id=10  	Node	This is the node 10
+asn=7    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=7    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=7    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=7    	id=1   	Main	On tx method called from NullRouting
+asn=7    	id=1   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=8    	id=1   	Node	This is the node 1
+asn=8    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=8    	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=8    	id=2   	Node	This is the node 2
+asn=8    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=8    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=8    	id=3   	Node	This is the node 3
+asn=8    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=8    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=8    	id=4   	Node	This is the node 4
+asn=8    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=8    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=8    	id=5   	Node	This is the node 5
+asn=8    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=8    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=8    	id=6   	Node	This is the node 6
+asn=8    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=8    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=8    	id=7   	Node	This is the node 7
+asn=8    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=8    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=8    	id=8   	Node	This is the node 8
+asn=8    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=8    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=8    	id=9   	Node	This is the node 9
+asn=8    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=8    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=8    	id=10  	Node	This is the node 10
+asn=8    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=8    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=8    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=9    	id=1   	Node	This is the node 1
+asn=9    	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=9    	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=9    	id=2   	Node	This is the node 2
+asn=9    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=9    	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=9    	id=3   	Node	This is the node 3
+asn=9    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=9    	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=9    	id=4   	Node	This is the node 4
+asn=9    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=9    	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=9    	id=5   	Node	This is the node 5
+asn=9    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=9    	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=9    	id=6   	Node	This is the node 6
+asn=9    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=9    	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=9    	id=7   	Node	This is the node 7
+asn=9    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=9    	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=9    	id=8   	Node	This is the node 8
+asn=9    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=9    	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=9    	id=9   	Node	This is the node 9
+asn=9    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=9    	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=9    	id=10  	Node	This is the node 10
+asn=9    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=9    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=9    	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=10   	id=1   	Node	This is the node 1
+asn=10   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=10   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=10   	id=2   	Node	This is the node 2
+asn=10   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=10   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=10   	id=3   	Node	This is the node 3
+asn=10   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=10   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=10   	id=4   	Node	This is the node 4
+asn=10   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=10   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=10   	id=5   	Node	This is the node 5
+asn=10   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=10   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=10   	id=6   	Node	This is the node 6
+asn=10   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=10   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=10   	id=7   	Node	This is the node 7
+asn=10   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=10   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=10   	id=8   	Node	This is the node 8
+asn=10   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=10   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=10   	id=9   	Node	This is the node 9
+asn=10   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=10   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=10   	id=10  	Node	This is the node 10
+asn=10   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=10   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=10   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=11   	id=1   	Node	This is the node 1
+asn=11   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=11   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=11   	id=2   	Node	This is the node 2
+asn=11   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=11   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=11   	id=3   	Node	This is the node 3
+asn=11   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=11   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=11   	id=4   	Node	This is the node 4
+asn=11   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=11   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=11   	id=5   	Node	This is the node 5
+asn=11   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=11   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=11   	id=6   	Node	This is the node 6
+asn=11   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=11   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=11   	id=7   	Node	This is the node 7
+asn=11   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=11   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=11   	id=8   	Node	This is the node 8
+asn=11   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=11   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=11   	id=9   	Node	This is the node 9
+asn=11   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=11   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=11   	id=10  	Node	This is the node 10
+asn=11   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=11   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=11   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=12   	id=1   	Node	This is the node 1
+asn=12   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=12   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=12   	id=2   	Node	This is the node 2
+asn=12   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=12   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=12   	id=3   	Node	This is the node 3
+asn=12   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=12   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=12   	id=4   	Node	This is the node 4
+asn=12   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=12   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=12   	id=5   	Node	This is the node 5
+asn=12   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=12   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=12   	id=6   	Node	This is the node 6
+asn=12   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=12   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=12   	id=7   	Node	This is the node 7
+asn=12   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=12   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=12   	id=8   	Node	This is the node 8
+asn=12   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=12   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=12   	id=9   	Node	This is the node 9
+asn=12   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=12   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=12   	id=10  	Node	This is the node 10
+asn=12   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=12   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=12   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=13   	id=1   	Node	This is the node 1
+asn=13   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=13   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=13   	id=2   	Node	This is the node 2
+asn=13   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=13   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=13   	id=3   	Node	This is the node 3
+asn=13   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=13   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=13   	id=4   	Node	This is the node 4
+asn=13   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=13   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=13   	id=5   	Node	This is the node 5
+asn=13   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=13   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=13   	id=6   	Node	This is the node 6
+asn=13   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=13   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=13   	id=7   	Node	This is the node 7
+asn=13   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=13   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=13   	id=8   	Node	This is the node 8
+asn=13   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=13   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=13   	id=9   	Node	This is the node 9
+asn=13   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=13   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=13   	id=10  	Node	This is the node 10
+asn=13   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=13   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=13   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=14   	id=1   	Node	This is the node 1
+asn=14   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=undefined
+asn=14   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=26
+asn=14   	id=2   	Node	This is the node 2
+asn=14   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=14   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=14   	id=3   	Node	This is the node 3
+asn=14   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=14   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=14   	id=4   	Node	This is the node 4
+asn=14   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=14   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=14   	id=5   	Node	This is the node 5
+asn=14   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=14   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=14   	id=6   	Node	This is the node 6
+asn=14   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=14   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=14   	id=7   	Node	This is the node 7
+asn=14   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=14   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=14   	id=8   	Node	This is the node 8
+asn=14   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=14   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=14   	id=9   	Node	This is the node 9
+asn=14   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=14   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=14   	id=10  	Node	This is the node 10
+asn=14   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=14   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=14   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=15   	id=1   	Node	This is the node 1
+asn=15   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=15   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=15   	id=2   	Node	This is the node 2
+asn=15   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=15   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=15   	id=3   	Node	This is the node 3
+asn=15   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=15   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=15   	id=4   	Node	This is the node 4
+asn=15   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=15   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=15   	id=5   	Node	This is the node 5
+asn=15   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=15   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=15   	id=6   	Node	This is the node 6
+asn=15   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=15   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=15   	id=7   	Node	This is the node 7
+asn=15   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=15   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=15   	id=8   	Node	This is the node 8
+asn=15   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=15   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=15   	id=9   	Node	This is the node 9
+asn=15   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=15   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=15   	id=10  	Node	This is the node 10
+asn=15   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=15   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=15   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=16   	id=1   	Node	This is the node 1
+asn=16   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=16   	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=16   	id=2   	Node	This is the node 2
+asn=16   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=16   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=16   	id=3   	Node	This is the node 3
+asn=16   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=16   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=16   	id=4   	Node	This is the node 4
+asn=16   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=16   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=16   	id=5   	Node	This is the node 5
+asn=16   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=16   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=16   	id=6   	Node	This is the node 6
+asn=16   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=16   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=16   	id=7   	Node	This is the node 7
+asn=16   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=16   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=16   	id=8   	Node	This is the node 8
+asn=16   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=16   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=16   	id=9   	Node	This is the node 9
+asn=16   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=16   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=16   	id=10  	Node	This is the node 10
+asn=16   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=16   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=16   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=17   	id=1   	Node	This is the node 1
+asn=17   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=17   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=17   	id=2   	Node	This is the node 2
+asn=17   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=17   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=17   	id=3   	Node	This is the node 3
+asn=17   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=17   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=17   	id=4   	Node	This is the node 4
+asn=17   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=17   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=17   	id=5   	Node	This is the node 5
+asn=17   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=17   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=17   	id=6   	Node	This is the node 6
+asn=17   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=17   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=17   	id=7   	Node	This is the node 7
+asn=17   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=17   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=17   	id=8   	Node	This is the node 8
+asn=17   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=17   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=17   	id=9   	Node	This is the node 9
+asn=17   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=17   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=17   	id=10  	Node	This is the node 10
+asn=17   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=17   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=17   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=18   	id=1   	Node	This is the node 1
+asn=18   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=18   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=18   	id=2   	Node	This is the node 2
+asn=18   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=18   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=18   	id=3   	Node	This is the node 3
+asn=18   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=18   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=18   	id=4   	Node	This is the node 4
+asn=18   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=18   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=18   	id=5   	Node	This is the node 5
+asn=18   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=18   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=18   	id=6   	Node	This is the node 6
+asn=18   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=18   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=18   	id=7   	Node	This is the node 7
+asn=18   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=18   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=18   	id=8   	Node	This is the node 8
+asn=18   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=18   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=18   	id=9   	Node	This is the node 9
+asn=18   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=18   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=18   	id=10  	Node	This is the node 10
+asn=18   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=18   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=18   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=19   	id=1   	Node	This is the node 1
+asn=19   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=19   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=19   	id=2   	Node	This is the node 2
+asn=19   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=19   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=19   	id=3   	Node	This is the node 3
+asn=19   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=19   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=19   	id=4   	Node	This is the node 4
+asn=19   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=19   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=19   	id=5   	Node	This is the node 5
+asn=19   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=19   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=19   	id=6   	Node	This is the node 6
+asn=19   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=19   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=19   	id=7   	Node	This is the node 7
+asn=19   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=19   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=19   	id=8   	Node	This is the node 8
+asn=19   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=19   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=19   	id=9   	Node	This is the node 9
+asn=19   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=19   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=19   	id=10  	Node	This is the node 10
+asn=19   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=19   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=19   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=20   	id=1   	Node	This is the node 1
+asn=20   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=20   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=20   	id=2   	Node	This is the node 2
+asn=20   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=20   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=20   	id=3   	Node	This is the node 3
+asn=20   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=20   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=20   	id=4   	Node	This is the node 4
+asn=20   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=20   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=20   	id=5   	Node	This is the node 5
+asn=20   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=20   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=20   	id=6   	Node	This is the node 6
+asn=20   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=20   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=20   	id=7   	Node	This is the node 7
+asn=20   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=20   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=20   	id=8   	Node	This is the node 8
+asn=20   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=20   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=20   	id=9   	Node	This is the node 9
+asn=20   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=20   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=20   	id=10  	Node	This is the node 10
+asn=20   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=20   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=20   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=21   	id=1   	Node	This is the node 1
+asn=21   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=undefined
+asn=21   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=25
+asn=21   	id=2   	Node	This is the node 2
+asn=21   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=21   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=21   	id=3   	Node	This is the node 3
+asn=21   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=21   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=21   	id=4   	Node	This is the node 4
+asn=21   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=21   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=21   	id=5   	Node	This is the node 5
+asn=21   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=21   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=21   	id=6   	Node	This is the node 6
+asn=21   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=21   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=21   	id=7   	Node	This is the node 7
+asn=21   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=21   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=21   	id=8   	Node	This is the node 8
+asn=21   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=21   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=21   	id=9   	Node	This is the node 9
+asn=21   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=21   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=21   	id=10  	Node	This is the node 10
+asn=21   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=21   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=21   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=22   	id=1   	Node	This is the node 1
+asn=22   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=22   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=22   	id=2   	Node	This is the node 2
+asn=22   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=22   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=22   	id=3   	Node	This is the node 3
+asn=22   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=22   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=22   	id=4   	Node	This is the node 4
+asn=22   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=22   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=22   	id=5   	Node	This is the node 5
+asn=22   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=22   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=22   	id=6   	Node	This is the node 6
+asn=22   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=22   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=22   	id=7   	Node	This is the node 7
+asn=22   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=22   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=22   	id=8   	Node	This is the node 8
+asn=22   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=22   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=22   	id=9   	Node	This is the node 9
+asn=22   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=22   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=22   	id=10  	Node	This is the node 10
+asn=22   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=22   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=22   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=23   	id=1   	Node	This is the node 1
+asn=23   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=23   	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=23   	id=2   	Node	This is the node 2
+asn=23   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=23   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=23   	id=3   	Node	This is the node 3
+asn=23   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=23   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=23   	id=4   	Node	This is the node 4
+asn=23   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=23   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=23   	id=5   	Node	This is the node 5
+asn=23   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=23   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=23   	id=6   	Node	This is the node 6
+asn=23   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=23   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=23   	id=7   	Node	This is the node 7
+asn=23   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=23   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=23   	id=8   	Node	This is the node 8
+asn=23   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=23   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=23   	id=9   	Node	This is the node 9
+asn=23   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=23   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=23   	id=10  	Node	This is the node 10
+asn=23   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=23   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=23   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=24   	id=1   	Node	This is the node 1
+asn=24   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=24   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=24   	id=2   	Node	This is the node 2
+asn=24   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=24   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=24   	id=3   	Node	This is the node 3
+asn=24   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=24   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=24   	id=4   	Node	This is the node 4
+asn=24   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=24   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=24   	id=5   	Node	This is the node 5
+asn=24   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=24   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=24   	id=6   	Node	This is the node 6
+asn=24   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=24   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=24   	id=7   	Node	This is the node 7
+asn=24   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=24   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=24   	id=8   	Node	This is the node 8
+asn=24   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=24   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=24   	id=9   	Node	This is the node 9
+asn=24   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=24   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=24   	id=10  	Node	This is the node 10
+asn=24   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=24   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=24   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=25   	id=1   	Node	This is the node 1
+asn=25   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=25   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=25   	id=2   	Node	This is the node 2
+asn=25   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=25   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=25   	id=3   	Node	This is the node 3
+asn=25   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=25   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=25   	id=4   	Node	This is the node 4
+asn=25   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=25   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=25   	id=5   	Node	This is the node 5
+asn=25   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=25   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=25   	id=6   	Node	This is the node 6
+asn=25   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=25   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=25   	id=7   	Node	This is the node 7
+asn=25   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=25   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=25   	id=8   	Node	This is the node 8
+asn=25   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=25   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=25   	id=9   	Node	This is the node 9
+asn=25   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=25   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=25   	id=10  	Node	This is the node 10
+asn=25   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=25   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=25   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=26   	id=1   	Node	This is the node 1
+asn=26   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=26   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=26   	id=2   	Node	This is the node 2
+asn=26   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=26   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=26   	id=3   	Node	This is the node 3
+asn=26   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=26   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=26   	id=4   	Node	This is the node 4
+asn=26   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=26   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=26   	id=5   	Node	This is the node 5
+asn=26   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=26   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=26   	id=6   	Node	This is the node 6
+asn=26   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=26   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=26   	id=7   	Node	This is the node 7
+asn=26   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=26   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=26   	id=8   	Node	This is the node 8
+asn=26   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=26   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=26   	id=9   	Node	This is the node 9
+asn=26   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=26   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=26   	id=10  	Node	This is the node 10
+asn=26   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=26   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=26   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=27   	id=1   	Node	This is the node 1
+asn=27   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=27   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=27   	id=2   	Node	This is the node 2
+asn=27   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=27   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=27   	id=3   	Node	This is the node 3
+asn=27   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=27   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=27   	id=4   	Node	This is the node 4
+asn=27   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=27   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=27   	id=5   	Node	This is the node 5
+asn=27   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=27   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=27   	id=6   	Node	This is the node 6
+asn=27   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=27   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=27   	id=7   	Node	This is the node 7
+asn=27   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=27   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=27   	id=8   	Node	This is the node 8
+asn=27   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=27   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=27   	id=9   	Node	This is the node 9
+asn=27   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=27   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=27   	id=10  	Node	This is the node 10
+asn=27   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=27   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=27   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=28   	id=1   	Node	This is the node 1
+asn=28   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=undefined
+asn=28   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=15
+asn=28   	id=2   	Node	This is the node 2
+asn=28   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=28   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=28   	id=3   	Node	This is the node 3
+asn=28   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=28   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=28   	id=4   	Node	This is the node 4
+asn=28   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=28   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=28   	id=5   	Node	This is the node 5
+asn=28   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=28   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=28   	id=6   	Node	This is the node 6
+asn=28   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=28   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=28   	id=7   	Node	This is the node 7
+asn=28   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=28   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=28   	id=8   	Node	This is the node 8
+asn=28   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=28   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=28   	id=9   	Node	This is the node 9
+asn=28   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=28   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=28   	id=10  	Node	This is the node 10
+asn=28   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=28   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=28   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=29   	id=1   	Node	This is the node 1
+asn=29   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=29   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=29   	id=2   	Node	This is the node 2
+asn=29   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=29   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=29   	id=3   	Node	This is the node 3
+asn=29   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=29   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=29   	id=4   	Node	This is the node 4
+asn=29   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=29   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=29   	id=5   	Node	This is the node 5
+asn=29   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=29   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=29   	id=6   	Node	This is the node 6
+asn=29   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=29   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=29   	id=7   	Node	This is the node 7
+asn=29   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=29   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=29   	id=8   	Node	This is the node 8
+asn=29   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=29   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=29   	id=9   	Node	This is the node 9
+asn=29   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=29   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=29   	id=10  	Node	This is the node 10
+asn=29   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=29   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=29   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=30   	id=1   	Node	This is the node 1
+asn=30   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=30   	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=30   	id=2   	Node	This is the node 2
+asn=30   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=30   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=30   	id=3   	Node	This is the node 3
+asn=30   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=30   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=30   	id=4   	Node	This is the node 4
+asn=30   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=30   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=30   	id=5   	Node	This is the node 5
+asn=30   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=30   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=30   	id=6   	Node	This is the node 6
+asn=30   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=30   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=30   	id=7   	Node	This is the node 7
+asn=30   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=30   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=30   	id=8   	Node	This is the node 8
+asn=30   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=30   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=30   	id=9   	Node	This is the node 9
+asn=30   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=30   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=30   	id=10  	Node	This is the node 10
+asn=30   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=30   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=30   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=31   	id=1   	Node	This is the node 1
+asn=31   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=31   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=31   	id=2   	Node	This is the node 2
+asn=31   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=31   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=31   	id=3   	Node	This is the node 3
+asn=31   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=31   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=31   	id=4   	Node	This is the node 4
+asn=31   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=31   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=31   	id=5   	Node	This is the node 5
+asn=31   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=31   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=31   	id=6   	Node	This is the node 6
+asn=31   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=31   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=31   	id=7   	Node	This is the node 7
+asn=31   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=31   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=31   	id=8   	Node	This is the node 8
+asn=31   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=31   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=31   	id=9   	Node	This is the node 9
+asn=31   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=31   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=31   	id=10  	Node	This is the node 10
+asn=31   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=31   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=31   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=32   	id=1   	Node	This is the node 1
+asn=32   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=32   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=32   	id=2   	Node	This is the node 2
+asn=32   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=32   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=32   	id=3   	Node	This is the node 3
+asn=32   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=32   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=32   	id=4   	Node	This is the node 4
+asn=32   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=32   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=32   	id=5   	Node	This is the node 5
+asn=32   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=32   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=32   	id=6   	Node	This is the node 6
+asn=32   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=32   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=32   	id=7   	Node	This is the node 7
+asn=32   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=32   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=32   	id=8   	Node	This is the node 8
+asn=32   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=32   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=32   	id=9   	Node	This is the node 9
+asn=32   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=32   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=32   	id=10  	Node	This is the node 10
+asn=32   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=32   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=32   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=33   	id=1   	Node	This is the node 1
+asn=33   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=33   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=33   	id=2   	Node	This is the node 2
+asn=33   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=33   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=33   	id=3   	Node	This is the node 3
+asn=33   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=33   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=33   	id=4   	Node	This is the node 4
+asn=33   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=33   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=33   	id=5   	Node	This is the node 5
+asn=33   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=33   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=33   	id=6   	Node	This is the node 6
+asn=33   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=33   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=33   	id=7   	Node	This is the node 7
+asn=33   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=33   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=33   	id=8   	Node	This is the node 8
+asn=33   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=33   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=33   	id=9   	Node	This is the node 9
+asn=33   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=33   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=33   	id=10  	Node	This is the node 10
+asn=33   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=33   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=33   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=34   	id=1   	Node	This is the node 1
+asn=34   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=34   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=34   	id=2   	Node	This is the node 2
+asn=34   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=34   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=34   	id=3   	Node	This is the node 3
+asn=34   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=34   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=34   	id=4   	Node	This is the node 4
+asn=34   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=34   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=34   	id=5   	Node	This is the node 5
+asn=34   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=34   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=34   	id=6   	Node	This is the node 6
+asn=34   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=34   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=34   	id=7   	Node	This is the node 7
+asn=34   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=34   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=34   	id=8   	Node	This is the node 8
+asn=34   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=34   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=34   	id=9   	Node	This is the node 9
+asn=34   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=34   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=34   	id=10  	Node	This is the node 10
+asn=34   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=34   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=34   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=35   	id=1   	Node	This is the node 1
+asn=35   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=undefined
+asn=35   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=20
+asn=35   	id=2   	Node	This is the node 2
+asn=35   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=35   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=35   	id=3   	Node	This is the node 3
+asn=35   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=35   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=35   	id=4   	Node	This is the node 4
+asn=35   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=35   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=35   	id=5   	Node	This is the node 5
+asn=35   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=35   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=35   	id=6   	Node	This is the node 6
+asn=35   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=35   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=35   	id=7   	Node	This is the node 7
+asn=35   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=35   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=35   	id=8   	Node	This is the node 8
+asn=35   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=35   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=35   	id=9   	Node	This is the node 9
+asn=35   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=35   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=35   	id=10  	Node	This is the node 10
+asn=35   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=35   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=35   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=36   	id=1   	Node	This is the node 1
+asn=36   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=36   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=36   	id=2   	Node	This is the node 2
+asn=36   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=36   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=36   	id=3   	Node	This is the node 3
+asn=36   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=36   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=36   	id=4   	Node	This is the node 4
+asn=36   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=36   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=36   	id=5   	Node	This is the node 5
+asn=36   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=36   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=36   	id=6   	Node	This is the node 6
+asn=36   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=36   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=36   	id=7   	Node	This is the node 7
+asn=36   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=36   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=36   	id=8   	Node	This is the node 8
+asn=36   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=36   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=36   	id=9   	Node	This is the node 9
+asn=36   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=36   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=36   	id=10  	Node	This is the node 10
+asn=36   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=36   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=36   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=37   	id=1   	Node	This is the node 1
+asn=37   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=37   	id=1   	Node	Schedule Status: timeslot=2, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=37   	id=2   	Node	This is the node 2
+asn=37   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=37   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=37   	id=3   	Node	This is the node 3
+asn=37   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=37   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=37   	id=4   	Node	This is the node 4
+asn=37   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=37   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=37   	id=5   	Node	This is the node 5
+asn=37   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=37   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=37   	id=6   	Node	This is the node 6
+asn=37   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=37   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=37   	id=7   	Node	This is the node 7
+asn=37   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=37   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=37   	id=8   	Node	This is the node 8
+asn=37   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=37   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=37   	id=9   	Node	This is the node 9
+asn=37   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=37   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=37   	id=10  	Node	This is the node 10
+asn=37   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=37   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=37   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=38   	id=1   	Node	This is the node 1
+asn=38   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=38   	id=1   	Node	Schedule Status: timeslot=3, Channel offset=2 flags=1 slotframe =0 channel=15
+asn=38   	id=2   	Node	This is the node 2
+asn=38   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=38   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=38   	id=3   	Node	This is the node 3
+asn=38   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=38   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=38   	id=4   	Node	This is the node 4
+asn=38   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=38   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=38   	id=5   	Node	This is the node 5
+asn=38   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=38   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=38   	id=6   	Node	This is the node 6
+asn=38   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=38   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=38   	id=7   	Node	This is the node 7
+asn=38   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=38   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=38   	id=8   	Node	This is the node 8
+asn=38   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=38   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=38   	id=9   	Node	This is the node 9
+asn=38   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=38   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=38   	id=10  	Node	This is the node 10
+asn=38   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=38   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=38   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=39   	id=1   	Node	This is the node 1
+asn=39   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=39   	id=1   	Node	Schedule Status: timeslot=4, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=39   	id=2   	Node	This is the node 2
+asn=39   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=39   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=39   	id=3   	Node	This is the node 3
+asn=39   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=39   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=39   	id=4   	Node	This is the node 4
+asn=39   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=39   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=39   	id=5   	Node	This is the node 5
+asn=39   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=39   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=39   	id=6   	Node	This is the node 6
+asn=39   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=39   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=39   	id=7   	Node	This is the node 7
+asn=39   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=39   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=39   	id=8   	Node	This is the node 8
+asn=39   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=39   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=39   	id=9   	Node	This is the node 9
+asn=39   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=39   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=39   	id=10  	Node	This is the node 10
+asn=39   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=39   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=39   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=40   	id=1   	Node	This is the node 1
+asn=40   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=40   	id=1   	Node	Schedule Status: timeslot=5, Channel offset=2 flags=1 slotframe =0 channel=26
+asn=40   	id=2   	Node	This is the node 2
+asn=40   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=40   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=40   	id=3   	Node	This is the node 3
+asn=40   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=40   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=40   	id=4   	Node	This is the node 4
+asn=40   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=40   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=40   	id=5   	Node	This is the node 5
+asn=40   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=40   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=40   	id=6   	Node	This is the node 6
+asn=40   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=40   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=40   	id=7   	Node	This is the node 7
+asn=40   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=40   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=40   	id=8   	Node	This is the node 8
+asn=40   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=40   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=40   	id=9   	Node	This is the node 9
+asn=40   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=40   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=40   	id=10  	Node	This is the node 10
+asn=40   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=40   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=40   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=41   	id=1   	Node	This is the node 1
+asn=41   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=41   	id=1   	Node	Schedule Status: timeslot=6, Channel offset=2 flags=1 slotframe =0 channel=20
+asn=41   	id=2   	Node	This is the node 2
+asn=41   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=41   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=41   	id=3   	Node	This is the node 3
+asn=41   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=41   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=41   	id=4   	Node	This is the node 4
+asn=41   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=41   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=41   	id=5   	Node	This is the node 5
+asn=41   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=41   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=41   	id=6   	Node	This is the node 6
+asn=41   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=41   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=41   	id=7   	Node	This is the node 7
+asn=41   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=41   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=41   	id=8   	Node	This is the node 8
+asn=41   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=41   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=41   	id=9   	Node	This is the node 9
+asn=41   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=41   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=41   	id=10  	Node	This is the node 10
+asn=41   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=41   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=41   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=42   	id=1   	Node	This is the node 1
+asn=42   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=undefined
+asn=42   	id=1   	Node	Schedule Status: timeslot=0, Channel offset=0 flags=1 slotframe =0 channel=26
+asn=42   	id=2   	Node	This is the node 2
+asn=42   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=42   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=42   	id=3   	Node	This is the node 3
+asn=42   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=42   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=42   	id=4   	Node	This is the node 4
+asn=42   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=42   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=42   	id=5   	Node	This is the node 5
+asn=42   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=42   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=42   	id=6   	Node	This is the node 6
+asn=42   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=42   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=42   	id=7   	Node	This is the node 7
+asn=42   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=42   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=42   	id=8   	Node	This is the node 8
+asn=42   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=42   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=42   	id=9   	Node	This is the node 9
+asn=42   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=42   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=42   	id=10  	Node	This is the node 10
+asn=42   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=42   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=42   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=43   	id=1   	Node	This is the node 1
+asn=43   	id=1   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=undefined
+asn=43   	id=1   	Node	Schedule Status: timeslot=1, Channel offset=2 flags=1 slotframe =0 channel=25
+asn=43   	id=2   	Node	This is the node 2
+asn=43   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=43   	id=2   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=43   	id=3   	Node	This is the node 3
+asn=43   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=43   	id=3   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=43   	id=4   	Node	This is the node 4
+asn=43   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=43   	id=4   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=43   	id=5   	Node	This is the node 5
+asn=43   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=43   	id=5   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=43   	id=6   	Node	This is the node 6
+asn=43   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=43   	id=6   	Node	Schedule Status: timeslot=undefined, Channel offset=2 flags=1 slotframe =undefined channel=26
+asn=43   	id=7   	Node	This is the node 7
+asn=43   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=43   	id=7   	Node	Schedule Status: timeslot=undefined, Channel offset=0 flags=1 slotframe =undefined channel=15
+asn=43   	id=8   	Node	This is the node 8
+asn=43   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=43   	id=8   	Node	Schedule Status: timeslot=undefined, Channel offset=3 flags=1 slotframe =undefined channel=20
+asn=43   	id=9   	Node	This is the node 9
+asn=43   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=43   	id=9   	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=43   	id=10  	Node	This is the node 10
+asn=43   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=undefined flags=undefined slotframe =undefined channel=undefined
+asn=43   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=43   	id=10  	Node	Schedule Status: timeslot=undefined, Channel offset=1 flags=1 slotframe =undefined channel=25
+asn=44   	id=1   	Node	This is the node 1

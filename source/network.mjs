@@ -336,7 +336,6 @@ export class Network {
 
     step() {
         /* log.log(log.DEBUG, null, "TSCH", `ASN=${time.timeline.asn}`); */
-
         if (this.mobility_model) {
             this.mobility_model.update_positions(this);
         }
@@ -346,33 +345,48 @@ export class Network {
         const transmissions = [];
 
         /* schedule transmissions */
+        // Add node to these arrays for each step based on the decision returned from schedule method in node
         const tx_nodes = [];
         const rx_nodes = [];
+
+        // Loop through all nodes in the network
         for (const [_, node] of this.nodes) {
+            //log.log(log.INFO, node, "Node", `This is the node ${node.id}`);
             schedule_status.push({});
 
+            //log.log(log.INFO, node, "Node", `Schedule Status: timeslot=${schedule_status[node.index].ts}, Channel offset=${schedule_status[node.index].co} flags=${schedule_status[node.index].flags} slotframe =${schedule_status[node.index].sf} channel=${schedule_status[node.index].ch}`)
+
+            // While looping through every node, it get decision to perform tx, rx or sleep for that particular node
             const ret = node.schedule(schedule_status);
+
+            //log.log(log.INFO, node, "Node", `Schedule Status: timeslot=${schedule_status[node.index].ts}, Channel offset=${schedule_status[node.index].co} flags=${schedule_status[node.index].flags} slotframe =${schedule_status[node.index].sf} channel=${schedule_status[node.index].ch}`)
+            // The schedule status gets updated when reaching here
+            // If decision to transmit is returned add that to the list of tx_nodes
             if (ret === networknode.SCHEDULE_DECISION_TX) {
                 tx_nodes.push(node);
             }
 
-            // The schedule_status values wont be undefined if some transmissions have occured. Each call to commit _tx from [NODE] sets values for that particular node
             if (schedule_status[node.index].co !== undefined) {
                 /* set the physical channel from the channel offset */
                 schedule_status[node.index].ch = node.get_channel(schedule_status[node.index].co);
             }
+            //log.log(log.INFO, node, "Node", `Schedule Status: timeslot=${schedule_status[node.index].ts}, Channel offset=${schedule_status[node.index].co} flags=${schedule_status[node.index].flags} slotframe =${schedule_status[node.index].sf} channel=${schedule_status[node.index].ch}`)
+
         }
+        
         // commit transmissions from each node that is ready for transmission
         for (const node of tx_nodes) {
             node.commit_tx(rx_nodes, schedule_status, transmissions);
         }
+
         /* commit receptions */
         for (const node of rx_nodes) {
             for (let i = 0; i < config.MAC_MAX_SUBSLOTS; ++i) {
                 node.commit_rx(i, schedule_status);
             }
         }
-        /* commit ACKs */
+
+        /* commit ACKs for all tx_nodes*/
         for (const node of tx_nodes) {
             node.commit_ack(schedule_status);
         }

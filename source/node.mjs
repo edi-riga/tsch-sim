@@ -315,7 +315,6 @@ export class Node {
         scheduler.on_node_becomes_root(this);
     }
 
-
     set_eb_period(period) {
         this.current_eb_period = Math.min(period, this.config.MAC_MAX_EB_PERIOD_S);
         this.check_eb_timer();
@@ -451,10 +450,12 @@ export class Node {
             this.scanning_timer = null;
             return;
         }
+        
         const channel_offset = rng.randint(0, this.join_hopseq.length);
         const period = this.config.MAC_CHANNEL_SCAN_DURATION_SEC;
         if (!this.scanning_rx_cell || this.scanning_rx_cell.channel_offset !== channel_offset) {
             this.log(log.INFO, `scanning on channel=${this.join_hopseq[channel_offset]}...[NODE]`);
+            // Add new cell at the location being scanned
             this.scanning_rx_cell = new sf.Cell(0, channel_offset, this, constants.CELL_OPTION_RX);
         }
         this.scanning_timer = time.add_timer(period, false, this, function(node) { node.scanning_timer_cb(); });
@@ -488,14 +489,14 @@ export class Node {
     add_slotframe(handle, rule_name, size) {
         const slotframe = new sf.Slotframe(this, handle, rule_name, size);
         this.slotframes.push(slotframe);
-        log.log(log.INFO, this, "Node", `Slotframe added [NODE]`);
+        log.log(log.INFO, this, "Node", `Slotframe number ${this.slotframes.length} added [NODE]`);
         return slotframe;
     }
 
     /* Add a new cell to a given slotframe */
     add_cell(slotframe, type, options, neighbor_id, timeslot, channel_offset, keep_old) {
         /* add a new cell to the slotframe */
-
+        log.log(log.INFO, this, "Node", `Add cell in timeslot: ${timeslot} channel offset: ${channel_offset} in slotframe: ${slotframe}`);
         let result = slotframe.add_cell(type, options, neighbor_id, timeslot, channel_offset, keep_old);
         // log.log(log.INFO, this, "Node", `cell added to Slotframe added [NODE]`);
         /* make sure there is a neighbor with a queue for this cell */
@@ -507,9 +508,13 @@ export class Node {
     add_multi_cell(slotframe, type, options, neighbor_id, timeslot_from, timeslot_count, channel_offset) {
         /* simply add a cell for each for of the timeslots in range */
         this.log(log.DEBUG, `add multi cell from=${timeslot_from} count=${timeslot_count} offset=${channel_offset}[NODE]`);
+        let total_count = 0
         for (let ts = timeslot_from; ts < timeslot_from + timeslot_count; ++ts) {
             this.add_cell(slotframe, type, options, neighbor_id, ts, channel_offset);
+            total_count += 1;
         }
+        log.log(log.INFO, this, "Node", `Add multi cell called adding ${total_count}`);
+
     }
 
     /* Get the first cell at a specific timeslot and channel offset */
@@ -1247,37 +1252,55 @@ export class Node {
      * - Tx
      * - Rx
      */
+
+    // This method defines the schedule for transmission and reception packets
     schedule(schedule_status) {
+
         if (this.timeslots_to_skip > 1) {
             this.timeslots_to_skip -= 1;
             return SCHEDULE_DECISION_SLEEP;
         }
 
+        // If node has not joined TSCH
         if (!this.has_joined) {
             this.selected_cell = this.scanning_rx_cell;
             schedule_status[this.index].flags = constants.FLAG_RX;
+            // Channel offset of the cell currently being scanned
             schedule_status[this.index].co = this.selected_cell.channel_offset;
+            // Add the channel number using the tsch hop sequence specified in the IEEE convention
             schedule_status[this.index].ch = this.join_hopseq[this.selected_cell.channel_offset];
             this.stats_slots_rx_scanning += 1;
             return SCHEDULE_DECISION_SCAN;
         }
 
+        // Set Best Cell values to null
         let best_cell = null;
         let backup_cell = null;
         let best_time_to_timeslot = Infinity;
         this.tx_packet = null;
         this.selected_cell = null;
 
+        // Loop through all the slotframes in the node
         for (const s of this.slotframes) {
+            
+            // Calculate current time slot using current time
             const timeslot = time.timeline.asn % s.size;
+            
+            // Loop through all cells inside the slotframe
             for (const cell of s.cells) {
+                
+                // Calculate time to timeslot to be used for tx/rx from the current timeslot and timeslot of the cell
                 const time_to_timeslot =
                       cell.timeslot >= timeslot ?
                       cell.timeslot - timeslot :
                       s.size + cell.timeslot - timeslot;
+
+                // Update best time slot
                 if (time_to_timeslot < best_time_to_timeslot) {
                     best_time_to_timeslot = time_to_timeslot;
                 }
+
+                // If no time left to the required timeslot
                 if (time_to_timeslot === 0) {
                     if (cell.action) {
                         /* This cell requests us to do some action when it is selected; currently,
@@ -1285,7 +1308,8 @@ export class Node {
                          */
                         cell.action(this);
                     }
-
+  
+                    // Set the value of best cell as the currently selected cell if the best cell has not been set
                     if (!best_cell) {
                         best_cell = cell;
                         continue;
@@ -1302,6 +1326,7 @@ export class Node {
 
                     /* maintain backup_cell */
                     /* Check if 'cell' can be used as backup */
+                    // & is bitwise AND
                     if (new_best !== cell && (cell.options & constants.CELL_OPTION_RX)) {
                         if (!backup_cell) {
                             backup_cell = cell;
@@ -1309,6 +1334,7 @@ export class Node {
                             backup_cell = cell;
                         }
                     }
+                    
                     /* Check if 'best_cell' can be used as backup */
                     else if (new_best !== best_cell && (best_cell.options & constants.CELL_OPTION_RX)) {
                         if (!backup_cell) {
@@ -1350,10 +1376,13 @@ export class Node {
             }
         }
 
+        // If the best cell and the backup cell did not end up being viable options, return decision to sleep
         if (!this.selected_cell) {
             return SCHEDULE_DECISION_SLEEP;
         }
 
+        // If the code gets here, means a cell has been selected, be it best cell or back up cell, but a packet to be sent may or may not be determined yet
+        // Set slotframe, timeslot and channel offset of the cell
         schedule_status[this.index].ts = this.selected_cell.timeslot;
         schedule_status[this.index].co = this.selected_cell.channel_offset;
         schedule_status[this.index].sf = this.selected_cell.slotframe.handle;
@@ -1364,6 +1393,7 @@ export class Node {
              * this Tx, Shared cell. */
             this.queue_update_all_backoff_windows(this.selected_cell);
         }
+
 
         if (this.tx_packet) {
             /* Tx and found a packet to send */
@@ -1380,8 +1410,10 @@ export class Node {
             return SCHEDULE_DECISION_TX;
         }
 
+        // If the execution reaches this point, the packet to transmit wasn't found
         if (!(this.selected_cell.options & constants.CELL_OPTION_RX)) {
             /* no packet to send, sleep */
+            // This.index is the index in the network
             schedule_status[this.index].flags = constants.FLAG_SKIPPED_TX; /* assume it was Tx cell */
             schedule_status[this.index].co = this.selected_cell.channel_offset;
             return SCHEDULE_DECISION_SLEEP;
@@ -1417,8 +1449,8 @@ export class Node {
         schedule_status[this.index].l = this.tx_packet.length;
 
         this.log(log.DEBUG, `tx length=${this.tx_packet.length} to=${this.tx_packet.nexthop_id} ack_required=${this.tx_packet.is_ack_required}[NODE]`);
-        /* try to send to each potential neigbhbor; the neighbors will filter out packets by the nexthop */
-        // Loop through all possible neighbor in the links map
+        /* try to send to each potential neighbor; the neighbors will filter out packets by the nexthop specified in the packet*/
+        // Loop through all possible neighbor in the links map and send to all neighbours
         for (const [dst_id, _] of this.links) {
             const dst = this.network.get_node(dst_id);
 
@@ -1496,7 +1528,7 @@ export class Node {
 
         if (this.config.EMULATE_COOJA && this.is_any_packet_rx_in_subslot) {
             /* a hack to better match the behavior in Contiki-NG: if any packet was detected on the air
-             * in a previous subslot, all potential packets in the current subslot are igored. */
+             * in a previous subslot, all potential packets in the current subslot are ignored. */
             if (this.rx_ok_packets[subslot].length !== 0) {
                 this.rx_ok_packets[subslot] = [];
             }
