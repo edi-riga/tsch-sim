@@ -40,11 +40,15 @@ export function on_packet_ready(node, packet)
     } else {
         // Set the destination address as the next hop ID
         const dest_addr = packet.nexthop_addr;
+        const dest_id = packet.nexthop_id;
+        // log.log(log.INFO, node, "Node", `destination address: ${dest_addr.u8} packet nexthop id: ${dest_id} [SCHEDULER_NEW]`);
         // Offset of the channel packet is to be sent on
         remote_offset = 1 + dest_addr.u8[dest_addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
+        // log.log(log.INFO, node, "Node", `Remote offset: ${remote_offset} [SCHEDULER_NEW]`);
+        
     }
 
-    log.log(log.INFO, node, "TSCH", `schedule packet, channel offset=${remote_offset} [SCHEDULER NEW]`);
+    log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} [SCHEDULER NEW]`);
 
     let timeslot;
     if (packet.nexthop_id === constants.ROOT_NODE_ID) {

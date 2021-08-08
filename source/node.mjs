@@ -498,7 +498,7 @@ export class Node {
         /* add a new cell to the slotframe */
         log.log(log.INFO, this, "Node", `Add cell in timeslot: ${timeslot} channel offset: ${channel_offset} in slotframe: ${slotframe}`);
         let result = slotframe.add_cell(type, options, neighbor_id, timeslot, channel_offset, keep_old);
-        // log.log(log.INFO, this, "Node", `cell added to Slotframe added [NODE]`);
+        // log.log(log.INFO, this, "Node", `cell added to Slotframe [NODE]`);
         /* make sure there is a neighbor with a queue for this cell */
         this.ensure_neighbor(neighbor_id);
         return result;
@@ -1700,7 +1700,7 @@ export class Node {
 
         if (do_remove) {
             if (packet.is_ack_required) {
-                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} acked=${status_ok}, remove packet[NODE]`);
+                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} seqnum=${packet.seqnum} packet buffer: timeslot: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT} channel offset: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET} acked=${status_ok}, remove packet[NODE]`);
              }
             /* update the neighbor, as the Tx of this packet is done */
             this.packet_sent(packet, neighbor, status_ok, this.selected_cell);
@@ -1708,7 +1708,7 @@ export class Node {
             neighbor.pop_packet();
         } else {
             if (packet.is_ack_required) {
-                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} acked=${status_ok}[NODE]`);
+                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} seqnum=${packet.seqnum} acked=${status_ok}[NODE]`);
             }
         }
 

@@ -54,6 +54,7 @@ export class PacketSource {
         this.warmup_period = warmup_period != null ? warmup_period : config.APP_WARMUP_PERIOD_SEC; 
         this.is_in_warmup = true;
         this.timer_time = this.warmup_period;
+        this.packets
 
         log.log(log.INFO, null, "App", `new packet source, from=${source.id} for=${this.destination_id} period=${this.period} warmup=${this.warmup_period} [PACKET_SOURCE]`);
 
@@ -72,6 +73,8 @@ export class PacketSource {
 
     generate() {
         let do_generate;
+
+        // Generate packets without caring whether the node has joined routing and tsch
         if (config.APP_PACKETS_GENERATE_ALWAYS) {
             do_generate = true;
         } else {

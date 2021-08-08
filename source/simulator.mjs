@@ -331,6 +331,7 @@ export function construct_simulation(is_from_web)
         /* Generate default some packet sources for a data collection application */
         for (let i = 2; i <= net.nodes.size; ++i) {
             /* packet sources */
+            // log.log(log.INFO, net.get_node(i), "Main", `New Packet Source Node: ${net.get_node(i).id} to Destination: 1 [SIMULATOR]`);
             new ps.PacketSource(net.get_node(i), net.get_node(1));
         }
     }
