@@ -43,6 +43,7 @@ export function on_packet_ready(node, packet)
         const dest_id = packet.nexthop_id;
         // log.log(log.INFO, node, "Node", `destination address: ${dest_addr.u8} packet nexthop id: ${dest_id} [SCHEDULER_NEW]`);
         // Offset of the channel packet is to be sent on
+        
         remote_offset = 1 + dest_addr.u8[dest_addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
         // log.log(log.INFO, node, "Node", `Remote offset: ${remote_offset} [SCHEDULER_NEW]`);
     }
@@ -111,7 +112,8 @@ export function node_init(node)
     /* Add a single slotframe */
     const sf_common = node.add_slotframe(0, "leaf-and-forwarder", node.config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH);
 
-    /* Add a single cell for EB */
+    /* Add a single cell for EB */ 
+    // If the slotframe size is 7, 6 timeslots are used for tranmissions and receptions and one slot is dedicated to EB
     node.add_cell(sf_common,
                   constants.CELL_OPTION_RX | constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
                   constants.CELL_TYPE_ADVERTISING_ONLY,
@@ -120,22 +122,17 @@ export function node_init(node)
 
     const local_offset = 1 + node.addr.u8[node.addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
 
-    log.log(log.INFO, node, "TSCH", `add cells at channel offset=${local_offset} [SCHEDULER NEW]`);
 
-    if (node.config.ROUTING_IS_LEAF) {
-        node.add_cell(sf_common,
-                      constants.CELL_OPTION_RX | constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
-                      constants.CELL_TYPE_NORMAL,
-                      constants.BROADCAST_ID,
-                      local_offset, local_offset);
-    } else {
-        for (let i = 1; i < config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH; ++i) {
+    // Add cells at calculated local offset
+    log.log(log.INFO, node, "TSCH", `add cells at channel offset=${local_offset} called by node ${node.id} [SCHEDULER NEW]`);
+
+    // i is the timeslot value
+    for (let i = 1; i < config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH; ++i) {
             node.add_cell(sf_common,
                           constants.CELL_OPTION_RX | constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
                           constants.CELL_TYPE_NORMAL,
                           constants.BROADCAST_ID,
                           i, local_offset);
-        }
     }
 }
 
