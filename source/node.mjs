@@ -465,7 +465,7 @@ export class Node {
         assert(neighbor_id, "neighbor_id must be set");
         assert(neighbor_id != this.id, "node cannot be a neighbor to itself");
         if (!this.neighbors.has(neighbor_id)) {
-            this.log(log.INFO, `add neighbor id=${neighbor_id}`);
+            this.log(log.INFO, `add neighbor id=${neighbor_id} [NODE]`);
             this.neighbors.set(neighbor_id, new neighbor.Neighbor(this, neighbor_id));
             /* if using a simple routing method, add a route to the neighbor via itself */
             if (this.config.ROUTING_ALGORITHM !== "RPL") {
@@ -1284,6 +1284,7 @@ export class Node {
         for (const s of this.slotframes) {
             
             // Calculate current time slot using current time
+            // log.log(log.INFO, this, "Node", `s.size: ${s.size}`);
             const timeslot = time.timeline.asn % s.size;
             
             // Loop through all cells inside the slotframe
@@ -1700,7 +1701,7 @@ export class Node {
 
         if (do_remove) {
             if (packet.is_ack_required) {
-                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} seqnum=${packet.seqnum} packet buffer: timeslot: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT} channel offset: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET} acked=${status_ok}, remove packet[NODE]`);
+                this.log(log.INFO, `tx done from=${this.id} source=${packet.source.id} to=${packet.nexthop_id} destination=${packet.destination_id} numtx=${packet.num_transmissions} seqnum=${packet.seqnum} packet buffer: timeslot: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT} channel offset: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET} acked=${status_ok}, remove packet[NODE]`);
              }
             /* update the neighbor, as the Tx of this packet is done */
             this.packet_sent(packet, neighbor, status_ok, this.selected_cell);
@@ -1708,7 +1709,7 @@ export class Node {
             neighbor.pop_packet();
         } else {
             if (packet.is_ack_required) {
-                this.log(log.INFO, `tx done to=${packet.nexthop_id} numtx=${packet.num_transmissions} seqnum=${packet.seqnum} acked=${status_ok}[NODE]`);
+                this.log(log.INFO, `tx done from=${this.id} source=${packet.source.id} to=${packet.nexthop_id} destination=${packet.destination_id} numtx=${packet.num_transmissions} seqnum=${packet.seqnum} packet buffer: timeslot: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT} channel offset: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET} acked=${status_ok}[NODE]`);
             }
         }
 

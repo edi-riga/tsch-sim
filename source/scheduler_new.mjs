@@ -45,7 +45,6 @@ export function on_packet_ready(node, packet)
         // Offset of the channel packet is to be sent on
         remote_offset = 1 + dest_addr.u8[dest_addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
         // log.log(log.INFO, node, "Node", `Remote offset: ${remote_offset} [SCHEDULER_NEW]`);
-        
     }
 
     log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} [SCHEDULER NEW]`);
@@ -62,6 +61,8 @@ export function on_packet_ready(node, packet)
         /* To a leaf node */
         timeslot = remote_offset;
     }
+
+    log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} timeslot=${timeslot} [SCHEDULER NEW]`);
 
     packet.packetbuf.PACKETBUF_ATTR_TSCH_SLOTFRAME = 0;
     packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT = timeslot;
@@ -148,7 +149,7 @@ export function initialize()
     // Add the length of the slotframe
     const default_config = {
         /* The length of the leaf-and-forwarder slotframe */
-        TSCH_SCHEDULE_CONF_DEFAULT_LENGTH: 7
+        TSCH_SCHEDULE_CONF_DEFAULT_LENGTH: 10
     };
 
     for (const key in default_config) {

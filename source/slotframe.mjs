@@ -175,6 +175,7 @@ export function select_best_tsch_cell(node, a, b)
         /* fast path */
         return a;
     }
+    
     const num_packets_a = node.neighbors.get(a.neighbor_id).get_queue_size();
     const num_packets_b = node.neighbors.get(b.neighbor_id).get_queue_size();
     return num_packets_a >= num_packets_b ? a : b;

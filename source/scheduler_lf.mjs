@@ -74,7 +74,7 @@ export function on_packet_ready(node, packet)
         remote_offset = 1 + dest_addr.u8[dest_addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
     }
 
-    log.log(log.INFO, node, "TSCH", `schedule packet, channel offset=${remote_offset} [LEAF AND FORWARDER]`);
+    log.log(log.INFO, node, "TSCH", `schedule packet,  [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} [LEAF AND FORWARDER]`);
 
     let timeslot;
     if (packet.nexthop_id === constants.ROOT_NODE_ID) {
