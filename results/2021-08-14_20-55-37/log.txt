@@ -1,0 +1,458 @@
+asn=0    	id=-1  	Main	copying configuration file /home/tegsingh/tsch-sim/examples/hierarchical/config.json to output directory /home/tegsingh/tsch-sim/results/2021-08-14_20-55-37/config.json[MAIN]
+asn=0    	id=-1  	Main	initializing 600 seconds long simulation...[SIMULATOR]
+asn=0    	id=-1  	TSCH	initializing leaf-and-forwarder scheduler [SCHEDULER_NEW]
+asn=0    	id=-1  	Main	creating 1 "root" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	creating 3 "forwarder" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	creating 6 "leaf" nodes...[SIMULATOR]
+asn=0    	id=-1  	Main	generating a star network with 10 nodes
+asn=0    	id=1   	Main	set position x=124.30 y=124.30[SIMULATOR]
+asn=0    	id=2   	Main	set position x=219.51 y=204.19[SIMULATOR]
+asn=0    	id=3   	Main	set position x=145.88 y=246.70[SIMULATOR]
+asn=0    	id=4   	Main	set position x=62.15 y=231.94[SIMULATOR]
+asn=0    	id=5   	Main	set position x=7.50 y=166.81[SIMULATOR]
+asn=0    	id=6   	Main	set position x=7.50 y=81.78[SIMULATOR]
+asn=0    	id=7   	Main	set position x=62.15 y=16.65[SIMULATOR]
+asn=0    	id=8   	Main	set position x=145.88 y=1.89[SIMULATOR]
+asn=0    	id=9   	Main	set position x=219.51 y=44.40[SIMULATOR]
+asn=0    	id=10  	Main	set position x=248.59 y=124.30[SIMULATOR]
+asn=0    	id=-1  	App	new packet source, from=2 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=3 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=4 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=5 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=6 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=7 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=8 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=9 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	App	new packet source, from=10 for=1 period=10 warmup=100 [PACKET_SOURCE]
+asn=0    	id=-1  	Main	warning: no connections defined for node type "root"[SIMULATOR]
+asn=0    	id=-1  	Main	warning: no connections defined for node type "forwarder"[SIMULATOR]
+asn=0    	id=-1  	Main	warning: no connections defined for node type "leaf"[SIMULATOR]
+asn=0    	id=-1  	Main	simulation created[SIMULATOR]
+asn=0    	id=-1  	Main	starting simulation main loop...[SIMULATOR]
+asn=0    	id=1   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=1   	Node	Slotframe number 1 added from node: 1 [NODE]
+asn=0    	id=1   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=1   	TSCH	add cells at channel offset=2 called by node 1 [SCHEDULER NEW]
+asn=0    	id=1   	Node	Add cell in timeslot: 1 channel offset: 2 in slotframe: 1
+asn=0    	id=1   	Node	Add cell in timeslot: 2 channel offset: 2 in slotframe: 1
+asn=0    	id=1   	Node	Add cell in timeslot: 3 channel offset: 2 in slotframe: 1
+asn=0    	id=1   	Node	Add cell in timeslot: 4 channel offset: 2 in slotframe: 1
+asn=0    	id=1   	Node	Add cell in timeslot: 5 channel offset: 2 in slotframe: 1
+asn=0    	id=1   	Node	Add cell in timeslot: 6 channel offset: 2 in slotframe: 1
+asn=0    	id=1   	Node	becomes TSCH coordinator
+asn=0    	id=1   	TSCH	Node has joined TSCH as coordinator [NODE]
+asn=0    	id=1   	Node	Start method called from NullRouting for 1
+asn=0    	id=1   	Node	File Read successfully
+asn=0    	id=1   	Node	File loaded into struct successfully
+asn=0    	id=1   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=0    	id=1   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=1   	Node	update time source called [NODE]
+asn=0    	id=1   	Main	Local repair method called from NullRouting
+asn=0    	id=2   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=2   	Node	Slotframe number 1 added from node: 2 [NODE]
+asn=0    	id=2   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=2   	TSCH	add cells at channel offset=3 called by node 2 [SCHEDULER NEW]
+asn=0    	id=2   	Node	Add cell in timeslot: 1 channel offset: 3 in slotframe: 1
+asn=0    	id=2   	Node	Add cell in timeslot: 2 channel offset: 3 in slotframe: 1
+asn=0    	id=2   	Node	Add cell in timeslot: 3 channel offset: 3 in slotframe: 1
+asn=0    	id=2   	Node	Add cell in timeslot: 4 channel offset: 3 in slotframe: 1
+asn=0    	id=2   	Node	Add cell in timeslot: 5 channel offset: 3 in slotframe: 1
+asn=0    	id=2   	Node	Add cell in timeslot: 6 channel offset: 3 in slotframe: 1
+asn=0    	id=2   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=2   	Node	update time source called [NODE]
+asn=0    	id=2   	Main	Local repair method called from NullRouting
+asn=0    	id=2   	Node	scanning on channel=25...[NODE]
+asn=0    	id=3   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=3   	Node	Slotframe number 1 added from node: 3 [NODE]
+asn=0    	id=3   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=3   	TSCH	add cells at channel offset=4 called by node 3 [SCHEDULER NEW]
+asn=0    	id=3   	Node	Add cell in timeslot: 1 channel offset: 4 in slotframe: 1
+asn=0    	id=3   	Node	Add cell in timeslot: 2 channel offset: 4 in slotframe: 1
+asn=0    	id=3   	Node	Add cell in timeslot: 3 channel offset: 4 in slotframe: 1
+asn=0    	id=3   	Node	Add cell in timeslot: 4 channel offset: 4 in slotframe: 1
+asn=0    	id=3   	Node	Add cell in timeslot: 5 channel offset: 4 in slotframe: 1
+asn=0    	id=3   	Node	Add cell in timeslot: 6 channel offset: 4 in slotframe: 1
+asn=0    	id=3   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=3   	Node	update time source called [NODE]
+asn=0    	id=3   	Main	Local repair method called from NullRouting
+asn=0    	id=3   	Node	scanning on channel=26...[NODE]
+asn=0    	id=4   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=4   	Node	Slotframe number 1 added from node: 4 [NODE]
+asn=0    	id=4   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=4   	TSCH	add cells at channel offset=5 called by node 4 [SCHEDULER NEW]
+asn=0    	id=4   	Node	Add cell in timeslot: 1 channel offset: 5 in slotframe: 1
+asn=0    	id=4   	Node	Add cell in timeslot: 2 channel offset: 5 in slotframe: 1
+asn=0    	id=4   	Node	Add cell in timeslot: 3 channel offset: 5 in slotframe: 1
+asn=0    	id=4   	Node	Add cell in timeslot: 4 channel offset: 5 in slotframe: 1
+asn=0    	id=4   	Node	Add cell in timeslot: 5 channel offset: 5 in slotframe: 1
+asn=0    	id=4   	Node	Add cell in timeslot: 6 channel offset: 5 in slotframe: 1
+asn=0    	id=4   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=4   	Node	update time source called [NODE]
+asn=0    	id=4   	Main	Local repair method called from NullRouting
+asn=0    	id=4   	Node	scanning on channel=26...[NODE]
+asn=0    	id=5   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=5   	Node	Slotframe number 1 added from node: 5 [NODE]
+asn=0    	id=5   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=5   	TSCH	add cells at channel offset=6 called by node 5 [SCHEDULER NEW]
+asn=0    	id=5   	Node	Add cell in timeslot: 6 channel offset: 6 in slotframe: 1
+asn=0    	id=5   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=5   	Node	update time source called [NODE]
+asn=0    	id=5   	Main	Local repair method called from NullRouting
+asn=0    	id=5   	Node	scanning on channel=26...[NODE]
+asn=0    	id=6   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=6   	Node	Slotframe number 1 added from node: 6 [NODE]
+asn=0    	id=6   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=6   	TSCH	add cells at channel offset=1 called by node 6 [SCHEDULER NEW]
+asn=0    	id=6   	Node	Add cell in timeslot: 1 channel offset: 1 in slotframe: 1
+asn=0    	id=6   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=6   	Node	update time source called [NODE]
+asn=0    	id=6   	Main	Local repair method called from NullRouting
+asn=0    	id=6   	Node	scanning on channel=26...[NODE]
+asn=0    	id=7   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=7   	Node	Slotframe number 1 added from node: 7 [NODE]
+asn=0    	id=7   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=7   	TSCH	add cells at channel offset=2 called by node 7 [SCHEDULER NEW]
+asn=0    	id=7   	Node	Add cell in timeslot: 2 channel offset: 2 in slotframe: 1
+asn=0    	id=7   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=7   	Node	update time source called [NODE]
+asn=0    	id=7   	Main	Local repair method called from NullRouting
+asn=0    	id=7   	Node	scanning on channel=15...[NODE]
+asn=0    	id=8   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=8   	Node	Slotframe number 1 added from node: 8 [NODE]
+asn=0    	id=8   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=8   	TSCH	add cells at channel offset=3 called by node 8 [SCHEDULER NEW]
+asn=0    	id=8   	Node	Add cell in timeslot: 3 channel offset: 3 in slotframe: 1
+asn=0    	id=8   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=8   	Node	update time source called [NODE]
+asn=0    	id=8   	Main	Local repair method called from NullRouting
+asn=0    	id=8   	Node	scanning on channel=20...[NODE]
+asn=0    	id=9   	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=9   	Node	Slotframe number 1 added from node: 9 [NODE]
+asn=0    	id=9   	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=9   	TSCH	add cells at channel offset=4 called by node 9 [SCHEDULER NEW]
+asn=0    	id=9   	Node	Add cell in timeslot: 4 channel offset: 4 in slotframe: 1
+asn=0    	id=9   	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=9   	Node	update time source called [NODE]
+asn=0    	id=9   	Main	Local repair method called from NullRouting
+asn=0    	id=9   	Node	scanning on channel=25...[NODE]
+asn=0    	id=10  	TSCH	*** initializing leaf-and-forwarder scheduler, slotframe_size=7 [SCHEDULER NEW]
+asn=0    	id=10  	Node	Slotframe number 1 added from node: 10 [NODE]
+asn=0    	id=10  	Node	Add cell in timeslot: 0 channel offset: 0 in slotframe: 1
+asn=0    	id=10  	TSCH	add cells at channel offset=5 called by node 10 [SCHEDULER NEW]
+asn=0    	id=10  	Node	Add cell in timeslot: 5 channel offset: 5 in slotframe: 1
+asn=0    	id=10  	TSCH	Node has joined TSCH [NODE]
+asn=0    	id=10  	Node	update time source called [NODE]
+asn=0    	id=10  	Main	Local repair method called from NullRouting
+asn=0    	id=10  	Node	scanning on channel=25...[NODE]
+asn=7    	id=1   	Main	On tx method called from NullRouting
+asn=7    	id=1   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=100  	id=6   	Node	scanning on channel=15...[NODE]
+asn=100  	id=7   	Node	scanning on channel=26...[NODE]
+asn=100  	id=8   	Node	scanning on channel=26...[NODE]
+asn=100  	id=9   	Node	scanning on channel=26...[NODE]
+asn=100  	id=10  	Node	scanning on channel=15...[NODE]
+asn=100  	id=2   	Node	scanning on channel=15...[NODE]
+asn=100  	id=3   	Node	scanning on channel=20...[NODE]
+asn=100  	id=5   	Node	scanning on channel=20...[NODE]
+asn=200  	id=4   	Node	scanning on channel=20...[NODE]
+asn=200  	id=5   	Node	scanning on channel=25...[NODE]
+asn=200  	id=8   	Node	scanning on channel=25...[NODE]
+asn=200  	id=7   	Node	scanning on channel=20...[NODE]
+asn=200  	id=3   	Node	scanning on channel=26...[NODE]
+asn=200  	id=2   	Node	scanning on channel=26...[NODE]
+asn=200  	id=10  	Node	scanning on channel=26...[NODE]
+asn=301  	id=2   	Node	scanning on channel=20...[NODE]
+asn=301  	id=8   	Node	scanning on channel=26...[NODE]
+asn=301  	id=4   	Node	scanning on channel=25...[NODE]
+asn=301  	id=7   	Node	scanning on channel=25...[NODE]
+asn=301  	id=3   	Node	scanning on channel=20...[NODE]
+asn=301  	id=6   	Node	scanning on channel=20...[NODE]
+asn=402  	id=3   	Node	scanning on channel=15...[NODE]
+asn=402  	id=6   	Node	scanning on channel=26...[NODE]
+asn=402  	id=10  	Node	scanning on channel=25...[NODE]
+asn=402  	id=7   	Node	scanning on channel=26...[NODE]
+asn=402  	id=5   	Node	scanning on channel=15...[NODE]
+asn=402  	id=4   	Node	scanning on channel=26...[NODE]
+asn=503  	id=9   	Node	scanning on channel=25...[NODE]
+asn=503  	id=4   	Node	scanning on channel=20...[NODE]
+asn=503  	id=6   	Node	scanning on channel=20...[NODE]
+asn=503  	id=3   	Node	scanning on channel=25...[NODE]
+asn=503  	id=5   	Node	scanning on channel=25...[NODE]
+asn=503  	id=10  	Node	scanning on channel=20...[NODE]
+asn=503  	id=7   	Node	scanning on channel=15...[NODE]
+asn=503  	id=2   	Node	scanning on channel=26...[NODE]
+asn=604  	id=7   	Node	scanning on channel=26...[NODE]
+asn=604  	id=2   	Node	scanning on channel=20...[NODE]
+asn=604  	id=8   	Node	scanning on channel=20...[NODE]
+asn=604  	id=4   	Node	scanning on channel=26...[NODE]
+asn=604  	id=10  	Node	scanning on channel=15...[NODE]
+asn=604  	id=6   	Node	scanning on channel=26...[NODE]
+asn=604  	id=5   	Node	scanning on channel=15...[NODE]
+asn=604  	id=3   	Node	scanning on channel=20...[NODE]
+asn=705  	id=5   	Node	scanning on channel=25...[NODE]
+asn=705  	id=8   	Node	scanning on channel=25...[NODE]
+asn=705  	id=2   	Node	scanning on channel=26...[NODE]
+asn=705  	id=7   	Node	scanning on channel=15...[NODE]
+asn=705  	id=6   	Node	scanning on channel=15...[NODE]
+asn=705  	id=4   	Node	scanning on channel=15...[NODE]
+asn=705  	id=9   	Node	scanning on channel=20...[NODE]
+asn=806  	id=10  	Node	scanning on channel=25...[NODE]
+asn=806  	id=8   	Node	scanning on channel=26...[NODE]
+asn=806  	id=3   	Node	scanning on channel=26...[NODE]
+asn=806  	id=4   	Node	scanning on channel=26...[NODE]
+asn=806  	id=2   	Node	scanning on channel=20...[NODE]
+asn=806  	id=6   	Node	scanning on channel=20...[NODE]
+asn=806  	id=7   	Node	scanning on channel=25...[NODE]
+asn=907  	id=7   	Node	scanning on channel=26...[NODE]
+asn=907  	id=9   	Node	scanning on channel=15...[NODE]
+asn=907  	id=2   	Node	scanning on channel=15...[NODE]
+asn=907  	id=3   	Node	scanning on channel=20...[NODE]
+asn=907  	id=4   	Node	scanning on channel=15...[NODE]
+asn=907  	id=5   	Node	scanning on channel=26...[NODE]
+asn=1008 	id=4   	Node	scanning on channel=20...[NODE]
+asn=1008 	id=7   	Node	scanning on channel=25...[NODE]
+asn=1008 	id=3   	Node	scanning on channel=26...[NODE]
+asn=1008 	id=9   	Node	scanning on channel=25...[NODE]
+asn=1109 	id=2   	Node	scanning on channel=20...[NODE]
+asn=1109 	id=8   	Node	scanning on channel=20...[NODE]
+asn=1109 	id=5   	Node	scanning on channel=25...[NODE]
+asn=1109 	id=4   	Node	scanning on channel=25...[NODE]
+asn=1109 	id=9   	Node	scanning on channel=26...[NODE]
+asn=1109 	id=3   	Node	scanning on channel=25...[NODE]
+asn=1109 	id=6   	Node	scanning on channel=15...[NODE]
+asn=1210 	id=3   	Node	scanning on channel=15...[NODE]
+asn=1210 	id=8   	Node	scanning on channel=25...[NODE]
+asn=1210 	id=7   	Node	scanning on channel=20...[NODE]
+asn=1210 	id=5   	Node	scanning on channel=20...[NODE]
+asn=1210 	id=9   	Node	scanning on channel=25...[NODE]
+asn=1210 	id=4   	Node	scanning on channel=26...[NODE]
+asn=1311 	id=9   	Node	scanning on channel=20...[NODE]
+asn=1311 	id=4   	Node	scanning on channel=25...[NODE]
+asn=1311 	id=3   	Node	scanning on channel=26...[NODE]
+asn=1311 	id=10  	Node	scanning on channel=15...[NODE]
+asn=1311 	id=7   	Node	scanning on channel=15...[NODE]
+asn=1311 	id=2   	Node	scanning on channel=26...[NODE]
+asn=1412 	id=7   	Node	scanning on channel=26...[NODE]
+asn=1412 	id=2   	Node	scanning on channel=25...[NODE]
+asn=1412 	id=8   	Node	scanning on channel=15...[NODE]
+asn=1412 	id=10  	Node	scanning on channel=20...[NODE]
+asn=1412 	id=6   	Node	scanning on channel=25...[NODE]
+asn=1412 	id=5   	Node	scanning on channel=25...[NODE]
+asn=1412 	id=3   	Node	scanning on channel=20...[NODE]
+asn=1477 	id=2   	Node	add neighbor id=1 [NODE]
+asn=1477 	id=2   	Node	Add_route called from ensure neighbor
+asn=1477 	id=2   	TSCH	joined/associated at 14.77 on receiving an EB packet from 1[NODE]
+asn=1477 	id=2   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=1477 	id=2   	Node	update time source called [NODE]
+asn=1477 	id=2   	Main	On new time source method called from NullRouting
+asn=1477 	id=2   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=1477 	id=2   	Node	Start method called from NullRouting for 2
+asn=1477 	id=2   	Node	File Read successfully
+asn=1477 	id=2   	Node	File loaded into struct successfully
+asn=1477 	id=2   	Node	Reading routes for Node 2
+asn=1477 	id=2   	Node	Destination = 1, Nexthop = 1
+asn=1477 	id=2   	Node	Route added to destination node id: 1 through next hop node id: 1 in the routing table of node: 2
+asn=1477 	id=2   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=1477 	id=2   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=1477 	id=4   	Node	add neighbor id=1 [NODE]
+asn=1477 	id=4   	Node	Add_route called from ensure neighbor
+asn=1477 	id=4   	TSCH	joined/associated at 14.77 on receiving an EB packet from 1[NODE]
+asn=1477 	id=4   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=1477 	id=4   	Node	update time source called [NODE]
+asn=1477 	id=4   	Main	On new time source method called from NullRouting
+asn=1477 	id=4   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=1477 	id=4   	Node	Start method called from NullRouting for 4
+asn=1477 	id=4   	Node	File Read successfully
+asn=1477 	id=4   	Node	File loaded into struct successfully
+asn=1477 	id=4   	Node	Reading routes for Node 4
+asn=1477 	id=4   	Node	Destination = 1, Nexthop = 1
+asn=1477 	id=4   	Node	Route added to destination node id: 1 through next hop node id: 1 in the routing table of node: 4
+asn=1477 	id=4   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=1477 	id=4   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=1477 	id=1   	Main	On tx method called from NullRouting
+asn=1477 	id=1   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=1513 	id=3   	Node	scanning on channel=15...[NODE]
+asn=1513 	id=7   	Node	scanning on channel=20...[NODE]
+asn=1513 	id=6   	Node	scanning on channel=26...[NODE]
+asn=1513 	id=10  	Node	scanning on channel=26...[NODE]
+asn=1513 	id=9   	Node	scanning on channel=25...[NODE]
+asn=1613 	id=10  	Node	scanning on channel=25...[NODE]
+asn=1613 	id=9   	Node	scanning on channel=20...[NODE]
+asn=1613 	id=6   	Node	scanning on channel=20...[NODE]
+asn=1613 	id=3   	Node	scanning on channel=20...[NODE]
+asn=1613 	id=7   	Node	scanning on channel=15...[NODE]
+asn=1713 	id=7   	Node	scanning on channel=26...[NODE]
+asn=1713 	id=8   	Node	scanning on channel=20...[NODE]
+asn=1713 	id=5   	Node	scanning on channel=26...[NODE]
+asn=1713 	id=9   	Node	scanning on channel=15...[NODE]
+asn=1713 	id=10  	Node	scanning on channel=15...[NODE]
+asn=1713 	id=3   	Node	scanning on channel=15...[NODE]
+asn=1813 	id=3   	Node	scanning on channel=26...[NODE]
+asn=1813 	id=6   	Node	scanning on channel=25...[NODE]
+asn=1813 	id=7   	Node	scanning on channel=25...[NODE]
+asn=1813 	id=5   	Node	scanning on channel=15...[NODE]
+asn=1913 	id=5   	Node	scanning on channel=26...[NODE]
+asn=1913 	id=7   	Node	scanning on channel=15...[NODE]
+asn=1913 	id=6   	Node	scanning on channel=20...[NODE]
+asn=1913 	id=3   	Node	scanning on channel=20...[NODE]
+asn=1913 	id=10  	Node	scanning on channel=20...[NODE]
+asn=2013 	id=8   	Node	scanning on channel=25...[NODE]
+asn=2013 	id=10  	Node	scanning on channel=26...[NODE]
+asn=2013 	id=3   	Node	scanning on channel=15...[NODE]
+asn=2013 	id=9   	Node	scanning on channel=20...[NODE]
+asn=2013 	id=6   	Node	scanning on channel=26...[NODE]
+asn=2013 	id=7   	Node	scanning on channel=25...[NODE]
+asn=2058 	id=1   	Node	add neighbor id=2 [NODE]
+asn=2058 	id=1   	Node	Add_route called from ensure neighbor
+asn=2058 	id=5   	Node	add neighbor id=2 [NODE]
+asn=2058 	id=5   	Node	Add_route called from ensure neighbor
+asn=2058 	id=5   	TSCH	joined/associated at 20.58 on receiving an EB packet from 2[NODE]
+asn=2058 	id=5   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=2058 	id=5   	Node	update time source called [NODE]
+asn=2058 	id=5   	Main	On new time source method called from NullRouting
+asn=2058 	id=5   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2058 	id=5   	Node	Start method called from NullRouting for 5
+asn=2058 	id=5   	Node	File Read successfully
+asn=2058 	id=5   	Node	File loaded into struct successfully
+asn=2058 	id=5   	Node	Reading routes for Node 5
+asn=2058 	id=5   	Node	Destination = 2, Nexthop = 2
+asn=2058 	id=5   	Node	Route added to destination node id: 2 through next hop node id: 2 in the routing table of node: 5
+asn=2058 	id=5   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2058 	id=5   	Node	Reading routes for Node 5
+asn=2058 	id=5   	Node	Destination = 1, Nexthop = 2
+asn=2058 	id=5   	Node	Route added to destination node id: 1 through next hop node id: 2 in the routing table of node: 5
+asn=2058 	id=6   	Node	add neighbor id=2 [NODE]
+asn=2058 	id=6   	Node	Add_route called from ensure neighbor
+asn=2058 	id=6   	TSCH	joined/associated at 20.58 on receiving an EB packet from 2[NODE]
+asn=2058 	id=6   	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=2058 	id=6   	Node	update time source called [NODE]
+asn=2058 	id=6   	Main	On new time source method called from NullRouting
+asn=2058 	id=6   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2058 	id=6   	Node	Start method called from NullRouting for 6
+asn=2058 	id=6   	Node	File Read successfully
+asn=2058 	id=6   	Node	File loaded into struct successfully
+asn=2058 	id=6   	Node	Reading routes for Node 6
+asn=2058 	id=6   	Node	Destination = 2, Nexthop = 2
+asn=2058 	id=6   	Node	Route added to destination node id: 2 through next hop node id: 2 in the routing table of node: 6
+asn=2058 	id=6   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2058 	id=6   	Node	Reading routes for Node 6
+asn=2058 	id=6   	Node	Destination = 1, Nexthop = 2
+asn=2058 	id=6   	Node	Route added to destination node id: 1 through next hop node id: 2 in the routing table of node: 6
+asn=2058 	id=10  	Node	add neighbor id=2 [NODE]
+asn=2058 	id=10  	Node	Add_route called from ensure neighbor
+asn=2058 	id=10  	TSCH	joined/associated at 20.58 on receiving an EB packet from 2[NODE]
+asn=2058 	id=10  	TSCH	Node has joined TSCH in TSCH Associate [NODE]
+asn=2058 	id=10  	Node	update time source called [NODE]
+asn=2058 	id=10  	Main	On new time source method called from NullRouting
+asn=2058 	id=10  	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2058 	id=10  	Node	Start method called from NullRouting for 10
+asn=2058 	id=10  	Node	File Read successfully
+asn=2058 	id=10  	Node	File loaded into struct successfully
+asn=2058 	id=10  	Node	Reading routes for Node 10
+asn=2058 	id=10  	Node	Destination = 4, Nexthop = 4
+asn=2058 	id=10  	Node	Route added to destination node id: 4 through next hop node id: 4 in the routing table of node: 10
+asn=2058 	id=10  	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2058 	id=10  	Node	Reading routes for Node 10
+asn=2058 	id=10  	Node	Destination = 1, Nexthop = 4
+asn=2058 	id=10  	Node	Route added to destination node id: 1 through next hop node id: 4 in the routing table of node: 10
+asn=2058 	id=2   	Main	On tx method called from NullRouting
+asn=2058 	id=2   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2113 	id=7   	Node	scanning on channel=26...[NODE]
+asn=2113 	id=8   	Node	scanning on channel=26...[NODE]
+asn=2113 	id=3   	Node	scanning on channel=20...[NODE]
+asn=2213 	id=7   	Node	scanning on channel=20...[NODE]
+asn=2213 	id=9   	Node	scanning on channel=25...[NODE]
+asn=2213 	id=8   	Node	scanning on channel=25...[NODE]
+asn=2213 	id=3   	Node	scanning on channel=25...[NODE]
+asn=2313 	id=7   	Node	scanning on channel=26...[NODE]
+asn=2313 	id=9   	Node	scanning on channel=26...[NODE]
+asn=2313 	id=8   	Node	scanning on channel=26...[NODE]
+asn=2413 	id=9   	Node	scanning on channel=25...[NODE]
+asn=2413 	id=8   	Node	scanning on channel=25...[NODE]
+asn=2413 	id=3   	Node	scanning on channel=20...[NODE]
+asn=2513 	id=9   	Node	scanning on channel=26...[NODE]
+asn=2513 	id=8   	Node	scanning on channel=15...[NODE]
+asn=2513 	id=3   	Node	scanning on channel=26...[NODE]
+asn=2613 	id=8   	Node	scanning on channel=26...[NODE]
+asn=2613 	id=3   	Node	scanning on channel=20...[NODE]
+asn=2713 	id=9   	Node	scanning on channel=20...[NODE]
+asn=2713 	id=3   	Node	scanning on channel=15...[NODE]
+asn=2765 	id=1   	Node	add neighbor id=4 [NODE]
+asn=2765 	id=1   	Node	Add_route called from ensure neighbor
+asn=2765 	id=5   	Node	add neighbor id=4 [NODE]
+asn=2765 	id=5   	Node	Add_route called from ensure neighbor
+asn=2765 	id=6   	Node	add neighbor id=4 [NODE]
+asn=2765 	id=6   	Node	Add_route called from ensure neighbor
+asn=2765 	id=10  	Node	add neighbor id=4 [NODE]
+asn=2765 	id=10  	Node	Add_route called from ensure neighbor
+asn=2765 	id=4   	Main	On tx method called from NullRouting
+asn=2765 	id=4   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2813 	id=3   	Node	scanning on channel=25...[NODE]
+asn=2813 	id=7   	Node	scanning on channel=15...[NODE]
+asn=2813 	id=9   	Node	scanning on channel=25...[NODE]
+asn=2913 	id=7   	Node	scanning on channel=26...[NODE]
+asn=2913 	id=9   	Node	scanning on channel=15...[NODE]
+asn=2913 	id=8   	Node	scanning on channel=15...[NODE]
+asn=2947 	id=2   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2947 	id=4   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=2947 	id=1   	Main	On tx method called from NullRouting
+asn=2947 	id=1   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=3013 	id=3   	Node	scanning on channel=26...[NODE]
+asn=3013 	id=7   	Node	scanning on channel=15...[NODE]
+asn=3113 	id=8   	Node	scanning on channel=26...[NODE]
+asn=3113 	id=7   	Node	scanning on channel=26...[NODE]
+asn=3113 	id=9   	Node	scanning on channel=20...[NODE]
+asn=3213 	id=8   	Node	scanning on channel=15...[NODE]
+asn=3213 	id=7   	Node	scanning on channel=20...[NODE]
+asn=3213 	id=9   	Node	scanning on channel=26...[NODE]
+asn=3314 	id=8   	Node	scanning on channel=25...[NODE]
+asn=3314 	id=3   	Node	scanning on channel=20...[NODE]
+asn=3314 	id=7   	Node	scanning on channel=25...[NODE]
+asn=3314 	id=9   	Node	scanning on channel=20...[NODE]
+asn=3415 	id=3   	Node	scanning on channel=26...[NODE]
+asn=3415 	id=7   	Node	scanning on channel=20...[NODE]
+asn=3415 	id=9   	Node	scanning on channel=25...[NODE]
+asn=3516 	id=9   	Node	scanning on channel=20...[NODE]
+asn=3516 	id=7   	Node	scanning on channel=26...[NODE]
+asn=3516 	id=8   	Node	scanning on channel=26...[NODE]
+asn=3516 	id=3   	Node	scanning on channel=25...[NODE]
+asn=3549 	id=2   	Main	On tx method called from NullRouting
+asn=3549 	id=2   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=3617 	id=3   	Node	scanning on channel=20...[NODE]
+asn=3617 	id=7   	Node	scanning on channel=20...[NODE]
+asn=3617 	id=8   	Node	scanning on channel=20...[NODE]
+asn=3617 	id=9   	Node	scanning on channel=26...[NODE]
+asn=3718 	id=3   	Node	scanning on channel=25...[NODE]
+asn=3718 	id=7   	Node	scanning on channel=26...[NODE]
+asn=3718 	id=8   	Node	scanning on channel=15...[NODE]
+asn=3718 	id=9   	Node	scanning on channel=20...[NODE]
+asn=3819 	id=3   	Node	scanning on channel=20...[NODE]
+asn=3819 	id=7   	Node	scanning on channel=15...[NODE]
+asn=3920 	id=3   	Node	scanning on channel=25...[NODE]
+asn=3920 	id=7   	Node	scanning on channel=25...[NODE]
+asn=3920 	id=8   	Node	scanning on channel=26...[NODE]
+asn=3920 	id=9   	Node	scanning on channel=25...[NODE]
+asn=4021 	id=3   	Node	scanning on channel=15...[NODE]
+asn=4021 	id=8   	Node	scanning on channel=15...[NODE]
+asn=4039 	id=4   	Main	On tx method called from NullRouting
+asn=4039 	id=4   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=4122 	id=9   	Node	scanning on channel=20...[NODE]
+asn=4122 	id=3   	Node	scanning on channel=25...[NODE]
+asn=4122 	id=7   	Node	scanning on channel=15...[NODE]
+asn=4122 	id=8   	Node	scanning on channel=25...[NODE]
+asn=4223 	id=9   	Node	scanning on channel=15...[NODE]
+asn=4223 	id=3   	Node	scanning on channel=20...[NODE]
+asn=4223 	id=8   	Node	scanning on channel=15...[NODE]
+asn=4324 	id=9   	Node	scanning on channel=20...[NODE]
+asn=4324 	id=3   	Node	scanning on channel=25...[NODE]
+asn=4354 	id=2   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=4354 	id=4   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=4354 	id=1   	Main	On tx method called from NullRouting
+asn=4354 	id=1   	TSCH	On new time source called from New Scheduler [SCHEDULER NEW]
+asn=4425 	id=8   	Node	scanning on channel=25...[NODE]
+asn=4425 	id=7   	Node	scanning on channel=25...[NODE]
+asn=4425 	id=9   	Node	scanning on channel=15...[NODE]
+asn=4425 	id=3   	Node	scanning on channel=26...[NODE]
+asn=4478 	id=2   	Node	send keepalive packet to=1[NODE]
+asn=4478 	id=2   	TSCH	error: Failed to find Schedule file [SCHEDULER NEW]
+asn=4478 	id=2   	TSCH	Schedule File loaded into struct successfully [SCHEDULER NEW]

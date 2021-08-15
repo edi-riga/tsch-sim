@@ -1450,7 +1450,7 @@ export class Node {
         schedule_status[this.index].l = this.tx_packet.length;
 
         this.log(log.DEBUG, `tx length=${this.tx_packet.length} to=${this.tx_packet.nexthop_id} ack_required=${this.tx_packet.is_ack_required}[NODE]`);
-        /* try to send to each potential neighbor; the neighbors will filter out packets by the nexthop specified in the packet*/
+        /* try to send to each potential neighbor; the neighbors will filter out packets by the nexthop specified in the packet */
         // Loop through all possible neighbor in the links map and send to all neighbours
         for (const [dst_id, _] of this.links) {
             const dst = this.network.get_node(dst_id);

@@ -73,37 +73,37 @@ export class NullRouting
             const route_file = "examples/hierarchical/routes.json";
             route_file_data = fs.readFileSync(route_file);    
             if (route_file_data) {
-                log.log(log.INFO, this.node, "Node", `File Read successfully`);                
+                log.log(log.INFO, this.node, "Node", `Route File Read successfully [ROUTING NULL]`);                
             }
         } catch (error) {
-            log.log(log.ERROR, this.node, "Node", `Failed to find file`);
+            log.log(log.ERROR, this.node, "Node", `Failed to find Route file [ROUTING NULL]`);
         }
 
         // Parse the JSON file into a structure
         try {
             const route_struct = JSON.parse(route_file_data);
-            log.log(log.INFO, this.node, "Node", `File loaded into struct successfully`);          
+            log.log(log.INFO, this.node, "Node", `File loaded into struct successfully [ROUTING NULL]`);          
             for (const route of route_struct) {
                 // Check if the node_id is the same as the node whose routing is being performed
                 if (route.NODE_ID == this.node.id) {
-                    log.log(log.INFO, this.node, "Node", `Reading routes for Node ${this.node.id}`);
+                    log.log(log.INFO, this.node, "Node", `Reading routes for Node ${this.node.id} []ROUTING NULL`);
                     // Call the add_route method from the related node
-                    log.log(log.INFO, this.node, "Node", `Destination = ${route.DESTINATION_ID}, Nexthop = ${route.NEXTHOP_ID}`)
+                    log.log(log.INFO, this.node, "Node", `Destination = ${route.DESTINATION_ID}, Nexthop = ${route.NEXTHOP_ID} [ROUTING NULL]`)
                     this.node.add_route(route.DESTINATION_ID, route.NEXTHOP_ID);
                 }
             }
         } catch (error) {
-            log.log(log.ERROR, this.node, "Node", `Failed to parse data`)
+            log.log(log.ERROR, this.node, "Node", `Failed to parse data [ROUTING NULL]`)
         }
     }
 
     on_tx(neighbor, packet, is_ok, is_ack_required) {
-        log.log(log.INFO, this.node, "Main", `On tx method called from NullRouting`);    
+        log.log(log.INFO, this.node, "Main", `On tx method called from NullRouting [ROUTING NULL]`);    
     }
 
     // This method is called once a packet has been generated from the app
     on_prepare_tx_packet(packet) {
-        log.log(log.INFO, this.node, "Main", `On prepare tx packet method called from NullRouting`);      
+        log.log(log.INFO, this.node, "Main", `On prepare tx packet method called from NullRouting [ROUTING NULL]`);      
     }
 
     on_forward(packet) {
@@ -111,12 +111,12 @@ export class NullRouting
     }
 
     on_new_time_source(old_time_source, new_time_source) {
-        log.log(log.INFO, this.node, "Main", `On new time source method called from NullRouting`);    
+        log.log(log.INFO, this.node, "Main", `On new time source method called from NullRouting [ROUTING NULL]`);    
     }
 
     // Local repair called once the Node joins TSCH
     local_repair() {
-        log.log(log.INFO, this.node, "Main", `Local repair method called from NullRouting`);    
+        log.log(log.INFO, this.node, "Main", `Local repair method called from NullRouting [ROUTING NULL]`);    
     }
 
     is_joined() {
@@ -124,11 +124,11 @@ export class NullRouting
     }
 
     on_periodic_timer() {
-        log.log(log.INFO, this.node, "Main", `On periodic timer method called from NullRouting`);           
+        log.log(log.INFO, this.node, "Main", `On periodic timer method called from NullRouting [ROUTING NULL]`);           
     }
 
     stats_get() {
-        log.log(log.INFO, this.node, "Main", `Method to get stats called from NullRouting`);    
+        log.log(log.INFO, this.node, "Main", `Method to get stats called from NullRouting [ROUTING NULL]`);    
         return {
             routing_tx: 0,
             routing_rx: 0,

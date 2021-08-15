@@ -1,8 +1,10 @@
 // This file is for adding a new schedule to be used
+import { uptime } from 'process';
 import config from './config.mjs';
 import constants from './constants.mjs';
 import * as log from './log.mjs';
 import * as time from './time.mjs';
+import fs from 'fs';
 
 /* ------------------------------------------------- */
 
@@ -23,10 +25,39 @@ function set_timings()
     time.timeline.slot_timings = timings_usec.map(x => x / 1000000); /* convert to seconds */
 }
 
+function read_schedule(node) {
+    
+    let schedule_file_data = null;
+
+    try {
+        // Specify the path for the schedule.json file
+        // NOTE: PLEASE CHANGE THIS PATH BASED ON LOCATION OF THE EXAMPLE
+        const schedule_file = "examples/hierarchical/schedule.json";
+        schedule_file_data = fs.readFileSync(schedule_file);    
+        if (schedule_file_data) {
+            log.log(log.INFO, node, "TSCH", `Schedule File Read successfully ${schedule_file_data.length} [SCHEDULER NEW]`);                
+        }
+    } catch (error) {
+        log.log(log.ERROR, node, "TSCH", `Failed to find Schedule file [SCHEDULER NEW]`);
+    }
+
+    // Parse the JSON file into a structure
+    try {
+        const schedule_struct = JSON.parse(schedule_file_data);
+        log.log(log.INFO, node, "TSCH", `Schedule File loaded into struct successfully [SCHEDULER NEW]`);          
+        return schedule_struct;
+    } catch (error) {
+        log.log(log.ERROR, node, "TSCH", `Failed to parse data`)
+    }
+
+}
+
 /* ------------------------------------------------- */
 // Executed when a packet is ready for transmission
 export function on_packet_ready(node, packet)
 {
+    const schedule_struct = read_schedule(node);
+    log.log(log.INFO, node, "TSCH", `Schedule Structure Length: ${schedule_struct.length} [SCHEDULER NEW]`);
     let remote_offset = 0;
     log.log(log.INFO, node, "TSCH", `On packet ready called from new scheduler [SCHEDULER NEW]`);
     // No packet exists for next hop
@@ -51,10 +82,8 @@ export function on_packet_ready(node, packet)
     log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} [SCHEDULER NEW]`);
 
     let timeslot;
-    if (packet.nexthop_id === constants.ROOT_NODE_ID) {
-        /* To a forwarder or gateway */
-        timeslot = 0xffffffff;
-    } else if (node.config.ROUTING_IS_LEAF) {
+    // Use unicast for everything and replace/remove the first if statement block
+    if (node.config.ROUTING_IS_LEAF) {
         const local_offset = 1 + node.addr.u8[node.addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
 
         timeslot = local_offset;
@@ -127,12 +156,20 @@ export function node_init(node)
     log.log(log.INFO, node, "TSCH", `add cells at channel offset=${local_offset} called by node ${node.id} [SCHEDULER NEW]`);
 
     // i is the timeslot value
-    for (let i = 1; i < config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH; ++i) {
+    if (node.config.ROUTING_IS_LEAF) {
+        node.add_cell(sf_common,
+                      constants.CELL_OPTION_RX | constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
+                      constants.CELL_TYPE_NORMAL,
+                      constants.BROADCAST_ID,
+                      local_offset, local_offset);
+    } else {
+        for (let i = 1; i < config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH; ++i) {
             node.add_cell(sf_common,
                           constants.CELL_OPTION_RX | constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
                           constants.CELL_TYPE_NORMAL,
                           constants.BROADCAST_ID,
                           i, local_offset);
+        }
     }
 }
 
@@ -146,7 +183,7 @@ export function initialize()
     // Add the length of the slotframe
     const default_config = {
         /* The length of the leaf-and-forwarder slotframe */
-        TSCH_SCHEDULE_CONF_DEFAULT_LENGTH: 10
+        TSCH_SCHEDULE_CONF_DEFAULT_LENGTH: 7
     };
 
     for (const key in default_config) {
