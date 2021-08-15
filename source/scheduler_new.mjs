@@ -35,7 +35,7 @@ function read_schedule(node) {
         const schedule_file = "examples/hierarchical/schedule.json";
         schedule_file_data = fs.readFileSync(schedule_file);    
         if (schedule_file_data) {
-            log.log(log.INFO, node, "TSCH", `Schedule File Read successfully ${schedule_file_data.length} [SCHEDULER NEW]`);                
+            log.log(log.INFO, node, "TSCH", `Schedule File Read successfully [SCHEDULER NEW]`);                
         }
     } catch (error) {
         log.log(log.ERROR, node, "TSCH", `Failed to find Schedule file [SCHEDULER NEW]`);
@@ -49,7 +49,6 @@ function read_schedule(node) {
     } catch (error) {
         log.log(log.ERROR, node, "TSCH", `Failed to parse data`)
     }
-
 }
 
 /* ------------------------------------------------- */
@@ -58,39 +57,51 @@ export function on_packet_ready(node, packet)
 {
     const schedule_struct = read_schedule(node);
     log.log(log.INFO, node, "TSCH", `Schedule Structure Length: ${schedule_struct.length} [SCHEDULER NEW]`);
+
     let remote_offset = 0;
+    let timeslot = 0;
     log.log(log.INFO, node, "TSCH", `On packet ready called from new scheduler [SCHEDULER NEW]`);
-    // No packet exists for next hop
-    if (packet.nexthop_id <= 0) {
-        /* broadcast transmission attempted? */
-        log.log(log.ERROR, node, "TSCH", `New scheduler is currently not suitable for broadcast [SCHEDULER NEW]`);
-        if (!node.config.ROUTING_IS_LEAF && node.idd !== constants.ROOT_NODE_ID) {
-            /* make the best guess and try to address the packet to the root */
-            remote_offset = 1 + constants.ROOT_NODE_ID % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
+    
+    for (const schedule of schedule_struct) {
+        if (node.id === schedule.SOURCE && packet.nexthop_id === schedule.DESTINATION) {
+            timeslot = schedule.TS;
+            remote_offset = schedule.CO;
+            log.log(log.INFO, node, "TSCH", `Schedule: [src: ${schedule.SOURCE}, dest: ${schedule.DESTINATION}, ts: ${schedule.TS}, co: ${schedule.CO}]`);  
         }
-    } else {
-        // Set the destination address as the next hop ID
-        const dest_addr = packet.nexthop_addr;
-        const dest_id = packet.nexthop_id;
-        // log.log(log.INFO, node, "Node", `destination address: ${dest_addr.u8} packet nexthop id: ${dest_id} [SCHEDULER_NEW]`);
-        // Offset of the channel packet is to be sent on
+    }
+
+
+    // //No packet exists for next hop
+    // if (packet.nexthop_id <= 0) {
+    //     /* broadcast transmission attempted? */
+    //     log.log(log.ERROR, node, "TSCH", `New scheduler is currently not suitable for broadcast [SCHEDULER NEW]`);
+    //     if (!node.config.ROUTING_IS_LEAF && node.idd !== constants.ROOT_NODE_ID) {
+    //         /* make the best guess and try to address the packet to the root */
+    //         remote_offset = 1 + constants.ROOT_NODE_ID % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
+    //     }
+    // } else {
+    //     // Set the destination address as the next hop ID
+    //     const dest_addr = packet.nexthop_addr;
+    //     const dest_id = packet.nexthop_id;
+    //     // log.log(log.INFO, node, "Node", `destination address: ${dest_addr.u8} packet nexthop id: ${dest_id} [SCHEDULER_NEW]`);
+    //     // Offset of the channel packet is to be sent on
         
-        remote_offset = 1 + dest_addr.u8[dest_addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
-        // log.log(log.INFO, node, "Node", `Remote offset: ${remote_offset} [SCHEDULER_NEW]`);
-    }
+    //     remote_offset = 1 + dest_addr.u8[dest_addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
+    //     // log.log(log.INFO, node, "Node", `Remote offset: ${remote_offset} [SCHEDULER_NEW]`);
+    // }
 
-    log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} [SCHEDULER NEW]`);
+    // log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} [SCHEDULER NEW]`);
 
-    let timeslot;
-    // Use unicast for everything and replace/remove the first if statement block
-    if (node.config.ROUTING_IS_LEAF) {
-        const local_offset = 1 + node.addr.u8[node.addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
 
-        timeslot = local_offset;
-    } else {
-        /* To a leaf node */
-        timeslot = remote_offset;
-    }
+    // //Use unicast for everything and replace/remove the first if statement block
+    // if (node.config.ROUTING_IS_LEAF) {
+    //     const local_offset = 1 + node.addr.u8[node.addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
+
+    //     timeslot = local_offset;
+    // } else {
+    //     /* To a leaf node */
+    //     timeslot = remote_offset;
+    // }
 
     log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} timeslot=${timeslot} [SCHEDULER NEW]`);
 
