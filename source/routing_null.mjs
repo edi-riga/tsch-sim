@@ -86,7 +86,7 @@ export class NullRouting
             for (const route of route_struct) {
                 // Check if the node_id is the same as the node whose routing is being performed
                 if (route.NODE_ID == this.node.id) {
-                    log.log(log.INFO, this.node, "Node", `Reading routes for Node ${this.node.id} []ROUTING NULL`);
+                    log.log(log.INFO, this.node, "Node", `Reading routes for Node ${this.node.id} [ROUTING NULL]`);
                     // Call the add_route method from the related node
                     log.log(log.INFO, this.node, "Node", `Destination = ${route.DESTINATION_ID}, Nexthop = ${route.NEXTHOP_ID} [ROUTING NULL]`)
                     this.node.add_route(route.DESTINATION_ID, route.NEXTHOP_ID);

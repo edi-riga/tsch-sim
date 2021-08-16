@@ -47,7 +47,7 @@ function read_schedule(node) {
         log.log(log.INFO, node, "TSCH", `Schedule File loaded into struct successfully [SCHEDULER NEW]`);          
         return schedule_struct;
     } catch (error) {
-        log.log(log.ERROR, node, "TSCH", `Failed to parse data`)
+        log.log(log.ERROR, node, "TSCH", `Failed to parse data [SCHEDULER NEW]`)
     }
 }
 
@@ -64,7 +64,7 @@ export function on_packet_ready(node, packet)
         if (node.id === schedule.SOURCE && packet.nexthop_id === schedule.DESTINATION) {
             timeslot = schedule.TS;
             remote_offset = schedule.CO;
-            log.log(log.INFO, node, "TSCH", `Schedule: [src: ${schedule.SOURCE}, dest: ${schedule.DESTINATION}, ts: ${schedule.TS}, co: ${schedule.CO}]`);  
+            // log.log(log.INFO, node, "TSCH", `Schedule: [src: ${schedule.SOURCE}, dest: ${schedule.DESTINATION}, ts: ${schedule.TS}, co: ${schedule.CO}]`);  
         }
     }
 

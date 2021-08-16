@@ -414,6 +414,7 @@ export class Node {
             /* add an empty packet (only headers, no payload) */
             const packet = new pkt.Packet(this, this.current_time_source.id, this.config.MAC_HEADER_SIZE, true);
             packet.packet_protocol = constants.PROTO_TSCH;
+            // Sent function to be called when the packet is sent successfully
             packet.sent_callback = function(packet, is_success) {
                 packet.source.keepalive_packet_sent(packet, is_success);
             }
@@ -581,7 +582,7 @@ export class Node {
     /* Flush a neighbor queue */
     queue_flush_nbr_queue(neighbor) {
         for (let packet of neighbor.queue) {
-            this.log(log.WARNING, "! flushing packet");
+            this.log(log.WARNING, `! flushing packet source: ${packet.source.id} destination: ${packet.destination_id}`);
             /* Call packet_sent callback */
             this.packet_sent(packet, neighbor, false, null);
         }
