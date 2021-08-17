@@ -32,7 +32,7 @@ function read_schedule(node) {
     try {
         // Specify the path for the schedule.json file
         // NOTE: PLEASE CHANGE THIS PATH BASED ON LOCATION OF THE EXAMPLE
-        const schedule_file = "examples/hierarchical/schedule.json";
+        const schedule_file = "examples/exampleTegveer/schedule.json";
         schedule_file_data = fs.readFileSync(schedule_file);    
         if (schedule_file_data) {
             log.log(log.INFO, node, "TSCH", `Schedule File Read successfully [SCHEDULER NEW]`);                

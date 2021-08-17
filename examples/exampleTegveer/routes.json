@@ -1,0 +1,8 @@
+[
+    {"NODE_ID": 2, "DESTINATION_ID": 1, "NEXTHOP_ID": 1},
+    {"NODE_ID": 3, "DESTINATION_ID": 1, "NEXTHOP_ID": 2},    
+    {"NODE_ID": 3, "DESTINATION_ID": 2, "NEXTHOP_ID": 2},    
+    {"NODE_ID": 4, "DESTINATION_ID": 3, "NEXTHOP_ID": 3},    
+    {"NODE_ID": 4, "DESTINATION_ID": 2, "NEXTHOP_ID": 3},
+    {"NODE_ID": 4, "DESTINATION_ID": 1, "NEXTHOP_ID": 3}
+]
