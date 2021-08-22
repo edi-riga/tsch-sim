@@ -62,39 +62,6 @@ export class NullRouting
 
     start() {
         log.log(log.INFO, this.node, "Node", `Start method called from NullRouting for ${this.node.id}`);
-        
-        // Read the routes.json 
-        let route_file_data = null;
-
-        // Read the routes.json file and store in a variable
-        try {
-            // Specify the path for the routes.json file
-            // NOTE: PLEASE CHANGE THIS PATH BASED ON LOCATION OF THE EXAMPLE
-            const route_file = "examples/exampleTegveer/routes.json";
-            route_file_data = fs.readFileSync(route_file);    
-            if (route_file_data) {
-                log.log(log.INFO, this.node, "Node", `Route File Read successfully [ROUTING NULL]`);                
-            }
-        } catch (error) {
-            log.log(log.ERROR, this.node, "Node", `Failed to find Route file [ROUTING NULL]`);
-        }
-
-        // Parse the JSON file into a structure
-        try {
-            const route_struct = JSON.parse(route_file_data);
-            log.log(log.INFO, this.node, "Node", `File loaded into struct successfully [ROUTING NULL]`);          
-            for (const route of route_struct) {
-                // Check if the node_id is the same as the node whose routing is being performed
-                if (route.NODE_ID == this.node.id) {
-                    log.log(log.INFO, this.node, "Node", `Reading routes for Node ${this.node.id} [ROUTING NULL]`);
-                    // Call the add_route method from the related node
-                    log.log(log.INFO, this.node, "Node", `Destination = ${route.DESTINATION_ID}, Nexthop = ${route.NEXTHOP_ID} [ROUTING NULL]`)
-                    this.node.add_route(route.DESTINATION_ID, route.NEXTHOP_ID);
-                }
-            }
-        } catch (error) {
-            log.log(log.ERROR, this.node, "Node", `Failed to parse data [ROUTING NULL]`)
-        }
     }
 
     on_tx(neighbor, packet, is_ok, is_ack_required) {

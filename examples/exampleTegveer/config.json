@@ -1,6 +1,6 @@
 {
     "SIMULATION_DURATION_SEC": 1200,
-    "ROUTING_ALGORITHM": "NullRouting",
+    "ROUTING_ALGORITHM": "NewRouting",
     "SCHEDULING_ALGORITHM": "NewScheduler", 
     "NODE_TYPES": [
         {

@@ -32,7 +32,7 @@ function read_schedule(node) {
     try {
         // Specify the path for the schedule.json file
         // NOTE: PLEASE CHANGE THIS PATH BASED ON LOCATION OF THE EXAMPLE
-        const schedule_file = "examples/exampleTegveer/schedule.json";
+        const schedule_file = "examples/hierarchical/schedule.json";
         schedule_file_data = fs.readFileSync(schedule_file);    
         if (schedule_file_data) {
             log.log(log.INFO, node, "TSCH", `Schedule File Read successfully [SCHEDULER NEW]`);                
@@ -127,7 +127,6 @@ export function node_init(node)
 
     const local_offset = 1 + node.addr.u8[node.addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
 
-
     // Add cells at calculated local offset
     log.log(log.INFO, node, "TSCH", `add cells at channel offset=${local_offset} called by node ${node.id} [SCHEDULER NEW]`);
 
@@ -141,7 +140,7 @@ export function node_init(node)
     } else {
         for (let i = 1; i < config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH; ++i) {
             node.add_cell(sf_common,
-                          constants.CELL_OPTION_RX | constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
+                          constants.CELL_OPTION_TX | constants.CELL_OPTION_RX | constants.CELL_OPTION_SHARED,
                           constants.CELL_TYPE_NORMAL,
                           constants.BROADCAST_ID,
                           i, local_offset);
@@ -168,6 +167,6 @@ export function initialize()
             config[key] = default_config[key];
         }
     }
-
+    
     set_timings();
 }

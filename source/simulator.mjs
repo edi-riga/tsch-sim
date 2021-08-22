@@ -50,6 +50,8 @@ import * as route from './route.mjs';
 import * as rpl from './routing_rpl.mjs';
 import * as nullrouting from './routing_null.mjs';
 import * as lfrouting from './routing_lf.mjs';
+// Import the new routing algorithm
+import * as routing_new from './routing_new.mjs';
 import * as neighbor from './neighbor.mjs';
 import * as network from './network.mjs';
 import * as networknode from './node.mjs';
@@ -202,6 +204,8 @@ export function construct_simulation(is_from_web)
         routing = lfrouting;
     } else if (config.ROUTING_ALGORITHM === "NullRouting") {
         routing = nullrouting;
+    } else if (config.ROUTING_ALGORITHM === "NewRouting") {
+        routing = routing_new;
     }
 
     /* init routing protocol */

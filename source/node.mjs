@@ -51,6 +51,8 @@ import * as route from './route.mjs';
 import * as rpl from './routing_rpl.mjs';
 import * as nullrouting from './routing_null.mjs';
 import * as lfrouting from './routing_lf.mjs';
+// Import the new routing file
+import * as routing_new from './routing_new.mjs'
 import * as sf from './slotframe.mjs';
 import * as simulator from './simulator.mjs';
 import * as energy_model from './energy_model.mjs';
@@ -153,6 +155,8 @@ export class Node {
             this.routing = new lfrouting.LeafAndForwarderRouting(this);
         } else if (this.config.ROUTING_ALGORITHM === "NullRouting") {
             this.routing = new nullrouting.NullRouting(this);
+        } else if (this.config.ROUTING_ALGORITHM === "NewRouting") {
+            this.routing = new routing_new.NewRouting(this);
         } else {
             this.log(log.ERROR, `failed to find routing algorithm "${this.config.ROUTING_ALGORITHM}", using NullRouting`);
             this.routing = new nullrouting.NullRouting(this);
@@ -608,6 +612,7 @@ export class Node {
         if (is_shared_cell && !this.queue_backoff_expired(neighbor)) {
             return null;
         }
+        // Get the most recent packet in queue
         if (neighbor.has_packets()) {
             return this.filter_packet(neighbor.queue[0], cell);
         }
@@ -960,7 +965,7 @@ export class Node {
                     if (packet.query_status == constants.PACKET_IS_RESPONSE) {
                         log.log(log.INFO, this, "App", `rx app response seqnum=${packet.seqnum} from=${packet.source.id}[NODE]`);
                     } else {
-                        log.log(log.INFO, this, "App", `rx app packet seqnum=${packet.seqnum} from=${effective_source.id}[NODE]`);
+                        log.log(log.INFO, this, "App", `rx app packet seqnum=${packet.seqnum} from=${effective_source.id} at cell [ts: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT}, co: ${packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET}][NODE]`);
                     }
                     /* update the stats of the original source, unless it is query response */
                     effective_source.stats_app_num_endpoint_rx += 1;
@@ -1110,6 +1115,7 @@ export class Node {
 
         /* look at the link layer seqnum and ignore duplicated packets at this point */
         if (!this.ll_seqnum_is_seen_recently(packet.link_layer_seqnum, packet.lasthop_id)) {
+            // Packet received and moves up the layers
             this.rx_packet_network_layer(packet);
         }
 
@@ -1554,6 +1560,7 @@ export class Node {
         /* Only one packet? */
         if (this.rx_ok_packets[subslot].length === 1 && this.rx_failed_packets[subslot].length === 0) {
             const best_packet = this.rx_ok_packets[subslot][0];
+            // Packet received at Link and then moves on to Network layer
             const success = this.rx_packet_link_layer(
                 best_packet, this.selected_cell, schedule_status);
             if (success) {

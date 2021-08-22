@@ -1,5 +1,5 @@
 [
-    {"SOURCE": 2, "DESTINATION": 1, "TS": 3, "CO": 2},
-    {"SOURCE": 3, "DESTINATION": 2, "TS": 4, "CO": 3},
-    {"SOURCE": 4, "DESTINATION": 3, "TS": 5, "CO": 4}
+    {"SOURCE": 2, "DESTINATION": 1, "TS": 2, "CO": 2},
+    {"SOURCE": 3, "DESTINATION": 2, "TS": 3, "CO": 3},
+    {"SOURCE": 4, "DESTINATION": 3, "TS": 4, "CO": 4}
 ]

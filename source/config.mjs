@@ -186,6 +186,7 @@ const default_config = {
     IP_REASSEMBLY_TIMEOUT_SEC: 8,
 
     /* Routing algorithm. Available: "RPL", "LeafAndForwarderRouting", "NullRouting" */
+    /* The new scheduler that we can now specify is "NewRouting" */
     ROUTING_ALGORITHM: "RPL",
     /* Is this node a leaf in the routing tree (does not forward packets)? */
     ROUTING_IS_LEAF: false,

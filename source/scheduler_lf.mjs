@@ -174,7 +174,7 @@ export function initialize()
 
     const default_config = {
         /* The length of the leaf-and-forwarder slotframe */
-        TSCH_SCHEDULE_CONF_DEFAULT_LENGTH: 7
+        TSCH_SCHEDULE_CONF_DEFAULT_LENGTH: 11
     };
 
     for (const key in default_config) {
