@@ -60,7 +60,7 @@ export function on_packet_ready(node, packet)
     if (packet.nexthop_id <= 0) {
         /* broadcast transmission attempted? */
         log.log(log.ERROR, node, "TSCH", `the LeafAndForwarder scheduler is currently not suitable for broadcast`);
-        if (!node.config.ROUTING_IS_LEAF && node.idd !== constants.ROOT_NODE_ID) {
+        if (!node.config.ROUTING_IS_LEAF && node.id !== constants.ROOT_NODE_ID) {
             /* make the best guess and try to address the packet to the root */
             remote_offset = 1 + constants.ROOT_NODE_ID % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
         }
