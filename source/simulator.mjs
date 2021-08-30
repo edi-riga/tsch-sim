@@ -61,17 +61,6 @@ import fs from 'fs';
 import path from 'path';
 import process from 'process';
 
-/* Select which scheduler to use */
-let scheduler = scheduler_6tisch_min;
-if (config.SCHEDULING_ALGORITHM === "Orchestra") {
-    scheduler = scheduler_orchestra;
-} else if (config.SCHEDULING_ALGORITHM === "LeafAndForwarder") {
-    scheduler = scheduler_lf;
-} else if (config.SCHEDULING_ALGORITHM !== "6tischMin") {
-    /* use default, but complain! */
-    log.log(log.ERROR, null, "Main", `failed to find scheduler "${config.SCHEDULING_ALGORITHM}", using 6tisch minimal`);
-}
-
 /* ------------------------------------- */
 
 const PERIODIC_TIMER_SEC = 60;
@@ -183,8 +172,19 @@ export function construct_simulation(is_from_web)
     /* init link model configuration */
     link_model.initialize();
 
+    /* Select which scheduler to use */
+    let scheduler = scheduler_6tisch_min;
+    if (config.SCHEDULING_ALGORITHM === "Orchestra") {
+        scheduler = scheduler_orchestra;
+    } else if (config.SCHEDULING_ALGORITHM === "LeafAndForwarder") {
+        scheduler = scheduler_lf;
+    } else if (config.SCHEDULING_ALGORITHM !== "6tischMin") {
+        /* use default, but complain! */
+        log.log(log.ERROR, null, "Main", `failed to find scheduler "${config.SCHEDULING_ALGORITHM}", using 6tisch minimal`);
+    }
+
     /* create the network */
-    const net = new network.Network();
+    const net = new network.Network(scheduler);
 
     let routing;
     if (config.ROUTING_ALGORITHM === "RPL") {
