@@ -53,14 +53,6 @@ import * as sf from './slotframe.mjs';
 import * as simulator from './simulator.mjs';
 import * as energy_model from './energy_model.mjs';
 
-/* Select which scheduler to use */
-let scheduler = scheduler_6tisch_min;
-if (config.SCHEDULING_ALGORITHM === "Orchestra") {
-    scheduler = scheduler_orchestra;
-} else if (config.SCHEDULING_ALGORITHM === "LeafAndForwarder") {
-    scheduler = scheduler_lf;
-}
-
 /* ------------------------------------- */
 
 export const SCHEDULE_DECISION_SLEEP = 0;
@@ -93,6 +85,7 @@ export class Node {
         this.index = index; /* in the network nodes map */
         this.config = type_config;
         this.network = network;
+        this.scheduler = network.scheduler;
         this.slotframes = [];
         this.links = new Map(); /* keyed by destination */
         this.potential_links = new Map(); /* keyed by destination */
@@ -163,7 +156,7 @@ export class Node {
 
     initialize() {
         /* init the scheduler (e.g. Orchestra) slotframe infrastructure for each node */
-        scheduler.node_init(this);
+        this.scheduler.node_init(this);
 
         if (this.id === constants.ROOT_NODE_ID) {
             this.set_coordinator(true);
@@ -300,7 +293,7 @@ export class Node {
         this.set_eb_period(this.config.MAC_EB_PERIOD_S);
         this.join_priority = 0;
         this.routing.start();
-        scheduler.on_node_becomes_root(this);
+        this.scheduler.on_node_becomes_root(this);
     }
 
     set_eb_period(period) {
@@ -604,7 +597,7 @@ export class Node {
             /* update the routing module */
             this.routing.on_new_time_source(old_time_source, new_time_source);
             /* update the scheduler */
-            scheduler.on_new_time_source(this, old_time_source, new_time_source);
+            this.scheduler.on_new_time_source(this, old_time_source, new_time_source);
         }
     }
 
@@ -641,13 +634,13 @@ export class Node {
             }
             this.routes.remove_route(destination_id);
             if (route.is_direct()) {
-                scheduler.on_child_removed(this, id_to_addr(destination_id));
+                this.scheduler.on_child_removed(this, id_to_addr(destination_id));
             }
         }
 
         route = this.routes.add_route(destination_id, nexthop_id);
         if (route.is_direct()) {
-            scheduler.on_child_added(this, id_to_addr(destination_id));
+            this.scheduler.on_child_added(this, id_to_addr(destination_id));
         }
         return route;
     }
@@ -657,7 +650,7 @@ export class Node {
         if (route) {
             this.routes.remove_route(destination_id);
             if (route.is_direct()) {
-                scheduler.on_child_removed(this, id_to_addr(destination_id));
+                this.scheduler.on_child_removed(this, id_to_addr(destination_id));
             }
         }
     }
@@ -725,7 +718,7 @@ export class Node {
         /* make sure there is a neighbor queue for this packet */
         const neighbor = this.ensure_neighbor(packet.nexthop_id);
 
-        if (!scheduler.on_packet_ready(this, packet)) {
+        if (!this.scheduler.on_packet_ready(this, packet)) {
             /* There is no matching slotframe in which to send the packet  */
             if (packet.packet_protocol === constants.PROTO_APP) {
                 log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: no cell in the schedule`);
@@ -948,7 +941,7 @@ export class Node {
             }
             if (join_priority === 0) {
                 /* from the coordinator */
-                scheduler.add_root(this, packet.lasthop_id);
+                this.scheduler.add_root(this, packet.lasthop_id);
             }
             return;
         }
@@ -965,7 +958,7 @@ export class Node {
 
         if (join_priority === 0) {
             /* from the coordinator */
-            scheduler.add_root(this, packet.lasthop_id);
+            this.scheduler.add_root(this, packet.lasthop_id);
         }
     }
 
@@ -1647,7 +1640,7 @@ export class Node {
             neighbor.on_tx(packet.num_transmissions, status_ok, packet.is_ack_required, cell);
             this.routing.on_tx(neighbor, packet, status_ok, packet.is_ack_required, cell);
         }
-        scheduler.on_tx(this, packet, status_ok);
+        this.scheduler.on_tx(this, packet, status_ok);
         if (packet.sent_callback) {
             packet.sent_callback(packet, status_ok);
         }

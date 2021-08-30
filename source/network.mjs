@@ -43,7 +43,8 @@ import * as time from './time.mjs';
 
 /* A network */
 export class Network {
-    constructor() {
+    constructor(scheduler) {
+        this.scheduler = scheduler;
         this.nodes = new Map();
         this.links = new Map();
         this.mobility_model = null;
