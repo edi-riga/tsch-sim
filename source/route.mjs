@@ -122,6 +122,7 @@ export class RoutingTable {
     }
 
     get_nexthop(destination_id) {
+        log.log(log.INFO, this.node, "Node", `Get Nexthop id for destination: ${destination_id} [ROUTE]`);
         if (destination_id === this.node.id) {
             return destination_id;
         }
@@ -133,9 +134,11 @@ export class RoutingTable {
         if (!route) {
             log.log(log.WARNING, this.node, "Node", `failed to find a nexthop for=${destination_id} [ROUTE]`);
         }
+        if (route) {
+            log.log(log.INFO, this.node, "Node", `Nexthop id: ${route.nexthop_id} found for destination: ${destination_id} [ROUTE]`);
+        }
         return route ? route.nexthop_id : null;
     }
-
 }
 
 /*---------------------------------------------------------------------------*/

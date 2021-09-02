@@ -53,12 +53,14 @@ function read_schedule(node) {
 
 /* ------------------------------------------------- */
 // Executed when a packet is ready for transmission
+// Tranmission schedule 
 export function on_packet_ready(node, packet)
 {
     log.log(log.INFO, node, "TSCH", `On packet ready called from new scheduler [SCHEDULER NEW]`);
     const schedule_struct = read_schedule(node);
     let remote_offset = 0;
     let timeslot = 0;
+    // log.log(log.INFO, node, "TSCH", `Node: ${node.id}  length: ${schedule_struct.length} on packet ready`);
     
     for (const schedule of schedule_struct) {
         if (node.id === schedule.SOURCE && packet.nexthop_id === schedule.DESTINATION) {
@@ -68,7 +70,7 @@ export function on_packet_ready(node, packet)
         }
     }
 
-    log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} timeslot=${timeslot} [SCHEDULER NEW]`);
+    log.log(log.INFO, node, "TSCH", `schedule packet [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} timeslot=${timeslot}[SCHEDULER NEW]`);
 
     packet.packetbuf.PACKETBUF_ATTR_TSCH_SLOTFRAME = 0;
     packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT = timeslot;
@@ -110,8 +112,11 @@ export function on_node_becomes_root(node)
 /*---------------------------------------------------------------------------*/
 
 /* Initialize a specific node: function required by the scheduling module API */
+// Reception schedule
 export function node_init(node)
 {
+    // Read schedule.json file to set up reception schedule
+    const schedule_struct = read_schedule(node);
     log.log(log.INFO, node, "TSCH", `*** initializing leaf-and-forwarder scheduler, slotframe_size=${node.config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH} [SCHEDULER NEW]`);
 
     /* Add a single slotframe */
@@ -128,24 +133,30 @@ export function node_init(node)
     const local_offset = 1 + node.addr.u8[node.addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
 
     // Add cells at calculated local offset
-    log.log(log.INFO, node, "TSCH", `add cells at channel offset=${local_offset} called by node ${node.id} [SCHEDULER NEW]`);
-
-    // i is the timeslot value
-    if (node.config.ROUTING_IS_LEAF) {
-        node.add_cell(sf_common,
-                      constants.CELL_OPTION_RX | constants.CELL_OPTION_TX | constants.CELL_OPTION_SHARED,
-                      constants.CELL_TYPE_NORMAL,
-                      constants.BROADCAST_ID,
-                      local_offset, local_offset);
-    } else {
-        for (let i = 1; i < config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH; ++i) {
+    log.log(log.INFO, node, "TSCH", `about to add cells at channel offset=${local_offset} called by node ${node.id} [SCHEDULER NEW]`);
+    
+    // Add cells for tranmissions and receptions
+    for (const schedule of schedule_struct) {
+        if (schedule.SOURCE === node.id) {
             node.add_cell(sf_common,
-                          constants.CELL_OPTION_TX | constants.CELL_OPTION_RX | constants.CELL_OPTION_SHARED,
-                          constants.CELL_TYPE_NORMAL,
-                          constants.BROADCAST_ID,
-                          i, local_offset);
+                    constants.CELL_OPTION_TX | constants.CELL_OPTION_RX | constants.CELL_OPTION_SHARED,
+                    constants.CELL_TYPE_NORMAL,
+                    constants.BROADCAST_ID,
+                    schedule.TS, schedule.CO);
         }
     }
+
+    for (const schedule of schedule_struct) {
+        if (schedule.DESTINATION === node.id) {
+            // log.log(log.INFO, node, "TSCH", `Adding cells through: ${node.id} length: ${schedule_struct.length} [2]`);
+            node.add_cell(sf_common,
+                    constants.CELL_OPTION_TX | constants.CELL_OPTION_RX | constants.CELL_OPTION_SHARED,
+                    constants.CELL_TYPE_NORMAL,
+                    constants.BROADCAST_ID,
+                    schedule.TS, schedule.CO);
+        }
+    }
+
 }
 
 /* ------------------------------------------------- */

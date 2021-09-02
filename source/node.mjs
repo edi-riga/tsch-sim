@@ -52,7 +52,7 @@ import * as rpl from './routing_rpl.mjs';
 import * as nullrouting from './routing_null.mjs';
 import * as lfrouting from './routing_lf.mjs';
 // Import the new routing file
-import * as routing_new from './routing_new.mjs'
+import * as routing_manual from './routing_manual.mjs'
 import * as sf from './slotframe.mjs';
 import * as simulator from './simulator.mjs';
 import * as energy_model from './energy_model.mjs';
@@ -155,8 +155,8 @@ export class Node {
             this.routing = new lfrouting.LeafAndForwarderRouting(this);
         } else if (this.config.ROUTING_ALGORITHM === "NullRouting") {
             this.routing = new nullrouting.NullRouting(this);
-        } else if (this.config.ROUTING_ALGORITHM === "NewRouting") {
-            this.routing = new routing_new.NewRouting(this);
+        } else if (this.config.ROUTING_ALGORITHM === "ManualRouting") {
+            this.routing = new routing_manual.NewRouting(this);
         } else {
             this.log(log.ERROR, `failed to find routing algorithm "${this.config.ROUTING_ALGORITHM}", using NullRouting`);
             this.routing = new nullrouting.NullRouting(this);
@@ -250,6 +250,7 @@ export class Node {
             }
         }
         this.timeslots_to_skip = 0;
+        // Reset queue and flush packets from each neighbor
         this.queue_reset();
         this.update_time_source(null);
         this.join_priority = this.is_coordinator ? 0 : 0xff;
@@ -586,7 +587,7 @@ export class Node {
     /* Flush a neighbor queue */
     queue_flush_nbr_queue(neighbor) {
         for (let packet of neighbor.queue) {
-            this.log(log.WARNING, `! flushing packet source: ${packet.source.id} destination: ${packet.destination_id}`);
+            this.log(log.WARNING, `! flushing packet source: ${packet.source.id} destination: ${packet.destination_id} seqnum: ${packet.seqnum} [NODE]`);
             /* Call packet_sent callback */
             this.packet_sent(packet, neighbor, false, null);
         }
@@ -721,10 +722,13 @@ export class Node {
 
     /* Add a network-layer packet to the node */
     add_packet(packet) {
+
+        // No nexthop id set for the packet from node
         if (packet.nexthop_id == null) {
             if (packet.packet_protocol === constants.PROTO_APP) {
                 log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id}: no route`);
                 packet.source.stats_app_num_routing_drops += 1;
+                log.log(log.INFO, this, "App", `Number of packet drops: ${packet.source.stats_app_num_routing_drops}`);
             } else {
                 this.log(log.DEBUG, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id}: no route`);
             }
@@ -758,7 +762,6 @@ export class Node {
                 return this.fragment_packet(packet);
             } else {
                 /* fragmentation not enabled, drop the packet */
-
                 if (packet.packet_protocol === constants.PROTO_APP) {
                     log.log(log.INFO, this, "App", `dropping app packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: too big`);
                     packet.source.stats_app_num_other_drops += 1;
@@ -773,6 +776,7 @@ export class Node {
         /* make sure there is a neighbor queue for this packet */
         const neighbor = this.ensure_neighbor(packet.nexthop_id);
 
+        // If on_packet_ready does not return any values
         if (!scheduler.on_packet_ready(this, packet)) {
             /* There is no matching slotframe in which to send the packet  */
             if (packet.packet_protocol === constants.PROTO_APP) {
@@ -872,7 +876,6 @@ export class Node {
         }
 
         /* TODO: check reception time! */
-
         if (this.recent_link_layer_seqnums.length >= NUM_RECENT_LINK_LAYER_SEQNUMS) {
             /* make space for the new seqnum */
             this.recent_link_layer_seqnums.shift();

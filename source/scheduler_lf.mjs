@@ -77,17 +77,19 @@ export function on_packet_ready(node, packet)
     log.log(log.INFO, node, "TSCH", `schedule packet,  [src: ${packet.source.id}, dest: ${packet.nexthop_id}, seqnum: ${packet.seqnum}], channel offset=${remote_offset} [LEAF AND FORWARDER]`);
 
     let timeslot;
-    if (packet.nexthop_id === constants.ROOT_NODE_ID) {
-        /* To a forwarder or gateway */
-        timeslot = 0xffffffff;
-    } else if (node.config.ROUTING_IS_LEAF) {
+    // if (packet.nexthop_id === constants.ROOT_NODE_ID) {
+    //     /* To a forwarder or gateway */
+    //     timeslot = 0xffffffff;
+    // } else 
+    // if (node.config.ROUTING_IS_LEAF) {
         const local_offset = 1 + node.addr.u8[node.addr.u8.length - 1] % (config.TSCH_SCHEDULE_CONF_DEFAULT_LENGTH - 1);
 
         timeslot = local_offset;
-    } else {
-        /* To a leaf node */
-        timeslot = remote_offset;
-    }
+    // }
+    // else {
+    //     /* To a leaf node */
+    //     timeslot = remote_offset;
+    // }
 
     packet.packetbuf.PACKETBUF_ATTR_TSCH_SLOTFRAME = 0;
     packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT = timeslot;
@@ -174,7 +176,7 @@ export function initialize()
 
     const default_config = {
         /* The length of the leaf-and-forwarder slotframe */
-        TSCH_SCHEDULE_CONF_DEFAULT_LENGTH: 11
+        TSCH_SCHEDULE_CONF_DEFAULT_LENGTH: 7
     };
 
     for (const key in default_config) {
