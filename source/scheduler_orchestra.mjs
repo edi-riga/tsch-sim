@@ -774,7 +774,7 @@ export function on_packet_ready(node, packet)
                 packet.packetbuf.PACKETBUF_ATTR_TSCH_TIMESLOT = obj.timeslot;
                 let channel_offset = obj.hasOwnProperty("channel_offset") ? obj.channel_offset : 0xffffffff;
                 packet.packetbuf.PACKETBUF_ATTR_TSCH_CHANNEL_OFFSET = channel_offset;
-                mlog(log.DEBUG, node, `selected slotframe="${obj.slotframe.rule_name}" timeslot=${obj.timeslot === 0xffffffff ? -1 : obj.timeslot} choffset=${channel_offset === 0xffffffff ? -1 : channel_offset}`);
+                mlog(log.DEBUG, node, `selected slotframe="${obj.slotframe.rule_name}" timeslot=${obj.timeslot === 0xffffffff ? -1 : obj.timeslot} channel_offset=${channel_offset === 0xffffffff ? -1 : channel_offset}`);
                 return true;
             }
         }

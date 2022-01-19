@@ -74,7 +74,7 @@ export class Cell {
     }
 
     str() {
-        return `timeslot=${this.timeslot} choffset=${this.channel_offset} slotframe=${this.slotframe.handle} options=${this.optionstring()} neighbor=${this.neighbor_id}`
+        return `timeslot=${this.timeslot} channel_offset=${this.channel_offset} slotframe=${this.slotframe.handle} options=${this.optionstring()} neighbor=${this.neighbor_id}`
     }
 }
 
@@ -109,7 +109,7 @@ export class Slotframe {
         cell.type = type;
         cell.neighbor_id = neighbor_id;
 
-        log.log(log.DEBUG, this.node, "TSCH", `added cell timeslot=${timeslot} choffset=${channel_offset} options=${cell.optionstring()} slotframe=${this.handle}`);
+        log.log(log.DEBUG, this.node, "TSCH", `added cell timeslot=${timeslot} channel_offset=${channel_offset} options=${cell.optionstring()} slotframe=${this.handle}`);
         return cell;
     }
 

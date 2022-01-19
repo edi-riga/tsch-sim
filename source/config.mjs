@@ -164,9 +164,9 @@ const default_config = {
     MAC_MAX_BE: 5,
 
     /* Max time before sending a unicast keep-alive message to the time source. Set to 0 to disable. */
-    MAC_KEEPALIVE_TIMEOUT_S: 60,
+    MAC_KEEPALIVE_TIMEOUT_SEC: 60,
     /* Max time without synchronization before leaving the PAN. Set to 0 to disable. */
-    MAC_DESYNC_THRESHOLD_S: 120,
+    MAC_DESYNC_THRESHOLD_SEC: 120,
     /* Period between two consecutive EBs */
     MAC_EB_PERIOD_S: 16,
     /* Max period between two consecutive EBs */

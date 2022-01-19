@@ -1,7 +1,7 @@
 {
     "SIMULATION_DURATION_SEC": 600,
     "RESULTS_DIR": "./results",
-    "MAC_DESYNC_THRESHOLD_S": 10,
+    "MAC_DESYNC_THRESHOLD_SEC": 10,
     "NODE_TYPES": [
         {
             "NAME": "node",

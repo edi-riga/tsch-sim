@@ -312,18 +312,18 @@ export class Network {
             "e2e-delivery": [
                 {
                     "value": pdr,
-                    "name": "E2E delivery ratio",
+                    "name": "end-to-end delivery ratio",
                     "unit": "%"
                 },
                 {
                     "value": 100 - pdr,
-                    "name": "E2E loss ratio",
+                    "name": "end-to-end loss ratio",
                     "unit": "%"
                 }
             ],
             "e2e-latency": [
                 {
-                    "name": "E2E latency",
+                    "name": "end-to-end latency",
                     "min": this.stats_app_latencies.min(),
                     "max": this.stats_app_latencies.max(),
                     "unit": "s",

@@ -13,5 +13,5 @@
         { "FROM_ID": 1, "TO_ID": 2, "RSSI": -80, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" },
         { "FROM_ID": 2, "TO_ID": 1, "RSSI": -80, "LINK_QUALITY": 1.0, "LINK_MODEL": "Fixed" }
     ],
-    "MAC_KEEPALIVE_TIMEOUT_S" : 1
+    "MAC_KEEPALIVE_TIMEOUT_SEC" : 1
 }

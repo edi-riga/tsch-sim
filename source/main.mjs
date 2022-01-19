@@ -244,18 +244,18 @@ function aggregate_global_stats(stats)
         "e2e-delivery": [
             {
                 "value": pdr / config.SIMULATION_NUM_RUNS,
-                "name": "E2E delivery ratio",
+                "name": "end-to-end delivery ratio",
                 "unit": "%"
             },
             {
                 "value": 100 - pdr / config.SIMULATION_NUM_RUNS,
-                "name": "E2E loss ratio",
+                "name": "end-to-end loss ratio",
                 "unit": "%"
             }
         ],
         "e2e-latency": [
             {
-                "name": "E2E latency",
+                "name": "end-to-end latency",
                 "min": min_latency,
                 "max": max_latency,
                 "mean": latencies / config.SIMULATION_NUM_RUNS,

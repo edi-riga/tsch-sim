@@ -229,7 +229,7 @@ export class Node {
         if (this.config.MAC_START_JOINED) {
             this.has_joined = true;
             if (!this.is_coordinator) {
-                this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S, this.config.MAC_DESYNC_THRESHOLD_S);
+                this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_SEC, this.config.MAC_DESYNC_THRESHOLD_SEC);
             }
         } else {
             this.has_joined = this.is_coordinator;
@@ -412,8 +412,8 @@ export class Node {
         }
 
         /* schedule the new one immediately, without waiting for sending to complete */
-        if (this.config.MAC_KEEPALIVE_TIMEOUT_S) {
-            this.keepalive_timer = time.add_timer(this.config.MAC_KEEPALIVE_TIMEOUT_S, false, this, function(node) {
+        if (this.config.MAC_KEEPALIVE_TIMEOUT_SEC) {
+            this.keepalive_timer = time.add_timer(this.config.MAC_KEEPALIVE_TIMEOUT_SEC, false, this, function(node) {
                 node.keepalive_timer_cb();
             });
         }
@@ -431,7 +431,7 @@ export class Node {
 
     leave_network() {
         this.leave_timer = null;
-        this.log(log.WARNING, `leaving network, did not resynchronize with the time source for seconds=${this.config.MAC_DESYNC_THRESHOLD_S}`);
+        this.log(log.WARNING, `leaving network, did not resynchronize with the time source for seconds=${this.config.MAC_DESYNC_THRESHOLD_SEC}`);
         this.reset_node(false);
     }
 
@@ -1016,7 +1016,7 @@ export class Node {
         this.update_time_source(source);
 
         /* schedule the first keepalive at half the usual time to make drift learning faster */
-        this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S / 2, this.config.MAC_DESYNC_THRESHOLD_S);
+        this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_SEC / 2, this.config.MAC_DESYNC_THRESHOLD_SEC);
 
         time.remove_timer(this.scanning_timer);
         this.scanning_timer = null;
@@ -1085,7 +1085,7 @@ export class Node {
             if (neighbor.is_time_source) {
                 /* Got packet from time source, reset keepalive timer */
                 this.log(log.DEBUG, `time resynchronized: got a packet from the time source`);
-                this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S, this.config.MAC_DESYNC_THRESHOLD_S);
+                this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_SEC, this.config.MAC_DESYNC_THRESHOLD_SEC);
             }
         }
         this.scheduler.on_rx(this, packet);
@@ -1731,7 +1731,7 @@ export class Node {
                 if (neighbor.is_time_source) {
                     /* Got ACK from time source, reset keepalive timer */
                     this.log(log.DEBUG, `time resynchronized: got an ACK from the time source`);
-                    this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S, this.config.MAC_DESYNC_THRESHOLD_S);
+                    this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_SEC, this.config.MAC_DESYNC_THRESHOLD_SEC);
                 }
             }
         } else {
