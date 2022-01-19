@@ -45,6 +45,9 @@
 import fs from 'fs';
 import process from 'process';
 
+/* better JSON parser for descriptive error messages */
+import jsonlint from './jsonlint.js';
+
 /* -------------------------------------------------------------------- */
 /* Load the config file upon loading this module */
 /* -------------------------------------------------------------------- */
@@ -58,7 +61,7 @@ function load_config(filename)
     /* read the config file */
     try {
         console.log(`Loading configuration file "${filename}"...`);
-        config_file_data = fs.readFileSync(filename);
+        config_file_data = fs.readFileSync(filename, {encoding: 'utf-8'});
     } catch(x) {
         /* file not found? just use the default values */
         console.log(`Failed to read the configuration file, using the default config:\n  ${x}`);
@@ -71,7 +74,8 @@ function load_config(filename)
         console.log(`Configuration file loaded`);
     } catch(x) {
         /* file found, but parsing it failed - quit */
-        console.log(`Failed to parse the configuration file, quitting:\n  ${x}`);
+        console.log(`Failed to parse configuration file "${filename}", quitting!`);
+        jsonlint.parse(config_file_data);
         process.exit(-1);
     }
 }
