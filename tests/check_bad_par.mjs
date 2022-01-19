@@ -8,6 +8,8 @@ import process from 'process';
 const RUN_ID = "0";
 const ROOT_ID = "1";
 
+const MAX_PAR = 60;
+
 if (process.argv.length < 3) {
     console.log("results file not supplied");
     process.exit(1);
@@ -29,7 +31,7 @@ for (let key in run_state) {
     }
 
     let par = 100.0 * acked / tx;
-    if (par >= 50) {
+    if (par >= MAX_PAR) {
         console.log(`Too many packets acked PAR=${par}`);
         console.log("  state:\n" + JSON.stringify(run_state[key]));
         process.exit(1);
