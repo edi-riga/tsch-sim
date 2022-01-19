@@ -67,6 +67,8 @@ def extract_metric(experiments, arguments):
     for exp in experiments:
         exp_results = []
         for run in exp.results:
+            if run == "aggregate-stats":
+                continue
             run_results = exp.results[run]
             total = 0
             num_nodes = 0
@@ -94,6 +96,8 @@ def extract_metrics(experiments, arguments):
         exp_results1 = []
         exp_results2 = []
         for run in exp.results:
+            if run == "aggregate-stats":
+                continue
             run_results = exp.results[run]
             total1 = 0
             total2 = 0
@@ -191,8 +195,8 @@ def main():
     plot(experiments, extract_metric, ["tsch_join_time_sec", 3600], "TSCH joining time, seconds")
     plot(experiments, extract_metric, ["avg_current_joined_uA", 0], "Average current consumption, uA")
     plot(experiments, extract_metric, ["radio_duty_cycle_joined", 0], "Radio duty cycle, %")
-    plot(experiments, extract_metrics, ["app_num_lost", "app_num_endpoint_rx", lambda x, y: 100.0 * (1.0 - x / (x + y))], "Application PDR, %")
-    plot(experiments, extract_metrics, ["mac_parent_acked", "mac_parent_tx_unicast", lambda x, y: 100.0 * x / y], "Link layer PAR, %")
+    plot(experiments, extract_metrics, ["app_num_lost", "app_num_endpoint_rx", lambda x, y: 100.0 * (1.0 - x / (x + y)) if x + y else 0], "Application PDR, %")
+    plot(experiments, extract_metrics, ["mac_parent_acked", "mac_parent_tx_unicast", lambda x, y: 100.0 * x / y if y else 0], "Link layer PAR, %")
 
 if __name__ == "__main__":
     main()
