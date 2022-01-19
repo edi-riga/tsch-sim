@@ -58,6 +58,9 @@ const constants = {
     /* 1 channel, sequence length 1 */
     TSCH_HOPPING_SEQUENCE_1_1:   [ 20 ],
 
+    /* 64 channels, sequence length 64 */
+    TSCH_HOPPING_SEQUENCE_64_64:  [63, 5, 37, 7, 25, 21, 62, 26, 33, 39, 42, 22, 29, 55, 14, 58, 20, 13, 40, 45, 43, 32, 61, 23, 46, 10, 52, 51, 38, 4, 19, 50, 35, 56, 1, 18, 6, 41, 48, 0, 9, 44, 30, 34, 60, 27, 15, 47, 59, 12, 54, 16, 53, 57, 3, 2, 36, 11, 31, 28, 17, 8, 49, 24],
+
     /* From TCP/IP standards */
     PROTO_ICMP:  1,
     PROTO_TCP:   6,

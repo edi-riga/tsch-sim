@@ -69,6 +69,10 @@ export class RoutingTable {
         this.default_route = null;
     }
 
+    size() {
+        return this.routes.size;
+    }
+
     get_route(destination_id) {
         return this.routes.get(destination_id);
     }

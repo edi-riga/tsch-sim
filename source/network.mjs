@@ -185,6 +185,8 @@ export class Network {
         let charge_uc = 0;
         let charge_joined_uc = 0;
 
+        let collision_stats = null;
+
         for (let [id, node] of this.nodes) {
             const node_stats = node.aggregate_stats();
 
@@ -246,9 +248,10 @@ export class Network {
             }
             this.stats_routing_num_parent_changes = node_stats.routing_num_parent_changes;
 
+            collision_stats = node.collision_analyzer.aggregate(collision_stats);
+
             charge_uc += parseFloat(node_stats.charge_uc);
             charge_joined_uc += parseFloat(node_stats.charge_joined_uc);
-
         }
 
         const total_app_packets = this.stats_app_num_endpoint_rx + this.stats_app_num_lost;
@@ -278,6 +281,18 @@ export class Network {
                 {
                     "total": this.stats_app_num_replied,
                     "name": "Number of application query requests replied"
+                }
+            ],
+            "mac-parent-tx": [
+                {
+                    "total": this.stats_mac_parent_tx_unicast,
+                    "name": "Number of packets sent to MAC layer parents"
+                }
+            ],
+            "mac-parent-acked": [
+                {
+                    "total": this.stats_mac_parent_acked,
+                    "name": "Number of packets ACKed by MAC layer parents"
                 }
             ],
             "current-consumed": [
@@ -314,7 +329,8 @@ export class Network {
                     "unit": "s",
                     "mean": this.stats_app_latencies.avg()
                 }
-            ]
+            ],
+            "collision-stats" : collision_stats,
         };
 
         log.log(log.INFO, null, "Main", `packet stats: PDR=${pdr.toFixed(2)}% generated=${this.stats_app_num_tx} received=${this.stats_app_num_endpoint_rx} lost=${this.stats_app_num_lost} (tx_limit/queue/routing/scheduling/other=${this.stats_app_num_tx_limit_drops}/${this.stats_app_num_queue_drops}/${this.stats_app_num_routing_drops}/${this.stats_app_num_scheduling_drops}/${this.stats_app_num_other_drops})`);
