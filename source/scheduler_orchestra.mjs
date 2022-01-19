@@ -176,8 +176,8 @@ const orchestra_rule_eb_per_time_source = {
 */
 function unicast_get_node_timeslot(addr)
 {
-    if (addr && config.ORCHESTRA_UNICAST_PERIOD > 0) {
-        return config.ORCHESTRA_LINKADDR_HASH(addr) % config.ORCHESTRA_UNICAST_PERIOD;
+    if (addr && config.ORCHESTRA_UNICAST_ACTIVE_PERIOD > 0) {
+        return config.ORCHESTRA_LINKADDR_HASH(addr) % config.ORCHESTRA_UNICAST_ACTIVE_PERIOD;
     } else {
         return 0xffffffff;
     }
@@ -185,8 +185,8 @@ function unicast_get_node_timeslot(addr)
 
 function unicast_get_node_pair_timeslot(from, to)
 {
-    if (from && to && config.ORCHESTRA_UNICAST_PERIOD > 0) {
-        return config.ORCHESTRA_LINKADDR_HASH2(from, to) % config.ORCHESTRA_UNICAST_PERIOD;
+    if (from && to && config.ORCHESTRA_UNICAST_ACTIVE_PERIOD > 0) {
+        return config.ORCHESTRA_LINKADDR_HASH2(from, to) % config.ORCHESTRA_UNICAST_ACTIVE_PERIOD;
     } else {
         return 0xffffffff;
     }
@@ -231,7 +231,7 @@ function ns_init(node, slotframe_handle)
     const channel_offset = unicast_get_node_channel_offset(node.addr);
 
     /* Add a Tx cell at each available timeslot. Make the cell Rx at our own timeslot. */
-    for (let i = 0; i < config.ORCHESTRA_UNICAST_PERIOD; i++) {
+    for (let i = 0; i < config.ORCHESTRA_UNICAST_ACTIVE_PERIOD; i++) {
         node.add_cell(node.sf_unicast,
                       constants.CELL_OPTION_SHARED | constants.CELL_OPTION_TX | ( i === rx_timeslot ? constants.CELL_OPTION_RX : 0 ),
                       constants.CELL_TYPE_NORMAL,
@@ -868,7 +868,7 @@ export function node_init(node)
 /* Initialize the module: function required by the scheduling module API */
 export function initialize()
 {
-    mlog(log.INFO, null, `initializing Orchestra infrastructure`)
+    mlog(log.INFO, null, `initializing Orchestra infrastructure`);
 
     const default_config = {
         /* A default configuration with:
@@ -935,6 +935,22 @@ export function initialize()
         }
     }
 
+    if (config.hasOwnProperty("ORCHESTRA_UNICAST_ACTIVE_PERIOD")) {
+        const active_period = config.ORCHESTRA_UNICAST_ACTIVE_PERIOD;
+        if (active_period < config.ORCHESTRA_UNICAST_PERIOD) {
+            /* use a shorter dedicated active period */
+            mlog(log.INFO, null, `using a shorter active period for unicast frames: ${active_period} vs ${config.ORCHESTRA_UNICAST_PERIOD}`);
+        } else if (configured_active_period == config.ORCHESTRA_UNICAST_PERIOD) {
+            /* both equal, nothing to do */
+        } else {
+            mlog(log.WARNING, null, `cannot use the specified active period, longer than the frame size: ${active_period} vs ${config.ORCHESTRA_UNICAST_PERIOD}`);
+            config.ORCHESTRA_UNICAST_ACTIVE_PERIOD = config.ORCHESTRA_UNICAST_PERIOD;
+        }
+    } else {
+        /* by default, set equal to the whole unicast period */
+        config.ORCHESTRA_UNICAST_ACTIVE_PERIOD = config.ORCHESTRA_UNICAST_PERIOD;
+    }
+
     /* Decide the slot type for the Orchestra common slotframe.
      * If there is a slotframe for EBs, use this slotframe for non-EB traffic only
      * If there is no slotframe for EBs, use this slotframe both EB and non-EB traffic
@@ -949,7 +965,7 @@ export function initialize()
      */
     if (config.ORCHESTRA_UNICAST_SENDER_BASED
         && config.ORCHESTRA_COLLISION_FREE_HASH
-        && config.ORCHESTRA_UNICAST_PERIOD > config.ORCHESTRA_MAX_HASH + 1) {
+        && config.ORCHESTRA_UNICAST_ACTIVE_PERIOD > config.ORCHESTRA_MAX_HASH + 1) {
         config.ORCHESTRA_UNICAST_SLOT_SHARED_FLAG = 0;
     } else {
         config.ORCHESTRA_UNICAST_SLOT_SHARED_FLAG = constants.CELL_OPTION_SHARED;

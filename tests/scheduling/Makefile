@@ -1,6 +1,6 @@
 include ../Makefile.include
 
-all: orchestra-rb-ns orchestra-rb-storing orchestra-sb-storing orchestra-special-for-root orchestra-link-based lf 6tisch-min 100percent-line 100percent-star
+all: orchestra-rb-ns orchestra-nondefault-periods orchestra-active-period orchestra-rb-storing orchestra-sb-storing orchestra-special-for-root orchestra-link-based lf 6tisch-min 100percent-line 100percent-star
 
 orchestra-rb-ns: orchestra-rb-ns.json
 	@echo "\nTest group '$(shell basename `pwd`)', test target '$@'..."
@@ -8,6 +8,24 @@ orchestra-rb-ns: orchestra-rb-ns.json
 	../../tsch-sim.sh $< > /dev/null
 	grep "initializing rule unicast per neighbor non-storing" results/log.txt > /dev/null
 	$(NODE) --harmony --experimental-modules  ../check_pdr.mjs results/stats.json 90.0
+
+orchestra-nondefault-periods: orchestra-with-nondefault-periods.json
+	@echo "\nTest group '$(shell basename `pwd`)', test target '$@'..."
+	@rm -rf results
+	../../tsch-sim.sh $< > /dev/null
+	grep "initializing rule EB per time source (handle=0 slotframe_size=299)" results/log.txt > /dev/null
+	grep "initializing rule unicast per neighbor non-storing (handle=1 slotframe_size=7)" results/log.txt > /dev/null
+	grep "initializing rule default common (handle=2 slotframe_size=17)" results/log.txt > /dev/null
+	$(NODE) --harmony --experimental-modules  ../check_pdr.mjs results/stats.json 90.0
+
+orchestra-active-period: orchestra-with-shorter-active-period.json
+	@echo "\nTest group '$(shell basename `pwd`)', test target '$@'..."
+	@rm -rf results
+	../../tsch-sim.sh $< > /dev/null
+	grep "using a shorter active period for unicast frames: 7 vs 17" results/log.txt > /dev/null
+	grep "initializing rule unicast per neighbor non-storing" results/log.txt > /dev/null
+	$(NODE) --harmony --experimental-modules  ../check_pdr.mjs results/stats.json 90.0
+
 
 orchestra-rb-storing: orchestra-rb-storing.json
 	@echo "\nTest group '$(shell basename `pwd`)', test target '$@'..."
