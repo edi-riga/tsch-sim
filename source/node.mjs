@@ -40,7 +40,7 @@ import * as scheduler_6tisch_min from './scheduler_6tisch_min.mjs';
 import * as scheduler_lf from './scheduler_lf.mjs';
 import * as pkt from './packet.mjs';
 import { dbm_to_mw, mw_to_dbm, assert, id_to_addr, get_hopseq,
-         div_safe, round_to_ms } from './utils.mjs';
+         div_safe, round_to_ms, exceeds_limit } from './utils.mjs';
 import { rng } from './random.mjs';
 import * as log from './log.mjs';
 import * as time from './time.mjs';
@@ -52,6 +52,7 @@ import * as lfrouting from './routing_lf.mjs';
 import * as sf from './slotframe.mjs';
 import * as simulator from './simulator.mjs';
 import * as energy_model from './energy_model.mjs';
+import * as ca from './collision_analyzer.mjs';
 
 /* ------------------------------------- */
 
@@ -61,6 +62,13 @@ export const SCHEDULE_DECISION_RX    = 2;
 export const SCHEDULE_DECISION_SCAN  = 3;
 
 const NUM_RECENT_LINK_LAYER_SEQNUMS = 16;
+
+/*
+ * Contiki-NG implementation adds two extra neighbors in the TSCH neighbor table:
+ * one for EB and one for other broadcast packets configured as `NET_MAX_NEIGHBORS`.
+ * Do not let them to affect the maximum number of unicast neighbors.
+ */
+const NUM_EXTRA_NEIGHBORS = 2;
 
 /* ------------------------------------- */
 
@@ -211,6 +219,8 @@ export class Node {
         /* statistics: joining */
         this.stats_tsch_join_time_sec = null;
         this.stats_tsch_num_parent_changes = 0;
+
+        this.collision_analyzer = new ca.CollisionAnalyzer(this);
     }
 
     /* Reset node and TSCH state */
@@ -443,15 +453,26 @@ export class Node {
     ensure_neighbor(neighbor_id) {
         assert(neighbor_id, "neighbor_id must be set");
         assert(neighbor_id != this.id, "node cannot be a neighbor to itself")
-        if (!this.neighbors.has(neighbor_id)) {
-            this.log(log.INFO, `add neighbor id=${neighbor_id}`);
-            this.neighbors.set(neighbor_id, new neighbor.Neighbor(this, neighbor_id));
-            /* if using a simple routing method, add a route to the neighbor via itself */
-            if (this.config.ROUTING_ALGORITHM !== "RPL") {
-                this.add_route(neighbor_id, neighbor_id);
-            }
+
+        if (this.neighbors.has(neighbor_id)) {
+            return this.neighbors.get(neighbor_id);
         }
-        return this.neighbors.get(neighbor_id);
+
+        if (exceeds_limit(this.neighbors.size - NUM_EXTRA_NEIGHBORS + 1, this.config.NET_MAX_NEIGHBORS)) {
+            /* TODO: introduce some replacement policy in the future */
+            this.log(log.INFO, `failed to add neighbor id=${neighbor_id}: too many!`);
+            return null;
+        }
+
+        this.log(log.INFO, `add neighbor id=${neighbor_id}`);
+        const nbr = new neighbor.Neighbor(this, neighbor_id);
+
+        this.neighbors.set(neighbor_id, nbr);
+        /* if using a simple routing method, add a route to the neighbor via itself */
+        if (this.config.ROUTING_ALGORITHM !== "RPL") {
+            this.add_route(neighbor_id, neighbor_id);
+        }
+        return nbr;
     }
 
     reset_link_stats() {
@@ -541,7 +562,7 @@ export class Node {
         const is_broadcast = (cell.neighbor_id === constants.BROADCAST_ID);
         for (const [id, neighbor] of this.neighbors) {
             if (neighbor.backoff_window !== 0 /* Is the queue in backoff state? */
-               && ((neighbor.tx_cells_count === 0 && is_broadcast)
+                && ((neighbor.tx_cells_count === 0 && is_broadcast)
                    || (neighbor.tx_cells_count > 0 && cell.neighbor_id === id))) {
                 neighbor.backoff_window--;
             }
@@ -638,9 +659,14 @@ export class Node {
             }
         }
 
-        route = this.routes.add_route(destination_id, nexthop_id);
-        if (route.is_direct()) {
-            this.scheduler.on_child_added(this, id_to_addr(destination_id));
+        if (exceeds_limit(this.routes.size() + 1, this.config.ROUTING_MAX_ROUTES)) {
+            /* TODO: think of some route replacement policy?! */
+            this.log(log.INFO, `failed to add route to ${destination_id}: too many routes`);
+        } else {
+            route = this.routes.add_route(destination_id, nexthop_id);
+            if (route.is_direct()) {
+                this.scheduler.on_child_added(this, id_to_addr(destination_id));
+            }
         }
         return route;
     }
@@ -717,6 +743,11 @@ export class Node {
 
         /* make sure there is a neighbor queue for this packet */
         const neighbor = this.ensure_neighbor(packet.nexthop_id);
+        if (neighbor == null) {
+            this.log(log.WARNING, `dropping packet seqnum=${packet.seqnum} for=${packet.destination_id} to=${packet.nexthop_id}: too many neighbors`);
+            this.packet_sent(packet, null, false, null);
+            return null;
+        }
 
         if (!this.scheduler.on_packet_ready(this, packet)) {
             /* There is no matching slotframe in which to send the packet  */
@@ -928,8 +959,10 @@ export class Node {
     rx_eb(packet) {
 
         /* update the neighbor structure */
-        this.ensure_neighbor(packet.lasthop_id);
-        this.neighbors.get(packet.lasthop_id).on_rx(packet);
+        const neighbor = this.ensure_neighbor(packet.lasthop_id);
+        if (neighbor != null) {
+            neighbor.on_rx(packet);
+        }
 
         const join_priority = packet.packetbuf.PACKETBUF_ATTR_JOIN_PRIORITY;
 
@@ -1046,13 +1079,17 @@ export class Node {
 
         /* update the neighbor structure */
         const neighbor = this.ensure_neighbor(packet.lasthop_id);
-        neighbor.on_rx(packet);
+        if (neighbor != null) {
+            neighbor.on_rx(packet);
 
-        if (neighbor.is_time_source) {
-            /* Got packet from time source, reset keepalive timer */
-            this.log(log.DEBUG, `time resynchronized: got a packet from the time source`);
-            this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S, this.config.MAC_DESYNC_THRESHOLD_S);
+            if (neighbor.is_time_source) {
+                /* Got packet from time source, reset keepalive timer */
+                this.log(log.DEBUG, `time resynchronized: got a packet from the time source`);
+                this.schedule_desync(this.config.MAC_KEEPALIVE_TIMEOUT_S, this.config.MAC_DESYNC_THRESHOLD_S);
+            }
         }
+        this.scheduler.on_rx(this, packet);
+
 
         /* look at the link layer seqnum and ignore duplicated packets at this point */
         if (!this.ll_seqnum_is_seen_recently(packet.link_layer_seqnum, packet.lasthop_id)) {
@@ -1246,7 +1283,7 @@ export class Node {
                     let new_best;
                     if ((cell.options & constants.CELL_OPTION_TX) === (best_cell.options & constants.CELL_OPTION_TX)) {
                         /* both are tx or both are rx */
-                        new_best = sf.select_best_tsch_cell(this, best_cell, cell);
+                        new_best = sf.select_best_tsch_cell(this, best_cell, cell, cell.options);
                     } else {
                         /* prioritize the tx cell */
                         new_best = (cell.options & constants.CELL_OPTION_TX) ? cell : best_cell;
@@ -1456,9 +1493,18 @@ export class Node {
             return;
         }
 
+        /* Collision analysis: always add all failed packets */
+        for (let i = 0; i < this.rx_failed_packets[subslot].length; ++i) {
+            const packet = this.rx_failed_packets[subslot][i];
+            this.collision_analyzer.add_packet(packet, ca.PACKET_RX_LINK_FAILED);
+        }
+
         if (this.rx_ok_packets[subslot].length === 0) {
             /* No packets to consider */
             if (this.rx_failed_packets[subslot].length !== 0) {
+                /* XXX: maybe only set if addressed to me? */
+                schedule_status[this.index].flags |= constants.FLAG_PACKET_BADRX;
+
                 this.is_any_packet_rx_in_subslot = true;
                 this.rx_failed_packets[subslot] = []; /* reset the state */
             }
@@ -1474,11 +1520,32 @@ export class Node {
                 best_packet, this.selected_cell, schedule_status);
             if (success) {
                 best_packet.rx_info[this.id].rx_success = true;
+                this.collision_analyzer.add_packet(best_packet, ca.PACKET_RX_OK);
             } else {
-                /* XXX: maybe only set if addressed to me? */
-                schedule_status[this.index].flags |= constants.FLAG_PACKET_BADRX;
+                this.collision_analyzer.add_packet(best_packet, ca.PACKET_RX_WRONG_ADDRESS);
             }
             this.rx_ok_packets[subslot] = []; /* reset the state */
+            return;
+        }
+
+        if (!config.SIMULATION_WITH_PACKET_COLLISIONS) {
+            /* More than one packet, but packet collisions are disabled in the config.
+             * Try to receive all packets.
+             */
+            for (let i = 0; i < this.rx_ok_packets[subslot].length; ++i) {
+                const packet = this.rx_ok_packets[subslot][i];
+                const success = this.rx_packet_link_layer(
+                    packet, this.selected_cell, schedule_status);
+                if (success) {
+                    packet.rx_info[this.id].rx_success = true;
+                    this.collision_analyzer.add_packet(packet, ca.PACKET_RX_OK);
+                } else {
+                    this.collision_analyzer.add_packet(packet, ca.PACKET_RX_WRONG_ADDRESS);
+                }
+            }
+            /* reset the state */
+            this.rx_failed_packets[subslot] = [];
+            this.rx_ok_packets[subslot] = [];
             return;
         }
 
@@ -1528,15 +1595,16 @@ export class Node {
                 best_packet, this.selected_cell, schedule_status);
             if (success) {
                 best_packet.rx_info[this.id].rx_success = true;
+                this.collision_analyzer.add_packet(best_packet, ca.PACKET_RX_OK);
             } else {
-                /* XXX: maybe only set if addressed to me? */
-                schedule_status[this.index].flags |= constants.FLAG_PACKET_BADRX;
+                this.collision_analyzer.add_packet(best_packet, ca.PACKET_RX_WRONG_ADDRESS);
             }
         }
         /* update the stats: note a collision for each packet that had strong enough RSSI, but was not received because of interference */
         for (const packet of this.rx_ok_packets[subslot]) {
             if (!packet.rx_info[this.id].rx_success) {
                 this.stats_mac_rx_collision += 1;
+                this.collision_analyzer.add_packet(packet, ca.PACKET_RX_COLLISION);
             }
         }
         /* reset the state */
@@ -1751,6 +1819,8 @@ export class Node {
             charge_joined_uc: pretty_charge_joined_uc,
             avg_current_uA: parseFloat(div_safe(pretty_charge_uc, time.timeline.seconds).toFixed(1)),
             avg_current_joined_uA: parseFloat(div_safe(pretty_charge_joined_uc, time.timeline.seconds).toFixed(1)),
+
+            rx_collisions: this.collision_analyzer.get(),
 
             ...this.routing.stats_get()
         };

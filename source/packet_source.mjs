@@ -44,21 +44,45 @@ import { rng } from './random.mjs';
 
 /* generates one packet per period */
 export class PacketSource {
-    constructor(source, destination, period, is_fixed, is_query, length, warmup_period) {
+    constructor(source, destination, type_config) {
+
         this.source = source;
         this.destination_id = destination ? destination.id : -1;
-        this.period = period != null ? period : config.APP_PACKET_PERIOD_SEC;
-        this.is_fixed = is_fixed != null ? is_fixed : false;
-        this.is_query = is_query != null ? is_query : false;
-        this.length = length != null ? length : config.APP_PACKET_SIZE;
-        this.warmup_period = warmup_period != null ? warmup_period : config.APP_WARMUP_PERIOD_SEC; 
+        this.period = source.config.APP_PACKET_PERIOD_SEC;
+        this.is_randomized = true; /* TODO: allow to configure this */;
+        this.is_query = false;
+        this.length = source.config.APP_PACKET_SIZE;
+        this.warmup_period = source.config.APP_WARMUP_PERIOD_SEC;
         this.is_in_warmup = true;
         this.timer_time = this.warmup_period;
+        this.cooldown_period = source.config.APP_COOLDOWN_PERIOD_SEC;
+        if (type_config != null) {
+            if ("APP_PACKET_PERIOD_SEC" in type_config) {
+                this.period = type_config.APP_PACKET_PERIOD_SEC;
+            }
+            if ("APP_PACKET_SIZE" in type_config) {
+                this.size = type_config.APP_PACKET_SIZE;
+            }
+            if ("IS_QUERY" in type_config) {
+                this.is_query = type_config.IS_QUERY;
+            }
+            if ("APP_WARMUP_PERIOD_SEC" in type_config) {
+                this.warmup_period = type_config.APP_WARMUP_PERIOD_SEC;
+            }
+            if ("APP_COOLDOWN_PERIOD_SEC" in type_config) {
+                this.cooldown_period = type_config.APP_COOLDOWN_PERIOD_SEC;
+            }
+        }
 
         log.log(log.INFO, null, "App", `new packet source, from=${source.id} for=${this.destination_id} period=${this.period} warmup=${this.warmup_period}`);
 
         if (this.destination_id === -1) {
             log.log(log.WARNING, null, "App", `destination ID for a packet source is unspecified; the "app_reliability" statistics will be unreliable and should be ignored`);
+        }
+
+        if (!this.period) {
+            log.log(log.WARNING, null, "App", `packet source has a zero packet period, will not generate any packets`);
+            return;
         }
 
         /* add the first timer */
@@ -71,6 +95,12 @@ export class PacketSource {
     }
 
     generate() {
+        const before_end_seconds = config.SIMULATION_DURATION_SEC - time.timeline.seconds;
+        if (before_end_seconds <= this.cooldown_period) {
+            /* do not generate any more packets in the cooldown period */
+            return;
+        }
+
         let do_generate;
         if (config.APP_PACKETS_GENERATE_ALWAYS) {
             do_generate = true;

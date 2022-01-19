@@ -113,6 +113,12 @@ export function on_tx(node, packet, status_ok)
     /* nothing */
 }
 
+
+export function on_rx(node, packet)
+{
+    /* nothing */
+}
+
 export function add_root(node, root_id)
 {
     /* nothing */

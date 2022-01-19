@@ -112,6 +112,9 @@ const default_config = {
     /* Emulate the specific behavior of the Contiki/Contiki-NG RPL and TSCH implementations */
     EMULATE_CONTIKI: false,
 
+    /* Simulate packet collisions? If disabled, all colliding packets can be received */
+    SIMULATION_WITH_PACKET_COLLISIONS: true,
+
     /* ------------------------------------- */
     /* Scheduling */
     /* ------------------------------------- */
@@ -188,6 +191,11 @@ const default_config = {
     ROUTING_ALGORITHM: "RPL",
     /* Is this node a leaf in the routing tree (does not forward packets)? */
     ROUTING_IS_LEAF: false,
+    /* The maximum number of routes. A value of zero or less than zero is treated as a unlimited. If EMULATE_CONTIKI is set, 16 is used as the default.  */
+    ROUTING_MAX_ROUTES: null,
+
+    /* The maximum number of neighbors. Relevant to all layers of the network (MAC, IP, and routing). A value of zero or less than zero is treated as a unlimited. If EMULATE_CONTIKI is set, 8 is used as the default. */
+    NET_MAX_NEIGHBORS: null,
 
     /*
      * This is required to implement the radio capture effect.
@@ -204,10 +212,12 @@ const default_config = {
 
     /* Size excluding IP and MAC headers */
     APP_PACKET_SIZE: 100,
-    /* Data packets are generated once this period */
+    /* Data packets are generated once this period. Set to 0 to disable. */
     APP_PACKET_PERIOD_SEC: 60,
     /* Data packets are not generated before this warm-up period has expired */
     APP_WARMUP_PERIOD_SEC: 100,
+    /* Data packets are not generated after this cool-down period starts */
+    APP_COOLDOWN_PERIOD_SEC: 0,
     /* If set to true, data packets are generated even if the node is not connected to a network */
     APP_PACKETS_GENERATE_ALWAYS: false,
 

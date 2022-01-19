@@ -352,6 +352,12 @@ export class RPL
         const is_sender_closer = sender_rank < this.rank;
         const is_loop_detected = (is_down && !is_sender_closer) || (!is_down && is_sender_closer);
         const sender = this.get_rpl_neighbor(packet.lasthop_id);
+        if (sender == null) {
+            /* Cannot add neighbor, forward by default.
+             * This may not be a good idea in real networks, where this might expose the network to DoS attacks!
+             */
+            return do_forward;
+        }
 
         let rpl_opt_flags = packet.rpl_opt_flags;
 
@@ -447,6 +453,9 @@ export class RPL
     get_rpl_neighbor(id) {
         if (!this.rpl_neighbors.has(id)) {
             const neighbor = this.node.ensure_neighbor(id);
+            if (neighbor == null) {
+                return null;
+            }
             this.rpl_neighbors.set(id, new RPLNeighbor(neighbor));
         }
         return this.rpl_neighbors.get(id);
@@ -649,17 +658,6 @@ export class RPL
         this.rpl_timers_schedule_leaving();
     }
 
-    update_nbr_from_dio(from_id, dio) {
-        const rpl_neighbor = this.get_rpl_neighbor(from_id);
-
-        mlog(log.DEBUG, this.node, `update nbr ${from_id} from DIO, rank=${dio.payload.rank} dtsn=${dio.payload.dtsn}`);
-
-        /* Update neighbor info from DIO */
-        rpl_neighbor.rank = dio.payload.rank;
-        rpl_neighbor.dtsn = dio.payload.dtsn;
-        return rpl_neighbor;
-    }
-
     process_dio_from_current_dag(from_id, dio) {
 
         /* Does the rank make sense at all? */
@@ -711,18 +709,24 @@ export class RPL
             return;
         } */
 
-        const nbr = this.get_rpl_neighbor(from_id);
-        const last_dtsn = nbr.dtsn;
-
         /* Add neighbor to RPL neighbor table */
-        this.update_nbr_from_dio(from_id, dio);
+        const nbr = this.get_rpl_neighbor(from_id);
+        if (nbr != null) {
+            /* update the neighbor from the DIO message */
+            mlog(log.DEBUG, this.node, `update nbr ${from_id} from DIO, rank=${dio.payload.rank} dtsn=${dio.payload.dtsn}`);
 
-        /* If the source is our preferred parent and it increased DTSN, we increment
-         * our DTSN in turn and schedule a DAO (see RFC6550 section 9.6.) */
-        if (nbr === this.preferred_parent && rpl_lollipop_greater_than(dio.payload.dtsn, last_dtsn)) {
-            this.dtsn_out = RPL_LOLLIPOP_INCREMENT(this.dtsn_out);
-            mlog(log.WARNING, this.node, `DTSN increment ${last_dtsn}->${dio.payload.dtsn}, schedule new DAO with DTSN ${this.dtsn_out}`);
-            this.rpl_timers_schedule_dao();
+            /* Update neighbor info from DIO */
+            const last_dtsn = nbr.dtsn;
+            nbr.dtsn = dio.payload.dtsn;
+            nbr.rank = dio.payload.rank;
+
+            /* If the source is our preferred parent and it increased DTSN, we increment
+             * our DTSN in turn and schedule a DAO (see RFC6550 section 9.6.) */
+            if (nbr === this.preferred_parent && rpl_lollipop_greater_than(dio.payload.dtsn, last_dtsn)) {
+                this.dtsn_out = RPL_LOLLIPOP_INCREMENT(this.dtsn_out);
+                mlog(log.WARNING, this.node, `DTSN increment ${last_dtsn}->${dio.payload.dtsn}, schedule new DAO with DTSN ${this.dtsn_out}`);
+                this.rpl_timers_schedule_dao();
+            }
         }
     }
 
@@ -758,6 +762,10 @@ export class RPL
             this.node.remove_route(dao.payload.prefix);
         } else {
             const route = this.node.add_route(dao.payload.prefix, dao.source.id);
+            if (route == null) {
+                /* failed to add due to too little RAM; do not send an ACK or forward it */
+                return;
+            }
             route.lifetime = dao.payload.lifetime;
         }
 
@@ -913,7 +921,7 @@ export class RPL
             if (nbr) {
                 this.node.routes.add_default_route(nbr.neighbor.id);
             } else {
-                mlog(log.ERROR, this.node, `drop preferred parent: rank=${this.preferred_parent.rank} link=${this.preferred_parent.link_metric()}`);
+                mlog(log.ERROR, this.node, `drop preferred parent ${this.preferred_parent.neighbor.id}: rank=${this.preferred_parent.rank} link=${this.preferred_parent.link_metric()}`);
             }
 
             this.preferred_parent = nbr;

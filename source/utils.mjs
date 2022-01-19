@@ -223,6 +223,8 @@ export function get_hopseq(config_value)
             result = constants.TSCH_HOPPING_SEQUENCE_16_16;
         } else if (config_value === "TSCH_HOPPING_SEQUENCE_4_16") {
             result = constants.TSCH_HOPPING_SEQUENCE_4_16;
+        } else if (config_value === "TSCH_HOPPING_SEQUENCE_64_64") {
+            result = constants.TSCH_HOPPING_SEQUENCE_64_64;
         } else {
             log.log(log.ERROR, null, "Main", `invalid config hopping sequence ${config_value}, using the default one`);
             result = constants.TSCH_HOPPING_SEQUENCE_4_4;
@@ -262,3 +264,15 @@ export function sleep(ms)
     });
 }
 
+/*---------------------------------------------------------------------------*/
+
+export function exceeds_limit(value, config_limit)
+{
+    if (~~config_limit < 1) {
+        /* A value of zero or less than zero is treated as a unlimited. */
+        return false;
+    }
+    return value > config_limit;
+}
+
+/*---------------------------------------------------------------------------*/

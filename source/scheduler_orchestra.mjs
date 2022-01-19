@@ -746,6 +746,13 @@ export function on_tx(node, packet, status_ok)
 
 /* ------------------------------------------------- */
 
+export function on_rx(node, packet)
+{
+    /* nothing */
+}
+
+/* ------------------------------------------------- */
+
 export function on_packet_ready(node, packet)
 {
     /* By default, use any slotframe, any timeslot */

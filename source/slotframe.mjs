@@ -157,14 +157,14 @@ export class Slotframe {
 
 /* Returns the cell that should be preferred from the two given cells `a` and `b`.
  * Used in case there are multiple cells at the same slotframe scheduled at the same timeslot. */
-export function select_best_tsch_cell(node, a, b)
+export function select_best_tsch_cell(node, a, b, cell_options)
 {
     if (a.slotframe.handle !== b.slotframe.handle) {
         /* prioritize by lower slotframe */
         return a.slotframe.handle < b.slotframe.handle ? a : b;
     }
 
-    if (!(a.options & constants.CELL_OPTION_TX)) {
+    if (!(cell_options & constants.CELL_OPTION_TX)) {
         /* none of the cells are Tx: simply return the first cell */
         return a;
     }

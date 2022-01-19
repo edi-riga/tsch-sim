@@ -95,6 +95,17 @@ function check_config_validity()
         log.log(log.WARNING, null, "Main", `options config.CONNECTIONS and config.TRACE_FILE are incompatible, ignoring the former`);
         config.CONNECTIONS = [];
     }
+
+    if (config.EMULATE_CONTIKI) {
+        if (config.ROUTING_MAX_ROUTES === null) {
+            log.log(log.WARNING, null, "Main", `EMULATE_CONTIKI set, changing the maximal default number of routes to 16`);
+            config.ROUTING_MAX_ROUTES = 16;
+        }
+        if (config.NET_MAX_NEIGHBORS === null) {
+            log.log(log.WARNING, null, "Main", `EMULATE_CONTIKI set, changing the maximal default number of neighbors to 8`);
+            config.NET_MAX_NEIGHBORS = 8;
+        }
+    }
 }
 
 function check_node_validity(node)
@@ -307,7 +318,7 @@ export function construct_simulation(is_from_web)
         /* Generate default some packet sources for a data collection application */
         for (let i = 2; i <= net.nodes.size; ++i) {
             /* packet sources */
-            new ps.PacketSource(net.get_node(i), net.get_node(1));
+            new ps.PacketSource(net.get_node(i), net.get_node(1), null);
         }
     }
 
@@ -350,11 +361,6 @@ export function construct_simulation(is_from_web)
 
         if ("APP_PACKETS" in from_node_type) {
             const data = from_node_type.APP_PACKETS;
-            const period_sec = "APP_PACKET_PERIOD_SEC" in data ? data.APP_PACKET_PERIOD_SEC : config.APP_PACKET_PERIOD_SEC;
-            const size = "APP_PACKET_SIZE" in data ? data.APP_PACKET_SIZE : config.APP_PACKET_SIZE;
-            const warmup_period = "APP_WARMUP_PERIOD_SEC" in data ? data.APP_WARMUP_PERIOD_SEC : config.APP_WARMUP_PERIOD_SEC;
-
-            const is_query = "IS_QUERY" in data ? data.IS_QUERY : false;
             if ("TO_TYPE" in data) {
                 const to_type = data.TO_TYPE;
                 for (let to_node_id of type_ids[to_type]) {
@@ -363,7 +369,7 @@ export function construct_simulation(is_from_web)
                         if (from_node_id !== to_node_id) {
                             new ps.PacketSource(net.get_node(from_node_id),
                                                 net.get_node(to_node_id),
-                                                period_sec, false, is_query, size, warmup_period);
+                                                data);
                         }
                     }
                 }
@@ -375,7 +381,7 @@ export function construct_simulation(is_from_web)
                         if (from_node_id !== to_node_id) {
                             new ps.PacketSource(net.get_node(from_node_id),
                                                 to_node_id === -1 ? null : net.get_node(to_node_id),
-                                                period_sec, false, is_query, size, warmup_period);
+                                                data);
                         }
                     }
                 } else {
