@@ -28,12 +28,14 @@
 
 /**
  * \file
- *         "Leaf and forwarder" routing protocol implementation.
+ *         "Leaf and forwarder" routing implementation.
  * \author
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
 import config from './config.mjs';
+
+export const plugin_name = "LeafAndForwarderRouting";
 
 /* Initialize the protocol configuration */
 export function initialize(network)
@@ -51,7 +53,7 @@ export function initialize(network)
 
 /*---------------------------------------------------------------------------*/
 
-export class LeafAndForwarderRouting
+class LeafAndForwarderRouting
 {
     constructor(node) {
         this.node = node;
@@ -101,4 +103,11 @@ export class LeafAndForwarderRouting
             routing_num_parent_changes : 1
         };
     }
+}
+
+/*---------------------------------------------------------------------------*/
+
+export function create_node_state(node)
+{
+    return new LeafAndForwarderRouting(node);
 }

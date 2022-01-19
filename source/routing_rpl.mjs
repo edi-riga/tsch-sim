@@ -49,6 +49,8 @@ import * as neighbor from './neighbor.mjs';
 import { rng } from './random.mjs';
 import { assert, round_to_ms } from './utils.mjs';
 
+export const plugin_name = "RPL";
+
 /********** Constants **********/
 
 /* Special value indicating infinite rank. */
@@ -228,7 +230,7 @@ class RPLNeighbor {
 /*
  * Routing Protocol for Lossy and Low Power Networks (RPL).
  */
-export class RPL
+class RPL
 {
     constructor(node) {
         this.node = node;
@@ -1723,4 +1725,11 @@ export class RPL
             routing_num_parent_changes : this.stats_num_parent_changes
         };
     }
+}
+
+/*---------------------------------------------------------------------------*/
+
+export function create_node_state(node)
+{
+    return new RPL(node);
 }

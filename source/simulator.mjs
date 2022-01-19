@@ -39,15 +39,9 @@ import config from './config.mjs';
 import * as utils from './utils.mjs';
 import * as mobility from './mobility.mjs';
 import * as link_model from './link_model.mjs';
-import * as scheduler_orchestra from './scheduler_orchestra.mjs';
-import * as scheduler_6tisch_min from './scheduler_6tisch_min.mjs';
-import * as scheduler_lf from './scheduler_lf.mjs';
 import * as log from './log.mjs';
 import * as time from './time.mjs';
 import * as route from './route.mjs';
-import * as rpl from './routing_rpl.mjs';
-import * as nullrouting from './routing_null.mjs';
-import * as lfrouting from './routing_lf.mjs';
 import * as neighbor from './neighbor.mjs';
 import * as network from './network.mjs';
 import * as networknode from './node.mjs';
@@ -60,6 +54,18 @@ import generate_network from './generate_network.mjs';
 import fs from 'fs';
 import path from 'path';
 import process from 'process';
+
+/* Add any new schedulers here */
+import * as scheduler_orchestra from './scheduler_orchestra.mjs';
+import * as scheduler_6tisch_min from './scheduler_6tisch_min.mjs';
+import * as scheduler_lf from './scheduler_lf.mjs';
+const schedulers = [scheduler_orchestra, scheduler_6tisch_min, scheduler_lf];
+
+/* Add any new routing implementations here */
+import * as rpl from './routing_rpl.mjs';
+import * as nullrouting from './routing_null.mjs';
+import * as lfrouting from './routing_lf.mjs';
+const routing_implementations = [rpl, nullrouting, lfrouting];
 
 /* ------------------------------------- */
 
@@ -160,6 +166,18 @@ function parse_position(network, position)
 
 /* ------------------------------------- */
 
+function find_plugin(plugins, name)
+{
+    for (const plugin of plugins) {
+        if (plugin.plugin_name === name) {
+            return plugin;
+        }
+    }
+    return null;
+}
+
+/* ------------------------------------- */
+
 export function construct_simulation(is_from_web)
 {
     /* init time first */
@@ -184,30 +202,24 @@ export function construct_simulation(is_from_web)
     link_model.initialize();
 
     /* Select which scheduler to use */
-    let scheduler = scheduler_6tisch_min;
-    if (config.SCHEDULING_ALGORITHM === "Orchestra") {
-        scheduler = scheduler_orchestra;
-    } else if (config.SCHEDULING_ALGORITHM === "LeafAndForwarder") {
-        scheduler = scheduler_lf;
-    } else if (config.SCHEDULING_ALGORITHM !== "6tischMin") {
-        /* use default, but complain! */
-        log.log(log.ERROR, null, "Main", `failed to find scheduler "${config.SCHEDULING_ALGORITHM}", using 6tisch minimal`);
+    let scheduler = find_plugin(schedulers, config.SCHEDULING_ALGORITHM);
+    if (scheduler == null) {
+        log.log(log.ERROR, null, "Main", `failed to find scheduler "${config.SCHEDULING_ALGORITHM}"`);
+        scheduler = find_plugin(schedulers, "6tischMin");
+        utils.assert(scheduler != null, "6TiSCH minimal scheduler not found");
+        log.log(log.ERROR, null, "Main", `Using 6TiSCH minimal scheduler instead`);
+    }
+
+    let routing = find_plugin(routing_implementations, config.ROUTING_ALGORITHM);
+    if (routing == null) {
+        log.log(log.ERROR, null, "Main", `failed to find routing implementation "${config.ROUTING_ALGORITHM}"`);
+        routing = find_plugin(routing_implementations, "RPL");
+        utils.assert(routing != null, "RPL routing not found");
+        log.log(log.ERROR, null, "Main", `Using RPL instead`);
     }
 
     /* create the network */
-    const net = new network.Network(scheduler);
-
-    let routing;
-    if (config.ROUTING_ALGORITHM === "RPL") {
-        routing = rpl;
-    } else if (config.ROUTING_ALGORITHM === "LeafAndForwarderRouting") {
-        routing = lfrouting;
-    } else if (config.ROUTING_ALGORITHM === "NullRouting") {
-        routing = nullrouting;
-    }
-
-    /* init routing protocol */
-    routing.initialize(net);
+    const net = new network.Network(scheduler, routing);
 
     /* set mobility */
     if (config.MOBILITY_MODEL && config.MOBILITY_MODEL !== "Static") {

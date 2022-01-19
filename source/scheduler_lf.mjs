@@ -38,6 +38,8 @@ import constants from './constants.mjs';
 import * as log from './log.mjs';
 import * as time from './time.mjs';
 
+export const plugin_name = "LeafAndForwarder";
+
 /* ------------------------------------------------- */
 
 function set_timings()
