@@ -40,6 +40,8 @@ import * as log from './log.mjs';
 import * as time from './time.mjs';
 import { addr_to_id, id_to_addr, addr_equal, assert } from './utils.mjs';
 
+export const plugin_name = "Orchestra";
+
 /*---------------------------------------------------------------------------*/
 
 /* Module logging */

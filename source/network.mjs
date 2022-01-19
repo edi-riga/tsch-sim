@@ -43,14 +43,18 @@ import * as time from './time.mjs';
 
 /* A network */
 export class Network {
-    constructor(scheduler) {
+    constructor(scheduler, routing) {
         this.scheduler = scheduler;
+        this.routing = routing;
         this.nodes = new Map();
         this.links = new Map();
         this.mobility_model = null;
         this.protocol_handlers = new Map();
 
         this.reset_stats();
+
+        /* init the routing protocol */
+        routing.initialize(this);
     }
 
     reset_stats() {

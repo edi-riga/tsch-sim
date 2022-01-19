@@ -35,9 +35,9 @@
 
 import constants from './constants.mjs';
 import config from './config.mjs';
-import * as scheduler_orchestra from './scheduler_orchestra.mjs';
+/*import * as scheduler_orchestra from './scheduler_orchestra.mjs';
 import * as scheduler_6tisch_min from './scheduler_6tisch_min.mjs';
-import * as scheduler_lf from './scheduler_lf.mjs';
+import * as scheduler_lf from './scheduler_lf.mjs'; */
 import * as pkt from './packet.mjs';
 import { dbm_to_mw, mw_to_dbm, assert, id_to_addr, get_hopseq,
          div_safe, round_to_ms, exceeds_limit } from './utils.mjs';
@@ -46,9 +46,9 @@ import * as log from './log.mjs';
 import * as time from './time.mjs';
 import * as neighbor from './neighbor.mjs';
 import * as route from './route.mjs';
-import * as rpl from './routing_rpl.mjs';
+/* import * as rpl from './routing_rpl.mjs';
 import * as nullrouting from './routing_null.mjs';
-import * as lfrouting from './routing_lf.mjs';
+import * as lfrouting from './routing_lf.mjs'; */
 import * as sf from './slotframe.mjs';
 import * as simulator from './simulator.mjs';
 import * as energy_model from './energy_model.mjs';
@@ -141,19 +141,10 @@ export class Node {
         /* dynamic state: 6LoWPAN fragmentation and reassembly */
         this.fragment_my_tag = 0; /* counter used to generate fragment tags */
         this.fragments_pending = {}; /* pending on the receiver side */
-        /* Routing table */
+        /* routing table */
         this.routes = new route.RoutingTable(this);
-        /* Routing protocol state */
-        if (this.config.ROUTING_ALGORITHM === "RPL") {
-            this.routing = new rpl.RPL(this);
-        } else if (this.config.ROUTING_ALGORITHM === "LeafAndForwarderRouting") {
-            this.routing = new lfrouting.LeafAndForwarderRouting(this);
-        } else if (this.config.ROUTING_ALGORITHM === "NullRouting") {
-            this.routing = new nullrouting.NullRouting(this);
-        } else {
-            this.log(log.ERROR, `failed to find routing algorithm "${this.config.ROUTING_ALGORITHM}", using NullRouting`);
-            this.routing = new nullrouting.NullRouting(this);
-        }
+        /* routing protocol state */
+        this.routing = network.routing.create_node_state(this);
         /* optimization: keep the number of timeslots to skip cached for faster operation */
         this.timeslots_to_skip = 0;
         /* statistics */

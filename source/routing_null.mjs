@@ -28,12 +28,14 @@
 
 /**
  * \file
- *         Null routing protocol implementation.
+ *         Null routing implementation.
  * \author
  *         Atis Elsts <atis.elsts@edi.lv>
  */
 
 import config from './config.mjs';
+
+export const plugin_name = "NullRouting";
 
 /* Initialize the routing protocol configuration */
 export function initialize(network)
@@ -51,7 +53,7 @@ export function initialize(network)
 
 /*---------------------------------------------------------------------------*/
 
-export class NullRouting
+class NullRouting
 {
     constructor(node) {
         this.node = node;
@@ -98,4 +100,11 @@ export class NullRouting
         };
     }
 
+}
+
+/*---------------------------------------------------------------------------*/
+
+export function create_node_state(node)
+{
+    return new NullRouting(node);
 }
