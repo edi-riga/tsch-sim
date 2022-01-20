@@ -10,11 +10,11 @@ fi
 
 CONFIG_FILE=$(realpath "$1")
 if [ -d "$CONFIG_FILE" ] ; then
-    CONFIG_FILE=$CONFIG_FILE/config.json
+    CONFIG_FILE="$CONFIG_FILE/config.json"
 fi
 shift
 
-cd `dirname $0`
+cd `dirname "$0"`
 
 if command -v nodejs &> /dev/null
 then
@@ -23,4 +23,4 @@ else
     NODE=node
 fi
 
-$NODE --harmony --experimental-modules $NODE_ARGUMENTS source/main.mjs $CONFIG_FILE $*
+$NODE --harmony --experimental-modules $NODE_ARGUMENTS source/main.mjs "$CONFIG_FILE" $*
