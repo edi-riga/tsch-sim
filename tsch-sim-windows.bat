@@ -1,10 +1,9 @@
 @echo off
 rem This file starts the simulator on Microsoft Windows
 
-if "%1"=="" goto no_args
+if "%~1"=="" goto no_args
 
-set CONFIG_FILE="%~f1"
-if exist "%CONFIG_FILE%\NUL" set CONFIG_FILE="%CONFIG_FILE%\config.json"
+set CONFIG_FILE=%~f1
 
 echo "CONFIG_FILE=%CONFIG_FILE%"
 set WORKDIR=%~dp0
