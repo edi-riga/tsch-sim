@@ -570,7 +570,7 @@ export function initialize()
         UDGM_CONSTANT_LOSS: false, /* dependent on distance? */
 
         /* The standard deviation of the AWGN distribution */
-        AWGN_GAUSSIAN_STD: 3.0,
+        AWGN_GAUSSIAN_STD: 0.0,
 
         /* How much to shift the RSSI lower bound downward from the theoretical prediction */
         PISTER_HACK_LOWER_SHIFT: 40 /* db */
