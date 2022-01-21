@@ -942,7 +942,7 @@ export function initialize()
         if (active_period < config.ORCHESTRA_UNICAST_PERIOD) {
             /* use a shorter dedicated active period */
             mlog(log.INFO, null, `using a shorter active period for unicast frames: ${active_period} vs ${config.ORCHESTRA_UNICAST_PERIOD}`);
-        } else if (configured_active_period == config.ORCHESTRA_UNICAST_PERIOD) {
+        } else if (active_period == config.ORCHESTRA_UNICAST_PERIOD) {
             /* both equal, nothing to do */
         } else {
             mlog(log.WARNING, null, `cannot use the specified active period, longer than the frame size: ${active_period} vs ${config.ORCHESTRA_UNICAST_PERIOD}`);
