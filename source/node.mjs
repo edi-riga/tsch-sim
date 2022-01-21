@@ -35,9 +35,6 @@
 
 import constants from './constants.mjs';
 import config from './config.mjs';
-/*import * as scheduler_orchestra from './scheduler_orchestra.mjs';
-import * as scheduler_6tisch_min from './scheduler_6tisch_min.mjs';
-import * as scheduler_lf from './scheduler_lf.mjs'; */
 import * as pkt from './packet.mjs';
 import { dbm_to_mw, mw_to_dbm, assert, id_to_addr, get_hopseq,
          div_safe, round_to_ms, exceeds_limit } from './utils.mjs';
@@ -46,9 +43,6 @@ import * as log from './log.mjs';
 import * as time from './time.mjs';
 import * as neighbor from './neighbor.mjs';
 import * as route from './route.mjs';
-/* import * as rpl from './routing_rpl.mjs';
-import * as nullrouting from './routing_null.mjs';
-import * as lfrouting from './routing_lf.mjs'; */
 import * as sf from './slotframe.mjs';
 import * as simulator from './simulator.mjs';
 import * as energy_model from './energy_model.mjs';
