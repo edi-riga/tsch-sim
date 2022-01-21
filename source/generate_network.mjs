@@ -298,8 +298,7 @@ function save_generated_network(nodes)
         NODE_TYPES: [{
             NAME: "node",
             START_ID: 1,
-            COUNT: nodes.length,
-            CONNECTIONS: [{"NODE_TYPE": "node", "LINK_MODEL" : "LogisticLoss"}]
+            COUNT: nodes.length
         }],
         POSITIONS: []
     };
