@@ -131,7 +131,7 @@ export class Node {
         this.eb_timer = null;
         this.keepalive_timer = null;
         this.leave_timer = null;
-        this.current_eb_period = this.config.MAC_EB_PERIOD_S;
+        this.current_eb_period = this.config.MAC_EB_PERIOD_SEC;
         this.join_priority = 0xff;
         /* dynamic state: sequence numbers */
         this.seqnum_generator = 0;
@@ -241,7 +241,7 @@ export class Node {
         /* RPL local repair */
         this.routing.local_repair(is_from_init);
         /* reset EB period */
-        this.set_eb_period(this.config.MAC_EB_PERIOD_S);
+        this.set_eb_period(this.config.MAC_EB_PERIOD_SEC);
 
         /* start scanning again (unless the node is the) */
         if (this.scanning_timer) {
@@ -291,14 +291,14 @@ export class Node {
         if (this.stats_tsch_join_time_sec == null) {
             this.stats_tsch_join_time_sec = round_to_ms(time.timeline.seconds);
         }
-        this.set_eb_period(this.config.MAC_EB_PERIOD_S);
+        this.set_eb_period(this.config.MAC_EB_PERIOD_SEC);
         this.join_priority = 0;
         this.routing.start();
         this.scheduler.on_node_becomes_root(this);
     }
 
     set_eb_period(period) {
-        this.current_eb_period = Math.min(period, this.config.MAC_MAX_EB_PERIOD_S);
+        this.current_eb_period = Math.min(period, this.config.MAC_MAX_EB_PERIOD_SEC);
         this.check_eb_timer();
     }
 
@@ -335,9 +335,9 @@ export class Node {
             /* Next EB transmission with a random delay
              * within [tsch_current_eb_period*0.75, tsch_current_eb_period[ */
             delay = this.current_eb_period - this.current_eb_period / 4 + rng.uniform(0, this.current_eb_period / 4);
-        } else if (this.config.MAC_EB_PERIOD_S > 0) {
+        } else if (this.config.MAC_EB_PERIOD_SEC > 0) {
             /* use the default configured EB period */
-            delay = this.config.MAC_EB_PERIOD_S;
+            delay = this.config.MAC_EB_PERIOD_SEC;
         } else {
             /* do not send EBs */
             delay = Infinity;
@@ -350,7 +350,7 @@ export class Node {
     check_eb_timer() {
         const do_fire = this.has_joined && this.current_eb_period >= 0;
         if (do_fire && !this.eb_timer) {
-            this.eb_timer = time.add_timer(this.is_coordinator ? 0 : rng.uniform(0, this.config.MAC_EB_PERIOD_S), false, this, function(node) { node.eb_timer_callback(); });
+            this.eb_timer = time.add_timer(this.is_coordinator ? 0 : rng.uniform(0, this.config.MAC_EB_PERIOD_SEC), false, this, function(node) { node.eb_timer_callback(); });
         } else if (!do_fire && this.eb_timer) {
             time.remove_timer(this.eb_timer);
             this.eb_timer = null;
@@ -634,7 +634,7 @@ export class Node {
             /* Set join priority based on RPL rank */
             this.join_priority = rank - 1;
         } else {
-            this.set_eb_period(this.config.MAC_EB_PERIOD_S);
+            this.set_eb_period(this.config.MAC_EB_PERIOD_SEC);
         }
     }
 

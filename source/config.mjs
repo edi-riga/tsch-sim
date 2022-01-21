@@ -172,9 +172,9 @@ const default_config = {
     /* Max time without synchronization before leaving the PAN. Set to 0 to disable. */
     MAC_DESYNC_THRESHOLD_SEC: 120,
     /* Period between two consecutive EBs */
-    MAC_EB_PERIOD_S: 16,
+    MAC_EB_PERIOD_SEC: 16,
     /* Max period between two consecutive EBs */
-    MAC_MAX_EB_PERIOD_S: 16,
+    MAC_MAX_EB_PERIOD_SEC: 16,
     /* EB size in bytes, including MAC header */
     MAC_EB_PACKET_SIZE: 35,
 

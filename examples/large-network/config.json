@@ -1,7 +1,7 @@
 {
     "SIMULATION_DURATION_SEC": 600,
-    "MAC_EB_PERIOD_S": 64,
-    "MAC_MAX_EB_PERIOD_S": 64,
+    "MAC_EB_PERIOD_SEC": 64,
+    "MAC_MAX_EB_PERIOD_SEC": 64,
     "SCHEDULING_ALGORITHM": "LeafAndForwarder",
     "ROUTING_ALGORITHM": "LeafAndForwarderRouting",
     "NODE_TYPES": [
