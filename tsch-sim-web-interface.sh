@@ -5,7 +5,7 @@
 # For a Windows version, see `tsch-sim-web-windows.bat`.
 
 # start the simulator
-./tsch-sim.sh examples/web $* &
+./tsch-sim.sh examples/web/config.json $* &
 
 sleep 1
 
