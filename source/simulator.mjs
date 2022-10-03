@@ -525,7 +525,7 @@ export function construct_simulation(is_from_web)
     }
 
     /* if there were node positions previously set */
-    if (state.node_positions) {
+    if (state.node_positions && !positions_set_manually) {
         const old_positions = state.node_positions;
         state.node_positions = null;
         if (state.is_interactive && old_positions.length === net.nodes.size) {
