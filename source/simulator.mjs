@@ -524,6 +524,15 @@ export function construct_simulation(is_from_web)
         }
     }
 
+    /* if there were node positions previously set */
+    if (state.node_positions) {
+        const old_positions = state.node_positions;
+        state.node_positions = null;
+        if (state.is_interactive && old_positions.length === net.nodes.size) {
+            update_node_positions(old_positions);
+        }
+    }
+
     log.log(log.INFO, null, "Main", `simulation created`);
 
     return net;
@@ -591,6 +600,8 @@ function finish_simulation(network)
 /* run a single simulation taking the network configuration as the input */
 export function run_simulation(network)
 {
+    state.is_interactive = false;
+
     start_simulation(network);
 
     /* deal with rounding errors in a quick and dirty way */
@@ -619,6 +630,8 @@ export function run_simulation(network)
 /* run a looping function waiting for commands and execute (parts of) simulations on request */
 export async function run_interactive()
 {
+    state.is_interactive = true;
+
     while (true) {
         /* log.log(log.INFO, null, "Main", `entering the infinite loop...`); */
 
@@ -804,6 +817,8 @@ export function get_status()
 
 export function update_node_positions(node_positions)
 {
+    state.node_positions = JSON.parse(JSON.stringify(node_positions));
+
     if (!state.network) {
         log.log(log.WARNING, null, "Main", `update positions: network not present`);
         return;
@@ -824,6 +839,7 @@ export function update_node_positions(node_positions)
 
 export const state = {
     is_running: false,
+    is_interactive: false,
     is_reset_requested: false,
     is_interrupt_requested: false,
     simulation_speed: constants.RUN_UNLIMITED,
@@ -831,6 +847,7 @@ export const state = {
     scheduler: null,
     routing: null,
     config: null,
+    node_positions: null,
     timeline: null,
     log: null,
     ps: null,
