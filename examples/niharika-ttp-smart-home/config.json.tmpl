@@ -1,0 +1,24 @@
+{
+    "RESULTS_DIR": %RESULTS_DIR%,
+    "SIMULATION_DURATION_SEC": %SIMULATION_DURATION_SEC%,
+    "SIMULATION_NUM_RUNS": 1,
+    "NODE_TYPES": [
+        {
+            "NAME": "node",
+            "COUNT": %NUM_NODES%,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 300, "TO_ID": 1}
+        }
+    ],
+    "SCHEDULING_ALGORITHM": "Orchestra",
+    "LOG_LEVELS" : {
+        "Main" : 3,
+        "App" : 3,
+        "Node" : 3,
+        "TSCH" : 3,
+        "RPL" : 3,
+        "Link" : 3,
+        "Mobility" : 3
+    },
+    "CONNECTIONS": %CONNECTIONS%,
+    "POSITIONS": %POSITIONS%
+}
