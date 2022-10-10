@@ -408,8 +408,8 @@ export function construct_simulation(is_from_web)
         connections_set_manually = true;
 
         for (const connection of config.CONNECTIONS) {
-            const to_node_id = connection["FROM_ID"];
-            const from_node_id = connection["TO_ID"];
+            const to_node_id = connection["TO_ID"];
+            const from_node_id = connection["FROM_ID"];
             const node_type = connection["NODE_TYPE"];
             let from_node_type = connection["FROM_NODE_TYPE"];
             let to_node_type = connection["TO_NODE_TYPE"];
