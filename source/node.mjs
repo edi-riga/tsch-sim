@@ -945,9 +945,12 @@ export class Node {
 
         /* update the neighbor structure */
         const neighbor = this.ensure_neighbor(packet.lasthop_id);
-        if (neighbor != null) {
-            neighbor.on_rx(packet);
+        if (!neighbor) {
+            /* cannot add neighbor, nothing to do */
+            return;
         }
+
+        neighbor.on_rx(packet);
 
         const join_priority = packet.packetbuf.PACKETBUF_ATTR_JOIN_PRIORITY;
 
@@ -967,7 +970,8 @@ export class Node {
         /* account for EBs only when associated */
         this.stats_tsch_eb_rx += 1;
 
-        if (join_priority >= this.config.MAC_MAX_JOIN_PRIORITY) {
+        if (neighbor === this.current_time_source
+            && join_priority >= this.config.MAC_MAX_JOIN_PRIORITY) {
             /* Join priority unacceptable. Leave network. */
             log.log(log.WARNING, this, "TSCH", `EB join priority too high (${join_priority}), leaving the network`);
             this.reset_node(false);
