@@ -146,14 +146,14 @@ function parse_position(network, position)
     if (is_valid_node_id(network, node_id)) {
         const node = network.get_node(node_id);
         if (position.hasOwnProperty("X")) {
-            node.pos_x = parseInt(position.X);
+            node.pos_x = parseFloat(position.X);
             if (isNaN(node.pos_x)) {
                 log.log(log.WARNING, node, "Main", `invalid position X coordinate=${position.X} specified`);
                 node.pos_x = 0;
             }
         }
         if (position.hasOwnProperty("Y")) {
-            node.pos_y = parseInt(position.Y);
+            node.pos_y = parseFloat(position.Y);
             if (isNaN(node.pos_y)) {
                 log.log(log.WARNING, node, "Main", `invalid position Y coordinate=${position.Y} specified`);
                 node.pos_y = 0;
@@ -408,8 +408,8 @@ export function construct_simulation(is_from_web)
         connections_set_manually = true;
 
         for (const connection of config.CONNECTIONS) {
-            const to_node_id = connection["FROM_ID"];
-            const from_node_id = connection["TO_ID"];
+            const to_node_id = connection["TO_ID"];
+            const from_node_id = connection["FROM_ID"];
             const node_type = connection["NODE_TYPE"];
             let from_node_type = connection["FROM_NODE_TYPE"];
             let to_node_type = connection["TO_NODE_TYPE"];
