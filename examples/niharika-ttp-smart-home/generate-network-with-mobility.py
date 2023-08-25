@@ -4,6 +4,7 @@ import os
 import math
 import pylab as pl
 import json
+import subprocess
 
 # -- config settings for the static links (1.0 is perfect link, 0.0 is no link)
 TTP_TO_GATEWAY_LINK_QUALITY = 0.9
@@ -17,39 +18,46 @@ if os.name == "nt":
 else:
     SIMULATOR = "../../tsch-sim.sh"
 
-CONFIG_TEMPLATE_NAME = "config.json.tmpl"
+CONFIG_TEMPLATE_NAME = "mobile-config.json.tmpl"
 
 DEFAULT_OPTIONS = {
-    "NUM_STATIC_NODES": 1,
+    "NUM_ROUTER_NODES": 1,
+    "NUM_STATIC_LEAF_NODES": 1,
+    "NUM_MOBILE_LEAF_NODES": 1,
+    "RANGE_X" : 100,
+    "RANGE_Y" : 100,
     "CONNECTIONS": [],
     "SIMULATION_DURATION_SEC": SIM_DURATION_SEC,
-    "MOBILE_NODES": "{}"
 }
 
-#        {
-#            "NAME": "static_node",
-#            "COUNT": %NUM_STATIC_NODES%,
-#            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 300, "TO_ID": 1}
-#        },
+def get_num_mobile_per_cluster(num_total):
+    num_static = num_total * 2 // 3
+    num_mobile = num_total - num_static
+    return num_mobile, num_static
+
 
 class Experiment:
     def __init__(self, num_clusters, num_per_cluster, options={}):
-        self.name = f"{num_clusters}_clusters_{num_per_cluster}_nodes"
+        self.name = f"{num_clusters}_clusters_{num_per_cluster}_nodes_mobile"
         self.results_dir = "./results-" + self.name
         self.options = {}
-        self.options["SIMULATION_DURATION_SEC"] = SIM_DURATION_SEC
         self.options["RESULTS_DIR"] = self.results_dir
+        for key in DEFAULT_OPTIONS:
+            self.options[key] = DEFAULT_OPTIONS[key]
         for key in options:
             self.options[key] = options[key]
-        num_nodes = 1 + num_clusters + num_clusters * num_per_cluster
-        self.options["NUM_NODES"] = str(num_nodes)
+        self.options["NUM_ROUTER_NODES"] = str(1 + num_clusters)
+        nm, ns = get_num_mobile_per_cluster(num_per_cluster)
+        self.options["NUM_STATIC_LEAF_NODES"] = str(num_clusters * ns)
+        self.options["NUM_MOBILE_LEAF_NODES"] = str(num_clusters * nm)
         self.options["CONNECTIONS"] = generate_connections(num_clusters, num_per_cluster)
         self.options["POSITIONS"] = generate_positions(num_clusters, num_per_cluster)
         self.results = None
 
     def run(self):
         filename = generate_config_file(self.name, self.options)
-        #subprocess.call(" ".join([SIMULATOR, filename]), shell=True, stdout=subprocess.DEVNULL)
+        subprocess.call(" ".join([SIMULATOR, filename]), shell=True,
+                        stdout=subprocess.DEVNULL)
 
     def load_results(self):
         with open(os.path.join(self.results_dir, "stats_merged.json"), "r") as f:
@@ -60,7 +68,7 @@ def generate_connections(num_clusters, num_per_cluster):
     rssi = DEFAULT_RSSI
     connections = []
 
-    # TTP
+    # gateway and TTP links are constant
     for i in range(num_clusters):
         id = i + 2
         connection = f'"FROM_ID": 1, "TO_ID": {id}, "RSSI": {rssi}, "LINK_QUALITY": {TTP_TO_GATEWAY_LINK_QUALITY}, "LINK_MODEL": "Fixed"'
@@ -68,26 +76,18 @@ def generate_connections(num_clusters, num_per_cluster):
         connection = f'"FROM_ID": {id}, "TO_ID": 1, "RSSI": {rssi}, "LINK_QUALITY": {TTP_TO_GATEWAY_LINK_QUALITY}, "LINK_MODEL": "Fixed"'
         connections.append(connection)
 
-    # clusters to TTP
-#    for i in range(num_clusters):
-#        ttp = i + 2
-#        for j in range(num_per_cluster):
-#            node = 2 + num_clusters + i * num_per_cluster + j
-#            connection = f'"FROM_ID": {ttp}, "TO_ID": {node}, "RSSI": {rssi}, "LINK_QUALITY": {CLUSTER_TO_TTP_LINK_QUALITY}, "LINK_MODEL": "Fixed"'
-#            connections.append(connection)
-#            connection = f'"FROM_ID": {node}, "TO_ID": {ttp}, "RSSI": {rssi}, "LINK_QUALITY": {CLUSTER_TO_TTP_LINK_QUALITY}, "LINK_MODEL": "Fixed"'
-#            connections.append(connection)
+    # other links depend on the distance
+    connections.append('"NODE_TYPE": "mobile_leaf_nodes", "LINK_MODEL": "UDGM"')
+    connections.append('"NODE_TYPE": "static_leaf_nodes", "LINK_MODEL": "UDGM"')
 
-    # cluster internal
-    for i in range(num_clusters):
-        for j in range(num_per_cluster):
-            node1 = 2 + num_clusters + i * num_per_cluster + j
-            for k in range(j + 1, num_per_cluster):
-                node2 = 2 + num_clusters + i * num_per_cluster + k
-                connection = f'"FROM_ID": {node1}, "TO_ID": {node2}, "RSSI": {rssi}, "LINK_QUALITY": {CLUSTER_INTERNAL_LINK_QUALITY}, "LINK_MODEL": "Fixed"'
-                connections.append(connection)
-                connection = f'"FROM_ID": {node2}, "TO_ID": {node1}, "RSSI": {rssi}, "LINK_QUALITY": {CLUSTER_INTERNAL_LINK_QUALITY}, "LINK_MODEL": "Fixed"'
-                connections.append(connection)
+    connections.append('"FROM_NODE_TYPE": "static_leaf_nodes", "TO_NODE_TYPE": "router_nodes", "LINK_MODEL": "UDGM"')
+    connections.append('"FROM_NODE_TYPE": "router_nodes", "TO_NODE_TYPE": "static_leaf_nodes", "LINK_MODEL": "UDGM"')
+
+    connections.append('"FROM_NODE_TYPE": "mobile_leaf_nodes", "TO_NODE_TYPE": "router_nodes", "LINK_MODEL": "UDGM"')
+    connections.append('"FROM_NODE_TYPE": "router_nodes", "TO_NODE_TYPE": "mobile_leaf_nodes", "LINK_MODEL": "UDGM"')
+
+    connections.append('"FROM_NODE_TYPE": "mobile_leaf_nodes", "TO_NODE_TYPE": "static_leaf_nodes", "LINK_MODEL": "UDGM"')
+    connections.append('"FROM_NODE_TYPE": "static_leaf_nodes", "TO_NODE_TYPE": "mobile_leaf_nodes", "LINK_MODEL": "UDGM"')
 
     return "[{" + "},\n    {".join(connections) + "}]\n"
 
@@ -95,27 +95,44 @@ def generate_connections(num_clusters, num_per_cluster):
 def generate_positions(num_clusters, num_per_cluster):
     positions = []
 
+    next_id = 1
+        
     # gateway
-    position = '"ID": 1, "X": 0, "Y": 0'
+    position = f'"ID": {next_id}, "X": 0, "Y": 0'
+    next_id += 1
     positions.append(position)
 
     # TTP
     for i in range(num_clusters):
-        x = 150 * math.cos(2 * math.pi * (i + 1) / num_clusters)
-        y = 150 * math.sin(2 * math.pi * (i + 1) / num_clusters)
-        position =  f'"ID": {i + 2}, "X": {round(x)}, "Y": {round(y)}'
+        x = 500 * math.cos(2 * math.pi * (i + 1) / num_clusters)
+        y = 500 * math.sin(2 * math.pi * (i + 1) / num_clusters)
+        position =  f'"ID": {next_id}, "X": {round(x)}, "Y": {round(y)}'
+        next_id += 1
         positions.append(position)
 
     # clusters
-    for i in range(num_clusters):
-        cluster_x = 250 * math.cos(2 * math.pi * (i + 1) / num_clusters)
-        cluster_y = 250 * math.sin(2 * math.pi * (i + 1) / num_clusters)
+    nm, ns = get_num_mobile_per_cluster(num_per_cluster)
 
-        for j in range(num_per_cluster):
-            id = 2 + num_clusters + i * num_per_cluster + j
-            x = 40 * math.cos(2 * math.pi * (j + 1) / num_per_cluster)
-            y = 40 * math.sin(2 * math.pi * (j + 1) / num_per_cluster)
-            position =  f'"ID": {id}, "X": {round(x + cluster_x)}, "Y": {round(y + cluster_y)}'
+    # static nodes
+    for i in range(num_clusters):
+        cluster_x = 500 * math.cos(2 * math.pi * (i + 1) / num_clusters)
+        cluster_y = 500 * math.sin(2 * math.pi * (i + 1) / num_clusters)
+
+        for j in range(ns):
+            x = 40 * math.cos(2 * math.pi * (j + 1) / ns)
+            y = 40 * math.sin(2 * math.pi * (j + 1) / ns)
+            position =  f'"ID": {next_id}, "X": {round(x + cluster_x)}, "Y": {round(y + cluster_y)}'
+            next_id += 1
+            positions.append(position)
+
+    # mobile nodes
+    for i in range(num_clusters):
+        cluster_x = 500 * math.cos(2 * math.pi * (i + 1) / num_clusters)
+        cluster_y = 500 * math.sin(2 * math.pi * (i + 1) / num_clusters)
+
+        for j in range(nm):
+            position =  f'"ID": {next_id}, "X": {round(cluster_x)}, "Y": {round(cluster_y)}'
+            next_id += 1
             positions.append(position)
 
     return "[{" + "},\n    {".join(positions) + "}]\n"

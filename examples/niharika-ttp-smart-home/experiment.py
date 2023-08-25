@@ -24,7 +24,8 @@ else:
 CONFIG_TEMPLATE_NAME = "config.json.tmpl"
 
 DEFAULT_OPTIONS = {
-    "NUM_NODES": 1,
+    "NUM_ROUTER_NODES": 1,
+    "NUM_LEAF_NODES": 1,
     "CONNECTIONS": [],
     "SIMULATION_DURATION_SEC": SIM_DURATION_SEC,
 }
@@ -34,12 +35,13 @@ class Experiment:
         self.name = f"{num_clusters}_clusters_{num_per_cluster}_nodes"
         self.results_dir = "./results-" + self.name
         self.options = {}
-        self.options["SIMULATION_DURATION_SEC"] = SIM_DURATION_SEC
+        for key in DEFAULT_OPTIONS:
+            self.options[key] = DEFAULT_OPTIONS[key]
         self.options["RESULTS_DIR"] = self.results_dir
         for key in options:
             self.options[key] = options[key]
-        num_nodes = 1 + num_clusters + num_clusters * num_per_cluster
-        self.options["NUM_NODES"] = str(num_nodes)
+        self.options["NUM_ROUTER_NODES"] = str(1 + num_clusters)
+        self.options["NUM_LEAF_NODES"] = str(num_clusters * num_per_cluster)
         self.options["CONNECTIONS"] = generate_connections(num_clusters, num_per_cluster)
         self.options["POSITIONS"] = generate_positions(num_clusters, num_per_cluster)
         self.results = None

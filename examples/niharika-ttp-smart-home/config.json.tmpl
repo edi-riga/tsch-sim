@@ -4,9 +4,16 @@
     "SIMULATION_NUM_RUNS": 1,
     "NODE_TYPES": [
         {
-            "NAME": "node",
-            "COUNT": %NUM_NODES%,
-            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 300, "TO_ID": 1}
+            "NAME": "router_nodes",
+            "COUNT": %NUM_ROUTER_NODES%,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 300, "TO_ID": 1},
+            "ROUTING_IS_LEAF": false
+        },
+        {
+            "NAME": "leaf_nodes",
+            "COUNT": %NUM_LEAF_NODES%,
+            "APP_PACKETS": {"APP_PACKET_PERIOD_SEC": 300, "TO_ID": 1},
+            "ROUTING_IS_LEAF": true
         }
     ],
     "SCHEDULING_ALGORITHM": "Orchestra",
