@@ -96,6 +96,9 @@ export function log(severity, node, topic, msg)
             }
         }
 
+        /* Sanitize the message before logging it */
+        msg = msg.replace(/\n|\r/g, "");
+
         msg = `asn=${sasn}\tid=${node_s}\t${topic}\t${msg}`;
         if (severity <= WARNING) {
             console.log("\x1b[31m" + msg + "\x1b[0m");

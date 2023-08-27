@@ -17,9 +17,9 @@ let is_any_valid = false;
 
 for (let line of lines) {
     if (line.indexOf("TSCH\tstats:") !== -1) {
-        const fields = line.substr(10).replace("\t", " ").split(" ");
-        if (fields.length > 4) {
-            const stats = fields.slice(5, fields.length);
+        const fields = line.substr(10).split(/(\s)+/);
+        if (fields.length > 6) {
+            const stats = fields.slice(6, fields.length);
             let stats_obj;
             try {
                 stats_obj = JSON.parse(stats);
