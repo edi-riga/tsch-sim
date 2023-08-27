@@ -1,0 +1,5 @@
+paths:
+- source
+- tests
+- web/js
+- examples
