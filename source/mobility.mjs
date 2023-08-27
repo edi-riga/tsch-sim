@@ -89,8 +89,8 @@ export class MobilityModel {
         node.wp_last_y = node.wp_next_y;
         node.wp_last_time = node.wp_next_time;
         /* update the next waypoint */
-        node.wp_next_x = rng.random() * node.config.MOBILITY_RANGE_X;
-        node.wp_next_y = rng.random() * node.config.MOBILITY_RANGE_Y;
+        node.wp_next_x = rng.random() * node.config.MOBILITY_RANGE_X - node.config.MOBILITY_RANGE_X / 2;
+        node.wp_next_y = rng.random() * node.config.MOBILITY_RANGE_Y - node.config.MOBILITY_RANGE_Y / 2;
         let d = get_distance(node.wp_last_x, node.wp_last_y, node.wp_next_x, node.wp_next_y);
         if (d <= 0) {
             /* Do not allow the distance to be zero */
@@ -104,8 +104,10 @@ export class MobilityModel {
     update_position_rw(node, seconds) {
         if (!node.hasOwnProperty("wp_last_x")) {
             /* initialize the node's state - it will contain info about the waypoints and progress */
-            node.wp_next_x = node.pos_x;
-            node.wp_next_y = node.pos_y;
+            node.start_pos_x = node.pos_x;
+            node.start_pos_y = node.pos_y;
+            node.wp_next_x = 0;
+            node.wp_next_y = 0;
             node.wp_next_time = seconds;
             this.generate_next_waypoint(node);
         }
@@ -119,8 +121,8 @@ export class MobilityModel {
             node.wp_next_time = seconds;
         }
         /* update the node's position */
-        node.pos_x = node.wp_last_x + (node.wp_next_x - node.wp_last_x) * progress;
-        node.pos_y = node.wp_last_y + (node.wp_next_y - node.wp_last_y) * progress;
+        node.pos_x = node.start_pos_x + node.wp_last_x + (node.wp_next_x - node.wp_last_x) * progress;
+        node.pos_y = node.start_pos_y + node.wp_last_y + (node.wp_next_y - node.wp_last_y) * progress;
 
         log.log(log.DEBUG, node, "Mobility", `at ${seconds.toFixed(3)} pos is (${node.pos_x.toFixed(3)}, ${node.pos_y.toFixed(3)}) wp=(${node.wp_next_x.toFixed(3)}, ${node.wp_next_y.toFixed(3)})`);
 

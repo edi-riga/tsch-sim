@@ -253,7 +253,7 @@ const default_config = {
     /* How often to update mobile node positions? (Simulation performance is affected) */
     MOBILITY_UPDATE_PERIOD_SEC: 10,
 
-    /* The nodes move in two dimensions, x \in [0, MOBILITY_RANGE_X], y \in [0, MOBILITY_RANGE_Y] */
+    /* The nodes move in two dimensions with x and y between -MOBILITY_RANGE_{X,Y}/2 and +MOBILITY_RANGE_{X,Y} */
     MOBILITY_RANGE_X: 300,
     MOBILITY_RANGE_Y: 300,
 
