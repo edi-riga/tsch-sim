@@ -86,7 +86,7 @@ export class PacketSource {
         }
 
         /* add the first timer */
-        if (!this.is_fixed) {
+        if (this.is_randomized) {
             this.timer_time += rng.random() * this.period;
         }
         time.add_timer(this.timer_time, false, this, function(ps) {
@@ -123,7 +123,7 @@ export class PacketSource {
         }
 
         /* add the next timer */
-        if (this.is_fixed) {
+        if (!this.is_randomized) {
             /* simply schedule it after the period */
             this.timer_time = this.period;
             time.add_timer(this.timer_time, false, this, function(ps) {
