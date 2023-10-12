@@ -731,6 +731,11 @@ export function on_tx(node, packet, status_ok)
 {
     const RPL_CODE_DAO                = 0x02; /* Destination Advertisement Option */
 
+    if (node.config.RPL_WITH_DAO_ACK) {
+        /* wait for DAO ACK in this case */
+        return;
+    }
+
     /* check if our parent just ACKed a DAO */
     if (packet.packet_protocol === constants.PROTO_ICMP6
         && packet.msg_type === RPL_CODE_DAO
@@ -750,7 +755,18 @@ export function on_tx(node, packet, status_ok)
 
 export function on_rx(node, packet)
 {
-    /* nothing */
+    const RPL_CODE_DAO_ACK            = 0x03; /* DAO acknowledgment */
+
+    if (packet.packet_protocol === constants.PROTO_ICMP6
+        && packet.msg_type === RPL_CODE_DAO_ACK) {
+
+        if (node.orchestra_parent_linkaddr != null
+            && addr_equal(packet.nexthop_addr, node.orchestra_parent_linkaddr)) {
+            /* yes! */
+            mlog(log.DEBUG, node, `parent sent a DAO ACK: parent definately knows us!`);
+            node.orchestra_parent_knows_us = true;
+        }
+    }
 }
 
 /* ------------------------------------------------- */
