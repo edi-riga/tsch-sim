@@ -137,6 +137,11 @@ export class PacketSource {
             } else {
                 this.timer_time = this.period - this.timer_time;
             }
+            /* ensure it does not become negative */
+            if (this.timer_time < 0) {
+                this.timer_time = 0;
+            }
+
             time.add_timer(this.timer_time, false, this, function(ps) {
                 ps.next_packet_period();
             });
