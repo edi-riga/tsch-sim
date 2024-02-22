@@ -1,0 +1,94 @@
+{
+    "SIMULATION_DURATION_SEC": 4000,
+    "ROUTING_ALGORITHM": "ManualRouting",
+    "SCHEDULING_ALGORITHM": "NewScheduler",
+    "NODE_TYPES": [
+        {
+            "NAME": "node1",
+            "START_ID": 1,
+            "COUNT": 1,
+            "APP_PACKETS": {
+                "TO_ID": 1
+            }
+        },
+        {
+            "NAME": "node3",
+            "START_ID": 3,
+            "COUNT": 1,
+            "APP_PACKETS": {
+                "APP_PACKET_PERIOD_SEC": 2,
+                "TO_ID": 1
+            }
+        },
+        {
+            "NAME": "node2",
+            "START_ID": 2,
+            "COUNT": 1,
+            "APP_PACKETS": {
+                "TO_ID": 1
+            }
+        },
+        {
+            "NAME": "node4",
+            "START_ID": 4,
+            "COUNT": 1,
+            "APP_PACKETS": {
+                "TO_ID": 1
+            }
+        }
+    ],
+    "POSITIONS": [
+        {
+            "ID": 1,
+            "X": 87.42,
+            "Y": 70.31
+        },
+        {
+            "ID": 3,
+            "X": 63.92,
+            "Y": 103.29
+        },
+        {
+            "ID": 2,
+            "X": 70.78,
+            "Y": 87.07
+        },
+        {
+            "ID": 4,
+            "X": 108.54,
+            "Y": 88.53
+        }
+    ],
+    "CONNECTIONS": [
+        {
+            "FROM_ID": 3,
+            "TO_ID": 2,
+            "LINK_MODEL": "LogisticLoss"
+        },
+        {
+            "FROM_ID": 2,
+            "TO_ID": 3,
+            "LINK_MODEL": "LogisticLoss"
+        },
+        {
+            "FROM_ID": 2,
+            "TO_ID": 1,
+            "LINK_MODEL": "LogisticLoss"
+        },
+        {
+            "FROM_ID": 1,
+            "TO_ID": 2,
+            "LINK_MODEL": "LogisticLoss"
+        },
+        {
+            "FROM_ID": 4,
+            "TO_ID": 1,
+            "LINK_MODEL": "LogisticLoss"
+        },
+        {
+            "FROM_ID": 1,
+            "TO_ID": 4,
+            "LINK_MODEL": "LogisticLoss"
+        }
+    ]
+}
